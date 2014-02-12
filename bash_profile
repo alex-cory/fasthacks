@@ -16,3 +16,5 @@ alias aliases='nano ~/.bash_profile'
 # PHP Error Logs (Debugging Purposes)
 alias php-error-log='cat /Applications/MAMP/logs/apache_error.log'
 alias phpel='cat /Applications/MAMP/logs/apache_error.log'
+
+## (testing -- arbitrary change)
