@@ -1,0 +1,223 @@
+[
+  ////// --------------------------------------------------------------------
+  //  Key Bindings Ideas
+  //
+  //  1. keybinding to toggle Xdebug open and closed (kind of like chrome dev tools)
+  //  2. automatically put a bracket at the end when pressed, like in Netbeans
+  //  3. make f1 a lookup-all where you can put your cursor on any function, css value, element, whatever and do look-up
+  //  4. 
+  //  
+  //  Great Packages To Look Up (only in st2)
+  //  1. Color Highlighter
+  //  2. Edit History
+  //  
+
+
+  ////// --------------------------------------------------------------------
+  //  Really Useful
+  //
+  	// Reveal Current File in Finder
+  	{ "keys": ["super+f4"], "command": "open_dir", "args": {"dir": "$file_path", "file": "$file_name"} },
+
+  	// Copy File Path of Current Directory
+  	{ "keys": ["super+f3"], "command": "copy_path" },
+  	
+  	// Open Current Directory in iTerm2
+  	{ "keys": ["super+f1"], "command": "open_mac_terminal" },
+
+	// File Renaming
+	{ "keys": ["super+alt+r"], "command": "side_bar_move" },
+
+	// The PHP Manual:	Using Goto Documentation
+	{ "keys": ["f1"], "command": "goto_documentation" },
+
+	// Can I Use:		Using Goto Documentation (Tips: http://goo.gl/qACVgL)
+	{ "keys": ["f2"], "command": "use_it" }, // originally: ctrl+alt+f 
+
+	// Add a closing ; at the end of current line
+	{
+		"keys": ["super+;"], "command": "run_macro_file", "args": {"file": "Packages/User/superEndLineWiSemiColin.sublime-macro"}
+	},
+
+	// Ctags (Tips: http://goo.gl/wXqHPJ)
+	// {}, ["ctrl+t", "ctrl+t"], or ["ctrl+>"] = Navigate to Definition
+	// {}, ["ctrl+t", "ctrl+b"], or ["ctrl+<"] = Navigate to Previous Definition
+
+	// Highlight:  Copy code keeping syntax highlighting (rtf: rich text format) (Tips: http://goo.gl/cleVmi)
+	{ "keys": ["ctrl+alt+c"],
+      "command": "sublime_highlight",
+      "args": { "target": "clipboard",
+                "output_type": "rtf"
+    }},
+
+    //// Git Conflicts -- to help you solve this nasty merge conflicts.
+    // Find Next Conflict
+	{ "keys": ["ctrl+alt+f"], "command": "find_next_conflict" },
+	// Keep Ours
+	{ "keys": ["ctrl+alt+o"], "command": "keep_ours", "args": { "keep": "ours" } },
+	// Keep Theirs
+	{ "keys": ["ctrl+alt+t"], "command": "keep_theirs", "args": { "keep": "theirs" } },
+	// Keep Common Ancestor
+	{ "keys": ["ctrl+alt+a"], "command": "keep_ancestor", "args": { "keep": "ancestor" } },
+
+
+
+  ////// --------------------------------------------------------------------
+  //  Somewhat Useful
+  //
+	// Title Case
+	{ "keys": ["super+k", "super+t"], "command": "title_case" },
+
+	// Delete Line and Move Up to next Line
+	{
+		"keys": ["option+backspace"], "command": "run_macro_file", "args": {"file": "Packages/User/superDeleteLine.sublime-macro"}
+	},
+
+	// XDebug shortcuts
+	// {"keys": ["command+f1"], "command": "xdebug_breakpoint"},
+	// {"keys": ["shift+f1"], "command": "xdebug_conditional_breakpoint"},
+	// {"keys": ["shift+r"], "command": "xdebug_continue", "args": {"command": "run"}},
+	// {"keys": ["command+s","command+o"], "command": "xdebug_continue", "args": {"command": "step_over"}},
+	// {"keys": ["command+i","command+n"], "command": "xdebug_continue", "args": {"command": "step_into"}},
+	// {"keys": ["command+o","command+u"], "command": "xdebug_continue", "args": {"command": "step_out"}},
+	// {"keys": ["command+f8"], "command": "xdebug_session_start"},
+	// {"keys": ["shift+f1"], "command": "xdebug_session_stop"},
+	{"keys": ["command+k","command+n"], "command": "xdebug_layout", "args": {"keymap" : true}},
+
+	// Fix Indentation of Current Line
+	// { "keys": ["f10"], "command": "reindent"},
+
+	// Stupid Re-Open Last Closed Tab
+	{ "keys": ["option+shift+t"], "command": "reopen_last_file" },
+	
+	// PHP Keybindings --------------------------------------------------------------------
+
+
+	// Exit the current function
+	{
+		"keys": ["option+enter"], "command": "run_macro_file", "args": {"file": "Packages/User/superExitFunctionArg.sublime-macro"}
+	},
+
+
+	// --------------------------------------------------------------------------------------
+
+
+
+
+
+  //////
+  //  Not Working
+  //
+	[
+	    { "keys": [""], "command": "themr_list_themes" },
+	    { "keys": [""], "command": "themr_cycle_themes", "args": {"direction": "prev"}},
+	    { "keys": [""], "command": "themr_cycle_themes", "args": {"direction": "next"}},
+	    { "keys": [""], "command": "themr_cycle_themes", "args": {"direction": "rand"}},
+
+	    { "keys": [""], "command": "themr_list_favorite_themes" },
+	    { "keys": [""], "command": "themr_cycle_favorite_themes", "args": {"direction": "prev"}},
+	    { "keys": [""], "command": "themr_cycle_favorite_themes", "args": {"direction": "next"}},
+	    { "keys": [""], "command": "themr_cycle_favorite_themes", "args": {"direction": "rand"}}
+	],
+
+  //////
+  //  Don't Use Much
+  //
+	// Go to the end of the line and hit space
+	{
+		"keys": ["option+`"], "command": "run_macro_file", "args": {"file": "Packages/User/superEndOfLine.sublime-macro"}
+	},
+
+	// { "keys": ["f3"], "command": "htmlprettify"},
+	// { "keys": ["f1"], "command": "fold" },
+	// { "keys": ["f2"], "command": "unfold" }
+
+
+
+	// Bracketize the current function while in the argument
+	{
+		"keys": ["option+{"], "command": "run_macro_file", "args": {"file": "Packages/User/superBracketizeFunction.sublime-macro"}
+	},
+
+	// Jump to End of HTML Tag
+	{
+	"keys": ["option+tab"], "command": "run_macro_file", "args": {"file": "Packages/User/superJumpToNextBracket.sublime-macro"}
+	},
+
+	{
+		"keys": ["alt+enter"], "command": "run_macro_file", "args": {"file": "Packages/User/exit_function.sublime-macro"}
+	},
+
+  	// Fix Indentation of All`
+	// { "keys": ["f11"], "command": "reindent", "args": {"single_line": false} },
+
+
+
+
+  //////
+  //  NOT WORKING
+  //
+	// Advanced New File
+	// { "keys": ["super+alt+n"], "command": "advanced_new_file_new"},
+	// { "keys": ["shift+super+alt+n"], "command": "advanced_new_file_new", "args": {"is_python": true}},
+	// {
+	// 	"keys": ["tab"],
+	// 	"command": "insert",
+	// 	"args": {"characters": "\t"},
+	// 	"context": [{
+	// 		"key": "setting.anf_panel"
+	// 	}]
+	// },	
+
+
+
+
+  //////
+  //  Key Bindings I'm Kind of Working On
+  //
+	// // Exit the argument section of the current function
+	// {
+	// 	"keys": ["option+tab"], "command": "run_macro_file", "args": {"file": "Packages/User/superExitFunctionArg.sublime-macro"}
+	// },
+
+	// Exit brackets, parenthesis, etc..
+	// { "keys": ["shift+option+enter"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
+	//     [
+	//         { "key": "following_text", "operator": "regex_contains", "operand": "^[)\"\\]]", "match_all": true },
+	//         { "key": "auto_complete_visible", "operator": "equal", "operand": false }
+	//     ]   
+ //  	}
+  	
+
+ 	// Go to right bracket
+// {
+//     "keys": ["option+enter"],
+//     "command": "bh_key",
+//     "args":
+//     {
+//         "lines" : true,
+//         "plugin":
+//         {
+//             "type": ["__all__"],
+//             "command": "bh_modules.bracketselect",
+//             "args": {"select": "right"}
+//         }
+//     }
+// }
+
+ //  	{
+	//     "keys": ["option+enter"],
+	//     "command": "bh_key",
+	//     "args":
+	//     {
+	//         "lines" : true,
+	//         "plugin":
+	//         {
+	//             "type": ["__all__"],
+	//             "command": "bh_modules.blockescape"
+	//         }
+	//     }
+	// }
+
+
+]
