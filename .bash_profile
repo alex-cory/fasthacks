@@ -1,10 +1,17 @@
 ###########  How To Activate Aliases (copy command below) ############
 # source ~/.bash_profile
+#
+# Since I'm using Zsh as my main shell I put the following command 
+# in .zshrc to automatically run `source ~/.bash_profile`
+# 
+# source ~/.bash_profile
 
 ###########  Config Files ############
-#  Main (bash profile)
+#  Main (.bash_profile)
 alias bashconf='subl ~/.bash_profile'
 alias bashprof='subl .bash_profile'
+#       (.bashrc)
+alias bashrc-conf='open -a Sublime\ Text ~/.bashrc'
 
 #  PHP
 alias phpconf='open -a Sublime\ Text /Applications/MAMP/bin/php/php5.5.3/conf/php.ini'
@@ -25,6 +32,8 @@ alias vimcustomconf='open -a Sublime\ Text ~/.vim/vimrc.custom'
 
 #  Zsh
 alias zshconf='open -a Sublime\ Text ~/.zshrc'
+
+
 
 ###########  Plugin Aliases ############
 # Ctags -- navigate to the directory and run this command
@@ -69,6 +78,15 @@ alias cit313='/Applications/MAMP/htdocs/CIT-31300/'
 
 # Go To => Downloads
 alias downloads='~/Downloads/'
+
+# Go To => Alfred Data
+alias alfred-data='~/Library/Application Support/Alfred 2/Workflow Data/'
+
+# Go To => Alfred Workflows
+alias alfred-wf='~/Library/Application\ Support/Alfred\ 2/Alfred.alfredpreferences/workflows/'
+
+# Go To => Code Playground
+alias code-playground='~/Google\ Drive/Developer/Code_Playground/'
 
 
 

@@ -54,6 +54,9 @@ plugins=(git ruby sublime)
 
 source $ZSH/oh-my-zsh.sh
 
+# Runs the .bash_profile on startup making all aliases available from the git-go
+source ~/.bash_profile
+
 # Customize to your needs...
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 
