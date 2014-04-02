@@ -1,7 +1,7 @@
 ###########  How To Activate Aliases (copy command below) ############
 # source ~/.bash_profile
 
-###########  Config Files #############
+###########  Config Files ############
 #  Main (bash profile)
 alias bashconf='subl ~/.bash_profile'
 alias bashprof='subl .bash_profile'
