@@ -101,6 +101,11 @@ alias cmysql='mysql -u root -p -h 127.0.0.1 -P 3306'
 
 
 
+###########  New Git SSH Key Github ############
+# cd ~/.ssh
+# ssh-keygen -t rsa -C "youremail@yomama.com"
+
+
 ###########  Random ############
 
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
