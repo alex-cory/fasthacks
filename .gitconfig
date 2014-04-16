@@ -1,9 +1,21 @@
 [user]
-	name = Alex Cory
+	name = alex-cory
 	email = alexcoryregister@gmail.com
 
-[mergetool]
-	keepBackup = true
+# [merge]
+#     summary = true    
+#     tool = "p4merge" 
+# [mergetool "p4merge"]    
+#     cmd = /PATH/TO/p4merge \            
+#         "$PWD/$BASE" \                
+#             "$PWD/$LOCAL" \                
+#             "$PWD/$REMOTE" \                
+#             "$PWD/$MERGED"     
+#     keepBackup = false        
+#         trustExitCode = false
+
+# Now, whenever git complains that a conflict must be resolved, just type:
+#   git mergetool
 
 [color]
  ui = true
@@ -127,4 +139,3 @@ recommit = commit --amend
 #        gunignore='git update-index --no-assume-unchanged'
 # list temporarily ignored files
 #        gignored='git ls-files -v | grep "^[[:lower:]]"'
-

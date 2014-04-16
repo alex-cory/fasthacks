@@ -1,25 +1,50 @@
+# This is the file to use if you need to set something globally (at least for me since I run zsh)
+
 ZSH=$HOME/.oh-my-zsh
 
-# Turns '#' commenting on in scripts
-setopt interactivecomments
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+## iTerm (move around quickly) ##
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Quickly Jump to Beginning and End of Lines
+# 	set in iTerm > Preferences > Keys > Global Shortcut Keys
+#     FOR  ACTION         SEND
+#     ⌘←  "HEX CODE"      0x01 
+#     ⌘→  "HEX CODE"      0x05
+
+# Quickly Jump Through Words
+# 	set in iTerm > Preferences > Profiles (click profile) > Keys
+#	  FOR  ACTION         SEND
+#	  ⌥←  "SEND ESC SEQ"  b
+#	  ⌥→  "SEND ESC SEQ"  f
+
+# Reference: (http://goo.gl/VWXjH)
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+## Zsh Themes
+
 ZSH_THEME="nicoulaj"
 # ZSH_THEME="nanotech"
 # ZSH_THEME="frontcube"
 # ZSH_THEME="jnrowe"
 
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Automatic Bash Alias Usage
+
+# Runs the .bash_profile on startup making all aliases available from the git-go
+source ~/.bash_profile
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Other Zsh Settings
+
+# To activate the bash-style comments.
+setopt interactivecomments
+
 # Change Default Name
 # Normally: alexcory@Alexs-MacBook-Air
- DEFAULT_USER="Alex"
-
-# Example aliases
-# was zshconfig="mate ~/.zshrc"
-alias zshconfig="nano ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+DEFAULT_USER="Alex"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -53,9 +78,6 @@ alias zshconfig="nano ~/.zshrc"
 plugins=(git ruby sublime)
 
 source $ZSH/oh-my-zsh.sh
-
-# Runs the .bash_profile on startup making all aliases available from the git-go
-source ~/.bash_profile
 
 # Customize to your needs...
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin

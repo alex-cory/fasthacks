@@ -1,10 +1,11 @@
 ###########  How To Activate Aliases (copy command below) ############
-# source ~/.bash_profile
+# Automatic source ~/.bash_profile
 #
 # Since I'm using Zsh as my main shell I put the following command 
 # in .zshrc to automatically run `source ~/.bash_profile`
 # 
 # source ~/.bash_profile
+
 
 ###########  Config Files ############
 #  Main (.bash_profile)
@@ -104,6 +105,8 @@ alias cmysql='mysql -u root -p -h 127.0.0.1 -P 3306'
 ###########  New Git SSH Key Github ############
 # cd ~/.ssh
 # ssh-keygen -t rsa -C "youremail@yomama.com"
+# 
+# Or you can just type `ssh-keygen` and it will do everything for you
 
 
 ###########  Random ############
