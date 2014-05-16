@@ -1,25 +1,75 @@
-My Git Config Hacks
+[user]
+	name = alex-cory
+	email = alexcoryregister@gmail.com
 
-[merge]
-    summary = true    
-    tool = "p4merge" 
-[mergetool "p4merge"]    
-    cmd = /PATH/TO/p4merge \            
-        "$PWD/$BASE" \                
-            "$PWD/$LOCAL" \                
-            "$PWD/$REMOTE" \                
-            "$PWD/$MERGED"     
-    keepBackup = false        
-        trustExitCode = false
+# [merge]
+#     summary = true    
+#     tool = "p4merge" 
+# [mergetool "p4merge"]    
+#     cmd = /PATH/TO/p4merge \            
+#         "$PWD/$BASE" \                
+#             "$PWD/$LOCAL" \                
+#             "$PWD/$REMOTE" \                
+#             "$PWD/$MERGED"     
+#     keepBackup = false        
+#         trustExitCode = false
 
 # Now, whenever git complains that a conflict must be resolved, just type:
 #   git mergetool
 
+[color]
+ ui = true
+ branch = auto
+ diff = auto
+ status = auto
+
+[color "branch"]
+ current = yellow reverse
+ local = yellow
+ remote = green
+
+[color "diff"]
+ meta = yellow bold
+ frag = magenta bold
+ old = red
+ new = cyan
+
+[color "status"]
+ added = yellow
+ changed = green
+ untracked = cyan
+
 [alias]
-        l = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Creset %s %Cgreen  (%cr %C(cyan) %an)%Creset' --abbrev-commit --date=relative
+# shows list of files that have a merge conflict
+conflicts = diff --name-only --diff-filter=U
+	changes = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+# unstages a file. use like 'git unstage filename'
+unstage = reset HEAD --
+
+# resets all uncomitted changes and files
+abort = reset --hard HEAD
+
+# shows diff only for files staged to commit
+new = diff --cached
+
+# shows only changes to files in current directory
+here = status .
+
+# undo last commit
+undo = reset HEAD~1
+
+# change last commit message
+recommit = commit --amend
+[alias]
+	l = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Creset %s %Cgreen  (%cr %C(cyan) %an)%Creset' --abbrev-commit --date=relative
         la = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Creset %s %Cgreen  (%cr %C(cyan) %an)%Creset' --abbrev-commit --date=relative --all
-        g='git'
+	g='git'
+	got='git '
+	get='git '
         gs='git status'
+#	type='cat-file -t'
+#	dump='cat-file -p'
         gd='git diff'
         gdc='git diff --cached'
         gl='git pull'
@@ -27,50 +77,65 @@ My Git Config Hacks
         gp='git push'
         gd='git diff'
         gc='git commit -v'
-        gc!='git commit -v --amend'
-        gca='git commit -v -a'
-        gca!='git commit -v -a --amend'
-        gcmsg='git commit -m'
-        gco='git checkout'
-        gcm='git checkout master'
-        gr='git remote'
-        grv='git remote -v'
-        grmv='git remote rename'
-        grrm='git remote remove'
-        grset='git remote set-url'
-        grup='git remote update'
-        grbi='git rebase -i'
-        grbc='git rebase --continue'
-        grba='git rebase --abort'
+#        gc!='git commit -v --amend'
+#        gca='git commit -v -a'
+#        gca!='git commit -v -a --amend'
+         gcmsg='git commit -m'
+#        gco='git checkout'
+#        gcm='git checkout master'
+#        gr='git remote'
+#        grv='git remote -v'
+#        grmv='git remote rename'
+#        grrm='git remote remove'
+#        grset='git remote set-url'
+#        grup='git remote update'
+#        grbi='git rebase -i'
+#        grbc='git rebase --continue'
+#        grba='git rebase --abort'
         gb='git branch'
         gba='git branch -a'
-        gcount='git shortlog -sn'
+#        gcount='git shortlog -sn'
         gcl='git config --list'
-        gcp='git cherry-pick'
-        glg='git log --stat --max-count=10'
-        glgg='git log --graph --max-count=10'
-        glgga='git log --graph --decorate --all'
-        glo='git log --oneline'
-        gss='git status -s'
-        ga='git add'
-        gm='git merge'
-        grh='git reset HEAD'
-        grhh='git reset HEAD --hard'
-        gclean='git reset --hard && git clean -dfx'
-        gwc='git whatchanged -p --abbrev-commit --pretty=medium'
+#        gcp='git cherry-pick'
+#        glg='git log --stat --max-count=10'
+#        glgg='git log --graph --max-count=10'
+#        glgga='git log --graph --decorate --all'
+#        glo='git log --oneline'
+#        gss='git status -s'
+#        ga='git add'
+#        gm='git merge'
+#        grh='git reset HEAD'
+#        grhh='git reset HEAD --hard'
+#        gclean='git reset --hard && git clean -dfx'
+#       gwc='git whatchanged -p --abbrev-commit --pretty=medium'
 
 #remove the gf alias
 #alias gf='git ls-files | grep'
 
-        gpoat='git push origin --all && git push origin --tags'
-        gmt='git mergetool --no-prompt'
-      
-        gg='git gui citool'
-        gga='git gui citool --amend'
-        gk='gitk --all --branches'
-      
-        gsts='git stash show --text'
-        gsta='git stash'
-        gstp='git stash pop'
-        gstd='git stash drop'
+#        gpoat='git push origin --all && git push origin --tags'
+#        gmt='git mergetool --no-prompt'
+        
+#        gg='git gui citool'
+#        gga='git gui citool --amend'
+#        gk='gitk --all --branches'
+        
+#        gsts='git stash show --text'
+#        gsta='git stash'
+#        gstp='git stash pop'
+#        gstd='git stash drop'
 
+# Will cd into the top of the current repository
+# or submodule.
+#        grt='cd $(git rev-parse --show-toplevel || echo ".")'
+
+# Git and svn mix
+#        git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'
+        
+#        gsr='git svn rebase'
+#	gsd='git svn dommit'
+
+# these alias ignore changes to file
+#        gignore='git update-index --assume-unchanged'
+#        gunignore='git update-index --no-assume-unchanged'
+# list temporarily ignored files
+#        gignored='git ls-files -v | grep "^[[:lower:]]"'
