@@ -33,7 +33,7 @@ ZSH_THEME="nicoulaj"
 # Automatic Bash Alias Usage
 
 # Runs the .bash_profile on startup making all aliases available from the git-go
-source ~/.bash_profile
+source ~/.bashrc
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
