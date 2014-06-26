@@ -32,9 +32,14 @@ ZSH_THEME="nicoulaj"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Automatic Bash Alias Usage
 
-# Runs the .bash_profile on startup making all aliases available from the git-go
+# Runs the .bash_profile & .bashrc on startup making all aliases available from the git-go
+source ~/.bash_profile
 source ~/.bashrc
 
+
+# Makes Testing For Devices Anywhere
+export PATH=/Applications/Android\ Studio.app/sdk/platform-tools:$PATH
+# command: adb devices
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Other Zsh Settings

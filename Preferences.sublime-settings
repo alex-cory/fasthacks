@@ -8,19 +8,16 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Vintageous",
-		"Java",
 		"SmartMarkdown",
-		"Vintage",
-		"SFTP",
-		"Markdown",
 		"Markdown Preview",
-		"vintageous_use_ctrl_keys"
+		"Vintage",
+		"Markdown"
 	],
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
 	"scroll_past_end": true,
 	"show_full_path": true,
 	"trim_trailing_white_space_on_save": true,
+	"vintageous_use_ctrl_keys": true,
 	"word_wrap": true
 }

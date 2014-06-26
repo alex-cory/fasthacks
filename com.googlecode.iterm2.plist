@@ -3059,7 +3059,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/alexcory/Google Drive/Developer/git repositories/dotfiles</string>
+	<string>/Users/alexcory/Google Drive/_Server_/Developer/git repositories/dotfiles</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -3077,7 +3077,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-05-22T00:45:55Z</date>
+	<date>2014-06-10T03:10:32Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
