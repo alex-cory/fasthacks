@@ -139,3 +139,5 @@ recommit = commit --amend
 #        gunignore='git update-index --no-assume-unchanged'
 # list temporarily ignored files
 #        gignored='git ls-files -v | grep "^[[:lower:]]"'
+[push]
+	default = simple

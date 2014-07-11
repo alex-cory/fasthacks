@@ -3,21 +3,23 @@
 	"caret_style": "phase",
 	"close_windows_when_empty": false,
 	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
-	"font_size": 13,
+	"font_size": 14,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
 		"SmartMarkdown",
 		"Markdown Preview",
+		"Vintageous",
 		"Vintage",
-		"Markdown"
+		"Markdown",
+		"SFTP"
 	],
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
 	"scroll_past_end": true,
 	"show_full_path": true,
 	"trim_trailing_white_space_on_save": true,
-	"vintageous_use_ctrl_keys": true,
+	"vintageous_use_ctrl_keys": false,
 	"word_wrap": true
 }
