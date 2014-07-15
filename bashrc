@@ -13,8 +13,7 @@ source ~/.bash_profile
 # Reusabe --------------------------------------------
 
 # Automating Password Process on New Servers
-function no_pw_allowed()
-{
+function no_pw_allowed() {
 	scp ~/.ssh/id_rsa.pub $1@$2:~/.ssh/authorized_keys
 	# Description: $1: Username  |  $2:  Hostname
 	# ex: scp ~/.ssh/id_rsa.pub alexander@alexcory.com:~/.ssh/authorized_keys
@@ -25,17 +24,31 @@ function no_pw_allowed()
 
 
 # Remotely edit a file in Vim
-function rvim(){
+function rvim() {
     vim scp://$1
     # Description: $1: username@hostname/path/to/file
 	# ex: $1= alexander@hostname.com/www/videos/gsaApplication2014/index.html
 }
 
 
+# Quickly scp files in Workspace to Remote
+function scpp() {
+	# LOCAL_ROOT_PATH='/Users/alexcory/Google Drive/_Server_/Developer/git repositories/'
+	# REMOTE_ROOT_PATH='/home2/alexcory/public_html'
+	scp -r /Users/alexcory/Google\ Drive/_Server_/Developer/git\ repositories/$1 $ALEX_SERVER_UNAME@$ALEX_SERVER_PORT:/home2/alexcory/public_html/$2
+	# Description: $1: Local Path  |  $2:  Remote Path
+	# Desc ex: scpp local/path/to/file/or/directory/* remote/path/to/file/or/directory/*
+	# Live ex: scpp alexcory/index.php alexcory/index.php
+	# Live ex: scpp alexcory/* alexcory/*
+	#
+	# This Saves you from having long commands that look like this:
+	# scp -r ~/Google\ Drive/server/developer/git\ repositories/alexcory/index.php alexander@alexander.com:/home3/alexander/public_html/alexcory/index.php
+}
+
 # Case-Specific --------------------------------------------
 
 # Quickly edit files on CCSF server
-function hills(){
+function hills() {
     vim scp://$CCSF_UNAME@$CCSF_HOST/$1
 }
 
