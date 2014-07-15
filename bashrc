@@ -160,8 +160,8 @@ alias dev='~/Google\ Drive/_Server_/Developer/'
 # Go To => htdocs
 alias htdocs='/Applications/MAMP/htdocs/'
 
-# Go To => CIT-31300
-alias cit313='/Applications/MAMP/htdocs/CIT-31300/'
+# Go To => Java_101B
+alias java101='/Users/alexcory/Google\ Drive/_Server_/Developer/git\ repositories/java_101b'
 
 # Go To => Downloads
 alias downloads='~/Downloads/'
@@ -181,6 +181,18 @@ alias stp='~/Library/Application\ Support/Sublime\ Text\ 3/Packages/'
 # Go To => Dot Files
 alias dot='/Users/alexcory/Google\ Drive/_Server_/Developer/git\ repositories/dotfiles'
 
+
+
+
+
+
+# Git Yolo
+alias yolo='git commit -am "DEAL WITH IT" && git push -f origin master'
+
+# Git Quick Update Pull & Push  (gacp = git <add> <commit> <pull> <push>)
+function gacpp() {
+    git add -A && git commit -am $1 && git pull origin master && git push origin master
+}
 
 ###########  Sync Aliases ############
 # Full Projects Sync
