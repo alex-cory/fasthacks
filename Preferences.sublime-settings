@@ -3,17 +3,17 @@
 	"caret_style": "phase",
 	"close_windows_when_empty": false,
 	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
-	"font_size": 13,
+	"font_size": 14,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"SmartMarkdown",
-		"Markdown Preview",
-		"Vintageous",
 		"Vintage",
+		"SmartMarkdown",
+		"SFTP",
 		"Markdown",
-		"SFTP"
+		"Vintageous",
+		"Markdown Preview"
 	],
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,

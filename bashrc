@@ -1,4 +1,4 @@
-###########  How To Activate Aliases (copy command below) ############
+ ###########  How To Activate Aliases (copy command below) ############
 # Automatic source ~/.bashrc
 source ~/.bash_profile
 # Since I'm using Zsh as my main shell I put the following command
@@ -33,17 +33,22 @@ function rvim() {
 
 # Quickly scp files in Workspace to Remote
 function scpp() {
-	# LOCAL_ROOT_PATH='/Users/alexcory/Google Drive/_Server_/Developer/git repositories/'
-	# REMOTE_ROOT_PATH='/home2/alexcory/public_html'
-	scp -r /Users/alexcory/Google\ Drive/_Server_/Developer/git\ repositories/$1 $ALEX_SERVER_UNAME@$ALEX_SERVER_PORT:/home2/alexcory/public_html/$2
+	REMOTE_ROOT_PATH='/home2/alexcory/public_html'
+	scp -r $LOCAL_REPOS/$1 $ALEX_SERVER_UNAME@$ALEX_SERVER_PORT:$REMOTE_ROOT_PATH/$2
 	# Description: $1: Local Path  |  $2:  Remote Path
-	# Desc ex: scpp local/path/to/file/or/directory/* remote/path/to/file/or/directory/*
+	# Define ex: scpp local/path/to/file/or/directory/* remote/path/to/file/or/directory/*
 	# Live ex: scpp alexcory/index.php alexcory/index.php
 	# Live ex: scpp alexcory/* alexcory/*
 	#
 	# This Saves you from having long commands that look like this:
 	# scp -r ~/Google\ Drive/server/developer/git\ repositories/alexcory/index.php alexander@alexander.com:/home3/alexander/public_html/alexcory/index.php
 }
+
+# Quickly run a java file
+function jjava() {
+	javac *.java && java $1
+}
+
 
 # Case-Specific --------------------------------------------
 
