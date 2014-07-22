@@ -16,25 +16,25 @@ source ~/.bash_profile
 function no_pw_allowed() {
 	scp ~/.ssh/id_rsa.pub $1@$2:~/.ssh/authorized_keys
 	# Description: $1: Username  |  $2:  Hostname
-	# ex: scp ~/.ssh/id_rsa.pub alexander@alexcory.com:~/.ssh/authorized_keys
+	# ex: scp ~/.ssh/id_rsa.pub alexander@alexander.com:~/.ssh/authorized_keys
 	# IF YOU NEED A NEW SSH KEY
 	# ssh-keygen -t rsa
 	# http://goo.gl/6ccvfJ
 }
 
 
-# Remotely edit a file in Vim
+# Remotely edit remote files in Vim locally
 function rvim() {
-    vim scp://$1
-    # Description: $1: username@hostname/path/to/file
-	# ex: $1= alexander@hostname.com/www/videos/gsaApplication2014/index.html
+    vim scp://$ALEX_SERVER_UNAME@$ALEX_SERVER_PORT/$1
+    # Description: $1: path/to/file
+	# ex: $1= portfolio/index.html
+	# Live ex: rvim portfolio/index.html
 }
 
 
 # Quickly scp files in Workspace to Remote
 function scpp() {
-	REMOTE_ROOT_PATH='/home2/alexcory/public_html'
-	scp -r $LOCAL_REPOS/$1 $ALEX_SERVER_UNAME@$ALEX_SERVER_PORT:$REMOTE_ROOT_PATH/$2
+	scp -r $LOCAL_REPOS/$1 $ALEX_SERVER_UNAME@$ALEX_SERVER_PORT:$ALEX_REMOTE_ROOT_PATH/$2
 	# Description: $1: Local Path  |  $2:  Remote Path
 	# Define ex: scpp local/path/to/file/or/directory/* remote/path/to/file/or/directory/*
 	# Live ex: scpp alexcory/index.php alexcory/index.php
@@ -44,13 +44,14 @@ function scpp() {
 	# scp -r ~/Google\ Drive/server/developer/git\ repositories/alexcory/index.php alexander@alexander.com:/home3/alexander/public_html/alexcory/index.php
 }
 
+
 # Quickly run a java file
 function jjava() {
 	javac *.java && java $1
 }
 
 
-# Case-Specific --------------------------------------------
+# Case-Specific Functions --------------------------------------------
 
 # Quickly edit files on CCSF server
 function hills() {
@@ -113,9 +114,6 @@ alias sshconf='open -a Sublime\ Text ~/.ssh/config'
 
 
 ###########  FTP & FTP-like Aliases ############
-## Google Helpouts
-alias scp-techtalksfsu='scp -r /Applications/MAMP/htdocs/techtalksfsu/* alexcory@74.220.215.206:/home2/alexcory/public_html/techtalksfsu'
-
 
 
 ###########  Plugin Aliases ############
@@ -144,7 +142,8 @@ alias list='ls -a | less'
 
 # List All dotfiles Only
 alias lh='ls -d .*'
-## ls -a | grep '^\.'
+
+# ls -a | grep '^\.'
 
 # List Fancy (gives human readable sizes)
 alias ll='ls -alhF'
@@ -164,9 +163,6 @@ alias dev='~/Google\ Drive/_Server_/Developer/'
 
 # Go To => htdocs
 alias htdocs='/Applications/MAMP/htdocs/'
-
-# Go To => Java_101B
-alias java101='/Users/alexcory/Google\ Drive/_Server_/Developer/git\ repositories/java_101b'
 
 # Go To => Downloads
 alias downloads='~/Downloads/'
@@ -189,15 +185,16 @@ alias dot='/Users/alexcory/Google\ Drive/_Server_/Developer/git\ repositories/do
 
 
 
-
+###########   GitHub Aliases / Functions  ############
 
 # Git Yolo
 alias yolo='git commit -am "DEAL WITH IT" && git push -f origin master'
 
-# Git Quick Update Pull & Push  (gacp = git <add> <commit> <pull> <push>)
+# Git Quick Update Pull & Push  (gacpp = git <add> <commit> <pull> <push>)
 function gacpp() {
     git add -A && git commit -am $1 && git pull origin master && git push origin master
 }
+
 
 ###########  Sync Aliases ############
 # Full Projects Sync
@@ -207,6 +204,21 @@ alias sync_projects='rsync -avz /Applications/MAMP/htdocs/ ~/Google\ Drive/_Serv
 ###########  MySQL Quickies ############
 # Connect to MySQL
 alias cmysql='mysql -u root -p -h 127.0.0.1 -P 3306'
+
+
+
+# Case-Specific Functions --------------------------------------------
+
+# Go To => Java_101B
+alias java101='/Users/alexcory/Google\ Drive/_Server_/Developer/git\ repositories/java_101b'
+
+## Google Helpouts
+alias scp-techtalksfsu='scp -r /Applications/MAMP/htdocs/techtalksfsu/* alexcory@74.220.215.206:/home2/alexcory/public_html/techtalksfsu'
+
+
+
+
+
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Java Path Variable
