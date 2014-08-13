@@ -1,16 +1,18 @@
- ###########  How To Activate Aliases (copy command below) ############
+# ////////////////////////////////////////////////////////////////////
+# //         How To Activate Aliases (use: source ~/.bashrc)        //
+# ////////////////////////////////////////////////////////////////////
 # Automatic source ~/.bashrc
-source ~/.bash_profile
-# Since I'm using Zsh as my main shell I put the following command
+source ~/.bash_profile # (where constants are stored)
+# Since I'm using Zsh as my main shell I put the command `source ~/.bashrc`
 # in .zshrc to automatically run `source ~/.bashrc`
-#
 
 
-####################################################
-#  Functions
-####################################################
 
-# Reusabe --------------------------------------------
+# ///////////////////////////////////////////////////
+# //                 Functions				       //
+# ///////////////////////////////////////////////////
+
+# Reusabe = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 # Automating Password Process on New Servers
 function no_pw_allowed() {
@@ -22,7 +24,6 @@ function no_pw_allowed() {
 	# http://goo.gl/6ccvfJ
 }
 
-
 # Remotely edit remote files in Vim locally
 function rvim() {
     vim scp://$ALEX_SERVER_UNAME@$ALEX_SERVER_PORT/$1
@@ -30,7 +31,6 @@ function rvim() {
 	# ex: $1= portfolio/index.html
 	# Live ex: rvim portfolio/index.html
 }
-
 
 # Quickly scp files in Workspace to Remote
 function scpp() {
@@ -44,14 +44,13 @@ function scpp() {
 	# scp -r ~/Google\ Drive/server/developer/git\ repositories/alexcory/index.php alexander@alexander.com:/home3/alexander/public_html/alexcory/index.php
 }
 
-
 # Quickly run a java file
 function jjava() {
-	javac *.java && java $1
+	javac ./*.java && java $1
 }
 
 
-# Case-Specific Functions --------------------------------------------
+# Case-Specific Functions = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 # Quickly edit files on CCSF server
 function hills() {
@@ -61,14 +60,13 @@ function hills() {
 
 
 
+# ///////////////////////////////////////////////////
+# //                 Aliases				       //
+# ///////////////////////////////////////////////////
 
-####################################################
-#  Aliases
-####################################################
+# Reusabe = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-# Reusabe --------------------------------------------
-
-########### Editing Config Files ############
+# Editing Config Files  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #  Main (.bashrc)
 alias bashconf='subl ~/.bashrc'
 #       (.bashrc)
@@ -109,20 +107,12 @@ alias zsht='vim ~/.zshrc'
 alias sshconf='open -a Sublime\ Text ~/.ssh/config'
 
 
-
-
-
-
-###########  FTP & FTP-like Aliases ############
-
-
-###########  Plugin Aliases ############
+# Plugin Aliases  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Ctags -- navigate to the directory and run this command
 alias ctags="`brew --prefix`/bin/ctags; ctags -R -f .tags"
 
 
-
-###########  Other Cool Aliases ############
+# Other Cool Aliases  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # PHP Error Logs (Debugging Purposes)
 alias php-error-log='tail -f /Applications/MAMP/logs/php_error.log'
 # alias pretty-phpel='colortail -f /Applications/MAMP/logs/php_error.log' #  | grep --color=always PHP\ Notice:
@@ -151,12 +141,13 @@ alias ll='ls -alhF'
 # Gain root access
 alias su='sudo -s'
 
-###########  Quick Path Reference Aliases ############
+
+# Quick Path Reference Aliases  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Go To => {directory}  and list contents
 function cdl { cd $1; ls; }
 
 # Go To => git repositories (lr -- stands for Local Repositories)
-alias lr='~/Google\ Drive/_Server_/Developer/git\ repositories'
+# alias lr='~/Google\ Drive/_Server_/Developer/git\ repositories'
 
 # Go To => Developer
 alias dev='~/Google\ Drive/_Server_/Developer/'
@@ -183,10 +174,7 @@ alias stp='~/Library/Application\ Support/Sublime\ Text\ 3/Packages/'
 alias dot='/Users/alexcory/Google\ Drive/_Server_/Developer/git\ repositories/dotfiles'
 
 
-
-
-###########   GitHub Aliases / Functions  ############
-
+# GitHub Aliases / Functions  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Git Yolo
 alias yolo='git commit -am "DEAL WITH IT" && git push -f origin master'
 
@@ -195,22 +183,34 @@ function gacpp() {
     git add -A && git commit -am $1 && git pull origin master && git push origin master
 }
 
+# Git Overwrite local Changes
+function gol() {
+	git fetch origin && git reset --hard origin/master
+}
 
-###########  Sync Aliases ############
+# Go To => git repositories & specific project (lr -- stands for Local Repositories)
+function lr() {
+	cd ~/Google\ Drive/_Server_/Developer/git\ repositories/$1
+	# Description: $1: Project Dirctory (in other words, local repo name)
+	# Define: cd path/to/local/repositories/name_of_repo
+	# Live ex: lr hackingedu
+	#
+	# This saves you from having to type out long commands to cd to a project `
+}
+
+
+# Sync Aliases  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Full Projects Sync
 alias sync_projects='rsync -avz /Applications/MAMP/htdocs/ ~/Google\ Drive/_Server_/Developer/git\ repositories/projects\ backup; rm -r .DS_Store;'
 
 
-###########  MySQL Quickies ############
+# MySQL Quickies  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Connect to MySQL
 alias cmysql='mysql -u root -p -h 127.0.0.1 -P 3306'
 
 
 
-# Case-Specific Functions --------------------------------------------
-
-# Go To => Java_101B
-alias java101='/Users/alexcory/Google\ Drive/_Server_/Developer/git\ repositories/java_101b'
+# Case-Specific Functions = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 ## Google Helpouts
 alias scp-techtalksfsu='scp -r /Applications/MAMP/htdocs/techtalksfsu/* alexcory@74.220.215.206:/home2/alexcory/public_html/techtalksfsu'
@@ -218,16 +218,12 @@ alias scp-techtalksfsu='scp -r /Applications/MAMP/htdocs/techtalksfsu/* alexcory
 
 
 
+# ///////////////////////////////////////////////////
+# //                   Notes				       //
+# ///////////////////////////////////////////////////
 
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# Java Path Variable
-
-# Allows Java to run from Terminal / Command Line
-export JAVA_HOME=$(/usr/libexec/java_home)
-
-
-###########  New Git SSH Key Github ############
+# New Git SSH Key Github  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # cd ~/.ssh
 # ssh-keygen -t rsa -C "youremail@yomama.com"
 #
@@ -235,9 +231,17 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 #
 # Find more instructions here: (http://goo.gl/8cIfqq)
 
-###########  Random ############
 
+
+
+# ///////////////////////////////////////////////////
+# //                   Other				       //
+# ///////////////////////////////////////////////////
+
+# Random  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-
 # source ~/.profile
+
+# Java Path Variable  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Allows Java to run from Terminal / Command Line
+export JAVA_HOME=$(/usr/libexec/java_home)
