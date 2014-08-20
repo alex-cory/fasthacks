@@ -212,7 +212,7 @@ function gol() {
 function lr() {
 	cd ~/Google\ Drive/_Server_/Developer/git\ repositories/$1
 	# Description: $1: Project Dirctory (in other words, local repo name)
-	# Define: cd path/to/local/repositories/name_of_repo
+	# Define:  path/to/local/repositories/name_of_repo
 	# Live ex: lr hackingedu
 	#
 	# This saves you from having to type out long commands to cd to a project `
@@ -233,7 +233,7 @@ alias cmysql='mysql -u root -p -h 127.0.0.1 -P 3306'
 # Case-Specific Functions = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 ## Google Helpouts
-alias scp-techtalksfsu='scp -r /Applications/MAMP/htdocs/techtalksfsu/* alexcory@74.220.215.206:/home2/alexcory/public_html/techtalksfsu'
+alias scp-techtalksfsu='scp -r /Applications/MAMP/htdocs/techtalksfsu/* $ALEX_SERVER_UNAME@$ALEX_SERVER_PORT:$ALEX_REMOTE_ROOT_PATH/techtalksfsu'
 
 
 
