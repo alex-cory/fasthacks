@@ -37,8 +37,8 @@ function rvim() {
 }
 
 # Quickly scp files in Workspace to Remote
-function scpp() {
-	scp -r $LOCAL_REPOS/$1 $ALEX_SERVER_UNAME@$ALEX_SERVER_PORT:$ALEX_REMOTE_ROOT_PATH/$2
+function scp() {
+	command scp -r $LOCAL_REPOS/$1 $ALEX_SERVER_UNAME@$ALEX_SERVER_PORT:$ALEX_REMOTE_ROOT_PATH/$2
 	# Description: $1: Local Path  |  $2:  Remote Path
 	# Define ex: scpp local/path/to/file/or/directory/* remote/path/to/file/or/directory/*
 	# Live ex: scpp alexcory/index.php alexcory/index.php
@@ -49,8 +49,24 @@ function scpp() {
 }
 
 # Quickly run a java file
-function jjava() {
-	javac ./*.java && java $1
+function java() {
+	javac ./*.java && command java $1
+}
+
+# Fast SSH
+function ssh() {
+	DEFAULT_SERVER=$ALEX_SERVER_UNAME@$ALEX_SERVER_PORT
+	# if the `ssh` argument is not set
+	if [ -z "${1+xxx}" ]; then
+		# then auto `ssh` into default server
+		command ssh $DEFAULT_SERVER
+	fi
+	# if the `ssh` argument is set
+	if [ -z "$1" ] && [ "${1+xxx}" = "xxx" ]; then
+		# then perform basic `ssh` command
+		command ssh $1
+	fi
+	# By default, if no argument is passed to the ssh function, it will automatically ssh into the default server
 }
 
 
