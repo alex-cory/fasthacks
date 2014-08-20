@@ -115,7 +115,7 @@ alias gitignore='open -a Sublime\ Text ~/.gitignore'
 
 #  Vim
 alias vims='open -a Sublime\ Text ~/.vimrc'
-alias vimt='/Users/alexcory/Google\ Drive/_Server_/Developer/git\ repositories/dotfiles/vimrc'
+alias vimt='$LOCAL_REPOS/dotfiles/vimrc'
 # ~/.vimrc'
 alias vimlocalconf='open -a Sublime\ Text ~/.vim/vimrc.local'
 alias vimcustomconf='open -a Sublime\ Text ~/.vim/vimrc.custom'
@@ -166,9 +166,6 @@ alias su='sudo -s'
 # Go To => {directory}  and list contents
 function cdl { cd $1; ls; }
 
-# Go To => git repositories (lr -- stands for Local Repositories)
-# alias lr='~/Google\ Drive/_Server_/Developer/git\ repositories'
-
 # Go To => Developer
 alias dev='~/Google\ Drive/_Server_/Developer/'
 
@@ -191,7 +188,7 @@ alias code-playground='~/Google\ Drive/_Server_/Developer/Code_Playground/'
 alias stp='~/Library/Application\ Support/Sublime\ Text\ 3/Packages/'
 
 # Go To => Dot Files
-alias dot='/Users/alexcory/Google\ Drive/_Server_/Developer/git\ repositories/dotfiles'
+alias dot='$LOCAL_REPOS/dotfiles'
 
 
 # GitHub Aliases / Functions  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -210,7 +207,7 @@ function gol() {
 
 # Go To => git repositories & specific project (lr -- stands for Local Repositories)
 function lr() {
-	cd ~/Google\ Drive/_Server_/Developer/git\ repositories/$1
+	cd $LOCAL_REPOS/$1
 	# Description: $1: Project Dirctory (in other words, local repo name)
 	# Define:  path/to/local/repositories/name_of_repo
 	# Live ex: lr hackingedu
@@ -221,7 +218,7 @@ function lr() {
 
 # Sync Aliases  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Full Projects Sync
-alias sync_projects='rsync -avz /Applications/MAMP/htdocs/ ~/Google\ Drive/_Server_/Developer/git\ repositories/projects\ backup; rm -r .DS_Store;'
+alias sync_projects='rsync -avz /Applications/MAMP/htdocs/ $LOCAL_REPOS/projects\ backup; rm -r .DS_Store;'
 
 
 # MySQL Quickies  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
