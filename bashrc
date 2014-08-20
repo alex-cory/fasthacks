@@ -1,15 +1,19 @@
 # ////////////////////////////////////////////////////////////////////
-# //         How To Activate Aliases (use: source ~/.bashrc)        //
+# //                     Bash Configuration                         //
 # ////////////////////////////////////////////////////////////////////
-# Automatic source ~/.bashrc
-source ~/.bash_profile # (where constants are stored)
+
+# How To Activate Aliases (use: source ~/.bashrc)
+
+# Constants
+source ~/.bash_profile
+
 # Since I'm using Zsh as my main shell I put the command `source ~/.bashrc`
 # in .zshrc to automatically run `source ~/.bashrc`
 
 
 
 # ///////////////////////////////////////////////////
-# //                 Functions				       //
+# //                 Functions	                   //
 # ///////////////////////////////////////////////////
 
 # Reusabe = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -61,7 +65,7 @@ function hills() {
 
 
 # ///////////////////////////////////////////////////
-# //                 Aliases				       //
+# //                 Aliases	                   //
 # ///////////////////////////////////////////////////
 
 # Reusabe = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -219,7 +223,7 @@ alias scp-techtalksfsu='scp -r /Applications/MAMP/htdocs/techtalksfsu/* alexcory
 
 
 # ///////////////////////////////////////////////////
-# //                   Notes				       //
+# //                   Notes	                   //
 # ///////////////////////////////////////////////////
 
 
@@ -235,7 +239,7 @@ alias scp-techtalksfsu='scp -r /Applications/MAMP/htdocs/techtalksfsu/* alexcory
 
 
 # ///////////////////////////////////////////////////
-# //                   Other				       //
+# //                   Other	                   //
 # ///////////////////////////////////////////////////
 
 # Random  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
