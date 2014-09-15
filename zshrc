@@ -8,7 +8,7 @@ ZSH=$HOME/.oh-my-zsh
 # Quickly Jump to Beginning and End of Lines
 # 	set in iTerm > Preferences > Keys > Global Shortcut Keys
 #     FOR  ACTION         SEND
-#     ⌘←  "HEX CODE"      0x01 
+#     ⌘←  "HEX CODE"      0x01
 #     ⌘→  "HEX CODE"      0x05
 
 # Quickly Jump Through Words
@@ -35,7 +35,6 @@ ZSH_THEME="nicoulaj"
 # Runs the .bash_profile & .bashrc on startup making all aliases available from the git-go
 source ~/.bash_profile
 source ~/.bashrc
-
 
 # Makes Testing For Devices Anywhere
 export PATH=/Applications/Android\ Studio.app/sdk/platform-tools:$PATH

@@ -1,7 +1,7 @@
 # ////////////////////////////////////////////////////////////////////
 # //                     Bash Configuration                         //
 # ////////////////////////////////////////////////////////////////////
-
+#
 # How To Activate Aliases (use: source ~/.bashrc)
 
 # Constants
@@ -36,9 +36,22 @@ function rvim() {
 	# Live ex: rvim portfolio/index.html
 }
 
+# contains() {
+#     string="$1"
+#     substring="$2"
+#     if test "${string#*$substring}" != "$string"
+#     then
+#         echo '$substring is in $string'
+#         return 1    # $substring is in $string
+#     else
+#         echo '$substring is not in $string'
+#         return 0    # $substring is not in $string
+#     fi
+# }
+
 # Quickly scp files in Workspace to Remote
-function scp() {
-	command scp -r $LOCAL_REPOS/$1 $ALEX_SERVER_UNAME@$ALEX_SERVER_PORT:$ALEX_REMOTE_ROOT_PATH/$2
+function scpp() {
+	scp -r $LOCAL_REPOS/$1 $ALEX_SERVER_UNAME@$ALEX_SERVER_PORT:$ALEX_REMOTE_ROOT_PATH/$2
 	# Description: $1: Local Path  |  $2:  Remote Path
 	# Define ex: scpp local/path/to/file/or/directory/* remote/path/to/file/or/directory/*
 	# Live ex: scpp alexcory/index.php alexcory/index.php
@@ -47,6 +60,31 @@ function scp() {
 	# This Saves you from having long commands that look like this:
 	# scp -r ~/Google\ Drive/server/developer/git\ repositories/alexcory/index.php alexander@alexander.com:/home3/alexander/public_html/alexcory/index.php
 }
+
+# # Quickly scp files in Workspace to Remote       TODO: make it work with scp
+# function scp() {
+# 	# local_repo=${(q)1}
+# 	# remote_repo=${(q)2}
+# 	local_repo="$1"
+# 	remote_repo="$2"
+
+# 	command scp -r $LOCAL_REPOS/$local_repo $ALEX_SERVER_UNAME@$ALEX_SERVER_PORT:$ALEX_REMOTE_ROOT_PATH/$remote_repo
+# 	# command scp -r ${(q)LOCAL_REPOS}/$local_repo $ALEX_SERVER_UNAME@$ALEX_SERVER_PORT:$ALEX_REMOTE_ROOT_PATH/$remote_repo
+
+# 	# Description: $1: Local Path  |  $2:  Remote Path
+# 	# Define ex: scpp local/path/to/file/or/directory/* remote/path/to/file/or/directory/*
+# 	# Live ex: scpp alexcory/index.php alexcory/index.php
+# 	# Live ex: scpp alexcory/* alexcory/*
+# 	#
+# 	# This Saves you from having long commands that look like this:
+# 	# scp -r ~/Google\ Drive/server/developer/git\ repositories/alexcory/index.php alexander@alexander.com:/home3/alexander/public_html/alexcory/index.php
+
+# 	# TODO:
+# 	# jason says --
+# 	# lookup `awk` , `sed` commands
+# }
+# # alias scp='noglob scp' # to allow `*` to work. ex: scp hackingedu/* hackingedu
+
 
 # Quickly run a java file
 function java() {
@@ -60,12 +98,11 @@ function ssh() {
 	if [ -z "${1+xxx}" ]; then
 		# then auto `ssh` into default server
 		command ssh $DEFAULT_SERVER
-	fi
-	# if the `ssh` argument is set
-	if [ -z "$1" ] && [ "${1+xxx}" = "xxx" ]; then
+	else
 		# then perform basic `ssh` command
 		command ssh $1
 	fi
+
 	# By default, if no argument is passed to the ssh function, it will automatically ssh into the default server
 }
 
@@ -197,7 +234,7 @@ alias yolo='git commit -am "DEAL WITH IT" && git push -f origin master'
 
 # Git Quick Update Pull & Push  (gacpp = git <add> <commit> <pull> <push>)
 function gacpp() {
-    git add -A && git commit -am $1 && git pull origin master && git push origin master
+    git add --all && git commit -am $1 && git pull origin master && git push origin master
 }
 
 # Git Overwrite local Changes

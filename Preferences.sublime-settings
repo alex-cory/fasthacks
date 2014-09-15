@@ -8,12 +8,13 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Vintageous",
-		"SFTP",
-		"SmartMarkdown",
 		"Markdown",
-		"Vintage",
-		"Markdown Preview"
+		"SmartMarkdown",
+		"SideBarEnhancements",
+		"Markdown Preview",
+		"Dotfiles Syntax Highlighting",
+		"SFTP",
+		"Vintage"
 	],
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
