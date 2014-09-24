@@ -20,9 +20,9 @@ source ~/.bash_profile
 
 # Automating Password Process on New Servers
 function no_pw_allowed() {
-	scp ~/.ssh/id_rsa.pub $1@$2:~/.ssh/authorized_keys
+	scp $LOCAL_PATH_TO_SSH_KEY $1@$2:$REMOTE_PATH_TO_SSH_KEY
 	# Description: $1: Username  |  $2:  Hostname
-	# ex: scp ~/.ssh/id_rsa.pub alexander@alexander.com:~/.ssh/authorized_keys
+	# ex: scp ~/path/to/local/public_ssh_key username@yourDomain.com:~/path/to/remote/public_ssh_key
 	# IF YOU NEED A NEW SSH KEY
 	# ssh-keygen -t rsa
 	# http://goo.gl/6ccvfJ
@@ -102,8 +102,24 @@ function ssh() {
 		# then perform basic `ssh` command
 		command ssh $1
 	fi
-
 	# By default, if no argument is passed to the ssh function, it will automatically ssh into the default server
+}
+
+# Find the path for a file in the current working tree
+function pfind() {
+	find . -name $1 -print
+}
+
+# Quickly kill Jobs		(saves time for me becasue then I have a defualt, as well as my ⌃ + C doesn't work for killing processes (-__-)  )
+function k() {
+	# if the argument is not set
+	if [ -z "${1+xxx}" ]; then
+		# then auto `kill` the first Job
+		kill %1
+	else
+		# then perform basic `kill` command
+		kill $1
+	fi
 }
 
 
@@ -199,7 +215,7 @@ alias ll='ls -alhF'
 alias su='sudo -s'
 
 
-# Quick Path Reference Aliases  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Quick Path Reference Aliases / Functions  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Go To => {directory}  and list contents
 function cdl { cd $1; ls; }
 
@@ -226,6 +242,26 @@ alias stp='~/Library/Application\ Support/Sublime\ Text\ 3/Packages/'
 
 # Go To => Dot Files
 alias dot='$LOCAL_REPOS/dotfiles'
+
+# Go To => Sandbox & specific directory
+function sbox() {
+	cd ~/Google\ Drive/_Server_/Developer/sandbox/$1
+	# Description: $1: Sandbox Dirctory (in other words, sandbox example name)
+	# Define:  path/to/sandbox
+	# Live ex: sbox sandbox_directory
+	#
+	# This saves you from having to type out long commands to cd to a project
+}
+
+# Go To => Dev Notes
+function dn() {
+	cd ~/Google\ Drive/_Server_/Developer/Dev\ Notes/$1
+	# Description: $1: Developer Notes Dirctory/File
+	# Define:  path/to/dev_notes
+	# Live ex: dn example_note
+	#
+	# This saves you from having to type out long commands to cd to a project
+}
 
 
 # GitHub Aliases / Functions  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
