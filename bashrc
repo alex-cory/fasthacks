@@ -244,7 +244,7 @@ alias stp='~/Library/Application\ Support/Sublime\ Text\ 3/Packages/'
 alias dot='$LOCAL_REPOS/dotfiles'
 
 # Go To => Sandbox & specific directory
-function sbox() {
+function sb() {
 	cd ~/Google\ Drive/_Server_/Developer/sandbox/$1
 	# Description: $1: Sandbox Dirctory (in other words, sandbox example name)
 	# Define:  path/to/sandbox
