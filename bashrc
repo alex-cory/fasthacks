@@ -293,8 +293,6 @@ function lr() {
 
 
 # Sync Aliases  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# Full Projects Sync
-alias sync_projects='rsync -avz /Applications/MAMP/htdocs/ $LOCAL_REPOS/projects\ backup; rm -r .DS_Store;'
 
 
 # MySQL Quickies  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -304,9 +302,6 @@ alias cmysql='mysql -u root -p -h 127.0.0.1 -P 3306'
 
 
 # Case-Specific Functions = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-
-## Google Helpouts
-alias scp-techtalksfsu='scp -r /Applications/MAMP/htdocs/techtalksfsu/* $ALEX_SERVER_UNAME@$ALEX_SERVER_PORT:$ALEX_REMOTE_ROOT_PATH/techtalksfsu'
 
 
 
