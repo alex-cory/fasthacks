@@ -25,7 +25,7 @@ function no_pw_allowed() {
 	# ex: scp ~/path/to/local/public_ssh_key username@yourDomain.com:~/path/to/remote/public_ssh_key
 	# IF YOU NEED A NEW SSH KEY
 	# ssh-keygen -t rsa
-	# http://goo.gl/6ccvfJ
+	# ref: (http://goo.gl/6ccvfJ)
 }
 
 # Remotely edit remote files in Vim locally
@@ -213,6 +213,9 @@ alias ll='ls -alhF'
 
 # Gain root access
 alias su='sudo -s'
+
+# Quick Install
+alias i='brew install'
 
 
 # Quick Path Reference Aliases / Functions  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
