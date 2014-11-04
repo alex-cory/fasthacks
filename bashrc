@@ -217,6 +217,9 @@ alias su='sudo -s'
 # Quick Install
 alias i='brew install'
 
+# Heroku
+alias h='heroku'
+
 
 # Quick Path Reference Aliases / Functions  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Go To => {directory}  and list contents
@@ -276,6 +279,9 @@ function gacpp() {
     git add --all && git commit -am $1 && git pull origin master && git push origin master
 }
 
+# Git Stash
+alias gs='git stash'
+
 # Git Overwrite local Changes
 function gol() {
 	git fetch origin && git reset --hard origin/master
@@ -333,3 +339,6 @@ alias cmysql='mysql -u root -p -h 127.0.0.1 -P 3306'
 # Java Path Variable  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Allows Java to run from Terminal / Command Line
 export JAVA_HOME=$(/usr/libexec/java_home)
+
+export NVM_DIR="/Users/alexcory/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

@@ -123,14 +123,7 @@
     },
 
 
-    /* Add a closing ; at the end of current line   (Need Macro: "http://goo.gl/1KXy1v") */
-    {
-        "keys": ["super+;"],
-        "command": "run_macro_file",
-        "args": {
-            "file": "Packages/User/superEndLineWiSemiColin.sublime-macro"
-        }
-    },
+
     // Setup: Below is the path to where to put the macro file
     // Path: /Users/alexcory/Library/Application\ Support/Sublime\ Text 3/Packages/User/
 
@@ -247,8 +240,61 @@
     // Stupid Re-Open Last Closed Tab
     // { "keys": ["option+shift+t"], "command": "reopen_last_file" },
 
-    // PHP Keybindings --------------------------------------------------------------------
+    // Fun Home Made Keybindings --------------------------------------------------------------------
 
+    // Chain for current statement
+    {
+        "keys": ["option+."],
+        "command": "run_macro_file",
+        "args": {
+            "file": "Packages/User/superChaining.sublime-macro"
+        }
+    },
+
+    // Super Equals
+    {
+        "keys": ["option+="],
+        "command": "run_macro_file",
+        "args": {
+            "file": "Packages/User/superEquals.sublime-macro"
+        }
+    },
+
+    // Super Comma
+    {
+        "keys": ["option+,"],
+        "command": "run_macro_file",
+        "args": {
+            "file": "Packages/User/superComma.sublime-macro"
+        }
+    },
+
+    // Super Plus
+    {
+        "keys": ["option+shift+="],
+        "command": "run_macro_file",
+        "args": {
+            "file": "Packages/User/superPlus.sublime-macro"
+        }
+    },
+
+    // Bracketize Function while in the argument
+    {
+        "keys": ["option+["],
+        "command": "run_macro_file",
+        "args": {
+            "file": "Packages/User/superBracketizeFunction.sublime-macro"
+        }
+    },
+
+    /* Add a closing ; at the end of current line   (Need Macro: "http://goo.gl/1KXy1v") */
+    {
+        "keys": ["option+;"],
+        "command": "run_macro_file",
+        "args": {
+            "file": "Packages/User/superEndLineWiSemiColin.sublime-macro"
+        }
+    },
 
     // Exit the current function
     {
@@ -299,37 +345,17 @@
     //  Don't Use Much
     //
     // Go to the end of the line and hit space
-    {
-        "keys": ["option+`"],
-        "command": "run_macro_file",
-        "args": {
-            "file": "Packages/User/superEndOfLine.sublime-macro"
-        }
-    },
+    // {
+    //     "keys": ["option+`"],
+    //     "command": "run_macro_file",
+    //     "args": {
+    //         "file": "Packages/User/superEndOfLine.sublime-macro"
+    //     }
+    // },
 
     // { "keys": ["f3"], "command": "htmlprettify"},
     // { "keys": ["f1"], "command": "fold" },
     // { "keys": ["f2"], "command": "unfold" }
-
-
-
-    // Bracketize the current function while in the argument
-    {
-        "keys": ["option+{"],
-        "command": "run_macro_file",
-        "args": {
-            "file": "Packages/User/superBracketizeFunction.sublime-macro"
-        }
-    },
-
-    // Jump to End of HTML Tag
-    {
-        "keys": ["option+tab"],
-        "command": "run_macro_file",
-        "args": {
-            "file": "Packages/User/superJumpToNextBracket.sublime-macro"
-        }
-    },
 
     // {
     // 	"keys": ["alt+enter"], "command": "run_macro_file", "args": {"file": "Packages/User/exit_function.sublime-macro"}

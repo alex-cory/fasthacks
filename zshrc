@@ -7,9 +7,9 @@ ZSH=$HOME/.oh-my-zsh
 
 # Quickly Jump to Beginning and End of Lines
 # 	set in iTerm > Preferences > Keys > Global Shortcut Keys
-#     FOR  ACTION         SEND
-#     ⌘←  "HEX CODE"      0x01
-#     ⌘→  "HEX CODE"      0x05
+#     FOR ACTION               SEND
+#     ⌘←  "Send HEX CODE"      0x01
+#     ⌘→  "Send HEX CODE"      0x05
 
 # Quickly Jump Through Words
 # 	set in iTerm > Preferences > Profiles (click profile) > Keys
@@ -87,3 +87,6 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
