@@ -8,14 +8,14 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"SmartMarkdown",
+		"Bootstrap 3 Snippets",
 		"Markdown Preview",
-		"SFTP",
-		"Markdown",
 		"Vintage",
 		"Dotfiles Syntax Highlighting",
+		"SFTP",
 		"Jade Snippets",
-		"Bootstrap 3 Snippets"
+		"SmartMarkdown",
+		"Markdown"
 	],
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,

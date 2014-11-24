@@ -88,7 +88,7 @@ function scpp() {
 
 # Quickly run a java file
 function java() {
-	javac ./*.java && command java $1
+	javac ./*.java && command java $1 $2 $3 $4 $5 $6 $7 $8 $9
 }
 
 # Fast SSH
