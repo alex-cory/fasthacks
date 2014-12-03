@@ -279,14 +279,8 @@ function gacpp() {
     git add --all && git commit -am $1 && git pull origin master && git push origin master
 }
 
-# Git diff
-alias gd='git diff'
-
-# Git Status
-alias gs='git status'
-
 # Git Stash
-alias gstash='git stash'
+alias gs='git stash'
 
 # Git Overwrite local Changes
 function gol() {
