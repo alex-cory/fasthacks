@@ -1,0 +1,70 @@
+[
+	{
+		"args":
+		{
+			"to": "brackets"
+		},
+		"command": "move_to"
+	},
+	{
+		"args":
+		{
+			"by": "wordends",
+			"forward": true
+		},
+		"command": "move"
+	},
+	{
+		"args":
+		{
+			"characters": "\n"
+		},
+		"command": "insert"
+	},
+	{
+		"args":
+		{
+			"contents": "{$0}"
+		},
+		"command": "insert_snippet"
+	},
+	{
+		"args":
+		{
+			"file": "res://Packages/Default/Add Line in Braces.sublime-macro"
+		},
+		"command": "run_macro_file"
+	},
+	{
+		"args":
+		{
+			"characters": "#"
+		},
+		"command": "insert"
+	},
+	{
+		"args":
+		{
+			"characters": " code..."
+		},
+		"command": "insert"
+	},
+	{
+		"args":
+		{
+			"by": "words",
+			"extend": true,
+			"forward": false
+		},
+		"command": "move"
+	},
+	{
+		"args":
+		{
+			"by": "words",
+			"extend": true,
+			"forward": false
+		},
+		"command": "move"
+	}
+]
