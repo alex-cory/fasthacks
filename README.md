@@ -5,4 +5,4 @@ This is a library of my notes, what I am currently learning, and what I want to 
 
 ![alt text][github]
 
-[github]: https://raw.githubusercontent.com/alex-cory/fasthacks/dotfiles/master/dotfiles.png "Sample result"
+[github]: https://github.com/alex-cory/fasthacks/blob/master/dotfiles/dotfiles.png "fast hacks"
