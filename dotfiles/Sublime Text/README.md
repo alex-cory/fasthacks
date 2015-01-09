@@ -96,9 +96,9 @@ If you want to know how I made these just hit me up and I'll show you! :D
 
 
 
-  [2]: https://drive.google.com/file/d/0B5LhVy_zkvWqZ1U2R3NORXRUdXc/edit?usp=sharing
-  [3]: https://drive.google.com/file/d/0B5LhVy_zkvWqT3J2MW44V2ZBaUE/edit?usp=sharing
-  [4]: https://drive.google.com/file/d/0B5LhVy_zkvWqQ1NqaGlkY2dieUU/edit?usp=sharing
+  [2]: https://docs.google.com/uc?authuser=0&id=0B5LhVy_zkvWqT3J2MW44V2ZBaUE&export=download
+  [3]: https://docs.google.com/uc?authuser=0&id=0B5LhVy_zkvWqT3J2MW44V2ZBaUE&export=download
+  [4]: https://docs.google.com/uc?authuser=0&id=0B5LhVy_zkvWqQ1NqaGlkY2dieUU&export=download
   [5]: http://trcdatarecovery.com/software-apps/revealer-app
 ***
 ***
