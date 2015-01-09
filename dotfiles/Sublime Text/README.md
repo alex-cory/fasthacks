@@ -1,6 +1,3 @@
-***
-
-***
 
 
 #Creating Custom Key Bindings For Sublime Text
