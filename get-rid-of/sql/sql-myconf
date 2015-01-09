@@ -1,0 +1,19 @@
+MySQL Config Hacks
+
+[client]
+## Automatically Switch to a Database
+# database = nameOfDatabase
+
+## Automate the Login Process
+# host     = localhost
+# user     = root
+# password = password
+
+## Modifying the mysql client prompt to reflect the name of the database you're currently using
+# prompt = [\d]>
+
+## Prevent Catastrophes with Safe Updates
+# safe-updates
+
+## Enable Tab Completion
+# auto-rehash
