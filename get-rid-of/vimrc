@@ -1,1 +1,0 @@
-/Users/alexcory/jarvis/vimrc
