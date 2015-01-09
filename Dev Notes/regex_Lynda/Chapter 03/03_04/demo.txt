@@ -1,0 +1,12 @@
+Regex:  /h[abc.xyz]t/
+String: "hat hot h.t"
+
+Regex:  /var[[(]\d[\])]/
+String: "var(3) var[4]"
+
+May not require escaping
+Regex:  /2003[-/]10[-/]05/
+String: "2003/10/05 2003-10-05"
+
+Regex:  /file[0-\_]1/
+String: "file01 file-1 file\1 file_1"

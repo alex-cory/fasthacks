@@ -1,0 +1,70 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'link' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose linkPkg /Users/alexcory/Google Drive/_Server_/Developer/Dev Notes/nodeJS_Lynda/chap08/04/start
+5 verbose link build target /usr/local/lib/node_modules/application-name
+6 verbose install where,what [ '/Users/alexcory/Google Drive/_Server_/Developer/Dev Notes/nodeJS_Lynda/chap08/04/start',
+6 verbose install   [] ]
+7 verbose readDependencies using package.json deps
+8 verbose install where, deps [ '/Users/alexcory/Google Drive/_Server_/Developer/Dev Notes/nodeJS_Lynda/chap08/04/start',
+8 verbose install   [ 'express',
+8 verbose install     'jade',
+8 verbose install     'mongoose',
+8 verbose install     'connect-mongo',
+8 verbose install     'mocha',
+8 verbose install     'should',
+8 verbose install     'supertest' ] ]
+9 info preinstall application-name@0.0.1
+10 warn package.json supertest@0.7.1 No repository field.
+11 verbose readDependencies using package.json deps
+12 verbose already installed skipping express@3.4.0 /Users/alexcory/Google Drive/_Server_/Developer/Dev Notes/nodeJS_Lynda/chap08/04/start
+13 verbose already installed skipping jade@* /Users/alexcory/Google Drive/_Server_/Developer/Dev Notes/nodeJS_Lynda/chap08/04/start
+14 verbose already installed skipping mongoose@~3.6.19 /Users/alexcory/Google Drive/_Server_/Developer/Dev Notes/nodeJS_Lynda/chap08/04/start
+15 verbose already installed skipping connect-mongo@~0.3.3 /Users/alexcory/Google Drive/_Server_/Developer/Dev Notes/nodeJS_Lynda/chap08/04/start
+16 verbose already installed skipping mocha@~1.12.1 /Users/alexcory/Google Drive/_Server_/Developer/Dev Notes/nodeJS_Lynda/chap08/04/start
+17 verbose already installed skipping should@~1.2.2 /Users/alexcory/Google Drive/_Server_/Developer/Dev Notes/nodeJS_Lynda/chap08/04/start
+18 verbose already installed skipping supertest@~0.7.1 /Users/alexcory/Google Drive/_Server_/Developer/Dev Notes/nodeJS_Lynda/chap08/04/start
+19 silly resolved []
+20 info build /Users/alexcory/Google Drive/_Server_/Developer/Dev Notes/nodeJS_Lynda/chap08/04/start
+21 verbose linkStuff [ false,
+21 verbose linkStuff   false,
+21 verbose linkStuff   false,
+21 verbose linkStuff   '/Users/alexcory/Google Drive/_Server_/Developer/Dev Notes/nodeJS_Lynda/chap08/04' ]
+22 info linkStuff application-name@0.0.1
+23 verbose linkBins application-name@0.0.1
+24 verbose linkMans application-name@0.0.1
+25 verbose rebuildBundles application-name@0.0.1
+26 verbose rebuildBundles [ '.bin',
+26 verbose rebuildBundles   'connect-mongo',
+26 verbose rebuildBundles   'express',
+26 verbose rebuildBundles   'jade',
+26 verbose rebuildBundles   'mocha',
+26 verbose rebuildBundles   'mongoose',
+26 verbose rebuildBundles   'should',
+26 verbose rebuildBundles   'supertest' ]
+27 info install application-name@0.0.1
+28 info postinstall application-name@0.0.1
+29 info prepublish application-name@0.0.1
+30 info build /usr/local/lib/node_modules/application-name
+31 verbose linkStuff [ true,
+31 verbose linkStuff   '/usr/local/lib/node_modules',
+31 verbose linkStuff   true,
+31 verbose linkStuff   '/usr/local/lib/node_modules' ]
+32 info linkStuff application-name@0.0.1
+33 verbose linkBins application-name@0.0.1
+34 verbose link bins [ { 'application-name': 'node app.js' }, '/usr/local/bin', true ]
+35 verbose linkMans application-name@0.0.1
+36 error Error: ENOENT, chmod '/usr/local/lib/node_modules/application-name/node app.js'
+37 error If you need help, you may report this *entire* log,
+37 error including the npm and node versions, at:
+37 error     <http://github.com/npm/npm/issues>
+38 error System Darwin 14.0.0
+39 error command "node" "/usr/local/bin/npm" "link"
+40 error cwd /Users/alexcory/Google Drive/_Server_/Developer/Dev Notes/nodeJS_Lynda/chap08/04/start
+41 error node -v v0.10.32
+42 error npm -v 1.4.28
+43 error path /usr/local/lib/node_modules/application-name/node app.js
+44 error code ENOENT
+45 error errno 34
+46 verbose exit [ 34, true ]

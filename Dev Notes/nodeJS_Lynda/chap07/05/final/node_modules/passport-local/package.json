@@ -1,0 +1,68 @@
+{
+  "name": "passport-local",
+  "version": "0.1.6",
+  "description": "Local username and password authentication strategy for Passport.",
+  "author": {
+    "name": "Jared Hanson",
+    "email": "jaredhanson@gmail.com",
+    "url": "http://www.jaredhanson.net/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jaredhanson/passport-local.git"
+  },
+  "bugs": {
+    "url": "http://github.com/jaredhanson/passport-local/issues"
+  },
+  "main": "./lib/passport-local",
+  "dependencies": {
+    "pkginfo": "0.2.x",
+    "passport": "~0.1.1"
+  },
+  "devDependencies": {
+    "vows": "0.6.x"
+  },
+  "scripts": {
+    "test": "NODE_PATH=lib node_modules/.bin/vows test/*-test.js"
+  },
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "keywords": [
+    "passport",
+    "local",
+    "auth",
+    "authn",
+    "authentication"
+  ],
+  "_npmUser": {
+    "name": "jaredhanson",
+    "email": "jaredhanson@gmail.com"
+  },
+  "_id": "passport-local@0.1.6",
+  "optionalDependencies": {},
+  "_engineSupported": true,
+  "_npmVersion": "1.1.21",
+  "_nodeVersion": "v0.6.17",
+  "_defaultsLoaded": true,
+  "dist": {
+    "shasum": "fb0cf828048db931b67d19985c7aa06dd377a9db",
+    "tarball": "http://registry.npmjs.org/passport-local/-/passport-local-0.1.6.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "jaredhanson",
+      "email": "jaredhanson@gmail.com"
+    }
+  ],
+  "directories": {},
+  "_shasum": "fb0cf828048db931b67d19985c7aa06dd377a9db",
+  "_from": "passport-local@~0.1.6",
+  "_resolved": "https://registry.npmjs.org/passport-local/-/passport-local-0.1.6.tgz"
+}

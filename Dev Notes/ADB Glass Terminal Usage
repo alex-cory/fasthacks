@@ -1,0 +1,54 @@
+
+## Basic ADB Usage(For Terminal or CMD Prompt):
+
+# Since there is no "Google Play" for the Glass yet, we have to side load Android applications for now.
+
+------------------------------------------------------
+Keep Your Google Glass On while charging/developing:
+  - adb shell svc power stayon true | false | usb | ac
+
+
+------------------------------------------------------
+Turn off Wifi and only use Bluetooth
+  - adb shell svc wifi enable | disable
+
+
+------------------------------------------------------
+Installing/Uninstall Applications(.apks):
+  - adb install -r FILE.apk
+  - adb uninstall FILE.apk
+
+
+------------------------------------------------------
+Running the Application:
+  - adb shell am start -n PACKAGE.NAME/.MAIN.ACTIVITY.NAME
+
+------------------------------------------------------
+List all Packages on your Android Device:
+  - adb shell pm list packages -f
+
+
+------------------------------------------------------
+List all Relative Information about your Android Device:
+  - adb shell dumpsys
+  - adb shell dumpsys battery
+  - adb shell dumpsys wifi
+  - adb shell dumpsys cpuinfo
+  - adb shell dumpsys meminfo
+  - adb shell dumpsys meminfo PACKAGE.NAME
+  - adb shell cat "/system/build.prop" | grep "product"
+
+
+------------------------------------------------------
+Show the AndroidManifest for an APK
+  - aapt dump xmltree FILE.apk AndroidManifest.xml
+
+
+------------------------------------------------------
+Screenshots from Commandline
+  - adb shell /system/bin/screencap -p /sdcard/screenshot.png
+  - adb pull /sdcard/screenshot.png screenshot.png
+
+
+------------------------------------------------------
+Resources:  Google:(http://goo.gl/z2HF2)  StackOverflow:(http://goo.gl/pFLqVk)

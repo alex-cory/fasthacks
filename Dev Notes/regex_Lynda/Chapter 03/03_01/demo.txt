@@ -1,0 +1,12 @@
+Matches single, lowercase vowels
+Regex:  /[aeiou]/
+String: "Bananas Peaches Apples"
+
+Regex: /gr[ea]y/
+String: "grey gray"
+
+Regex: /gr[ea]t/
+String: "great"
+
+Regex: /gr[ea][ea]t/
+String: "great graet greet graat"

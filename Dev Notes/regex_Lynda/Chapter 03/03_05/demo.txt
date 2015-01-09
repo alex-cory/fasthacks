@@ -1,0 +1,21 @@
+
+Regex:  /\d\d\d\d/
+String: "1984 text"
+
+Regex:  /\w\w\w\w/
+String: "1984 text 1_5W"
+
+Regex:  /[\w\-]/
+String: "blue-green paint"
+
+Regex:  /[\d\s]/
+String: "123 456 789 abc"
+
+
+Be careful when using negatives
+
+Regex:  /[^\d\s]/
+String: "123 456 789 abc"
+
+Regex:  /[\D\S]/
+String: "123 456 789 abc"

@@ -1,0 +1,35 @@
+String: "
+<strong>Bold</strong>
+<em>Emphazied</em>
+<b>Bold</b>
+<i>Italics</i>
+<span id="foo" class="bar">Some text</span>
+<hr />
+"
+
+Regex:  /^<strong>(.*?)</strong>$/m
+Regex:  /^<(strong|em)>(.*?)</(strong|em)>$/m
+
+
+# Balancing tags
+
+String: "<strong>Mistake</em>"
+Regex:  /^<(strong|em)>(.*?)</\1>$/m
+
+
+# Flexibility
+
+Regex:  /^<(strong|em|b|i)>(.*?)</\1>$/m
+Regex:  /^<(.+?)>(.*?)</\1>$/m
+Regex:  /^<([^>]+)>(.*?)</\1>$/m
+
+
+# Tag attributes
+
+Regex:  /^<([A-Za-z][A-Za-z0-9]*)\b[^>]*>(.*?)</\1>$/m
+
+
+# Self-closing tags
+
+Regex:  /^<(([A-Za-z][A-Za-z0-9]*)\b[^>]*>(.*?)</\1>|[A-Za-z][A-Za-z0-9]*\b[^/>]*/>)$/m
+Regex:  /^<(?:([A-Za-z][A-Za-z0-9]*)\b[^>]*>(?:.*?)</\1>|[A-Za-z][A-Za-z0-9]*\b[^/>]*/>)$/m

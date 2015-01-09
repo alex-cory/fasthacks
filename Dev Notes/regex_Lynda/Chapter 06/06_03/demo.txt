@@ -1,0 +1,17 @@
+Regex:  /\b\w+\b/
+String: (see shakespeare_sonnet.txt)
+
+Regex:  /\b[\w']+\b/
+String: (see shakespeare_sonnet.txt)
+
+Regex:  /\b[\w']+?\b/
+String: (see shakespeare_sonnet.txt)
+
+
+Faster matches using word boundaries
+
+Regex:  /\w+s/
+String: "We picked apples."
+
+Regex:  /\b\w+s\b/
+String: "We picked apples."

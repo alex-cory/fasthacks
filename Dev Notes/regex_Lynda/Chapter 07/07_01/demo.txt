@@ -1,0 +1,21 @@
+Regex:  /(apples) to \1/
+String: "apples to apples"
+
+Regex:  /(ab)(cd)(ef)\3\2\1/
+String: "abcdefefcdab"
+
+Regex:  /(ab)(cd)(ef)(gh)(ij)\3\2\1\4\5/
+String: "abcdefghijefcdabghij"
+
+Regex:  /<(i|em)>.+?</\1>/
+String: "<i>italics</i> <em>emphasis</em> <i>bad</em> <em>bad</i>"
+
+Regex:  /<(i|em|b|strong)>.+</\1>/
+String: "<b>bold</b> <strong>strong</strong>"
+
+Regex:  /\b([A-Z][a-z]+)\b\s\b\1son\b/
+String: "Steve Smith, John Johnson, Eric Erikson, Evan Evanson"
+
+Regex:  /\b(\w+)\s+\1\b/
+String: "Paris in the 
+         the spring."

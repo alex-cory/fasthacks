@@ -1,0 +1,8 @@
+extends layout
+
+block content
+	h1= title
+	ul
+		each flight, index in flights
+			- flight = flight.getInformation()
+			li= flight.number + ': ' + flight.origin + '-' + flight.destination

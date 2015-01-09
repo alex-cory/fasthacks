@@ -1,0 +1,13 @@
+Remove the ? from each regex and watch the changes.
+
+Regex:  /\w*?\d{3}/
+String: "image_294"
+
+Regex:  /[A-Za-z-.]+?\./
+String: "Dr. Roberts, M.D."
+
+Regex:  /.{4,8}_.{2,6}?/
+String: "last_qtr_report.xls"
+
+Regex:  /apples??/
+String: "We picked apples."

@@ -1,0 +1,35 @@
+Regex:  /car/
+String: "car"
+
+Regex:  /car/
+String: "carnival"
+
+
+Case-sensitivity matters
+Regex:  /car/
+String: "Carnival"
+
+Regex:  /car/i
+String: "Carnival"
+
+Regex:  /Car/i
+String: "carnival"
+
+
+Whitespace matters
+Regex:  /car/
+String: "c a r"
+
+
+Global modifier
+Regex:  /zz/
+String: "pizzazz"
+
+Regex:  /zz/g
+String: "pizzazz"
+
+Regex:  /cat/
+String: "The cow, camel, and cat communicated."
+
+Regex:  /cat/g
+String: "The cow, camel, and cat communicated."

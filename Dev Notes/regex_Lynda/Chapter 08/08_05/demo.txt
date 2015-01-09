@@ -1,0 +1,22 @@
+
+# These will not work in JavaScript!
+
+Regex:  /(?<![$\d])\d+\.\d\d/
+String: "This costs 53.00 or $54.00."
+
+
+# Insertion by using all assertions
+
+Regex:  /(?<![$\d])(?=\d+\.\d\d)/
+String: "This costs 53.00 or $54.00."
+Replace: "$"
+
+
+# Adding commas to delimit a number
+
+String: "An astronomical unit is 149597870.7 kilometers, approximately the average distance between the Sun and Earth."
+
+Regex:  /(\d\d\d)+/
+Regex:  /(?<=\d)(\d\d\d)+(?!\d)/
+Regex:  /(?<=\d)(?=(\d\d\d)+(?!\d))/
+Replace: ","

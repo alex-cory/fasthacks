@@ -1,0 +1,176 @@
+
+
+Currently Learning ----------------------------------------------
+
+⌘ ⌥ A  :  Open Finder > Downloads
+
+⌘ ⇧ [] :  Move left and right in Chrome tabs
+
+⌘ ⇧ [] :  Move left and right in iTerm2 tabs
+
+
+
+
+Most Important Period -------------------------------------------
+⌘ ⌥ ⇧ ◄ ► ▲ ▼
+
+⌘ __    :  custom- Open Alfred (typically spotlight)
+
+⌘ ⌥ __  :  Open Finder
+
+
+⌘ S     :  Save
+
+⌘ C     :  Copy
+
+⌘ X     :  Cut
+
+⌘ V     :  Paste
+
+⌘ A     :  Select All
+
+
+
+
+
+
+My Customs ------------------------------------------------------
+⌘ ⌥ ⇧ ◄ ► ▲ ▼
+
+^ __   :  Open Spotlight
+
+⌘ ⌥ M  :  Open Gmail
+
+
+
+
+Alfred ----------------------------------------------------------
+⌘ ⌥ ⇧ ◄ ► ▲ ▼
+
+⌘ __   :  Open Alfred (typically spotlight)
+
+⌘ ,    :  Open Settings (must hit '⌘ __' first)
+
+
+
+
+Sublime Text 2 --------------------------------------------------
+⌘ ⌥ ⇧ ◄ ► ▲ ▼
+
+⌘ K > B :  Toggle Folders sidebar window (must hold command and hit K then B consecutively)
+
+
+
+
+
+
+
+Google Chrome ---------------------------------------------------
+⌘ ⌥ ⇧ ◄ ► ▲ ▼
+
+
+⌘ ⌥ ◄ ► :  Flip Between Tabs
+
+⌘ ⇧ T   :  Open Up Previously Closed Tab
+
+⌘ L 	:  Move Curser to Search/Address Bar
+
+⌘ T     :  Open Up New Tab
+
+⌘ W     :  Close Tab
+
+⌘ ⇧ F   :  Full Screen
+
+
+
+1Password ---------------------------------------------------
+⌘ ⌥ ⇧ ◄ ► ▲ ▼
+
+⌘ |   :  Autofill Username + Password
+
+
+
+
+Pages -----------------------------------------------------------
+⌘ ⌥ ⇧ ◄ ► ▲ ▼
+
+⌘ ⌥ I  :  Toggles Inspector
+
+
+
+
+Evernote --------------------------------------------------------
+⌘ ⌥ ⇧ ◄ ► ▲ ▼
+
+
+⌘ ⇧ T :  Checkbox
+
+⌘ K   :  Insert Hyperlink (highlight text then hit '⌘ K')
+
+
+
+
+Gmail -----------------------------------------------------------
+⌘ ⌥ ⇧ ◄ ► ▲ ▼
+
+⇧ ?      :  Toggle Keyboard Shortcuts Menu
+
+⌘ C      :  Compose New Message
+
+⌘ Enter  :  Send Message
+
+G T      :  Go To Sent Mailbox
+
+G I      :  Go To Inbox
+
+⌘ K 	 :  Insert Hyperlink
+
+⇧ U      :  Marks as Unread
+
+E 		 :  Archive Message?
+
+
+
+Mac -------------------------------------------------------------
+
+⌘ __    :  custom- Open Alfred (typically spotlight)
+
+⌘ W     :  close tab / close window
+
+⌘ Q     :  quit application
+
+⌘ T     :  open a new tab
+
+⌘ ⌥ __  :  Open Finder
+
+
+Divvy -----------------------------------------------------------
+
+
+
+
+
+
+KEY:-------------------------------------------------------------
+
+⌘ ⌥ T : Special Characters
+
+⌘  	  : Command 	  | cmd
+
+⌥     : Option / Alt  | opt
+
+⇧  	  : Shift 		  |
+
+^     : Control  	  | ctrl
+
+__    : Spacebar 	  |
+
+fn    : function      |
+
+◄     : left  		  |
+
+►     : right 		  |
+
+▲     : up 			  |
+
+▼     : down 		  |

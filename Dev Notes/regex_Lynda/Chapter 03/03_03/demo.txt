@@ -1,0 +1,27 @@
+
+Regex:  /[^a-z]/
+String: "Now we know how to make negative character sets."
+
+
+Negates the entire character set
+
+Regex:  /[^a-zA-Z]/
+String: "Now we know how to make negative character sets."
+
+
+Only matches a single character
+
+Regex:  /[^aeiou]/
+String: "It seems I see the sea I seek."
+
+Regex:  /see[^mn]/
+String: "It seems I see the sea I seek."
+
+
+Must match one character (which may be a space or punctuation)
+
+Regex:  /see[^mn]/
+String: "It seems I see the sea I see"
+
+Regex:  /see[^mn]/
+String: "It seems I see the sea I see."

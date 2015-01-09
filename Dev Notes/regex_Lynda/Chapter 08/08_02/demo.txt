@@ -1,0 +1,47 @@
+Regex:  /\d{3}-\d{3}-\d{4}/
+String: "
+555-302-4321
+555-781-6978
+555-245-1312
+"
+
+# Make sure multiline anchors are enabled.
+
+Regex:  /(?=^[0-5\-]+$)\d{3}-\d{3}-\d{4}/m
+String: "
+555-302-4321
+555-781-6978
+555-245-1312
+"
+Regex:  /(?=^[0-5\-]+$)(?=.*4321)\d{3}-\d{3}-\d{4}/m
+String: "
+555-302-4321
+555-781-6978
+555-245-1312
+"
+
+# All words containing a "gh" and followed by a comma.
+
+Regex:  \b[A-Za-z']+?\b(?=,)
+String: (see self-reliance.txt)
+
+Regex:  \b(?=\w*gh)[A-Za-z']+?\b(?=,)
+String: (see self-reliance.txt)
+
+
+# Password must be 8-15 characters
+
+Regex:  /^.{8,15}$/
+String: "swordfish"
+
+
+# Password must be 8-15 characters and contain 1 digit
+
+Regex:  /^(?=.*\d).{8,15}$/
+String: "sword42fish"
+
+
+# Password must be 8-15 characters and contain 1 digit and 1 capital letter
+
+Regex:  /^(?=.*\d)(?=.*[A-Z]).{8,15}$/
+String: "sword42Fish"

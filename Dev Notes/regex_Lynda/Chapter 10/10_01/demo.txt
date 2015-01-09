@@ -1,0 +1,19 @@
+# Regular expression to match a year
+
+Regex:  /\d{4}/
+String: "2005 0000 9999"
+
+Regex:  /(19|20)\d\d/
+String: "2005 0000 9999 1900 2099"
+
+Regex:  /(19[5-9]\d|20[0-4]\d)/
+String: "2005 0000 9999 1900 2099 1950 2049"
+
+
+# Use anchors, delimiters, and context
+
+Regex:  /\w+/
+String: "%^@X&*!"
+
+Regex:  /^\w+$/
+String: "%^@X&*!"

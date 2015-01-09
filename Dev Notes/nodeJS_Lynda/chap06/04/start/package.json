@@ -1,0 +1,17 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.4.0",
+    "jade": "*"
+  },
+  "devDependencies": {
+    "mocha": "^2.0.1",
+    "should": "^4.1.0",
+    "supertest": "^0.14.0"
+  }
+}
