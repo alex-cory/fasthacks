@@ -17,16 +17,16 @@
      *  3.
      *
      *  Great Packages To Have
-     *  1. DashDoc   (make sure you have dashdoc installed)
-     *  2. MacTerminal  (keybinding to open currently opened file in terminal/iTerm)
-     *  3. Solarized Toggle
-     *  4. Emmet
-     *  5. Ctags
-     *  6. Path Tools   (copy + paste paths relative to current file)
-     *  7. Sublime Alignment (⌘ + ctrl + A  gives you aligned php arrays and other good alignments)
-     *  8. Advanced New File (⌘ + ⌥ + N  then type in any directory at the top of your project path.  Hit tab for autocompletion)
-     *  9. File Rename
-     *  10.
+     *  1.  DashDoc           (make sure you have dashdoc installed)
+     *  2.  MacTerminal       (keybinding to open currently opened file in terminal/iTerm)
+     *  3.  Solarized Toggle
+     *  4.  Emmet
+     *  5.  Ctags
+     *  6.  Path Tools        (copy + paste paths relative to current file)
+     *  7.  Sublime Alignment (⌘ + ctrl + A  gives you aligned php arrays and other good alignments)
+     *  8.  Advanced New File (⌘ + ⌥ + N  then type in any directory at the top of your project path.  Hit tab for autocompletion)
+     *  9.  File Rename
+     *  10. JSFormat
      *
      *  Great Settings To Have in Your "preferences.sublime-settings"
      *  1. "trim_trailing_white_space_on_save": true,
@@ -39,6 +39,8 @@
     ////// --------------------------------------------------------------------
     //  Really Useful Keybindings
     //
+    { "keys": ["super+shift+l"], "command": "js_format", "context": [{"key": "selector", "operator": "equal", "operand": "source.javascript"}] },
+
 
     /* Dash doc lookup    (Need Package: "DashDoc") |▶ TURNED OFF ▶ IN ALFRED NOW!! :) BE JEALOUS */
     {
@@ -82,12 +84,12 @@
 
 
     /* Open Current Directory in iTerm2  (Need package: "MacTerminal") */
-    {
-        "keys": ["f4"],
-        "command": "open_mac_terminal"
-    },
+    // {
+    //     "keys": ["f4"],
+    //     "command": "open_mac_terminal"
+    // },
     // Setup: Copy and paste the following line into the MacTerminal.sublime-settings
-    // { "terminal" : "iterm", }
+    // { "terminal" : "iTerm.sh" },
     // Menu: Sublime Text ▶ Preferences ▶ Package Settings ▶ MacTerminal ▶ Settings - User
 
 
@@ -473,5 +475,23 @@
     //     "command": "insert_file_directory"
     // },
 
+    // The following is for allowing Emmet to work in .jsx files
+    // Resource: http://bit.ly/1KBRuwC
+    {
+        "keys": ["tab"],
+        "command": "chain",
+        "args": {
+          "commands": [
+            ["expand_abbreviation_by_tab"],
+            ["reg_replace", {"replacements": ["js_class"]}]
+          ]
+        },
+        "context": [
+          {"operand": "source.js", "operator": "equal", "match_all": true, "key": "selector"},
+          {"key": "preceding_text", "operator": "regex_contains", "operand": "(\\w+>\\w+|\\s(\\.?|a|div|span|p|button)\\.\\w+)", "match_all": true},
+          {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true}
+        ]
+
+      }
 
 ]

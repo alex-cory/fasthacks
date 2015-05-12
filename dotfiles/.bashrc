@@ -11,7 +11,6 @@ source ~/.bash_profile
 # in .zshrc to automatically run `source ~/.bashrc`
 
 
-
 # ///////////////////////////////////////////////////
 # //                 Functions	                   //
 # ///////////////////////////////////////////////////
@@ -86,10 +85,33 @@ function scpp() {
 # }
 # # alias scp='noglob scp' # to allow `*` to work. ex: scp hackingedu/* hackingedu
 
-
 # Quickly run a java file
 function java() {
 	javac ./*.java && command java $1 $2 $3 $4 $5 $6 $7 $8 $9
+}
+
+# Hide an application from ⌘ + tab
+function hctab() {
+	# if the `hctab` argument is not set
+	if [ -z "${1+xxx}" ]; then
+		# then auto hide `iterm`
+		/usr/libexec/PlistBuddy -c 'Add :LSUIElement bool true' /Applications/iTerm.app/Contents/Info.plist
+	else
+		# then perform basic hide the specified application
+		/usr/libexec/PlistBuddy -c 'Add :LSUIElement bool true' /Applications/$1/Contents/Info.plist
+	fi
+}
+
+# Unhide an application from ⌘ + tab
+function uhctab() {
+	# if the `hctab` argument is not set
+	if [ -z "${1+xxx}" ]; then
+		# then auto hide `iterm`
+		/usr/libexec/PlistBuddy -c 'Add :LSUIElement bool true' /Applications/iTerm.app/Contents/Info.plist
+	else
+		# then perform basic hide the specified application
+		/usr/libexec/PlistBuddy -c 'Add :LSUIElement bool true' /Applications/$1/Contents/Info.plist
+	fi
 }
 
 # Fast SSH
@@ -121,6 +143,15 @@ function k() {
 		# then perform basic `kill` command
 		kill $1
 	fi
+}
+
+# Displays Internal & External IP Address
+function myip() {
+                                       # en0 represents the network interface to use
+	N_IP=`ipconfig getifaddr en0`      # (also known as Local or Private IP, System Preferences ▶ Network ▶ view your IP)
+	E_IP=`curl -sS ipecho.net/plain`   # (also known as Public IP, the one that our ISP provides, whatismyip.com)
+	echo 'Network/Private IP     Public IP'
+	echo $N_IP'               '$E_IP
 }
 
 
@@ -170,13 +201,15 @@ alias gitignore='open -a Sublime\ Text ~/.gitignore'
 #  Vim
 alias vims='open -a Sublime\ Text ~/.vimrc'
 alias vimt='$LOCAL_REPOS/dotfiles/vimrc'
-# ~/.vimrc'
+# ~/.vimrc
 alias vimlocalconf='open -a Sublime\ Text ~/.vim/vimrc.local'
 alias vimcustomconf='open -a Sublime\ Text ~/.vim/vimrc.custom'
+alias vimrc='vim ~/.vimrc'
 
 #  Zsh
 alias zshs='open -a Sublime\ Text ~/.zshrc'
 alias zsht='vim ~/.zshrc'
+
 #  SSH
 alias sshconf='open -a Sublime\ Text ~/.ssh/config'
 
@@ -197,6 +230,9 @@ alias apache-error-log='tail -f /Applications/MAMP/logs/apache_error.log'
 
 # Open in Sublime Text
 alias subl='open -a Sublime\ Text'
+
+# Open in Brackets
+alias br='open -a Brackets'
 
 # Open in Finder
 alias finder='open .'
@@ -220,6 +256,27 @@ alias i='brew install'
 
 # Heroku
 alias h='heroku'
+
+# Show Hidden Files in Finder
+alias show='defaults write com.apple.finder AppleShowAllFiles -bool TRUE && killall Finder'
+
+# Hide Hidden Files in Finder
+alias hide='defaults write com.apple.finder AppleShowAllFiles -bool FALSE && killall Finder'
+
+# Display last time you restarted you mac
+# uptime
+
+# Restart Your Mac Immediately
+alias restartme='sudo shutdown -r now'
+
+# Shut Down You Mac Immediately
+alias shutmedown='sudo shutdown -h now'
+
+# Keep Your Mac Awake Indefinitely
+# caffeinate
+
+# Keep Your Mac Awake For 600 Seconds
+# caffeinate -u -t 600
 
 
 # Quick Path Reference Aliases / Functions  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -274,6 +331,16 @@ function dn() {
 # GitHub Aliases / Functions  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Git Yolo
 alias yolo='git commit -am "DEAL WITH IT" && git push -f origin master'
+
+
+# Pretty Git Log All
+alias gla="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+# alias gl1="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+
+# Pretty Git Log All Detailed
+alias glad="git log --graph --abbrev-commit --decorate --date=relative --all"
+
+
 
 # Git Quick Update Pull & Push  (gacpp = git <add> <commit> <pull> <push>)
 function gacpp() {

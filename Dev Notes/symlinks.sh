@@ -4,6 +4,7 @@
 # [c] Symbolic links refer to a symbolic path indicating the abstract location of another file
 # [d] Hard links, refer to the specific location of physical data.
 
+# ..gle Drive/_Server_/Developer❯ ln -s ./git\ repositories/fasthacks/Dev\ Notes ./Dev\ Notes     <worked. There was no directory called Dev\ Notes when doing this command
 
 ## --== UNIX create a symbolic link command ==--
 # - - - - - - - - - EXAMPLE - - - - - - - - - -
