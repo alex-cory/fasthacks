@@ -26,6 +26,7 @@ function no_pw_allowed() {
 	# IF YOU NEED A NEW SSH KEY use command below
 	#              ssh-keygen -t rsa
 	# ref:         (http://goo.gl/6ccvfJ)
+	# TODO: find the built in function
 }
 
 # Remotely edit remote files in Vim locally
@@ -193,7 +194,7 @@ alias mysqlconf='open -a Sublime\ Text ~/.my.cnf'
 alias apacheconf='open -a Sublime\ Text /etc/apache2/httpd.conf'
 
 #  Git
-alias gitconf='open -a Sublime\ Text ~/.gitconfig'
+alias gits='open -a Sublime\ Text ~/.gitconfig'
 
 # Git Ignore
 alias gitignore='open -a Sublime\ Text ~/.gitignore'
@@ -332,6 +333,11 @@ function dn() {
 # Git Yolo
 alias yolo='git commit -am "DEAL WITH IT" && git push -f origin master'
 
+# Git Branch (shows the git branches)
+alias gb='git branch'
+
+# Git Checkout
+alias gch='git checkout'
 
 # Pretty Git Log All
 alias gla="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
@@ -339,8 +345,6 @@ alias gla="git log --graph --abbrev-commit --decorate --format=format:'%C(bold b
 
 # Pretty Git Log All Detailed
 alias glad="git log --graph --abbrev-commit --decorate --date=relative --all"
-
-
 
 # Git Quick Update Pull & Push  (gacpp = git <add> <commit> <pull> <push>)
 function gacpp() {

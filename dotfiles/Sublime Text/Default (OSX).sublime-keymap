@@ -27,6 +27,7 @@
      *  8.  Advanced New File (⌘ + ⌥ + N  then type in any directory at the top of your project path.  Hit tab for autocompletion)
      *  9.  File Rename
      *  10. JSFormat
+     *  11. FuzzyPath
      *
      *  Great Settings To Have in Your "preferences.sublime-settings"
      *  1. "trim_trailing_white_space_on_save": true,
@@ -120,11 +121,15 @@
 
 
     /* Reindent your code by selecting what you want reindented.  Very good time saver! Especially with CSS files */
+    // {
+    //     "keys": ["super+shift+l"],
+    //     "command": "reindent",
+    //     "args": {"single_line": false}
+    // },
+    /* Code Prettifier!       (CodeFormatter package required: http://bit.ly/1FaYvmV) */
     {
-        "keys": ["super+shift+r"],
-        "command": "reindent"
+        "keys": ["super+shift+l"], "command": "code_formatter"
     },
-
 
 
     // Setup: Below is the path to where to put the macro file

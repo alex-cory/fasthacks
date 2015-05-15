@@ -8,13 +8,15 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"SFTP",
-		"Vintage",
 		"Markdown",
-		"ApacheConf.tmLanguage",
-		"SmartMarkdown",
+		"Vintage",
+		"Markdown Preview",
 		"Jade Snippets",
-		"Markdown Preview"
+		"SFTP",
+		"HTML-CSS-JS Prettify",
+		"Terminal",
+		"ApacheConf.tmLanguage",
+		"SmartMarkdown"
 	],
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
