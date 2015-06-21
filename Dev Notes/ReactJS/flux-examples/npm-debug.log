@@ -1,0 +1,19 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@2.1.10
+3 info using node@v0.10.33
+4 verbose node symlink /usr/local/bin/node
+5 error install Couldn't read dependencies
+6 verbose stack Error: ENOENT, open '/Users/AlexCory/GoogleDrive/_Server_/Developer/git repositories/fasthacks/Dev Notes/ReactJS/flux-examples/package.json'
+7 verbose cwd /Users/AlexCory/GoogleDrive/_Server_/Developer/git repositories/fasthacks/Dev Notes/ReactJS/flux-examples
+8 error Darwin 14.3.0
+9 error argv "node" "/usr/local/bin/npm" "install"
+10 error node v0.10.33
+11 error npm  v2.1.10
+12 error path /Users/AlexCory/GoogleDrive/_Server_/Developer/git repositories/fasthacks/Dev Notes/ReactJS/flux-examples/package.json
+13 error code ENOPACKAGEJSON
+14 error errno 34
+15 error package.json ENOENT, open '/Users/AlexCory/GoogleDrive/_Server_/Developer/git repositories/fasthacks/Dev Notes/ReactJS/flux-examples/package.json'
+15 error package.json This is most likely not a problem with npm itself.
+15 error package.json npm can't find a package.json file in your current directory.
+16 verbose exit [ 34, true ]

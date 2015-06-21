@@ -19,6 +19,8 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Reference: (http://goo.gl/VWXjH)
 
+# For Autojump to work properly
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ## Zsh Themes
