@@ -8,14 +8,14 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Vintage",
-		"Terminal",
 		"ApacheConf.tmLanguage",
 		"SmartMarkdown",
 		"SFTP",
+		"HTML-CSS-JS Prettify",
+		"Terminal",
 		"Markdown Preview",
 		"Jade Snippets",
-		"HTML-CSS-JS Prettify",
+		"Vintage",
 		"Markdown"
 	],
 	"line_padding_bottom": 1,

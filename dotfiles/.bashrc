@@ -10,6 +10,10 @@ source ~/.bash_profile
 # Quick Sourcing
 alias src='source ~/.bashrc'
 
+# Path References
+KARABINER_EXAMPLES='/Users/AlexCory/GoogleDrive/_Server_/Developer/tool enhancers/Karabiner-master/src/core/server/Resources/include/checkbox'
+KARABINER_PRIVATE='/Users/AlexCory/Library/Application Support/Karabiner/private.xml'
+
 # Since I'm using Zsh as my main shell I put the command `source ~/.bashrc`
 # in .zshrc to automatically run `source ~/.bashrc`
 
@@ -39,7 +43,7 @@ function swap()
 
 exists() {
   if test -e "$1"; then
-    echo "Alright man... it's there" >&2
+    echo "Alright man... it" >&2
   else
     echo "Yuck! Where is it??" >&2
     exit 1
@@ -75,6 +79,14 @@ update() {
   gem update --system;
 }
 
+# Update Dotfiles Repo
+ud() {
+  cd /Users/AlexCory/GoogleDrive/_Server_/Developer/git\ repositories/fasthacks
+  git commit -am 'quick update'
+  git pull origin master
+  git push origin master
+}
+
 # Pretty Curl    (Dependencies: http://stedolan.github.io/jq/)
 function curl() {
   command curl $@ | jq '.'
@@ -94,7 +106,7 @@ man() {
 }
 
 # Colorful Cat
-cat() {
+ccat() {
     local out colored
     out=$(/bin/cat $@)
     colored=$(echo $out | pygmentize -f console -g 2>/dev/null)
@@ -353,6 +365,9 @@ alias bt='vim ~/.bashrc'
 alias bashprofs='open -a Sublime\ Text ~/.bash_profile'
 alias bashproft='vim ~/.bash_profile'
 alias bpt='vim ~/.bash_profile'
+
+# Karabiner
+alias kt='mvim $KARABINER_PRIVATE'
 
 #  PHP
 alias phps='open -a Sublime\ Text /Applications/MAMP/bin/php/php5.5.10/conf/php.ini'
@@ -618,7 +633,29 @@ function lr() {
 # Connect to MySQL
 alias cmysql='mysql -u root -p -h 127.0.0.1 -P 3306'
 
+# NPM Quickes   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Start
+alias ns='npm start'
 
+# Run
+alias nr='npm run'
+
+# Install
+alias ni='npm install'
+
+# Fix Issues --Hard
+nfh() {
+  rm -rf ./node_modules
+  npm clear cache
+  npm clean cache
+  npm install
+}
+
+# Fix Issues
+nfhh() {
+  npm clear cache
+  npm clean cache
+}
 
 # Case-Specific Functions = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
@@ -655,6 +692,7 @@ alias cmysql='mysql -u root -p -h 127.0.0.1 -P 3306'
 
 # JQ:
 # - color output
+# - Learn:   https://jqplay.org/
 # - Details: http://stedolan.github.io/jq/
 # - Install: http://stedolan.github.io/jq/
 
