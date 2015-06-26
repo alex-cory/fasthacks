@@ -79,6 +79,14 @@ update() {
   gem update --system;
 }
 
+# Update Dotfiles Repo
+ud() {
+  cd /Users/AlexCory/GoogleDrive/_Server_/Developer/git\ repositories/fasthacks
+  git commit -am 'quick update'
+  git pull origin master
+  git push origin master
+}
+
 # Pretty Curl    (Dependencies: http://stedolan.github.io/jq/)
 function curl() {
   command curl $@ | jq '.'
@@ -625,7 +633,29 @@ function lr() {
 # Connect to MySQL
 alias cmysql='mysql -u root -p -h 127.0.0.1 -P 3306'
 
+# NPM Quickes   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Start
+alias ns='npm start'
 
+# Run
+alias nr='npm run'
+
+# Install
+alias ni='npm install'
+
+# Fix Issues --Hard
+nfh() {
+  rm -rf ./node_modules
+  npm clear cache
+  npm clean cache
+  npm install
+}
+
+# Fix Issues
+nfhh() {
+  npm clear cache
+  npm clean cache
+}
 
 # Case-Specific Functions = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
