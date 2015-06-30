@@ -21,11 +21,9 @@ KARABINER_PRIVATE='/Users/AlexCory/Library/Application Support/Karabiner/private
 # Reusabe = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 # TODO: Quick Notes Function
-#function n() {
-  #if [ "$1" = 'git' ]; then
-    #mvim
-  #fi
-#}
+n() {
+  ls /Users/AlexCory/GoogleDrive/_Server_/Developer/Dev\ Notes/ | less
+}
 
 # TODO: fix the commenting
 function swap()
@@ -33,8 +31,8 @@ function swap()
     local TMPFILE=tmp.$$
 
     [ $# -ne 2 ] && echo "swap: 2 arguments needed" && return 1
-    [ ! -e $1 ] && echo "swap: $1 does not exist" && return 1
-    [ ! -e $2 ] && echo "swap: $2 does not exist" && return 1
+    [ ! -e "$1" ] && echo "swap: $1 does not exist" && return 1
+    [ ! -e "$2" ] && echo "swap: $2 does not exist" && return 1
 
     mv "$1" $TMPFILE
     mv "$2" "$1"
@@ -51,21 +49,21 @@ exists() {
 }
 
 # TODO: fix the commenting
-function extract()      # Handy Extract Program
+x()      # Handy Extract Program
 {
-    if [ -f $1 ] ; then
+    if [ -f "$1" ] ; then
         case $1 in
-            *.tar.bz2)   tar xvjf $1     ;;
-            *.tar.gz)    tar xvzf $1     ;;
-            *.bz2)       bunzip2 $1      ;;
-            *.rar)       unrar x $1      ;;
-            *.gz)        gunzip $1       ;;
-            *.tar)       tar xvf $1      ;;
-            *.tbz2)      tar xvjf $1     ;;
-            *.tgz)       tar xvzf $1     ;;
-            *.zip)       unzip $1        ;;
-            *.Z)         uncompress $1   ;;
-            *.7z)        7z x $1         ;;
+            *.tar.bz2)   tar xvjf "$1"     ;;
+            *.tar.gz)    tar xvzf "$1"     ;;
+            *.bz2)       bunzip2 "$1"      ;;
+            *.rar)       unrar x "$1"      ;;
+            *.gz)        gunzip "$1"       ;;
+            *.tar)       tar xvf "$1"      ;;
+            *.tbz2)      tar xvjf "$1"     ;;
+            *.tgz)       tar xvzf "$1"     ;;
+            *.zip)       unzip "$1"        ;;
+            *.Z)         uncompress "$1"   ;;
+            *.7z)        7z x "$1"         ;;
             *)           echo "'$1' cannot be extracted via >extract<" ;;
         esac
     else
@@ -89,19 +87,19 @@ ud() {
 
 # Pretty Curl    (Dependencies: http://stedolan.github.io/jq/)
 function curl() {
-  command curl $@ | jq '.'
+  command curl "$@" | jq '.'
 }
 
 # Colorful Man Pages
 man() {
     env \
-    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-    LESS_TERMCAP_md=$(printf "\e[1;31m") \
-    LESS_TERMCAP_me=$(printf "\e[0m") \
-    LESS_TERMCAP_se=$(printf "\e[0m") \
-    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-    LESS_TERMCAP_ue=$(printf "\e[0m") \
-    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    LESS_TERMCAP_mb="$(printf "\e[1;31m")" \
+    LESS_TERMCAP_md="$(printf "\e[1;31m")" \
+    LESS_TERMCAP_me="$(printf "\e[0m")" \
+    LESS_TERMCAP_se="$(printf "\e[0m")" \
+    LESS_TERMCAP_so="$(printf "\e[1;44;33m")" \
+    LESS_TERMCAP_ue="$(printf "\e[0m")" \
+    LESS_TERMCAP_us="$(printf "\e[1;32m")" \
     man "$@"
 }
 
@@ -307,7 +305,7 @@ function ssh() {
 # Arguments:
 #   			$1: File Name
 #######################################
-function pfind() {
+function f() {
 	find . -name $1 -print
 }
 
@@ -553,8 +551,40 @@ alias gb='git branch'
 # Git Checkout
 alias gch='git checkout'
 
-# Git Commit All Message
-alias gcm='git commit -am'
+# Git Pull Push
+gpp() {
+  git pull origin $1
+  git push origin $1
+}
+
+# Git Pull
+gpl() {
+  git pull origin $1
+}
+
+# Git Update Master
+function gum() {
+  if [ "$#" -ne 1 ]; then
+    # if argument is most likely being used for an operator (i.e. git commit `-am`  )
+    if [[ ${#1} -le 5 && ${1} == *"-"* ]]; then # contains a -
+      git commit "$1"am 'quickly pulling in changes to master'
+      git checkout master
+      git pull origin master
+    else
+      git commit -am $1
+      git checkout master
+      git pull origin master
+    fi
+  elif [ "$#" -ne 2 ]; then
+    git commit "$1"am $2
+    git checkout master
+    git pull origin master
+  else
+    git commit -am 'quickly pulling in changes to master'
+    git checkout master
+    git pull origin master
+  fi
+}
 
 # Pretty Git Log
 alias glog='git log --graph -C -M --pretty=format:"<%h> %ad [%an] %Cgreen%d%Creset %s" --all --date=short'
@@ -574,7 +604,11 @@ alias glad="git log --graph --abbrev-commit --decorate --date=relative --all"
 
 # Git Add Commit All (gacpp = git <add> <commit> <pull> <push>)
 function gac() {
-    git add --all && git commit -am $1
+    if [ "$#" -ne 1 ]; then
+      git commit -am $1
+    elif [ "$#" -ne 2 ]; then
+      git commit -"$1"am $2
+    fi
 }
 
 #Git Push Origin <branch>
@@ -640,11 +674,17 @@ alias ns='npm start'
 # Run
 alias nr='npm run'
 
+# Lint
+alias nrl='npm run lint'
+
 # Install
 alias ni='npm install'
 
+# Install and Start
+alias nis='npm install && npm start'
+
 # Fix Issues --Hard
-nfh() {
+nf() {
   rm -rf ./node_modules
   npm clear cache
   npm clean cache
@@ -652,7 +692,7 @@ nfh() {
 }
 
 # Fix Issues
-nfhh() {
+nfh() {
   npm clear cache
   npm clean cache
 }
