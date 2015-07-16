@@ -118,6 +118,9 @@ function update() {
 
 # Update Dotfiles Repo
 function ud() {
+  # export keyboard layout to location in dotfiles repo
+  "$KARABINER" export > "$KARABINER_IMPORT";
+  # sync the local dotfiles repo with remote
   cd "$DOT_PATH";
   if [ "$#" == 1 ]; then
     git commit -am "$1";
@@ -436,7 +439,7 @@ alias ke='mvim $KARABINER_EXAMPLES'
 alias kk='mvim $KARABINER_KEY_CODES'
 
 # Karabiner CLI  (notes: http://bit.ly/1I1clek)
-alias k='/Applications/Karabiner.app/Contents/Library/bin/karabiner'
+alias k="$KARABINER"
 
 # ToDo
 alias td='$HOME' #TODO: aggregates a list of all todos in all dotfiles with filename and reference.  Kind of like the output of silver_searcher
