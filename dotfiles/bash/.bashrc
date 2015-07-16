@@ -120,7 +120,7 @@ function update() {
 function ud() {
   cd "$DOT_PATH";
   if [ "$#" == 1 ]; then
-    git commit -am "$@";
+    git commit -am "$1";
   else
     git commit -am 'quick update';
   fi

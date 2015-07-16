@@ -1,26 +1,7 @@
 #!/bin/bash
-# git_helpers.sh
+# git_shortcuts.sh
 
 # GitHub Aliases / Functions  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# if [ -d .git ]; then
-#   echo .git;
-# else
-#   git rev-parse --git-dir 2> /dev/null;
-# fi;
-
-# if git rev-parse --git-dir > /dev/null 2>&1; then
-#   : # This is a valid git repository (but the current working
-#     # directory may not be the top level.
-#     # Check the output of the git rev-parse command if you care)
-# else
-#   : # this is not a git repository
-# fi
-
-# Globals Within Git - - - - - - - - - - -
-# if on branch top
-#  - - - - - - - - - - - - - - - - - - - -
-# TODO: GET WORKING ONLY WHEN IN GIT REPO
 
 # Set Global Git Ignore  (help: http://bit.ly/1DhMjhi)
 alias set_global_gitignore="git config --global core.excludesfile '~/.gitignore'"
