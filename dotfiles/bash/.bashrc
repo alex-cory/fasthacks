@@ -119,16 +119,14 @@ function update() {
 # Update Dotfiles Repo
 function ud() {
   cd "$DOT_PATH";
-  echo "$DOT_PATH"
-  # if [ "$#" == 1 ]; then
-  #   git commit -am "$1";
-  # else
-  #   git commit -am 'quick update';
-  # fi
-  # git pull origin "$HEAD";
-  # git push origin "$HEAD";
+  if [ "$#" == 1 ]; then
+    git commit -am "$1";
+  else
+    git commit -am 'quick update';
+  fi
+  git pull origin "$HEAD";
+  git push origin "$HEAD";
   cd -;
-  echo pwd
 }
 
 # Pretty Curl    (Dependencies: http://stedolan.github.io/jq/)
