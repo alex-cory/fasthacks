@@ -123,9 +123,9 @@ function ud() {
   # sync the local dotfiles repo with remote
   cd "$DOT_PATH";
   if [ "$#" == 1 ]; then
-    git commit -am "$1";
+    git commit -a -m "$1";
   else
-    git commit -am 'quick update';
+    git commit -a -m 'quick update';
   fi
   git pull origin "$HEAD";
   git push origin "$HEAD";

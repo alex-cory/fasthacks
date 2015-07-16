@@ -10,7 +10,7 @@ alias set_global_gitignore="git config --global core.excludesfile '~/.gitignore'
 alias my_global_gitignore="git config --get core.excludesfile"
 
 # Git Yolo
-alias yolo='git commit -am "DEAL WITH IT" && git push -f origin master'
+alias yolo='git commit -a -m "DEAL WITH IT" && git push -f origin master'
 
 # Git Branch (shows the git branches)
 alias gb='git branch'
@@ -96,7 +96,7 @@ alias glad="git log --graph --abbrev-commit --decorate --date=relative --all"
 function gac() {
   # if 1 argument (i.e. gac `you commit message`)
   if [ "$#" == 1 ]; then
-    git commit -am "$1"
+    git commit -a -m "$1"
     # if 2 arguments (i.e. gac `-n` "your commit message")
   elif [ "$#" == 2 ]; then
     git commit "$1"am "$2"
@@ -120,7 +120,7 @@ alias gcm="git checkout master"
 function gacpp() {
   # if 1 argument (i.e. gac `you commit message`)
   if [ "$#" == 1 ]; then
-    git commit -am "$1"
+    git commit -a -m "$1"
     # if 2 arguments (i.e. gac `-n` "your commit message")
   elif [ "$#" == 2 ]; then
     git commit "$1"am "$2"
@@ -131,14 +131,14 @@ function gacpp() {
 
 # Git Quick Update Pull & Push  (gacfrp = git <add> <commit> <fetch> <rebase> <force push>)
 function gacfrp() {
-  git add --all && git commit -am "$1" && git fetch && git rebase origin "$2" && git push -f origin "$3"
+  git add --all && git commit -a -m "$1" && git fetch && git rebase origin "$2" && git push -f origin "$3"
 }
 
 # Git Quick Add Commit Push
 function gacp() { # EX: gacp "commit message" branchName
   # if 1 argument (i.e. gac `you commit message`)
   if [ "$#" == 1 ]; then
-    git commit -am "$1"
+    git commit -a -m "$1"
     # if 2 arguments (i.e. gac `-n` "your commit message")
   elif [ "$#" == 2 ]; then
     git commit "$1"am "$2"
