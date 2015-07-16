@@ -70,8 +70,8 @@
   - a Unix command used to search files for the occurrence of a string of characters that matches a specified pattern.
   - Website: https://kb.iu.edu/d/abnd
 ### SuperAgent
-  - Super Agent is light-weight progressive ajax API crafted for flexibility, 
-    readability, and a low learning curve after being frustrated with many of 
+  - Super Agent is light-weight progressive ajax API crafted for flexibility,
+    readability, and a low learning curve after being frustrated with many of
     the existing request APIs.
   - It's basically a nice simple way to make http requests to apis.
   - Website: http://bit.ly/1LjeEf1
@@ -116,3 +116,9 @@
   ###
     -
     -
+
+### Cool Programs for Terminal
+  ### fswatch
+    - This is a small program that monitors a specified directory for file changes
+      and executes a shell command if some file in selected directory is updated
+
