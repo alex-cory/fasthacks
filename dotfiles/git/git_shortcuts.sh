@@ -16,11 +16,6 @@
 # else
 #   : # this is not a git repository
 # fi
-HEAD=$(git rev-parse --abbrev-ref HEAD)
-# if on commit hash
-if [[ $HEAD == 'HEAD' ]]; then
-  HEAD=$(cat .git/HEAD)
-fi
 
 # Globals Within Git - - - - - - - - - - -
 # if on branch top
