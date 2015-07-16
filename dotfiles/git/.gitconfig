@@ -1,0 +1,12 @@
+[user]
+	name = alex-cory
+	email = alexcoryregister@gmail.com
+
+[alias]
+    ch = checkout
+    gb = branch
+
+# How To Alias: http://bit.ly/1EBiTKx
+# Example Git Config: https://gist.github.com/pksunkara/988716
+[push]
+	default = simple

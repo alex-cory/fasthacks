@@ -1,0 +1,34 @@
+source "/etc/privates" # private paths
+# =========================================================================
+#                         ENVIRONMENT VARIABLES                           #
+# =========================================================================
+
+export GLOBALS="/etc/globals"
+
+export COLORS="/Users/`whoami`/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/bash/colors"
+
+export DOT_PATH="/Users/`whoami`/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles"
+
+export LOCAL_PATH_TO_SSH_KEY="/Users/`whoami`/.ssh/id_rsa.pub"
+
+export LOCAL_REPOS="/Users/`whoami`/GoogleDrive/_Server_/Developer/git_repositories"
+
+export DEV_PATH="/Users/`whoami`/GoogleDrive/_Server_/Developer"
+
+export KARABINER_EXAMPLES="$DEV_PATH/tool enhancers/Karabiner-master/src/core/server/Resources/include/checkbox"
+
+export KARABINER_PRIVATE="/Users/`whoami`/Library/Application Support/Karabiner/private.xml"
+
+export GIT_SHORTCUTS="$DOT_PATH/git/git_shortcuts.sh"
+
+export NPM_SHORTCUTS="$DOT_PATH/npm_shortcuts.sh"
+
+export CITRIX="/etc/.citrix"
+
+# =========================================================================
+#                              AUTO SOURCE                                #
+# =========================================================================
+source "$COLORS"
+source "$GIT_SHORTCUTS"
+source "$NPM_SHORTCUTS"
+source "$CITRIX"
