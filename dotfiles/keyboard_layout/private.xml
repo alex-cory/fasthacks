@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>Power Keys (also to help w/ carpal tunnel)</name>
+    <appendix>Ideas:</appendix>
+    <appendix>KEYBOARD LAYOUT THAT REVERSES COMMAND/CTRL/OPTION/SHIFT/TAB</appendix>
+    <appendix>Vim nav: after holding spacebar for X amount of time, on key up spit out a G for vim</appendix>
+    <appendix>escape: combinations (A: hold `f` and press `e`) AND (B: hold `j` and tap `i`)</appendix>
+    <appendix>shift: hold `o` OR `w`</appendix>
+    <appendix>Hold Space left or right bracket is end or beginning of line</appendix>
+    <appendix>Application Switcher: hold `e` willn `[`=cmd+tab OR `spacebar`=cmd+tilda</appendix>
+    <appendix>Vim: hold `f`willn `[`=cmd+tab OR `spacebar`=cmd+tilda</appendix>
+    <appendix>-----------------------------------------------------------------------</appendix>
+    <appendix>hold `d` down for control and `u` for control 'quick navigating in vim'</appendix>
+    <appendix>hold down right bracket for ctrl+cmd || ctrl+alt || cmd+alt || cmd+shift</appendix>
+    <appendix>come up with a programmers mode</appendix>
+    <!-- <item> -->
+    <!--   <name>Key 8 to `shift_r + option_r + command_r`</name> -->
+    <!--   <appendix></appendix> -->
+    <!--   <identifier>remap.eight2commandOptionShift</identifier> -->
+    <!--   <autogen>__KeyOverlaidModifier__ KeyCode::KEY_8, KeyCode::SHIFT_R, ModifierFlag::OPTION_R, ModifierFlag::COMMAND_R, Option::NOREPEAT, KeyCode::KEY_8</autogen> -->
+    <!-- </item> -->
+    <!-- <item> -->
+    <!--   <name>Key `shift_r + option_r + command_r + space` to `command tab`</name> -->
+    <!--   <appendix></appendix> -->
+    <!--   <identifier>remap.commandShiftOptionSpace2commandTabR</identifier> -->
+    <!--   <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_R, ModifierFlag::OPTION_R, ModifierFlag::COMMAND_R, ModifierFlag::SPACE, Option::NOREPEAT, KeyCode::COMMAND_R, ModifierFlag::TAB</autogen> -->
+    <!-- </item> -->
+    <item>
+      <name>Single Quote to Control_L</name>
+      <appendix>(+ When you hold Single Quote, send Control_L. If you tap, send Single Quote)</appendix>
+      <identifier>remap.singleQuoteOnHold2Control_L</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::QUOTE, KeyCode::CONTROL_L, Option::NOREPEAT, KeyCode::QUOTE</autogen>
+    </item>
+    <item>
+      <name>Key 1 to Control_L</name>
+      <appendix></appendix>
+      <identifier>remap.one2commandLcontrolLonHold</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::F1, KeyCode::CONTROL_L, Option::NOREPEAT, KeyCode::F1</autogen>
+    </item>
+    <item>
+      <name>Key 2 to Option Right on Hold</name>
+      <appendix></appendix>
+      <identifier>remap.two2tabOnHold</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::F2, KeyCode::OPTION_L, Option::NOREPEAT, KeyCode::F2</autogen>
+    </item>
+    <item>
+      <name>Key 3 to Command Right on Hold</name>
+      <appendix>(+ When you hold `Comma` send Command_R. If you tap, send `Comma`</appendix>
+      <identifier>remap.three2commandRonHold</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::F3, KeyCode::COMMAND_L, Option::NOREPEAT, KeyCode::F3</autogen>
+    </item>
+    <item>
+      <name>Key 0 to Option Right on Hold</name>
+      <appendix></appendix>
+      <identifier>remap.period2tabOnHold</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::F10, KeyCode::OPTION_R, Option::NOREPEAT, KeyCode::F10</autogen>
+    </item>
+    <item>
+      <name>Key 9 to Command Right on Hold</name>
+      <appendix>(+ When you hold `Comma` send Command_R. If you tap, send `Comma`</appendix>
+      <identifier>remap.comma2commandRonHold</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::F9, KeyCode::COMMAND_R, Option::NOREPEAT, KeyCode::F9</autogen>
+    </item>
+    <item>
+      <name>Left Bracket to Command + Option on Hold</name>
+      <appendix>(+ When you hold `left bracket` send Command_R. If you tap, send `Left Bracket`</appendix>
+      <identifier>remap.leftBracket2commandRonHold</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::BRACKET_LEFT, KeyCode::COMMAND_R, ModifierFlag::OPTION_R, Option::NOREPEAT, KeyCode::BRACKET_LEFT</autogen>
+    </item>
+    <!-- <item> -->
+    <!--   <name>Key 4 to Shift + Command_r on hold</name> -->
+    <!--   <appendix></appendix> -->
+    <!--   <identifier>remap.four2shiftCommand</identifier> -->
+    <!--   <autogen>__KeyOverlaidModifier__ KeyCode::KEY_4, KeyCode::COMMAND_L, ModifierFlag::SHIFT_L, Option::NOREPEAT, KeyCode::KEY_4</autogen> -->
+    <!-- </item> -->
+    <item>
+      <name>Tab to Shift + Command_r on hold</name>
+      <appendix></appendix>
+      <identifier>remap.tab2shiftCommand</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::TAB, KeyCode::COMMAND_L, ModifierFlag::SHIFT_L, Option::NOREPEAT, KeyCode::TAB</autogen>
+    </item>
+    <!-- <item> -->
+    <!--   <name>Pipe hold to fn</name> -->
+    <!--   <appendix></appendix> -->
+    <!--   <identifier>remap.pipeHold2Fn</identifier> -->
+    <!--   <autogen>__KeyOverlaidModifier__ KeyCode::BACKSLASH, ModifierFlag::FN, Option::NOREPEAT, KeyCode::BACKSLASH</autogen> -->
+    <!-- </item> -->
+    <!-- <item> -->
+    <!--   <name>Semicolon to Command_R</name> -->
+    <!--   <appendix>(+ When you hold Semicolon, send Command_R. If you tap, send Semicolon)</appendix> -->
+    <!--   <identifier>remap.semicolonOnHold2Command_R</identifier> -->
+    <!--   <autogen>__KeyOverlaidModifier__ KeyCode::SEMICOLON, KeyCode::COMMAND_R, Option::NOREPEAT, KeyCode::SEMICOLON</autogen> -->
+    <!-- </item> -->
+    <item>
+      <name>TODO: Vim: On key up go to file line. </name>
+      <appendix>(+ When holding the spacebar, on key up, if the time is long enough, spit out a capital G)</appendix>
+      <autogen>
+        __KeyToKey__
+        KeyCode::SPACE,
+        KeyCode::VK_WAIT_10MS,
+        <!-- 
+            | You can send key events in will timeout callback that is set at key up by Option::KEYTOKEY_DELAYED_ACTION.
+            | (You can adjust timeout milliseconds by Preferences > Key Repeat tab.)
+            |
+            | You can also send key events when timeout callback is cancelled.
+            | * Option::KEYTOKEY_DELAYED_ACTION_CANCELED_BY
+            | * Option::KEYTOKEY_DELAYED_ACTION_CANCELED_DEFAULT
+            |
+            | If you specify KeyCode::VK_KEYTOKEY_DELAYED_ACTION_DROP_EVENT,
+            | will pressed key will be ignored.
+            | For example, will following command sends the space key event if you interrupted timeout callback by the return key.
+            | will KeyCode::VK_KEYTOKEY_DELAYED_ACTION_DROP_EVENT suppresses the return key event.
+            | Without it, will space key and the return key events will be sent.
+            |
+            |   Option::KEYTOKEY_DELAYED_ACTION_CANCELED_BY, KeyCode::RETURN,
+            |   KeyCode::SPACE,
+            |   KeyCode::VK_KEYTOKEY_DELAYED_ACTION_DROP_EVENT,
+        -->
+        Option::KEYTOKEY_DELAYED_ACTION,
+        ConsumerKeyCode::RawValue
+      </autogen>
+    </item>
+
+    <item>
+      <!-- <identifier>remap.OonHold2Shift</identifier> -->
+      <!-- <autogen>__KeyOverlaidModifier__ KeyCode::O, KeyCode::SHIFT_R, KeyCode::O</autogen> -->
+      <!-- <identifier>remap.WonHold2Shift</identifier> -->
+      <!-- <autogen>__KeyOverlaidModifier__ KeyCode::W, KeyCode::SHIFT_L, KeyCode::W</autogen> -->
+      <!-- <item> -->
+      <!--   <name>Hold O or W as shift</name> -->
+      <!--   <appendix>(when tapping O or W they perform normally)</appendix> -->
+      <!--   <identifier vk_config="true">notsave.strongKeys</identifier> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::A, KeyCode::SHIFT_L, KeyCode::A</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::B, KeyCode::SHIFT_L, KeyCode::B</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::C, KeyCode::SHIFT_L, KeyCode::C</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::D, KeyCode::SHIFT_L, KeyCode::D</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::E, KeyCode::SHIFT_L, KeyCode::E</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::F, KeyCode::SHIFT_L, KeyCode::F</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::G, KeyCode::SHIFT_L, KeyCode::G</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::H, KeyCode::SHIFT_L, KeyCode::H</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::I, KeyCode::SHIFT_L, KeyCode::I</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::J, KeyCode::SHIFT_L, KeyCode::J</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::K, KeyCode::SHIFT_L, KeyCode::K</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::L, KeyCode::SHIFT_L, KeyCode::L</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::M, KeyCode::SHIFT_L, KeyCode::M</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::N, KeyCode::SHIFT_L, KeyCode::N</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::O, KeyCode::SHIFT_L, KeyCode::O</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::P, KeyCode::SHIFT_L, KeyCode::P</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::Q, KeyCode::SHIFT_L, KeyCode::Q</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::R, KeyCode::SHIFT_L, KeyCode::R</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::S, KeyCode::SHIFT_L, KeyCode::S</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::T, KeyCode::SHIFT_L, KeyCode::T</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::U, KeyCode::SHIFT_L, KeyCode::U</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::V, KeyCode::SHIFT_L, KeyCode::V</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::W, KeyCode::SHIFT_L, KeyCode::W</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::X, KeyCode::SHIFT_L, KeyCode::X</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::Y, KeyCode::SHIFT_L, KeyCode::Y</autogen> -->
+      <!--   <autogen>__KeyToKey__ KeyCode::Z, KeyCode::SHIFT_L, KeyCode::Z</autogen> -->
+      <!-- </item> -->
+      <!-- <item> -->
+      <!--   <name>Hold O for shift to work</name> -->
+      <!--   <identifier>remap.OtoShiftKey</identifier> -->
+      <!--   <autogen>__KeyOverlaidModifier__ KeyCode::O, KeyCode::VK_CONFIG_SYNC_KEYDOWNUP_notsave_strongKeys, KeyCode::O</autogen> -->
+      <!-- </item> -->
+    </item>
+  </item>
+</root>
