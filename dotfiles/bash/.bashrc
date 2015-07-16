@@ -672,6 +672,23 @@ alias cmysql='mysql -u root -p -h 127.0.0.1 -P 3306'
 # - Details: http://bropages.org/
 # - Install: sudo gem install bropages
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+## iTerm (move around quickly) ##
+
+# Quickly Jump to Beginning and End of Lines
+# 	set in iTerm > Preferences > Keys > Global Shortcut Keys
+#     FOR ACTION               SEND
+#     ⌘←  "Send HEX CODE"      0x01
+#     ⌘→  "Send HEX CODE"      0x05
+
+# Quickly Jump Through Words
+# 	set in iTerm > Preferences > Profiles (click profile) > Keys
+#	  FOR  ACTION         SEND
+#	  ⌥←  "SEND ESC SEQ"  b
+#	  ⌥→  "SEND ESC SEQ"  f
+
+# Reference: (http://goo.gl/VWXjH)
+
 # ///////////////////////////////////////////////////
 # //                   Other	                   //
 # ///////////////////////////////////////////////////

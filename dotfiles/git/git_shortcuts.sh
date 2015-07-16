@@ -56,8 +56,8 @@ alias gsp='git stash pop'
 
 # Git Pull Push
 function gpp() {
-  git pull origin "$1"
-  git push origin "$1"
+  git pull origin "$HEAD"
+  git push origin "$HEAD"
 }
 
 # Git Pull
