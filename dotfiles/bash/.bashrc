@@ -1,6 +1,7 @@
 # TODO: BUGFIXS
 # 1. `open` command doesn't work properly
 
+alias gstlast='git ls-files --other --modified --exclude-standard|while read filename; do  echo -n "$(stat -c%y -- $filename 2> /dev/null) "; echo $filename;  done|sort'
 # TODO:
 # - MAKE A TODOs program to display all the todo's in dotfiles
 # - Karabiner:
@@ -21,13 +22,54 @@ source "/etc/globals"
 
 # Reusabe = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
+#######################################
+# Find the path for a file in the current working tree
+# Usage Examples:
+# 				pfind file.txt
+# Arguments:
+#   			$1: File Name
+#######################################
+function f() {
+  # Find the path for a file in the current working tree
+  find . -name "$1" -print
+}
+
+# Find Last Modified  (RESOURCE: http://bit.ly/1V9bMVn)
+function flm() {
+  ignore="-not -iwholename '*.git*'"
+  if [ -z "${1+xxx}" ]; then # If no argument is set
+    # find the single most recently edited file
+    cmd="find . $ignore -type f -print0 | xargs -0 stat -f \"%m %N\" | sort -rn | head -1 | cut -f2- -d\" \""
+  elif [ "$1" == '-m' ]; then
+    # Recursively Find Last Modified File in Current Directory unless Specifiying a Path
+    cmd="find . $ignore -type f -print0 | xargs -0 gstat --format '%Y :%y %n' | sort -nr | cut -d: -f2- | head"
+  else
+    cmd="find $1 `$ignore` -type f -print0 | xargs -0 stat -f \"%m %N\" | sort -rn | head -1 | cut -f2- -d\" \""
+  fi
+  eval $cmd
+}
+
+# Open Last Screenshot Taken
+function ols() {
+  screenshot=$(lmf $SCREENSHOTS)
+  open "$screenshot"
+}
+
+# Change Screenshot Path
+function csp() {
+  if [ -z "${1+xxx}" ]; then # If no argument is set
+    echo "You must specify a path! ^_^"
+  else
+    defaults write com.apple.screencapture location "$1" &&
+    killall SystemUIServer
+  fi
+}
+
 # Run Javascript Code in AppleScript
 alias js='osascript -l JavaScript'
 
 # BUGFIX
-function open() {
-  /usr/bin/open "$@"
-}
+alias open='/usr/bin/open'
 
 # Search Google
 function ggl() {
@@ -42,10 +84,10 @@ function ggl() {
 # Quick Sourcing
 function src() {
   if [ -z "${1+xxx}" ]; then # If no argument is set
-    source /Users/`whoami`/.bashrc
+    source "$HOME/.bashrc"
     # /bin/bash -c 'source ~/.bashrc'
   else
-    source /Users/`whoami`/"$@"
+    source "$HOME/$@"
     # /bin/bash -c "source $@"
   fi
 }
@@ -347,16 +389,6 @@ function ssh() {
   fi
 }
 
-#######################################
-# Find the path for a file in the current working tree
-# Usage Examples:
-# 				pfind file.txt
-# Arguments:
-#   			$1: File Name
-#######################################
-function f() {
-  find . -name "$1" -print
-}
 
 
 #######################################
@@ -441,8 +473,21 @@ alias kk='mvim $KARABINER_KEY_CODES'
 # Karabiner CLI  (notes: http://bit.ly/1I1clek)
 alias k="$KARABINER"
 
+# Screenshot Quickref
+alias ss="cd $SCREENSHOTS"
+
 # ToDo
 alias td='$HOME' #TODO: aggregates a list of all todos in all dotfiles with filename and reference.  Kind of like the output of silver_searcher
+
+# Go To => git repositories & specific project (lr -- stands for Local Repositories)
+function lr() {
+  cd $LOCAL_REPOS/"$1";
+  # Description: $1: Project Dirctory (in other words, local repo name)
+  # Define:  path/to/local/repositories/name_of_repo
+  # Live ex: lr hackingedu
+  #
+  # This saves you from having to type out long commands to cd to a project `
+}
 
 #  PHP
 alias phpt='vim /Applications/MAMP/bin/php/php5.5.10/conf/php.ini'

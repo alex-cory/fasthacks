@@ -8,9 +8,9 @@ $cli set parameter.acceleration_of_scroll 0
 /bin/echo -n .
 $cli set remap.commandShiftOptionSpace2commandTabR 1
 /bin/echo -n .
-$cli set pointing.relative2scroll_rate 0
-/bin/echo -n .
 $cli set remap.simple_vi_mode 1
+/bin/echo -n .
+$cli set pointing.relative2scroll_rate 0
 /bin/echo -n .
 $cli set remap.shiftR2shiftR_escape 1
 /bin/echo -n .
@@ -44,23 +44,23 @@ $cli set repeat.initial_wait 250
 /bin/echo -n .
 $cli set remap.four2shiftCommand 1
 /bin/echo -n .
-$cli set remap.two2tabOnHold 1
+$cli set remap.one2commandLcontrolLonHold 1
 /bin/echo -n .
 $cli set remap.mouse_keys_mode_2 1
 /bin/echo -n .
-$cli set remap.one2commandLcontrolLonHold 1
+$cli set remap.two2tabOnHold 1
 /bin/echo -n .
 $cli set parameter.simultaneouskeypresses_delay 30
 /bin/echo -n .
-$cli set parameter.mousekey_high_speed_of_pointer 0
-/bin/echo -n .
 $cli set remap.leftBracket2commandRonHold 1
+/bin/echo -n .
+$cli set parameter.mousekey_high_speed_of_pointer 0
 /bin/echo -n .
 $cli set remap.eight2commandOptionShift 1
 /bin/echo -n .
-$cli set parameter.acceleration_of_pointer 0
-/bin/echo -n .
 $cli set option.emacsmode_controlAE_vm 1
+/bin/echo -n .
+$cli set parameter.acceleration_of_pointer 0
 /bin/echo -n .
 $cli set remap.hjkl_arrow 1
 /bin/echo -n .

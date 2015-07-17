@@ -8,13 +8,13 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Markdown",
-		"ApacheConf.tmLanguage",
 		"SmartMarkdown",
-		"SFTP",
+		"Markdown",
 		"HTML-CSS-JS Prettify",
 		"Jade Snippets",
 		"Vintage",
+		"ApacheConf.tmLanguage",
+		"SFTP",
 		"Terminal",
 		"Markdown Preview"
 	],

@@ -161,13 +161,3 @@ alias gst='git status -s'
 function gol() {
   git fetch origin && git reset --hard origin/master
 }
-
-# Go To => git repositories & specific project (lr -- stands for Local Repositories)
-function lr() {
-  cd $LOCAL_REPOS/"$1";
-  # Description: $1: Project Dirctory (in other words, local repo name)
-  # Define:  path/to/local/repositories/name_of_repo
-  # Live ex: lr hackingedu
-  #
-  # This saves you from having to type out long commands to cd to a project `
-}

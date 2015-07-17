@@ -27,6 +27,9 @@ endfunction
 command! -nargs=1 MyCommand call s:MyFunc(<f-args>)
 :nmap <leader>aa :MyCommand<CR>
 
+" Let's you search with ctrlp from within the current directory if there's no
+" .git so you're aren't searching your entire machine
+:map <leader>cf :CtrlPCurFile<CR>
 
 " Super Tab work around
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
