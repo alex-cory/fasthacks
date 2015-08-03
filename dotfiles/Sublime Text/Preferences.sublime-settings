@@ -9,14 +9,14 @@
 	"ignored_packages":
 	[
 		"SmartMarkdown",
-		"Markdown",
+		"ApacheConf.tmLanguage",
 		"HTML-CSS-JS Prettify",
 		"Jade Snippets",
-		"Vintage",
-		"ApacheConf.tmLanguage",
-		"SFTP",
+		"Markdown Preview",
 		"Terminal",
-		"Markdown Preview"
+		"SFTP",
+		"Vintage",
+		"Markdown"
 	],
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,

@@ -1,6 +1,10 @@
 [user]
 	name = alex-cory
-	email = alexcoryregister@gmail.com
+	email = results@alexcory.com
+
+[core]
+	excludesfile = ~/.gitignore
+	editor = /usr/local/bin/vim
 
 [alias]
     ch = checkout

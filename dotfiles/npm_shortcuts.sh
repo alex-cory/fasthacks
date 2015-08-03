@@ -11,6 +11,12 @@ alias ns='npm start'
 # Run
 alias nr='npm run'
 
+# Package Info
+alias ninfo='npm view'
+
+# Search Packages
+alias n:='npm search'
+
 # Lint
 alias nl='npm run lint'
 
@@ -27,10 +33,16 @@ alias nig='npm install -g'
 alias nigs="npm install -g $@ --save"
 
 # Install and Save
-alias nisv="npm install $@ --save"
+alias niss="npm install $@ --save"
 
 # Install and Start
 alias nis='npm install && npm start'
+
+# Run Test
+alias nrt='npm run test'
+
+# Test
+alias nt='npm test'
 
 # Fix Issues --Hard
 function nf() {

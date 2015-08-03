@@ -1,7 +1,0 @@
-
-
-------------------------------------------------------------------------
-ZSH tips & tricks
-
-
- the first press of the Tab key while typing a variable name will complete the variable name, the next Tab will expand the variable's value into the command-line (assuming no ambiguities in the completion).

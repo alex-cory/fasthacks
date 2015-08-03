@@ -1,7 +1,20 @@
 #!/bin/bash
 # git_shortcuts.sh
 
+# Current Branch / HEAD Commit Hash (if not on branch tip)
+HEAD=$(git rev-parse --abbrev-ref HEAD)
+# if on commit hash
+if [[ $HEAD == 'HEAD' ]]; then
+  HEAD=$(cat .git/HEAD)
+fi
+
+# Project Root
+PROJECT_ROOT=$(git rev-parse --show-toplevel)
+
 # GitHub Aliases / Functions  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Git Exclude
+alias ge="vim $PROJECT_ROOT/.git/info/exclude"
 
 # Set Global Git Ignore  (help: http://bit.ly/1DhMjhi)
 alias set_global_gitignore="git config --global core.excludesfile '~/.gitignore'"
@@ -22,12 +35,14 @@ alias gchb='git checkout -b'
 alias glm='git pull origin master'
 
 # Git Checkout
-# alias gch='git checkout'
+# TODO: add functionality where if there are changes made to current commit/branch, stash, then checkout.  Also, use gch to go back to previous commit and run stash pop
 function gch() {
   re='^[0-9]+$'
+  # if you want to go back to the last commit/branch you were at
   # EX: gch
   if [ -z "${1+xxx}" ]; then
-    git checkout HEAD~0
+    git checkout -
+  # if you want to checkout a specific head
   # EX: gch 1
   elif [[ "$1" =~ $re ]] ; then
       git checkout HEAD@{"$1"}
@@ -73,6 +88,9 @@ function gum() {
   git checkout -
 }
 
+# Git Reset
+alias grs='git reset'
+
 # Git Ref Log
 alias grf='git reflog'
 
@@ -91,6 +109,23 @@ alias gl1="git log --graph --abbrev-commit --decorate --date=relative --format=f
 
 # Pretty Git Log All Detailed
 alias glad="git log --graph --abbrev-commit --decorate --date=relative --all"
+
+# Git Amend
+function gam() {
+  # If no argument is set (i.e. gam)
+  if [ -z "${1+xxx}" ]; then 
+    git commit --amend
+  # if 1 argument (i.e. OR gam -m)
+  elif [ "$#" == 1 ] && [ "$1" == -* ]; then
+    git commit --amend "$1"
+  # if 1 argument (i.e. gam `you commit message`)
+  elif [ "$#" == 1 ] && [ "$1" != -* ]; then
+    git commit --amend -m "$1"
+  # if 2 arguments (i.e. gam -m "your commit message")
+  elif [ "$#" == 2 ] || [ "$1" == *-* ]; then
+    git commit --amend "$1" "$2"
+  fi
+}
 
 # Git Add Commit All (gac = git <add> <commit>)
 function gac() {

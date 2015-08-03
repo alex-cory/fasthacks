@@ -17,6 +17,39 @@ ZSH_THEME="nicoulaj"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Automatic Bash Alias Usage
+function ppgrep() {
+    if [[ $1 == "" ]]; then
+        PERCOL=percol
+    else
+        PERCOL="percol --query $1"
+    fi
+    ps aux | eval $PERCOL | awk '{ print $2 }'
+}
+
+function ppkill() {
+    if [[ $1 =~ "^-" ]]; then
+        QUERY=""            # options only
+    else
+        QUERY=$1            # with a query
+        [[ $# > 0 ]] && shift
+    fi
+    ppgrep $QUERY | xargs kill $*
+}
+
+function exists { which $1 &> /dev/null }
+
+if exists percol; then
+    function percol_select_history() {
+        local tac
+        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
+        BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
+        CURSOR=$#BUFFER         # move cursor
+        zle -R -c               # refresh
+    }
+
+    zle -N percol_select_history
+    bindkey '^R' percol_select_history
+fi
 
 
 # Makes Testing For Devices Anywhere
@@ -68,6 +101,8 @@ source "$HOME/.bash_profile"
 source "$DOT_PATH/bash/.bashrc" # Runs the .bash_profile & .bashrc on startup making all aliases available from the git-go
 source "$ZSH/oh-my-zsh.sh"
 
+export LESS='-R'
+export LESSOPEN='|~/.lessfilter %s'
 # Customize to your needs...
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 
@@ -76,3 +111,10 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+
+# Django
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Citrix
+# export PATH="$CITRIX_LOCAL/apache-maven-3.1.1/bin"

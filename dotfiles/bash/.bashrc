@@ -1,14 +1,15 @@
-# TODO: BUGFIXS
-# 1. `open` command doesn't work properly
-
-alias gstlast='git ls-files --other --modified --exclude-standard|while read filename; do  echo -n "$(stat -c%y -- $filename 2> /dev/null) "; echo $filename;  done|sort'
+# alias gstlast='git ls-files --other --modified --exclude-standard|while read filename; do  echo -n "$(stat -c%y -- $filename 2> /dev/null) "; echo $filename;  done|sort'
 # TODO:
-# - MAKE A TODOs program to display all the todo's in dotfiles
-# - Karabiner:
-#   - hold `d`  -> vim navigation
-#   - holde `d+f` -> command + vim navigation
-#   - hold `d+s`  -> option  + vim navigation
-# - Vim Shortcut: ⌘ +; -> end of line add semicolon
+# 1. MAKE A TODOs program to display all the todo's in dotfiles
+# 2. Karabiner:
+#    - hold `d`  -> vim navigation
+#    - holde `d+f` -> command + vim navigation
+#    - hold `d+s`  -> option  + vim navigation
+# 3. Vim Shortcut: ⌘ +; -> end of line add semicolon
+# 4. MAKE QUICK ALIAS FUNCTION: aa newAlias 'what this alias does
+# 5. quick alias/function editing
+#    - you type into the terminal: .functionName
+#    - then it opens up the corresponding file at that function name so you can quickly edit it
 
 # ////////////////////////////////////////////////////////////////////
 # //                     Bash Configuration                         //
@@ -20,7 +21,40 @@ alias gstlast='git ls-files --other --modified --exclude-standard|while read fil
 # source "globals" # Where all the custom paths for your machine are stored that are used in the functions below
 source "/etc/globals"
 
+
+# Interview Prep Quick Function
+function interviews() {
+  cd "$LOCAL_REPOS/Interviews"
+  open -a Finder "$BOOKS"
+  mvim
+  open -a Preview "$BOOKS/Cracking The Coding Interview 4th Edition.pdf"
+}
+
+# Show File/Dir Sizes for Current Directory Recursively
+alias sz='du -a -h | sort -r | less -R' # list all file sizes
+alias tsz=''
+alias szs='for entry in $(ls); do du -s "$entry"; done | sort -n'
+
+# Makes specified file an executable
+alias makeExec='chmod u+x' # notes: http://bit.ly/1VU56e2
+
 # Reusabe = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+# Shows the $PATH in a prettier format
+function path(){
+  # echo $PATH | tr -s ':' '\n'
+
+  for i in `echo $PATH | sed "s/:/ /g"`; do
+    # if [[ $(contains "$i" 'Android') == 1 ]]; then
+    #   echo ${Green}$i${Off}
+    # else
+      echo $i
+    # fi
+  done
+  # Resources:
+  # - http://bit.ly/1Jx6K08
+  # - 
+}
 
 #######################################
 # Find the path for a file in the current working tree
@@ -35,7 +69,7 @@ function f() {
 }
 
 # Find Last Modified  (RESOURCE: http://bit.ly/1V9bMVn)
-function flm() {
+function fm() {
   ignore="-not -iwholename '*.git*'"
   if [ -z "${1+xxx}" ]; then # If no argument is set
     # find the single most recently edited file
@@ -50,10 +84,10 @@ function flm() {
 }
 
 # Open Last Screenshot Taken
-function ols() {
-  screenshot=$(lmf $SCREENSHOTS)
-  open "$screenshot"
-}
+# function ols() {
+#   screenshot=$(find . "$SCREENSHOTS" -type f -print0 | xargs -0 stat -f \"%m %N\" | sort -rn | head -1 | cut -f2- -d\" \")
+#   open "$screenshot"
+# }
 
 # Change Screenshot Path
 function csp() {
@@ -65,11 +99,8 @@ function csp() {
   fi
 }
 
-# Run Javascript Code in AppleScript
-alias js='osascript -l JavaScript'
-
 # BUGFIX
-alias open='/usr/bin/open'
+# alias open='/usr/bin/open'
 
 # Search Google
 function ggl() {
@@ -141,21 +172,70 @@ function x() {     # Handy Extract Program
 }
 
 # One command to update them all
-function update() {
-  # Update
-  brew update; 
-  brew upgrade;
-  gem update --system;
-  npm update;
-  sudo npm cache clean -f;
-  sudo npm install -g n;
-  sudo n stable;
-  # Current Versions
-  echo "\n-------- Versions --------"
-  echo "${RED}$(brew -v)";
-  echo "${YELLOW}npm $(npm -v)"
-  echo "${GREEN}node $(node -v)"
-  echo "${BLUE}$(ruby -v)"
+function u() {
+  # if no args
+  if [ -z "${1+xxx}" ]; then
+    # Update
+    brew update;
+    brew upgrade --all;
+    sudo pip install --upgrade pip;
+    sudo gem update --system;
+    rvm get head;
+    npm update;
+    sudo npm cache clean -f;
+    sudo npm install -g n;
+    sudo n stable;
+    # Current Versions
+    echo "\n-------- Versions --------"
+    echo "${RED}$(brew -v)";
+    echo "${YELLOW}npm $(npm -v)"
+    echo "${GREEN}node $(node -v)"
+    echo "${BLUE}$(ruby -v)"
+    echo "${PURPLE}$(pip -V)"
+  # pip
+  elif [[ $1 == 'pip' || $1 == 'p' ]]; then
+    sudo pip install --upgrade pip
+  elif [[ $1 == 'brew' || $1 == 'b' ]]; then
+    brew update;
+    brew upgrade;
+  elif [[ $1 == 'ruby' || $1 == 'r' ]]; then
+    gem update --system;
+  elif [[ $1 == 'npm' || $1 == 'n' ]]; then
+    npm update;
+    sudo npm cache clean -f;
+    sudo npm install -g n;
+    sudo n stable;
+  elif [[ $1 == 'python' || $1 == 'py' ]]; then
+    brew upgrade python; 
+    brew cleanup python;
+    # issues? Check here: http://bit.ly/1KA1ASC
+  fi
+}
+
+# Uninstall things
+# TODO: how to get a list of all installed tools/applications
+function un() {
+  # if no args
+  if [ -z "${1+xxx}" ]; then
+    echo "${Green}I can't uninstall everything bro! What do you want me to uninstall?"
+  # pip
+  elif [[ $1 == 'pip' || $1 == 'p' ]]; then
+    echo "I haven't got pip uninstall stuff done yet 😢"
+    echo "BUT! I googled how to uninstall it for you! 😛"
+
+  elif [[ $1 == 'brew' || $1 == 'b' ]]; then
+    echo "I haven't got brew uninstall stuff done yet 😢"
+    echo "BUT! I googled how to uninstall it for you! 😛"
+  elif [[ $1 == 'ruby' || $1 == 'r' ]]; then
+    echo "I haven't got ruby uninstall stuff done yet 😢"
+    echo "BUT! I googled how to uninstall it for you! 😛"
+  elif [[ $1 == 'npm' || $1 == 'n' ]]; then
+    echo "I haven't got npm uninstall stuff done yet 😢"
+    echo "BUT! I googled how to uninstall it for you! 😛"
+  elif [[ $1 == 'python' || $1 == 'py' ]]; then
+    echo "I haven't got python uninstall stuff done yet 😢"
+    echo "BUT! I googled how to uninstall it for you! 😛"
+  fi
 }
 
 # Update Dotfiles Repo
@@ -174,9 +254,10 @@ function ud() {
   cd -;
 }
 
-# Pretty Curl    (Dependencies: http://stedolan.github.io/jq/)
+# Colorful Curl
+# Idea: always output data from curl in a pretty, color coated format
 # function curl() {
-#   command curl "$@" | jq '.'
+#   command curl "$@" | pygmentize
 # }
 
 # Colorful Man Pages
@@ -192,17 +273,123 @@ function man() {
   man "$@"
 }
 
+# Colorful Less
+alias less='pygmentize | less'
+function less() {
+  local jqError=$(contains "$(command cat $1 | jq '.' 2>&1)" 'parse error: Invalid numeric literal' OR 'No such file or directory')
+  local pygError=$(contains "$(command cat $1 | pygmentize 2>&1)" 'Error: no lexer for filename')
+
+  if [[ $1 == *.json ]] || [[ $1 == *.sublime-settings ]]; then
+
+    # If neither of them work, just us normal less
+    if [[ $jqError == 1 ]] && [[ $pygError == 1 ]]; then
+      command less
+
+    # Default to JQ
+    elif [[ $jqError != 1 ]]; then
+      jq '.' | command less
+
+    # if they both work
+    elif [[ $pygError != 1 ]] && [[ $jqError != 1 ]]; then
+      pygmentize | command less
+
+    # if only Pygments works
+    elif [[ $pygError != 1 ]] && [[ $jqError == 1 ]]; then
+      pygmentize | command less
+    fi
+
+  else
+    # if they both don't work
+    if [[ $pygError == 1 ]] && [[ $jqError == 1 ]]; then
+      command less
+    else
+      pygmentize | command less
+    fi
+  fi
+}
+# Quickly Preview a file
+function pv() {
+  local jqError=$(contains "$(command cat $1 | jq '.' 2>&1)" 'parse error: Invalid numeric literal' OR 'No such file or directory')
+  local pygError=$(contains "$(command cat $1 | pygmentize 2>&1)" 'Error: no lexer for filename')
+
+  if [[ $1 == *.json ]] || [[ $1 == *.sublime-settings ]]; then
+
+    # If neither of them work, just us normal less
+    if [[ $jqError == 1 ]] && [[ $pygError == 1 ]]; then
+      command cat $1 | command less
+
+    # Default to JQ
+    elif [[ $jqError != 1 ]]; then
+      command cat "$1" | jq '.' | command less
+
+    # if they both work
+    elif [[ $pygError != 1 ]] && [[ $jqError != 1 ]]; then
+      command cat "$1" | jq '.' | command less
+
+    # if only Pygments works
+    elif [[ $pygError != 1 ]] && [[ $jqError == 1 ]]; then
+      command cat "$1" | pygmentize | command less
+    fi
+  elif [[ $1 == .* ]]; then
+    command cat "$1" | pygmentize -l sh | command less
+
+  else
+    # if only Pygments works
+    if [[ $pygError == 1 ]] && [[ $jqError == 1 ]]; then
+      command cat $1 | command less
+    else
+      command cat "$1" | pygmentize | command less
+    fi
+  fi
+}
+
+alias grep='grep --color=auto'
+
 # Colorful Cat
-# function ccat() {
-#     local out colored
-#     out=$(/bin/cat $@)
-#     colored=$(echo $out | pygmentize -f console -g 2>/dev/null)
-#     [[ -n $colored ]] && echo "$colored" || echo "$out"
-# }
+function cat() {
+  local jqError=$(contains "$(command cat $1 | jq '.' 2>&1)" 'parse error: Invalid numeric literal' OR 'No such file or directory')
+  local pygError=$(contains "$(command cat $1 | pygmentize 2>&1)" 'Error: no lexer for filename')
+    # local out colored
+    # out=$(/bin/cat $@)
+    # colored=$(echo $out | pygmentize -f console -g 2>/dev/null)
+    # [[ -n $colored ]] && echo "$colored" || echo "$out"
+
+  #   # If neither of them work, just us normal less
+  #   if [[ $jqError == 1 ]] && [[ $pygError == 1 ]]; then
+  #     command cat $1
+  #
+  #   # Default to JQ
+  #   elif [[ $jqError != 1 ]]; then
+  #     command cat "$1" | jq '.' | command less
+  #
+  #   # if they both work
+  #   elif [[ $pygError != 1 ]] && [[ $jqError != 1 ]]; then
+  #     command cat "$1" | jq '.' | command less
+  #
+  #   # if only Pygments works
+  #   elif [[ $pygError != 1 ]] && [[ $jqError == 1 ]]; then
+  #     command cat "$1" | pygmentize | command less
+  #   fi
+  #
+  # else
+  #   # if only Pygments works
+  #   if [[ $pygError == 1 ]] && [[ $jqError == 1 ]]; then
+  #     command cat $1 | command less
+  #   else
+  #     command cat "$1" | pygmentize | command less
+  #   fi
+  if [[ $1 == *.json ]] || [[ $1 == *.sublime* ]]; then
+    command cat "$1" | jq '.'
+  elif [[ $1 == .* ]]; then
+    command cat "$1" | pygmentize -l sh
+  else
+    command cat "$1" | pygmentize
+  fi
+}
 
 
 # Create a ZIP archive of a file or folder.
-# function makezip() { zip -r "${1%%/}.zip" "$1" ; }
+function makezip() { zip -r "${1%%/}.zip" "$1" ; }
 
 #######################################
 # Automating Password Process on New Servers
@@ -238,20 +425,6 @@ function rvim() {
     vim scp://"$ALEX_SERVER_UNAME"@"$ALEX_SERVER_PORT"/"$1"
 }
 
-# TODO: make this work
-# contains() {
-#     string="$1"
-#     substring="$2"
-#     if test "${string#*$substring}" != "$string"
-#     then
-#         echo '$substring is in $string'
-#         return 1    # $substring is in $string
-#     else
-#         echo '$substring is not in $string'
-#         return 0    # $substring is not in $string
-#     fi
-# }
-
 #######################################
 # Quickly scp files in Workspace to Remote
 # This Saves you from having long commands that look like this:
@@ -269,7 +442,7 @@ function rvim() {
 #   			$2: Remote Path
 #######################################
 function scpp() {
-	scp -r $LOCAL_REPOS/$1 $ALEX_SERVER_UNAME@$ALEX_SERVER_PORT:$ALEX_REMOTE_ROOT_PATH/$2
+  scp -r $LOCAL_REPOS/$1 $ALEX_SERVER_UNAME@$ALEX_SERVER_PORT:$ALEX_REMOTE_ROOT_PATH/$2
 }
 
 # # Quickly scp files in Workspace to Remote       TODO: make it work with scp
@@ -297,19 +470,6 @@ function scpp() {
 # # alias scp='noglob scp' # to allow `*` to work. ex: scp hackingedu/* hackingedu
 
 #######################################
-# Symlink Fils & Directories
-# Usage Examples:
-# 				sym path/to/target/file/or/dir nameOfSymlink
-# Reference: 	(http://bit.ly/1PoCkS1)
-# Arguments:
-#   			$1: Target Directory of File
-#   			$2: Symlink Name
-#######################################
-# function sym() {
-# 	ln -s $1 $2
-# }
-
-#######################################
 # Quickly Run a Java File
 # Usage Examples:
 # 				java className
@@ -331,16 +491,16 @@ function java() {
 # Arguments:
 #   			$1: App Name You Want To Hide From `⌘ + tab screen`
 #######################################
-# function chide() {
-#   # if the `chide` argument is not set
-#   if [ -z "${1+xxx}" ]; then
-#           # then auto hide `iterm`
-#           /usr/libexec/PlistBuddy -c 'Add :LSUIElement bool true' /Applications/iTerm.app/Contents/Info.plist
-#   else
-#           # then perform basic hide the specified application
-#           /usr/libexec/PlistBuddy -c 'Add :LSUIElement bool true' /Applications/$1.app/Contents/Info.plist
-#   fi
-# }
+function chide() {
+  # if the `chide` argument is not set
+  if [ -z "${1+xxx}" ]; then
+    # then auto hide `iterm`
+    /usr/libexec/PlistBuddy -c 'Add :LSUIElement bool true' /Applications/iTerm.app/Contents/Info.plist
+  else
+    # then perform basic hide the specified application
+    /usr/libexec/PlistBuddy -c 'Add :LSUIElement bool true' /Applications/$1.app/Contents/Info.plist
+  fi
+}
 
 #######################################
 # Unhide an application from ⌘ + tab
@@ -351,16 +511,16 @@ function java() {
 # Arguments:
 #   			$1: App Name You Want To Unhide From `⌘ + tab screen`
 #######################################
-# function cunhide() {
-# 	# if the `cunhide` argument is not set
-# 	if [ -z "${1+xxx}" ]; then
-# 		# then auto hide `iterm`
-# 		/usr/libexec/PlistBuddy -c 'Add :LSUIElement bool true' /Applications/iTerm.app/Contents/Info.plist
-# 	else
-# 		# then perform basic hide the specified application
-# 		/usr/libexec/PlistBuddy -c 'Add :LSUIElement bool true' /Applications/$1/Contents/Info.plist
-# 	fi
-# }
+function cunhide() {
+  # if the `cunhide` argument is not set
+  if [ -z "${1+xxx}" ]; then
+    # then auto hide `iterm`
+    /usr/libexec/PlistBuddy -c 'Add :LSUIElement bool true' /Applications/iTerm.app/Contents/Info.plist
+  else
+    # then perform basic hide the specified application
+    /usr/libexec/PlistBuddy -c 'Add :LSUIElement bool true' /Applications/$1/Contents/Info.plist
+  fi
+}
 
 #######################################
 # Fast SSH
@@ -433,9 +593,39 @@ function myip() {
 # - xcrun instruments -s devices      <- lists kown devices and device id's
 
 # Editing Config Files  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# TODO: create function to handle all these
-# alias dp="vim $P"
-# alias dc="vim $C"
+
+# This helps me edit files that my user isn't the owner of
+alias edit='SUDO_EDITOR="open -FWne" sudo -e'
+
+# Open Helpers file
+alias .helpers="vim $DOT/tools/helpers.sh"
+
+# The alias that takes me here - to editing these very aliases
+alias .pr='vim ~/.profile'
+
+# I do a lot of web development, so I need to edit these non-owned files fairly often
+alias .h='vim /etc/hosts'
+alias .httpd='vim /etc/apache2/httpd.conf'
+alias .php='vim /etc/php.ini'
+alias .vh='vim /etc/apache2/extra/httpd-vhosts.conf'
+
+# edit dotfiles
+alias .dot="cd $DOT; mvim; cd -"
+
+# cli tools list
+alias .tl="vim $DOT/README.md"
+
+# open bpython config
+alias .bpy="vim $HOME/.config/bpython/config"
+
+# open .pythonrc
+alias .py="vim $HOME/.pythonrc"
+
+# open dotfile symlinks
+alias .sl="vim $DOT/tools/dotfiles.json"
+
+# open .agignore
+alias .ai="vim $DOT_PATH/.agignore"
 
 # open `b`ashrc in `t`erminal
 alias .b='vim ~/.bashrc'
@@ -452,6 +642,9 @@ alias .n='vim $NPM_SHORTCUTS'
 # Karabiner Private.xml
 alias .k='mvim $KARABINER_PRIVATE'
 
+# Karabiner Private_old.xml
+alias .ko="mvim $DOT_PATH/keyboard_layout/private_old.xml"
+
 # Git Ignore
 alias .gi='vim ~/.gitignore'
 
@@ -464,6 +657,9 @@ alias .z='vim $HOME/.zshrc'
 # Open Globals
 alias .gl="sudo vim /etc/globals"
 
+# Edit Colors
+alias .cl="vim $COLORS"
+
 # Karabiner Examples
 alias ke='mvim $KARABINER_EXAMPLES'
 
@@ -471,13 +667,25 @@ alias ke='mvim $KARABINER_EXAMPLES'
 alias kk='mvim $KARABINER_KEY_CODES'
 
 # Karabiner CLI  (notes: http://bit.ly/1I1clek)
-alias k="$KARABINER"
+alias kb="$KARABINER"
+
+# Karabiner Root Path
+alias kr="$KARABINER_REPO"
 
 # Screenshot Quickref
 alias ss="cd $SCREENSHOTS"
 
+# Faster Running osascript
+alias osa='osascript'
+
+# Spit out Colors
+alias cl='spit_colors'
+
+# Bash Colors Help
+alias clh='colors_help'
+
 # ToDo
-alias td='$HOME' #TODO: aggregates a list of all todos in all dotfiles with filename and reference.  Kind of like the output of silver_searcher
+# alias td='$HOME' #TODO: aggregates a list of all todos in all dotfiles with filename and reference.  Kind of like the output of silver_searcher
 
 # Go To => git repositories & specific project (lr -- stands for Local Repositories)
 function lr() {
@@ -489,17 +697,24 @@ function lr() {
   # This saves you from having to type out long commands to cd to a project `
 }
 
+# Quick Navigate to Trash
+alias trash='~/.Trash'
+
 #  PHP
 alias phpt='vim /Applications/MAMP/bin/php/php5.5.10/conf/php.ini'
 
 #  mySQL
-alias mysqlconf='open -a Sublime\ Text ~/.my.cnf'
+# alias mysqlconf='open -a Sublime\ Text ~/.my.cnf'
+
+# Stop mysqld
+#   - Resource: http://bit.ly/1IN9LL4
+#   - http://bit.ly/1MVUWn3
 
 #  Apache
-alias apacheconf='open -a Sublime\ Text /etc/apache2/httpd.conf'
+# alias apacheconf='open -a Sublime\ Text /etc/apache2/httpd.conf'
 
 #  SSH
-alias sshconf='open -a Sublime\ Text ~/.ssh/config'
+# alias sshconf='open -a Sublime\ Text ~/.ssh/config'
 
 # WeeChat
 alias weechatt='vim $HOME/.weechat/weechat.conf'
@@ -519,13 +734,22 @@ alias phpel='tail -f /Applications/MAMP/logs/apache_error.log'
 alias apache-error-log='tail -f /Applications/MAMP/logs/apache_error.log'
 
 # Open in Sublime Text
-alias subl='open -a Sublime\ Text'
+# alias subl='open -a Sublime\ Text'
 
 # Open in Brackets
-alias br='open -a Brackets'
+# alias br='open -a Brackets'
 
 # Quickly Edit Vim Files
 alias v='mvim'
+
+# See http://www.shellperson.net/using-sudo-with-an-alias/
+alias sudo='sudo '
+
+# Quicker Sudo
+alias s='sudo '
+
+# Quicker Exit/Quit
+alias q='exit'
 
 # Open in Finder
 alias finder='open .'
@@ -544,17 +768,116 @@ alias ll='ls -alhF'
 # Gain root access
 alias su='sudo -s'
 
+# Percol CLI Tool (http://bit.ly/1DU0dX6)
+alias p='percol'
+
+# Run Javascript Code in AppleScript
+alias ojs='osascript -l JavaScript'
+
+# Run Python Code Quickly
+alias py='bpython'
+
+# Python Manage (Django)
+alias pm='python manage.py'
+
+# Python Manage Shell (Django)
+alias pms='python manage.py shell'
+
+# Migrate Database (Django)
+alias pmg="python$@ manage.py migrate"
+
+# Make Migrations (you’re telling Django that you’ve made some changes to your models) (Django)
+alias pmkm="python manage.py makemigrations"
+
+# Checks for any problems in your project without making migrations or touching the database (Django)
+alias pch="python manage.py check"
+
+# Run Development Server (Django)
+alias prs="python manage.py runserver"
+
+# Start/Create New Python/Django App (Django)
+alias psa="python manage.py startapp"
+
+# Django Admin
+alias da='django-admin'
+
+# Django Start Project
+alias dasp='django-admin startproject'
+
+# Pyenv
+alias pe='pyenv'
+
+# Pyenv Install
+alias pei='pyenv install' # would have to do `pyenv rehash` but I installed `pyenv-pip-rehash`
+
+# Pyenv Commands
+alias pec='pyenv commands'
+
+# Pyenv Global
+alias peg='pyenv global'
+
+# Pyenv Local
+alias pel='pyenv local'
+
+# Pyenv Version
+alias pev='pyenv version'
+
+# Pyenv Versions
+alias pevs='pyenv versions'
+
+# Pip Info
+alias pinfo='pip show'
+
+# Pip Install
+alias pi='pip install'
+
+# Pip List
+alias pl='pip list'
+
+# Pip Search # POTENTIAL BUGFIX (idk if you can put semicolons in alias names)
+alias p:='pip search'
+
+# Pip Unintall
+alias pu='pip uninstall'
+
+# Easy Install
+alias ei='easy_install'
+
 # Quick Install
 alias bi='brew install'
 
-# Brew Upgrade
-alias bu='brew upgrade'
+# Brew List
+alias bl='brew list'
+
+# Brew Uninstall
+alias bu='brew uninstall'
 
 # Brew Help
 alias bh='brew --help'
 
+# Brew Update
+alias bupd='brew update'
+
+# Brew Upgrade
+alias bupg='brew upgrade'
+
+# Brew Search
+alias b:='brew search'
+
+# Brew Info
+alias binfo='brew info'
+
+# Brew
+alias b='brew'
+
 # Heroku
 alias h='heroku'
+
+# List Recursively
+alias lsr='ls -R'
+
+# History
+alias hist='history'
 
 # Show Hidden Files in Finder
 alias show='defaults write com.apple.finder AppleShowAllFiles -bool TRUE && killall Finder'
@@ -568,20 +891,11 @@ alias buildLocate='sudo launchctl load -w /System/Library/LaunchDaemons/com.appl
 # Increase cursor speed
 alias fastcursor='defaults write NSGlobalDomain KeyRepeat -int 0'
 
-# Display last time you restarted you mac
-# uptime
-
 # Restart Your Mac Immediately
 alias restartme='sudo shutdown -r now'
 
 # Shut Down You Mac Immediately
 alias shutmedown='sudo shutdown -h now'
-
-# Keep Your Mac Awake Indefinitely
-# caffeinate
-
-# Keep Your Mac Awake For 600 Seconds
-# caffeinate -u -t 600
 
 # Quick `babel-node`  (to use JavaScript ES6)
 alias bn='babel-node'
@@ -639,6 +953,12 @@ function sb() {
 	# This saves you from having to type out long commands to cd to a project
 }
 
+# Open Dev Notes in MacVim
+alias mvdn="cd $DEV_PATH/Dev\ Notes; mvim"
+
+# Open Dev Notes in Terminal Vim
+alias vdn="cd $DEV_PATH/Dev\ Notes; vim"
+
 # Go To => Dev Notes
 function dn() {
 	cd "$DEV_PATH/Dev Notes/$1"
@@ -650,89 +970,9 @@ function dn() {
 }
 
 
-
-
-# Sync Aliases  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
 # MySQL Quickies  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Connect to MySQL
 alias cmysql='mysql -u root -p -h 127.0.0.1 -P 3306'
-
-
-# ///////////////////////////////////////////////////
-# //                   Notes	                   //
-# ///////////////////////////////////////////////////
-
-
-## New Git SSH Key Github   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# cd ~/.ssh
-# ssh-keygen -t rsa -C "youremail@yomama.com"
-#
-# Or you can just type `ssh-keygen` and it will do everything for you
-#
-# Find more instructions here: (http://goo.gl/8cIfqq)
-
-## Sourcing
-# /bin/bash -c "source fileName.sh"
-
-# ///////////////////////////////////////////////////
-# //                Great CLI Tools	           //
-# ///////////////////////////////////////////////////
-
-# Autojump:
-# - A cd command that learns - easily navigate directories from the command line
-# - Details: http://git.io/vLgfd
-# - Install: brew install autojump
-
-# MTR:
-# - mtr combines the functionality of the 'traceroute' and 'ping' programs in a single network diagnostic tool.
-# - Details: http://bit.ly/1HYhOmq
-# - Install: brew install mtr
-
-# JQ:
-# - color output
-# - Learn:   https://jqplay.org/
-# - Details: http://stedolan.github.io/jq/
-# - Install: http://stedolan.github.io/jq/
-
-# HTTPIE
-# - super awesome http request color output and more
-# - Details:
-# - Install:
-
-# Whatmask:
-# -
-# - Details: http://bit.ly/1HYhOmq
-# - Install: brew install whatmask
-
-# The Silver Searcher:
-# - A code searching tool similar to ack, with a focus on speed.
-# - Details: http://git.io/d9N0MA
-# - Install: brew install the_silver_searcher
-
-# Bro Pages
-# - bro pages are a highly readable supplement to man pages
-#   bro pages show concise, common-case examples for Unix commands
-# - Details: http://bropages.org/
-# - Install: sudo gem install bropages
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-## iTerm (move around quickly) ##
-
-# Quickly Jump to Beginning and End of Lines
-# 	set in iTerm > Preferences > Keys > Global Shortcut Keys
-#     FOR ACTION               SEND
-#     ⌘←  "Send HEX CODE"      0x01
-#     ⌘→  "Send HEX CODE"      0x05
-
-# Quickly Jump Through Words
-# 	set in iTerm > Preferences > Profiles (click profile) > Keys
-#	  FOR  ACTION         SEND
-#	  ⌥←  "SEND ESC SEQ"  b
-#	  ⌥→  "SEND ESC SEQ"  f
-
-# Reference: (http://goo.gl/VWXjH)
 
 # ///////////////////////////////////////////////////
 # //                   Other	                   //

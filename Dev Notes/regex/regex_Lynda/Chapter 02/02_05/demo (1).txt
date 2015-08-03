@@ -1,9 +1,0 @@
-Regex:  /c a t/
-String: "c a t"
-
-Regex:  /a\tb/
-String: "a  b"
-
-Regex:  /c\nd/
-String: "abc
-def"
