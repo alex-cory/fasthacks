@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>Other Keyboard Remaps</name>
+    <appendix>
+      These are key remaps I made and decided not to use. I save them
+      because I may want to reuse them again in the future for either
+      actual use in my workflow or to reuse the code for building another.
+    </appendix>
+    <item>
+      <name>On Hold: Right Bracket to Command + Option</name>
+      <appendix>(+ When you hold `right bracket` send Command_R. If you tap, send `right Bracket`</appendix>
+      <identifier>remap.rightBracket2commandRonHold</identifier>
+      <autogen>
+        __KeyOverlaidModifier__
+        KeyCode::BRACKET_RIGHT,
+        KeyCode::COMMAND_R, ModifierFlag::OPTION_R, Option::NOREPEAT,
+        KeyCode::BRACKET_RIGHT
+      </autogen>
+    </item>
+    <item>
+      <name>On Hold: Left Bracket to Control_R</name>
+      <appendix>(+ When you hold `left bracket` send Command_R. If you tap, send `Left Bracket`</appendix>
+      <identifier>remap.leftBracket2control_RonHold</identifier>
+      <autogen>
+        __KeyOverlaidModifier__
+        KeyCode::BRACKET_LEFT,
+        KeyCode::CONTROL_R, Option::NOREPEAT,
+        KeyCode::BRACKET_LEFT
+      </autogen>
+    </item>
+  </item>
+</root>

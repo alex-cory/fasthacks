@@ -1,0 +1,24 @@
+String: use self-reliance.txt
+
+# Word1 near word2
+Regex:  /[Aa].*[Mm]an/
+Regex:  /[Aa](.+)[Mm]an/
+Regex:  /[Aa](?:.+)[Mm]an/
+Regex:  /[Aa](?:.+?)[Mm]an/
+
+# Use word boundaries
+Regex:  /\b[Aa]\b(?:.+?)\b[Mm]an\b/
+
+# Don't cross punctuation
+Regex:  /\b[Aa]\b(?:[^.,;]+?)\b[Mm]an\b/
+
+# Up to 20 characters between
+Regex:  /\b[Aa]\b(?:[^.,;]{1,20}?)\b[Mm]an\b/
+
+# Up to 5 words between
+Regex:  /\b[Aa]\b (?:\w+[\- :;.]){0,5}\b[Mm]an\b/
+
+# Lookahead assertions can control the match
+Regex:  /\b[Aa]\b(?= (?:\w+[\- :;.]){0,5}\b[Mm]an\b)/
+
+# Lookbehind assertions are not possible due to repetition and variable length

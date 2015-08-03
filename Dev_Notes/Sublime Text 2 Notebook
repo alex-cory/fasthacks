@@ -1,0 +1,80 @@
+
+
+
+
+
+___________________________________________________________________________________________
+Article Summaries
+
+
+10 keyboard shortcuts to become a true Sublime Text ninja: --------------------------------
+⌘ ⌥ ⇧ ◄ ► ▲ ▼			(http://goo.gl/kSBePG)
+
+
+Bookmarking  ->								sets bookmark	:	⌘ f2
+									navigate to bookmarks	: 	f2
+
+An essential part of coding is going back and forth between particular parts of your code. But remembering all the line numbers by hard is a big pain. Luckily, you don’t have to with the help of bookmarks. Use -[(   CMD+F2    )]-to set as many bookmarks as you want. Then use -[(   F2 and SHIFT+F2    )]- to jump back and forth between them.
+
+
+
+Joining and swapping lines ->					join lines	:	⌘ J 
+											swapping lines	: 	^ ⌘ ▲/▼
+
+Although the operating system already offers pretty good editing techniques such as jumping to the beginning or end of a line, Sublime Text provides a few more to speed up the most common tweaks: If you want to join the following line with the current one without having to go through all the whitespace in between, just use -[(   CMD+J   )]-. If you want to swap these lines, use -[(  CMD+CTRL+ARROW KEY  )]-. Yay!
+
+
+Multiple cursors ->						add more cursers	:	^ ⇧ ▲/▼
+
+Have you ever had to do the same modification in multiple lines of code? Could you not imagine a more elegant way of doing this than going through each of the lines one by one? Multiple cursors to the rescue! -[(   CTRL+SHIFT+ARROW KEY   )]-. will add another caret to the line above or below the current position. All subsequent commands will now be carried out simultaneously by all the cursors that you have created. This is going to save you so much time that from now on you can go home a bit earlier each day.
+
+
+Add all occurrences of the selected text to the selection 	: 	^ ⌘ G
+
+Sometimes you want to partly modify a variable name or class name globally, but using the search & replace mode with a complicated regular expression seems too much work. The command -[(   CTRL+CMD+G   )]- is like an interactive advanced search & replace: It creates a new caret at each occurrence of the search string and lets you edit them all at once, like a little ninja army carrying out your instructions. In order to get rid of all the cursors, simply use “escape”.
+
+
+Closing current HTML tag ->									:	^ M	
+							( Tag Package: https://github.com/SublimeText/Tag )
+This one is especially useful for frontend developers writing tons of HTML each day. Unless you have something like the Tag package installed, you may have wondered how to close the HTML tag you are currently in. -[(   CMD+ALT+   )]-. will do just that, saving you a few seconds per day that you can now dedicate to become a super ninja at HTML coding by learning Emmet.
+
+
+Jump to matching brackets ->								:	^ M
+							(NOT WORKING FOR ME)
+When you’re writing code in a programming language like PHP or JavaScript you happen to be inside of loops, conditions, functions or other programming constructs all the time. And the probability with which you’ll find its corresponding opening and closing bracket with your naked eye is usually proportional to how deep your current line is nested in the code. By using -[(   CTRL+M   )]- however, you can move your cursor instantly there, and hitting it twice will take you to its opening/closing counterpart. Doesn’t that just blow you over?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

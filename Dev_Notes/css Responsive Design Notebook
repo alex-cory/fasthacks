@@ -1,0 +1,76 @@
+
+--------------------------------------------------------------------------------------------
+Responsive Design Notebook
+
+
+
+Dimensions: --------------------------------------------------------------------------------------------
+
+iPhone		: 320px by 480px
+
+
+
+
+
+Implementing Media Queries: --------------------------------------------------------------------------------------------
+
+What this -- media='screen OR print' -- does is tell the browser to bring in this specific style sheet for our website
+for anything that fits into this particular media.
+
+THE ORDER OF THE STYLE SHEETS MATTERS
+- the stylesheets at the bottom have the potential to override the ones at the top
+
+
+
+Ex:
+
+<html>
+	<link rel="stylesheet" href="css/style.css" type="text/css"> 					<- you keep your regular css file
+
+	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen"> 	<- you add the changes to the syle.css
+																					   media="screen"
+	<link rel="stylesheet" href="css/print.css" type="text/css" media="print"> 		<- you add the print.css file when the
+																						 file when the media='print'
+																						(only use these if necessary)
+</html>
+
+
+CSS
+/* Media Queries */
+/*  iPhone  ----------------*/
+@media screen and ( max-width: 480px )  			<- this part (max-width: 480px) is called a media feature
+{ 
+	s
+}
+
+
+
+
+@media screen and ( min-width: 1000px )
+{
+	s
+}
+
+What this is saying is for a viewport that is using a width GREATER THAN OR EQUAL TO 1000 pixels, use these styles.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

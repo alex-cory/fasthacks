@@ -1,0 +1,16 @@
+Repetition
+
+Regex:  /(\d\d|[A-Z][A-Z]){3}/
+String: "112233 AABBCC AA66ZZ 11AA44"
+
+
+Nesting
+
+Regex:  /(apple (juice|sauce)|milk(shake)?|sweet (peas|corn|potatoes))/
+String: (use shopping_list.txt)
+
+Regex:  /(apple juice|apple sauce|milk|milk shake|sweet peas|sweet corn|sweet potatoes)/
+String: (use shopping_list.txt)
+
+Regex:  /[\w ]+/
+String: (use shopping_list.txt)

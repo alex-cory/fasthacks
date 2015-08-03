@@ -1,0 +1,769 @@
+
+
+
+/* ----------------------------------------------------------------------------
+    Simple  Commands   */
+
+
+/* ----------------------------------------------------------------------------
+ * Adding a New Remote                              (see: http://goo.gl/L92xbJ)
+                                (first need to run `git init`)
+
+    git remote add origin https://github.com/user/repo.git
+    # Set a new remote
+
+    git remote -v
+    # Verify new remote
+    # origin  https://github.com/user/repo.git (fetch)
+    # origin  https://github.com/user/repo.git (push)
+
+
+
+
+
+/* ----------------------------------------------------------------------------
+ * Make a Git repository
+
+Step 1: Create on Github
+Step 2: Copy SSH clone URL (on github website)
+Step 3: Go to Terminal
+Step 4: Make a Local Directory for the project
+Step 5: Type `git init` while in the new local project directory
+Step 6: Type `git clone git@github.com:alex-cory/pictures.git`
+Step 7: Type `git add *`
+Step 8: Type `git commit -m "commit message here"`
+Step 7: Type `git pull origin master`
+Step 8: Type `git push origin master`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------     git add (add all changes)   ---------------------------------------------------
+
+This command could add all the changes in a file to the staging area, which is really useful most of the time.
+
+
+
+
+------------------------     man git-add (git manual)   ---------------------------------------------------
+
+This will bring up the manual if you need any help with commands! :D
+
+
+
+
+------------------------     git config ()   ---------------------------------------------------
+
+A lot of people share their .gitconfig file online (which is the file that the git config command edits)
+
+
+
+
+------------------------     git --version  (is git installed?)   ---------------------------------------------------
+
+Use this to find out if Git is installed.
+
+
+
+
+------------------------     sudo apt-get install git (intall git)   ----------------------------------------------
+
+If it's not installed this is the command that you use to do so! (unless apt is not on your computer!)
+
+
+
+
+
+
+
+git commit -a -m 'notes for commit'   | -a : stands for all,  -m : stands for message
+
+
+
+
+
+
+/* ---------------------------------------------------------------------------------------------------------------------
+    Git  Commands   */
+
+
+
+
+------------------------     git init [project_name] (initialize new repository)   -------------------------------------
+
+This command initializes a new repository. If 'project_name' is provided, it creates a new project directory with that name. If not, it initializes a repository in the current directory.
+
+
+ex:
+
+Alexs-MacBook-Air:~ alexcory$ git init my_first_repository 							|
+Initialized empty Git repository in /Users/alexcory/my_first_repository/.git/ 		|
+Alexs-MacBook-Air:~ alexcory$ ls 													|
+Applications		Documents		Google Drive		Movies			Pictures		my_first_repository
+Desktop			Downloads		Library			Music			Public
+Alexs-MacBook-Air:~ alexcory$ cd my_first_repository/
+Alexs-MacBook-Air:my_first_repository alexcory$ ls -a
+.	..	.git
+Alexs-MacBook-Air:my_first_repository alexcory$ cd
+Alexs-MacBook-Air:~ alexcory$ mkdir my_really_cool_project
+Alexs-MacBook-Air:~ alexcory$ cd my_really_cool_project/
+Alexs-MacBook-Air:my_really_cool_project alexcory$ touch file1
+Alexs-MacBook-Air:my_really_cool_project alexcory$ touch file2
+Alexs-MacBook-Air:my_really_cool_project alexcory$ touch file3
+Alexs-MacBook-Air:my_really_cool_project alexcory$ ls
+file1	file2	file3
+Alexs-MacBook-Air:my_really_cool_project alexcory$
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git init
+Initialized empty Git repository in /Users/alexcory/my_really_cool_project/.git/
+Alexs-MacBook-Air:my_really_cool_project alexcory$ ls -a
+.	..	.git	file1	file2	file3
+Alexs-MacBook-Air:my_really_cool_project alexcory$ cd ..
+Alexs-MacBook-Air:~ alexcory$ mv my_first_repository/ my_even_cooler_project
+Alexs-MacBook-Air:~ alexcory$ ls
+Applications		Documents		Google Drive		Movies			Pictures		my_even_cooler_project
+Desktop			Downloads		Library			Music			Public			my_really_cool_project
+
+
+------------------------     git init [project_name] (initialize new repository)   -------------------------------------
+
+
+
+
+
+
+------------------------     git init [project_name] (initialize new repository)   -------------------------------------
+
+
+
+
+
+
+------------------------     git init [project_name] (initialize new repository)   -------------------------------------
+
+
+
+
+
+
+------------------------     git init [project_name] (initialize new repository)   -------------------------------------
+
+
+
+
+
+
+
+------------------------     git init [project_name] (initialize new repository)   -------------------------------------
+
+
+
+
+
+
+------------------------     git init [project_name] (initialize new repository)   -------------------------------------
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------------------------------------------------------------------------
+    Unix  Commands   */
+
+
+
+
+
+------------------------     cd (change directory)   ---------------------------------------------------
+
+think 'change directory:' change the current working directory. Remember that ~ is a special symbol that always represents your "home" directory.
+
+
+
+
+------------------------     ls (list)   ---------------------------------------------------
+
+think 'list:' shows a list of all files/folders in the current directory. With the -a flag, also shows hidden files and folders.
+
+
+
+
+------------------------     mkdir (make directory)   ---------------------------------------------------
+
+think 'make directory:' creates a new directory with the specified name.
+
+
+
+
+------------------------     touch (last modified)   -------------------------------------------------------------------
+
+updates the "last modified" timestamp on a file to now. Also creates an empty file if the filename specified doesn't exist.
+
+
+
+
+------------------------     mv (move)   ---------------------------------------------------
+
+think 'move:' moves a file or directory to a new location. This also makes it a convenient way to rename
+		   files and folders.
+
+
+
+
+------------------------     rm (remove)   ---------------------------------------------------
+
+think 'remove:' deletes the file(s)/folder(s) specified
+
+
+
+------------------------     git add (add all changes)   ---------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------------------------------------------------------------------------
+    Working With Git Repositories   */
+
+
+
+------------------------     git init [project_name] (initialize new repository)   -------------------------------------
+
+This command initializes a new repository. If 'project_name' is provided, it creates a new project directory with that name. If not, it initializes a repository in the current directory.
+
+
+ex:
+
+Alexs-MacBook-Air:~ alexcory$ mkdir my_really_cool_project 				<- making the folder
+
+Alexs-MacBook-Air:~ alexcory$ cd my_really_cool_project/ 				<- moving into the folder
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ touch file1 			<- making file 1
+Alexs-MacBook-Air:my_really_cool_project alexcory$ touch file2 			<- making file 2
+Alexs-MacBook-Air:my_really_cool_project alexcory$ touch file3 			<- making file 3
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ ls      				<- displaying the files
+file1	file2	file3
+
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git init my_really_cool_project		 	<- making a repository
+Initialized empty Git repository in /Users/alexcory/my_really_cool_project/.git/
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ ls -a 									<-  showing hidden files
+.	..	.git	file1	file2	file3
+
+
+Alexs-MacBook-Air:Dev Notes alexcory$ git config --global user.name 'Alex Cory' 			<- setting name
+
+Alexs-MacBook-Air:Dev Notes alexcory$ git config --global user.email 'alex@alexcory.com'	<- setting email
+
+
+Alexs-MacBook-Air:Dev Notes alexcory$ ls 													<- current location folders
+Alfred		JavaScript	PHP		Sublime Text 2	jQuery
+CSS		OS		SCSS		TEMPLATE
+Console		Objective C	SQL		VCS
+
+
+Alexs-MacBook-Air:Dev Notes alexcory$ cd 													<-  going to home directory
+
+
+Alexs-MacBook-Air:~ alexcory$ ls 															<- double checking
+Applications		Google Drive		Pictures
+Desktop			Library			Public
+Documents		Movies			my_really_cool_project
+Downloads		Music
+
+
+Alexs-MacBook-Air:~ alexcory$ cd my_really_cool_project/  									<- going into my_really
+
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ nano README 								<- creating README file
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git add README							<- add it to Staging area
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git commit -a -m 'Added Project Mission Statment' <-  adding file to
+[master d21a721] Added Project Mission Statment 													     the repository
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git status 								<- checking to see if more
+# On branch master
+nothing to commit, working directory clean
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ ls 										<- listing the files
+README
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ touch file1 								<- creating file1
+Alexs-MacBook-Air:my_really_cool_project alexcory$ touch file2 								<- creating file2
+Alexs-MacBook-Air:my_really_cool_project alexcory$ touch file3 								<- creating file3
+
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git status 								<- seeing if they made it
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	file1
+#	file2
+#	file3
+nothing added to commit but untracked files present (use "git add" to track)
+
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git add file1 							<- add file1 to staging area
+
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git status 								<- checking to see if it
+# On branch master 																			    made it
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   file1
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	file2
+#	file3
+
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git add file2 			<- add file2 to staging area
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git add file3 			<- add file3 to staging area
+
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git status 				<- now they are all in staging area
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   file1
+#	new file:   file2
+#	new file:   file3
+#
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git commit -m 'Add new project files' <- now add them to repository
+[master 3b3edaf] Add new project files 														with message 'Add new p...'
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1
+ create mode 100644 file2
+ create mode 100644 file3
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git status
+# On branch master
+nothing to commit, working directory clean
+
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ nano file1 			<- edit file1
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ nano file2 			<- edit file2
+
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git status 			<- they are not added to staging area yet
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   file1
+#	modified:   file2
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git add file1 		<- added to staging area
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git commit -m 'Add file1' 	<- added updated file1 to repository
+[master d4f4669] Add file1
+ 1 file changed, 1 insertion(+)
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git status 				<- checking
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   file2
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git add file2 				<- add edited file2 to staging area
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git commit -m 'Add file 2'   <- save file2 change to repository
+[master 20912b3] Add file 2
+ 1 file changed, 1 insertion(+)
+
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git log 						<- show what has been changed + who
+commit 20912b350f52c0992a010b3d1eb0e505ecfebf4e 								   changed it + when it was changed
+Author: Alex Cory <alex@alexcory.com>
+Date:   Tue Nov 26 18:26:16 2013 -0500
+
+    Add file 2
+    Add file 2
+    Add file 2
+commit 20912b350f52c0992a010b3d1eb0e505ecfebf4e
+Author: Alex Cory <alex@alexcory.com>
+Date:   Tue Nov 26 18:26:16 2013 -0500
+
+    Add file 2
+
+commit d4f46698ad4d71f842b5dc8793b4e9d95813ffb0
+Author: Alex Cory <alex@alexcory.com>
+Date:   Tue Nov 26 18:25:49 2013 -0500
+
+    Add file1
+
+commit 3b3edaf0e03317765b3d8300402f4c40673e1a62
+Author: Alex Cory <alex@alexcory.com>
+Date:   Tue Nov 26 18:23:04 2013 -0500
+
+    Add new project files
+
+commit d21a7212133383c672ae7015c6f6a60135f358e0
+Author: Alex Cory <alex@alexcory.com>
+Date:   Tue Nov 26 16:51:29 2013 -0500
+
+    Added Project Mission Statment
+
+commit 19bea30d03a3cfae25b96c0cbd24039f7c0e0f65
+Author: Alex Cory <goguerrillahacks@gmail.com>
+Date:   Tue Nov 26 15:55:53 2013 -0500
+
+    Added a README file.
+
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git checkout d21a72 			<- entering detached HEAD state
+Note: checking out 'd21a72'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b new_branch_name
+
+HEAD is now at d21a721... Added Project Mission Statment
+
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ cat file1 					<- quickly displaying file1
+cat: file1: No such file or directory
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ cat file2					<- quickly displaying file2
+cat: file2: No such file or directory
+
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git checkout master
+Previous HEAD position was d21a721... Added Project Mission Statment
+Switched to branch 'master'
+
+
+Alexs-MacBook-Air:my_really_cool_project alexcory$ git log 			<- Getting the history
+commit 20912b350f52c0992a010b3d1eb0e505ecfebf4e
+Author: Alex Cory <alex@alexcory.com>
+Date:   Tue Nov 26 18:26:16 2013 -0500
+
+    Add file 2
+
+commit d4f46698ad4d71f842b5dc8793b4e9d95813ffb0
+Author: Alex Cory <alex@alexcory.com>
+Date:   Tue Nov 26 18:25:49 2013 -0500
+
+    Add file1
+
+commit 3b3edaf0e03317765b3d8300402f4c40673e1a62
+Author: Alex Cory <alex@alexcory.com>
+Date:   Tue Nov 26 18:23:04 2013 -0500
+
+
+
+/* ---------------------------------------------------------------------------------------------------------------------
+    Branches   */
+
+One of the most powerful features that version control systems have to offer is the concept of Branching, and Git is no exception - in fact, the ease with which you can manage branches in Git is one of the big reasons behind its wide popularity. But what is “branching,” and why is it important?
+
+HEAD stands for the latest commit in the current branch.
+
+Stuck? in a stupid merge error or commiting? press escape and down at the bottom type :wq then hit Enter
+ 		| USE: git commit -a -m 'Your editing message here'
+
+
+-- Basics
+
+git branch branchname 		- create a new branch named branchname.
+
+git checkout branchname 	- switch to the branch named branchname.
+
+git checkout -b branchname 	- create a new branch named branchname and switch to that branch.
+
+git branch 					- list all branches in the current repository and indicate which branch you're currently in.
+
+git branch -D branchname 	- delete the branch named branchname from the repository.
+
+
+-- Merges
+
+git merge branchname 		- merge the history from branchname into the current branch.
+
+Merge Error?
+
+1st - quit the merge error screen
+
+2nd - nano fileName1 - edit file where you're trying to merge it
+	- it should have <<<<<<< fileName1 (branch1) ======= fileName1 (branch2) <<<<<<<<<< (to show the differences)
+
+3rd - git add fileName1 - to add it to the staging area
+
+4th - git commit -a -m 'Your editing message here'
+
+
+-- Working with Remotes
+
+git clone [file 2b cloned] [name of clone]	- create a new repository that is a clone of a remote repository.
+
+
+git remote 					- list all remote repositories associated with the current repository.
+
+When you clone a repository, Git automatically creates a remote named 'origin' for you
+
+
+git remote add 				- add a new remote repository to the current repository.
+
+ex:
+❯ git remote add our_clone ~/our_clone_project     									  my_really_cool_project/git/master
+❯ git remote                                                                          my_really_cool_project/git/master
+our_clone
+
+git push 					- push your latest changes to a remote repository.
+
+ex:
+❯ nano file3      .- remote							                             my_really_cool_project/git/new_feature
+❯ git remote     /        .- branch           								    my_really_cool_project/git/new_feature !
+our_clone       /        /
+❯ git push our_clone new_feature               							        my_really_cool_project/git/new_feature !
+Total 0 (delta 0), reused 0 (delta 0)
+To /Users/alexcory/our_clone_project
+   296d450..782510e  new_feature -> new_feature
+
+
+git pull 					- pull the latest changes from a remote repository to your repository.
+
+ex:
+❯ git pull origin new_feature            								              our_clone_project/git/new_feature
+From /Users/alexcory/my_really_cool_project
+ * branch            new_feature -> FETCH_HEAD
+Already up-to-date.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

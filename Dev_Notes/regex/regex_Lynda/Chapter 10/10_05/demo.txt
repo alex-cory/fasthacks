@@ -1,0 +1,29 @@
+String: "
+http://www.nowhere.com
+http://nowhere.com
+http://blog.nowhere.com
+https://www.nowhere.com
+http://www.nowhere.com/product_page.html
+http://www.nowhere.com/images/image.gif
+http://www.nowhere.com/product/
+http://www.nowhere.com/product/3456
+http://www.nowhere.com/product_page.php?product=28
+http://www.nowhere.com?product=28&color=blue
+http://www.nowhere.com#details
+"
+
+# Protocol portion
+Regex:  /^https?:\/\//
+Regex:  /^(http|https):\/\//
+
+# Domain portion
+/^(http|https):\/\/[\w.\-]+\.[A-Za-z]{2,6}/
+/^(http|https):\/\/[\w\-_]+(\.[\w\-_]+)+/
+
+# Query string portion
+Regex:  /^(http|https):\/\/[\w\-_]+(\.[\w\-_]+)+.*$/
+Regex:  /^(http|https):\/\/[\w\-_]+(\.[\w\-_]+)+[/?#]?.*$/
+Regex:  /^(http|https):\/\/[\w\-_]+(\.[\w\-_]+)+[\w\-.,@?^=%&:/~\\+#]*$/
+
+# Make groups non-capturing
+Regex:  /^(?:http|https):\/\/[\w\-_]+(?:\.[\w\-_]+)+[\w\-.,@?^=%&:/~\\+#]*$/

@@ -1,0 +1,25 @@
+
+Regex:  /A?B/
+String: "AB B"
+
+
+Captures occur on zero-width matches
+
+Regex:  /(A?)B/
+String: "AB B"
+
+Regex:  /(A?)B\1/
+String: "ABA B"
+
+Regex:  /(A?)B\1C/
+String: "ABAC BC"
+
+
+Captures do not always occur on optional groups
+*** Except in JavaScript ***
+
+Regex:  /(A)?B/
+String: "AB B"
+
+Regex:  /(A)?B\1/
+String: "ABA B"

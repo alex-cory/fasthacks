@@ -1,0 +1,16 @@
+<article class="speakerslist">
+  <section class="layout">
+    <div class="speakers">
+      <% artists.forEach(function(item) { %>
+        <article class="artist group">
+          <h3><%= item.title %> <span class="small">with
+            <a href="/speakers/<%= item.shortname %>">
+            <%= item.name %></a><span></h3>
+            <p><a href="/speakers/<%= item.shortname %>">
+              <img class="speaker" src="/images/speakers/<%= item.shortname %>_tn.jpg" alt="Photo of <%= item.name %>">
+            </a></p>
+        </article>
+      <% }); %>
+    </div>
+  </section>
+</article>

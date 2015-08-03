@@ -1,0 +1,23 @@
+Regex:  /[A-Z][0-9]/
+String: "A1B2C3D4E5F6G7H8I9J0"
+
+Regex:  /([A-Z][0-9])/
+String: "A1B2C3D4E5F6G7H8I9J0"
+
+Regex:  /([A-Z][0-9])+/
+String: "A1B2C3D4E5F6G7H8I9J0"
+
+Regex:  /([A-Z][0-9]){3}/
+String: "A1B2C3D4E5F6G7H8I9J0"
+
+Regex:  /(in)dependent/
+String: "dependent or independent"
+
+Regex:  /(in)?dependent/
+String: "dependent or independent"
+
+Regex:  /runs?/
+String: "I run fast. He runs faster."
+
+Regex:  /run(s)?/
+String: "I run fast. He runs faster."

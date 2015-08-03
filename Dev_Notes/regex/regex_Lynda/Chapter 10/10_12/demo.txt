@@ -1,0 +1,52 @@
+String: "
+American Express
+370012345612345
+3700-123456-12345
+
+Visa
+4000123412341234
+4000-1234-1234-1234
+
+Mastercard
+5100123412341234
+5100-1234-1234-1234
+
+Discover
+6011123412341234
+6011-1234-1234-1234
+"
+
+Regex:  /^\d+$/m
+Regex:  /^[\d\- ]+$/m
+
+# Correct length
+Regex:  /^[\d\- ]{15,16}$/m
+Regex:  /^[\d\- ]{15,19}$/m
+
+# Correctly delimited (without Amex)
+Regex:  /^\d{4}[\- ]?\d{4}[\- ]?\d{4}[\- ]?\d{4}$/m
+
+# Require same delimter
+String: "40001234-1234 1234"
+Regex:  /^\d{4}([- ]?)\d{4}\1\d{4}\1\d{4}$/m
+
+# Validate by type
+#   Visa prefix: 4
+#   Mastercard prefix: 51-55
+#   Discover prefix: 6011
+Regex:  /^[456]\d{3}([\- ]?)\d{4}\1\d{4}\1\d{4}$/m
+Regex:  /^(?:4\d{3}|5[1-5]\d{2}|6011)([\- ]?)\d{4}\1\d{4}\1\d{4}$/m
+
+
+# American Express
+
+# Length 15, prefix 34 or 37
+Regex:  /^3[47]\d{13}$/m
+
+# Format is 4-6-5
+Regex:  /^3[47]\d{2}([\- ]?)\d{6}\1\d{5}$/m
+
+
+# Put it all together
+
+Regex:  /^(?:3[47]\d{2}([\- ]?)\d{6}\1\d{5}|(?:4\d{3}|5[1-5]\d{2}|6011)([\- ]?)\d{4}\2\d{4}\2\d{4})$/m

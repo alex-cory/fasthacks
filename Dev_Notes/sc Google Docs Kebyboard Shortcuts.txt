@@ -1,0 +1,85 @@
+-----------------------------------------------------------------
+Google Docs Kebyboard Shortcuts
+
+
+
+Currently Learning ----------------------------------------------
+
+⌘ ⇧ C 	: Word Count
+
+⌘ ⇧ L 	: Align text left
+
+⌘ ⇧ R 	: Align text right
+
+⌘ ⇧ E 	: Align text Center
+
+
+Most Important --------------------------------------------------
+⌘ ⌥ ⇧ ◄ ► ▲ ▼
+
+⌘ ⇧ L 	: Align text left
+
+⌘ ⇧ R 	: Align text right
+
+⌘ ⇧ E 	: Align text Center
+
+⌘ K 	: Make hyperlink
+
+⌘ ⇧ C 	: Word Count
+
+
+Tools ------------------------------------------------------
+⌘ ⌥ ⇧ ◄ ► ▲ ▼
+
+⌘ ⇧ 7 	: Ordered List
+
+⌘ ⇧ B 	: Unordered List
+
+
+
+
+
+Search ----------------------------------------------------------
+⌘ ⌥ ⇧ ◄ ► ▲ ▼
+
+⌘ F 	: Find
+
+
+
+
+Random ----------------------------------------------------------
+⌘ ⌥ ⇧ ◄ ► ▲ ▼
+
+⌘ ⌥ ⇧ G 	: View revision History
+
+⌘ Enter 	: Page break
+
+^ ⇧ F 		: Toggle hiding toolbar
+
+⌘ ⌥ M 		: Leave a comment
+
+
+
+KEY:-------------------------------------------------------------
+
+⌘ ⌥ T : Special Characters
+
+⌘  	  : Command 	  | cmd
+
+⌥     : Option / Alt  | opt
+
+⇧  	  : Shift 		  |
+
+^     : Control  	  | ctrl
+
+__    : Spacebar 	  |
+
+fn    : function      |
+
+◄     : left  		  |
+
+►     : right 		  |
+
+▲     : up 			  |
+
+▼     : down 		  |

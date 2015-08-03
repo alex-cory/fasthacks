@@ -1,0 +1,168 @@
+snippet cdm
+	componentDidMount() {
+		${1}
+	}
+snippet cdup
+	componentDidUpdate(prevProps, prevState) {
+		${1}
+	}
+snippet cwm
+	componentWillMount() {
+		${1}
+	}
+snippet cwr
+	componentWillReceiveProps(nextProps) {
+		${1}
+	}
+snippet cwun
+	componentWillUnmount() {
+		${1}
+	}
+snippet cwu
+	componentWillUpdate(nextProps, nextState) {
+		${1}
+	}
+snippet fup
+	this.forceUpdate({${1:callback}});
+snippet rn
+	render() {
+		return (
+			${1:<div />}
+		);
+	}
+snippet t.ss
+	this.setState({
+		${1}: ${2}
+	});
+snippet scu
+	shouldComponentUpdate(nextProps, nextState) {
+		${1}
+	}
+snippet t.p
+	this.props.${1}
+snippet t.s
+	this.state.${1}
+snippet trp
+	transferPropsTo(${1});
+snippet newc
+	import React from 'react';
+
+	export default class ${1:ClassName} extends React.Component {
+	  constructor(props){
+	    super(props);
+	  }
+
+	  render() {
+	    return (
+	      <div>
+		${2}
+	      </div>
+	    );
+	  }
+	}
+
+	${3:ClassNameCHANGE}.propTypes = {
+	  ${4:propNameCHANGE}: React.PropTypes.${5:node},
+	};
+snippet icol
+	import Col from 'react-bootstrap/lib/Col';
+snippet inav
+	import Nav from 'react-bootstrap/lib/Nav';
+snippet irow
+	import Row from 'react-bootstrap/lib/Row';
+snippet row
+	<Row>
+	  ${3:col}
+	</Row>
+snippet col
+	<Col ${1:xs}={${2:4}} ${3:xsOffset}={${4:4}}>
+	  ${5:col}
+	</Col>
+snippet t.s=
+	this.state = {
+	  ${1:stateKey}: ${2:value}
+	};
+snippet fn
+	/**
+	 * ${4:Brief Description}
+	 */
+	${1:fnName}(${2:args}) {
+	  ${3://Code...}
+	}
+snippet i
+	import ${1:ComponentName} from '${2:path/to/module}';
+snippet i.
+	import {${1:Function1}} from '${2:path/to/module}';
+snippet inp
+	<label style={${1:styles.block}} htmlFor='${2:htmlFor}'>
+	  <input
+	    type='${3:checkbox}'
+	    value={${4:this.state.value}}
+	  />
+	  <span>${5:name of form field!}</span>
+	</label>
+snippet input
+	<input
+	  className={this.props.className}
+	  id={this.props.id}
+	  onChange={this._onChange}
+	  onKeyDown={this._onKeyDown}
+	  type='checkbox'
+	  value={this.state.value}
+	  autoFocus={true}
+	/>
+snippet oc
+	/**
+	 * ${3:Brief Description}
+	 * @param {object} event
+	 */
+	onChange(/*object*/ ${1:event}) {
+	  ${2://Code...};
+	}
+snippet _oc
+	/**
+	 * ${3:Brief Description}
+	 * @param {object} event
+	 */
+	_onChange(/*object*/ ${1:event}) {
+	  ${2://Code...};
+	}
+snippet t.oc
+	this.onChange(${1:e});
+snippet .b
+	.bind(${1:this})${2:;}${3}
+snippet okd
+	let ENTER_KEY_CODE = 13;
+	/**
+	 * @param {object} event
+	 */
+	_onKeyDown(${1:event}) {
+	  if (event.keyCode === ENTER_KEY_CODE) {
+	    ${2:this._save();}
+	  }
+	}
+snippet store
+	componentDidMount() {
+	  ${1:YourStoreName}Store.addChangeListener(() => {
+	    this.setState({${2:userSettings}: ${3:UserSettings}Store.get()});
+	  });
+	}
+
+	componentWillUnmount() {
+	  UserSettingsStore.addChangeListener(() => {
+	    ${4:YourStoreName}Store.addChangeListener(() => {
+	    this.setState({${5:userSettings}: ${6:UserSettings}Store.get()});
+	  });
+	}
+snippet r.p
+	${1:prop}: React.PropTypes.${2:func.isRequired}
+snippet cn
+	className='${1:class}'${2}
+snippet ml
+	marginLeft: ${1:3em}
+snippet fs
+	fontSize: ${1:3}
+snippet ff
+	fontFamily: ${1:Helvetica}
+snippet fw
+	fontWeight: ${1:400 / bold / bolder / lighter}

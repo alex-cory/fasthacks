@@ -1,0 +1,14 @@
+Regex:  /^[a-z ]+/
+String: (see shopping_list.txt)
+
+Regex:  /[a-z ]+$/
+String: (see shopping_list.txt)
+
+
+Using Multiline mode
+
+Regex:  /^[a-z ]+/m
+String: (see shopping_list.txt)
+
+Regex:  /[a-z ]+$/m
+String: (see shopping_list.txt)

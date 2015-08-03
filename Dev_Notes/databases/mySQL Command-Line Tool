@@ -1,0 +1,78 @@
+
+
+_________________________________________________________________________________________________
+mySQL Command-Line Tool Notes
+
+if you have zsh installed try one of these
+
+sudo ln -s /Applications/MAMP/Library/bin/mysql /usr/local/bin/mysql
+
+or
+
+alias mysql=”/Applications/MAMP/Library/bin/mysql -uroot -p”
+
+to get started! :D
+
+
+Getting Started --------------------------------------------------------------------------------------
+
+SIGN IN
+
+~❯mysql
+mysql❯ -u root -h localhost -p
+Password:
+mysql❯
+
+
+SHOW DATABASES
+
+mysql> SHOW databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
++--------------------+
+3 rows in set (0.00 sec)
+
+
+CHANGING DATABASES
+
+mysql> USE shirts4mike
+Database changed
+mysql>
+
+
+SHOW CURRENT DATABASE
+
+mysql> SELECT DATABASE();
++-------------+
+| DATABASE()  |
++-------------+
+| shirts4mike |
++-------------+
+1 row in set (0.00 sec)
+
+mysql>
+
+
+DESCRIBE THE COLUMNS OF THE TABLE
+
+mysql> DESCRIBE products;
++--------+---------------+------+-----+---------+-------+
+| Field  | Type          | Null | Key | Default | Extra |
++--------+---------------+------+-----+---------+-------+
+| sku    | int(11)       | YES  |     | NULL    |       |
+| name   | varchar(255)  | YES  |     | NULL    |       |
+| img    | varchar(255)  | YES  |     | NULL    |       |
+| price  | decimal(10,2) | YES  |     | NULL    |       |
+| paypal | varchar(32)   | YES  |     | NULL    |       |
++--------+---------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+
+TEMPLATE --------------------------------------------------------------------------------------
+
+TEMPLATE --------------------------------------------------------------------------------------
+

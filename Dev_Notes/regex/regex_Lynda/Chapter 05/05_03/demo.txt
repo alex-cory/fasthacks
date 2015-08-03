@@ -1,0 +1,24 @@
+Regex:  (peanut|peanutbutter)
+String: "peanutbutter"
+
+Regex:  peanut(butter)?
+String: "peanutbutter"
+
+Regex:  (\w+|FY\d{4}_report.xls)
+String: "FY2003_report.xls"
+
+
+Turn off global matching and notice which gets matched.
+
+Regex:  /abc|def|ghi|jkl/
+String: "abcdefghijklmnopqrstuvwxyz"
+
+Regex:  /xyz|abc|def|ghi|jkl/
+String: "abcdefghijklmnopqrstuvwxyz"
+
+
+Which is more efficient?
+
+Regex:  /\w+_\d{2,4}|\d{4}_\d{2}_\w+|export\d{2}/
+
+Regex:  /export\d{2}|\d{4}_\d{2}_\w+|\w+_\d{2,4}/

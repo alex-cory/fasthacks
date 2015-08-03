@@ -1,0 +1,1326 @@
+#!/usr/bin/env bash
+
+#
+# Jsawk: It's like awk for JSON, in bash.
+#
+# Fork me on github:
+#   http://github.com/micha/jsawk
+#
+# Author:
+#   Micha Niskin <micha@thinkminimo.com>
+#   Copyright 2009, no rights reserved, other than as required by the
+#   licenses of the incorporated software below.
+#
+
+TMP1=`mktemp /tmp/tmp.XXXXXX`
+TMP2=`mktemp /tmp/tmp.XXXXXX`
+
+trap "rm -f $TMP1 $TMP2" SIGINT SIGTERM SIGHUP SIGQUIT
+
+cat <<'__END__' > $TMP1
+
+window    = this;     // the global object
+window.IS = [];       // the input set
+window.RS = [];       // the result set
+window.$_ = {};       // the current element index
+window.$$ = {};       // the current element
+
+
+/**
+sprintf() for JavaScript 0.7-beta1
+http://www.diveintojavascript.com/projects/javascript-sprintf
+
+Copyright (c) Alexandru Marasteanu <alexaholic [at) gmail (dot] com>
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+    * Neither the name of sprintf() for JavaScript nor the
+      names of its contributors may be used to endorse or promote products
+      derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL Alexandru Marasteanu BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+Changelog:
+2010.09.06 - 0.7-beta1
+  - features: vsprintf, support for named placeholders
+  - enhancements: format cache, reduced global namespace pollution
+
+2010.05.22 - 0.6:
+ - reverted to 0.4 and fixed the bug regarding the sign of the number 0
+ Note:
+ Thanks to Raphael Pigulla <raph (at] n3rd [dot) org> (http://www.n3rd.org/)
+ who warned me about a bug in 0.5, I discovered that the last update was
+ a regress. I appologize for that.
+
+2010.05.09 - 0.5:
+ - bug fix: 0 is now preceeded with a + sign
+ - bug fix: the sign was not at the right position on padded results (Kamal Abdali)
+ - switched from GPL to BSD license
+
+2007.10.21 - 0.4:
+ - unit test and patch (David Baird)
+
+2007.09.17 - 0.3:
+ - bug fix: no longer throws exception on empty paramenters (Hans Pufal)
+
+2007.09.11 - 0.2:
+ - feature: added argument swapping
+
+2007.04.03 - 0.1:
+ - initial release
+**/
+
+var sprintf = (function() {
+	function get_type(variable) {
+		return Object.prototype.toString.call(variable).slice(8, -1).toLowerCase();
+	}
+	function str_repeat(input, multiplier) {
+		for (var output = []; multiplier > 0; output[--multiplier] = input) {/* do nothing */}
+		return output.join('');
+	}
+
+	var str_format = function() {
+		if (!str_format.cache.hasOwnProperty(arguments[0])) {
+			str_format.cache[arguments[0]] = str_format.parse(arguments[0]);
+		}
+		return str_format.format.call(null, str_format.cache[arguments[0]], arguments);
+	};
+
+	str_format.format = function(parse_tree, argv) {
+		var cursor = 1, tree_length = parse_tree.length, node_type = '', arg, output = [], i, k, match, pad, pad_character, pad_length;
+		for (i = 0; i < tree_length; i++) {
+			node_type = get_type(parse_tree[i]);
+			if (node_type === 'string') {
+				output.push(parse_tree[i]);
+			}
+			else if (node_type === 'array') {
+				match = parse_tree[i]; // convenience purposes only
+				if (match[2]) { // keyword argument
+					arg = argv[cursor];
+					for (k = 0; k < match[2].length; k++) {
+						if (!arg.hasOwnProperty(match[2][k])) {
+							throw(sprintf('[sprintf] property "%s" does not exist', match[2][k]));
+						}
+						arg = arg[match[2][k]];
+					}
+				}
+				else if (match[1]) { // positional argument (explicit)
+					arg = argv[match[1]];
+				}
+				else { // positional argument (implicit)
+					arg = argv[cursor++];
+				}
+
+				if (/[^s]/.test(match[8]) && (get_type(arg) != 'number')) {
+					throw(sprintf('[sprintf] expecting number but found %s', get_type(arg)));
+				}
+				switch (match[8]) {
+					case 'b': arg = arg.toString(2); break;
+					case 'c': arg = String.fromCharCode(arg); break;
+					case 'd': arg = parseInt(arg, 10); break;
+					case 'e': arg = match[7] ? arg.toExponential(match[7]) : arg.toExponential(); break;
+					case 'f': arg = match[7] ? parseFloat(arg).toFixed(match[7]) : parseFloat(arg); break;
+					case 'o': arg = arg.toString(8); break;
+					case 's': arg = ((arg = String(arg)) && match[7] ? arg.substring(0, match[7]) : arg); break;
+					case 'u': arg = Math.abs(arg); break;
+					case 'x': arg = arg.toString(16); break;
+					case 'X': arg = arg.toString(16).toUpperCase(); break;
+				}
+				arg = (/[def]/.test(match[8]) && match[3] && arg >= 0 ? '+'+ arg : arg);
+				pad_character = match[4] ? match[4] == '0' ? '0' : match[4].charAt(1) : ' ';
+				pad_length = match[6] - String(arg).length;
+				pad = match[6] ? str_repeat(pad_character, pad_length) : '';
+				output.push(match[5] ? arg + pad : pad + arg);
+			}
+		}
+		return output.join('');
+	};
+
+	str_format.cache = {};
+
+	str_format.parse = function(fmt) {
+		var _fmt = fmt, match = [], parse_tree = [], arg_names = 0;
+		while (_fmt) {
+			if ((match = /^[^\x25]+/.exec(_fmt)) !== null) {
+				parse_tree.push(match[0]);
+			}
+			else if ((match = /^\x25{2}/.exec(_fmt)) !== null) {
+				parse_tree.push('%');
+			}
+			else if ((match = /^\x25(?:([1-9]\d*)\$|\(([^\)]+)\))?(\+)?(0|'[^$])?(-)?(\d+)?(?:\.(\d+))?([b-fosuxX])/.exec(_fmt)) !== null) {
+				if (match[2]) {
+					arg_names |= 1;
+					var field_list = [], replacement_field = match[2], field_match = [];
+					if ((field_match = /^([a-z_][a-z_\d]*)/i.exec(replacement_field)) !== null) {
+						field_list.push(field_match[1]);
+						while ((replacement_field = replacement_field.substring(field_match[0].length)) !== '') {
+							if ((field_match = /^\.([a-z_][a-z_\d]*)/i.exec(replacement_field)) !== null) {
+								field_list.push(field_match[1]);
+							}
+							else if ((field_match = /^\[(\d+)\]/.exec(replacement_field)) !== null) {
+								field_list.push(field_match[1]);
+							}
+							else {
+								throw('[sprintf] huh?');
+							}
+						}
+					}
+					else {
+						throw('[sprintf] huh?');
+					}
+					match[2] = field_list;
+				}
+				else {
+					arg_names |= 2;
+				}
+				if (arg_names === 3) {
+					throw('[sprintf] mixing positional and named placeholders is not (yet) supported');
+				}
+				parse_tree.push(match);
+			}
+			else {
+				throw('[sprintf] huh?');
+			}
+			_fmt = _fmt.substring(match[0].length);
+		}
+		return parse_tree;
+	};
+
+	return str_format;
+})();
+
+var vsprintf = function(fmt, argv) {
+	argv.unshift(fmt);
+	return sprintf.apply(null, argv);
+};
+
+//     Underscore.js 1.8.2
+//     http://underscorejs.org
+//     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+//     Underscore may be freely distributed under the MIT license.
+(function(){function n(n){function t(t,r,e,u,i,o){for(;i>=0&&o>i;i+=n){var a=u?u[i]:i;e=r(e,t[a],a,t)}return e}return function(r,e,u,i){e=d(e,i,4);var o=!w(r)&&m.keys(r),a=(o||r).length,c=n>0?0:a-1;return arguments.length<3&&(u=r[o?o[c]:c],c+=n),t(r,e,u,o,c,a)}}function t(n){return function(t,r,e){r=b(r,e);for(var u=null!=t&&t.length,i=n>0?0:u-1;i>=0&&u>i;i+=n)if(r(t[i],i,t))return i;return-1}}function r(n,t){var r=S.length,e=n.constructor,u=m.isFunction(e)&&e.prototype||o,i="constructor";for(m.has(n,i)&&!m.contains(t,i)&&t.push(i);r--;)i=S[r],i in n&&n[i]!==u[i]&&!m.contains(t,i)&&t.push(i)}var e=this,u=e._,i=Array.prototype,o=Object.prototype,a=Function.prototype,c=i.push,l=i.slice,f=o.toString,s=o.hasOwnProperty,p=Array.isArray,h=Object.keys,v=a.bind,g=Object.create,y=function(){},m=function(n){return n instanceof m?n:this instanceof m?void(this._wrapped=n):new m(n)};"undefined"!=typeof exports?("undefined"!=typeof module&&module.exports&&(exports=module.exports=m),exports._=m):e._=m,m.VERSION="1.8.2";var d=function(n,t,r){if(t===void 0)return n;switch(null==r?3:r){case 1:return function(r){return n.call(t,r)};case 2:return function(r,e){return n.call(t,r,e)};case 3:return function(r,e,u){return n.call(t,r,e,u)};case 4:return function(r,e,u,i){return n.call(t,r,e,u,i)}}return function(){return n.apply(t,arguments)}},b=function(n,t,r){return null==n?m.identity:m.isFunction(n)?d(n,t,r):m.isObject(n)?m.matcher(n):m.property(n)};m.iteratee=function(n,t){return b(n,t,1/0)};var x=function(n,t){return function(r){var e=arguments.length;if(2>e||null==r)return r;for(var u=1;e>u;u++)for(var i=arguments[u],o=n(i),a=o.length,c=0;a>c;c++){var l=o[c];t&&r[l]!==void 0||(r[l]=i[l])}return r}},_=function(n){if(!m.isObject(n))return{};if(g)return g(n);y.prototype=n;var t=new y;return y.prototype=null,t},j=Math.pow(2,53)-1,w=function(n){var t=n&&n.length;return"number"==typeof t&&t>=0&&j>=t};m.each=m.forEach=function(n,t,r){t=d(t,r);var e,u;if(w(n))for(e=0,u=n.length;u>e;e++)t(n[e],e,n);else{var i=m.keys(n);for(e=0,u=i.length;u>e;e++)t(n[i[e]],i[e],n)}return n},m.map=m.collect=function(n,t,r){t=b(t,r);for(var e=!w(n)&&m.keys(n),u=(e||n).length,i=Array(u),o=0;u>o;o++){var a=e?e[o]:o;i[o]=t(n[a],a,n)}return i},m.reduce=m.foldl=m.inject=n(1),m.reduceRight=m.foldr=n(-1),m.find=m.detect=function(n,t,r){var e;return e=w(n)?m.findIndex(n,t,r):m.findKey(n,t,r),e!==void 0&&e!==-1?n[e]:void 0},m.filter=m.select=function(n,t,r){var e=[];return t=b(t,r),m.each(n,function(n,r,u){t(n,r,u)&&e.push(n)}),e},m.reject=function(n,t,r){return m.filter(n,m.negate(b(t)),r)},m.every=m.all=function(n,t,r){t=b(t,r);for(var e=!w(n)&&m.keys(n),u=(e||n).length,i=0;u>i;i++){var o=e?e[i]:i;if(!t(n[o],o,n))return!1}return!0},m.some=m.any=function(n,t,r){t=b(t,r);for(var e=!w(n)&&m.keys(n),u=(e||n).length,i=0;u>i;i++){var o=e?e[i]:i;if(t(n[o],o,n))return!0}return!1},m.contains=m.includes=m.include=function(n,t,r){return w(n)||(n=m.values(n)),m.indexOf(n,t,"number"==typeof r&&r)>=0},m.invoke=function(n,t){var r=l.call(arguments,2),e=m.isFunction(t);return m.map(n,function(n){var u=e?t:n[t];return null==u?u:u.apply(n,r)})},m.pluck=function(n,t){return m.map(n,m.property(t))},m.where=function(n,t){return m.filter(n,m.matcher(t))},m.findWhere=function(n,t){return m.find(n,m.matcher(t))},m.max=function(n,t,r){var e,u,i=-1/0,o=-1/0;if(null==t&&null!=n){n=w(n)?n:m.values(n);for(var a=0,c=n.length;c>a;a++)e=n[a],e>i&&(i=e)}else t=b(t,r),m.each(n,function(n,r,e){u=t(n,r,e),(u>o||u===-1/0&&i===-1/0)&&(i=n,o=u)});return i},m.min=function(n,t,r){var e,u,i=1/0,o=1/0;if(null==t&&null!=n){n=w(n)?n:m.values(n);for(var a=0,c=n.length;c>a;a++)e=n[a],i>e&&(i=e)}else t=b(t,r),m.each(n,function(n,r,e){u=t(n,r,e),(o>u||1/0===u&&1/0===i)&&(i=n,o=u)});return i},m.shuffle=function(n){for(var t,r=w(n)?n:m.values(n),e=r.length,u=Array(e),i=0;e>i;i++)t=m.random(0,i),t!==i&&(u[i]=u[t]),u[t]=r[i];return u},m.sample=function(n,t,r){return null==t||r?(w(n)||(n=m.values(n)),n[m.random(n.length-1)]):m.shuffle(n).slice(0,Math.max(0,t))},m.sortBy=function(n,t,r){return t=b(t,r),m.pluck(m.map(n,function(n,r,e){return{value:n,index:r,criteria:t(n,r,e)}}).sort(function(n,t){var r=n.criteria,e=t.criteria;if(r!==e){if(r>e||r===void 0)return 1;if(e>r||e===void 0)return-1}return n.index-t.index}),"value")};var A=function(n){return function(t,r,e){var u={};return r=b(r,e),m.each(t,function(e,i){var o=r(e,i,t);n(u,e,o)}),u}};m.groupBy=A(function(n,t,r){m.has(n,r)?n[r].push(t):n[r]=[t]}),m.indexBy=A(function(n,t,r){n[r]=t}),m.countBy=A(function(n,t,r){m.has(n,r)?n[r]++:n[r]=1}),m.toArray=function(n){return n?m.isArray(n)?l.call(n):w(n)?m.map(n,m.identity):m.values(n):[]},m.size=function(n){return null==n?0:w(n)?n.length:m.keys(n).length},m.partition=function(n,t,r){t=b(t,r);var e=[],u=[];return m.each(n,function(n,r,i){(t(n,r,i)?e:u).push(n)}),[e,u]},m.first=m.head=m.take=function(n,t,r){return null==n?void 0:null==t||r?n[0]:m.initial(n,n.length-t)},m.initial=function(n,t,r){return l.call(n,0,Math.max(0,n.length-(null==t||r?1:t)))},m.last=function(n,t,r){return null==n?void 0:null==t||r?n[n.length-1]:m.rest(n,Math.max(0,n.length-t))},m.rest=m.tail=m.drop=function(n,t,r){return l.call(n,null==t||r?1:t)},m.compact=function(n){return m.filter(n,m.identity)};var k=function(n,t,r,e){for(var u=[],i=0,o=e||0,a=n&&n.length;a>o;o++){var c=n[o];if(w(c)&&(m.isArray(c)||m.isArguments(c))){t||(c=k(c,t,r));var l=0,f=c.length;for(u.length+=f;f>l;)u[i++]=c[l++]}else r||(u[i++]=c)}return u};m.flatten=function(n,t){return k(n,t,!1)},m.without=function(n){return m.difference(n,l.call(arguments,1))},m.uniq=m.unique=function(n,t,r,e){if(null==n)return[];m.isBoolean(t)||(e=r,r=t,t=!1),null!=r&&(r=b(r,e));for(var u=[],i=[],o=0,a=n.length;a>o;o++){var c=n[o],l=r?r(c,o,n):c;t?(o&&i===l||u.push(c),i=l):r?m.contains(i,l)||(i.push(l),u.push(c)):m.contains(u,c)||u.push(c)}return u},m.union=function(){return m.uniq(k(arguments,!0,!0))},m.intersection=function(n){if(null==n)return[];for(var t=[],r=arguments.length,e=0,u=n.length;u>e;e++){var i=n[e];if(!m.contains(t,i)){for(var o=1;r>o&&m.contains(arguments[o],i);o++);o===r&&t.push(i)}}return t},m.difference=function(n){var t=k(arguments,!0,!0,1);return m.filter(n,function(n){return!m.contains(t,n)})},m.zip=function(){return m.unzip(arguments)},m.unzip=function(n){for(var t=n&&m.max(n,"length").length||0,r=Array(t),e=0;t>e;e++)r[e]=m.pluck(n,e);return r},m.object=function(n,t){for(var r={},e=0,u=n&&n.length;u>e;e++)t?r[n[e]]=t[e]:r[n[e][0]]=n[e][1];return r},m.indexOf=function(n,t,r){var e=0,u=n&&n.length;if("number"==typeof r)e=0>r?Math.max(0,u+r):r;else if(r&&u)return e=m.sortedIndex(n,t),n[e]===t?e:-1;if(t!==t)return m.findIndex(l.call(n,e),m.isNaN);for(;u>e;e++)if(n[e]===t)return e;return-1},m.lastIndexOf=function(n,t,r){var e=n?n.length:0;if("number"==typeof r&&(e=0>r?e+r+1:Math.min(e,r+1)),t!==t)return m.findLastIndex(l.call(n,0,e),m.isNaN);for(;--e>=0;)if(n[e]===t)return e;return-1},m.findIndex=t(1),m.findLastIndex=t(-1),m.sortedIndex=function(n,t,r,e){r=b(r,e,1);for(var u=r(t),i=0,o=n.length;o>i;){var a=Math.floor((i+o)/2);r(n[a])<u?i=a+1:o=a}return i},m.range=function(n,t,r){arguments.length<=1&&(t=n||0,n=0),r=r||1;for(var e=Math.max(Math.ceil((t-n)/r),0),u=Array(e),i=0;e>i;i++,n+=r)u[i]=n;return u};var O=function(n,t,r,e,u){if(!(e instanceof t))return n.apply(r,u);var i=_(n.prototype),o=n.apply(i,u);return m.isObject(o)?o:i};m.bind=function(n,t){if(v&&n.bind===v)return v.apply(n,l.call(arguments,1));if(!m.isFunction(n))throw new TypeError("Bind must be called on a function");var r=l.call(arguments,2),e=function(){return O(n,e,t,this,r.concat(l.call(arguments)))};return e},m.partial=function(n){var t=l.call(arguments,1),r=function(){for(var e=0,u=t.length,i=Array(u),o=0;u>o;o++)i[o]=t[o]===m?arguments[e++]:t[o];for(;e<arguments.length;)i.push(arguments[e++]);return O(n,r,this,this,i)};return r},m.bindAll=function(n){var t,r,e=arguments.length;if(1>=e)throw new Error("bindAll must be passed function names");for(t=1;e>t;t++)r=arguments[t],n[r]=m.bind(n[r],n);return n},m.memoize=function(n,t){var r=function(e){var u=r.cache,i=""+(t?t.apply(this,arguments):e);return m.has(u,i)||(u[i]=n.apply(this,arguments)),u[i]};return r.cache={},r},m.delay=function(n,t){var r=l.call(arguments,2);return setTimeout(function(){return n.apply(null,r)},t)},m.defer=m.partial(m.delay,m,1),m.throttle=function(n,t,r){var e,u,i,o=null,a=0;r||(r={});var c=function(){a=r.leading===!1?0:m.now(),o=null,i=n.apply(e,u),o||(e=u=null)};return function(){var l=m.now();a||r.leading!==!1||(a=l);var f=t-(l-a);return e=this,u=arguments,0>=f||f>t?(o&&(clearTimeout(o),o=null),a=l,i=n.apply(e,u),o||(e=u=null)):o||r.trailing===!1||(o=setTimeout(c,f)),i}},m.debounce=function(n,t,r){var e,u,i,o,a,c=function(){var l=m.now()-o;t>l&&l>=0?e=setTimeout(c,t-l):(e=null,r||(a=n.apply(i,u),e||(i=u=null)))};return function(){i=this,u=arguments,o=m.now();var l=r&&!e;return e||(e=setTimeout(c,t)),l&&(a=n.apply(i,u),i=u=null),a}},m.wrap=function(n,t){return m.partial(t,n)},m.negate=function(n){return function(){return!n.apply(this,arguments)}},m.compose=function(){var n=arguments,t=n.length-1;return function(){for(var r=t,e=n[t].apply(this,arguments);r--;)e=n[r].call(this,e);return e}},m.after=function(n,t){return function(){return--n<1?t.apply(this,arguments):void 0}},m.before=function(n,t){var r;return function(){return--n>0&&(r=t.apply(this,arguments)),1>=n&&(t=null),r}},m.once=m.partial(m.before,2);var F=!{toString:null}.propertyIsEnumerable("toString"),S=["valueOf","isPrototypeOf","toString","propertyIsEnumerable","hasOwnProperty","toLocaleString"];m.keys=function(n){if(!m.isObject(n))return[];if(h)return h(n);var t=[];for(var e in n)m.has(n,e)&&t.push(e);return F&&r(n,t),t},m.allKeys=function(n){if(!m.isObject(n))return[];var t=[];for(var e in n)t.push(e);return F&&r(n,t),t},m.values=function(n){for(var t=m.keys(n),r=t.length,e=Array(r),u=0;r>u;u++)e[u]=n[t[u]];return e},m.mapObject=function(n,t,r){t=b(t,r);for(var e,u=m.keys(n),i=u.length,o={},a=0;i>a;a++)e=u[a],o[e]=t(n[e],e,n);return o},m.pairs=function(n){for(var t=m.keys(n),r=t.length,e=Array(r),u=0;r>u;u++)e[u]=[t[u],n[t[u]]];return e},m.invert=function(n){for(var t={},r=m.keys(n),e=0,u=r.length;u>e;e++)t[n[r[e]]]=r[e];return t},m.functions=m.methods=function(n){var t=[];for(var r in n)m.isFunction(n[r])&&t.push(r);return t.sort()},m.extend=x(m.allKeys),m.extendOwn=m.assign=x(m.keys),m.findKey=function(n,t,r){t=b(t,r);for(var e,u=m.keys(n),i=0,o=u.length;o>i;i++)if(e=u[i],t(n[e],e,n))return e},m.pick=function(n,t,r){var e,u,i={},o=n;if(null==o)return i;m.isFunction(t)?(u=m.allKeys(o),e=d(t,r)):(u=k(arguments,!1,!1,1),e=function(n,t,r){return t in r},o=Object(o));for(var a=0,c=u.length;c>a;a++){var l=u[a],f=o[l];e(f,l,o)&&(i[l]=f)}return i},m.omit=function(n,t,r){if(m.isFunction(t))t=m.negate(t);else{var e=m.map(k(arguments,!1,!1,1),String);t=function(n,t){return!m.contains(e,t)}}return m.pick(n,t,r)},m.defaults=x(m.allKeys,!0),m.clone=function(n){return m.isObject(n)?m.isArray(n)?n.slice():m.extend({},n):n},m.tap=function(n,t){return t(n),n},m.isMatch=function(n,t){var r=m.keys(t),e=r.length;if(null==n)return!e;for(var u=Object(n),i=0;e>i;i++){var o=r[i];if(t[o]!==u[o]||!(o in u))return!1}return!0};var E=function(n,t,r,e){if(n===t)return 0!==n||1/n===1/t;if(null==n||null==t)return n===t;n instanceof m&&(n=n._wrapped),t instanceof m&&(t=t._wrapped);var u=f.call(n);if(u!==f.call(t))return!1;switch(u){case"[object RegExp]":case"[object String]":return""+n==""+t;case"[object Number]":return+n!==+n?+t!==+t:0===+n?1/+n===1/t:+n===+t;case"[object Date]":case"[object Boolean]":return+n===+t}var i="[object Array]"===u;if(!i){if("object"!=typeof n||"object"!=typeof t)return!1;var o=n.constructor,a=t.constructor;if(o!==a&&!(m.isFunction(o)&&o instanceof o&&m.isFunction(a)&&a instanceof a)&&"constructor"in n&&"constructor"in t)return!1}r=r||[],e=e||[];for(var c=r.length;c--;)if(r[c]===n)return e[c]===t;if(r.push(n),e.push(t),i){if(c=n.length,c!==t.length)return!1;for(;c--;)if(!E(n[c],t[c],r,e))return!1}else{var l,s=m.keys(n);if(c=s.length,m.keys(t).length!==c)return!1;for(;c--;)if(l=s[c],!m.has(t,l)||!E(n[l],t[l],r,e))return!1}return r.pop(),e.pop(),!0};m.isEqual=function(n,t){return E(n,t)},m.isEmpty=function(n){return null==n?!0:w(n)&&(m.isArray(n)||m.isString(n)||m.isArguments(n))?0===n.length:0===m.keys(n).length},m.isElement=function(n){return!(!n||1!==n.nodeType)},m.isArray=p||function(n){return"[object Array]"===f.call(n)},m.isObject=function(n){var t=typeof n;return"function"===t||"object"===t&&!!n},m.each(["Arguments","Function","String","Number","Date","RegExp","Error"],function(n){m["is"+n]=function(t){return f.call(t)==="[object "+n+"]"}}),m.isArguments(arguments)||(m.isArguments=function(n){return m.has(n,"callee")}),"function"!=typeof/./&&"object"!=typeof Int8Array&&(m.isFunction=function(n){return"function"==typeof n||!1}),m.isFinite=function(n){return isFinite(n)&&!isNaN(parseFloat(n))},m.isNaN=function(n){return m.isNumber(n)&&n!==+n},m.isBoolean=function(n){return n===!0||n===!1||"[object Boolean]"===f.call(n)},m.isNull=function(n){return null===n},m.isUndefined=function(n){return n===void 0},m.has=function(n,t){return null!=n&&s.call(n,t)},m.noConflict=function(){return e._=u,this},m.identity=function(n){return n},m.constant=function(n){return function(){return n}},m.noop=function(){},m.property=function(n){return function(t){return null==t?void 0:t[n]}},m.propertyOf=function(n){return null==n?function(){}:function(t){return n[t]}},m.matcher=m.matches=function(n){return n=m.extendOwn({},n),function(t){return m.isMatch(t,n)}},m.times=function(n,t,r){var e=Array(Math.max(0,n));t=d(t,r,1);for(var u=0;n>u;u++)e[u]=t(u);return e},m.random=function(n,t){return null==t&&(t=n,n=0),n+Math.floor(Math.random()*(t-n+1))},m.now=Date.now||function(){return(new Date).getTime()};var M={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","`":"&#x60;"},N=m.invert(M),I=function(n){var t=function(t){return n[t]},r="(?:"+m.keys(n).join("|")+")",e=RegExp(r),u=RegExp(r,"g");return function(n){return n=null==n?"":""+n,e.test(n)?n.replace(u,t):n}};m.escape=I(M),m.unescape=I(N),m.result=function(n,t,r){var e=null==n?void 0:n[t];return e===void 0&&(e=r),m.isFunction(e)?e.call(n):e};var B=0;m.uniqueId=function(n){var t=++B+"";return n?n+t:t},m.templateSettings={evaluate:/<%([\s\S]+?)%>/g,interpolate:/<%=([\s\S]+?)%>/g,escape:/<%-([\s\S]+?)%>/g};var T=/(.)^/,R={"'":"'","\\":"\\","\r":"r","\n":"n","\u2028":"u2028","\u2029":"u2029"},q=/\\|'|\r|\n|\u2028|\u2029/g,K=function(n){return"\\"+R[n]};m.template=function(n,t,r){!t&&r&&(t=r),t=m.defaults({},t,m.templateSettings);var e=RegExp([(t.escape||T).source,(t.interpolate||T).source,(t.evaluate||T).source].join("|")+"|$","g"),u=0,i="__p+='";n.replace(e,function(t,r,e,o,a){return i+=n.slice(u,a).replace(q,K),u=a+t.length,r?i+="'+\n((__t=("+r+"))==null?'':_.escape(__t))+\n'":e?i+="'+\n((__t=("+e+"))==null?'':__t)+\n'":o&&(i+="';\n"+o+"\n__p+='"),t}),i+="';\n",t.variable||(i="with(obj||{}){\n"+i+"}\n"),i="var __t,__p='',__j=Array.prototype.join,"+"print=function(){__p+=__j.call(arguments,'');};\n"+i+"return __p;\n";try{var o=new Function(t.variable||"obj","_",i)}catch(a){throw a.source=i,a}var c=function(n){return o.call(this,n,m)},l=t.variable||"obj";return c.source="function("+l+"){\n"+i+"}",c},m.chain=function(n){var t=m(n);return t._chain=!0,t};var z=function(n,t){return n._chain?m(t).chain():t};m.mixin=function(n){m.each(m.functions(n),function(t){var r=m[t]=n[t];m.prototype[t]=function(){var n=[this._wrapped];return c.apply(n,arguments),z(this,r.apply(m,n))}})},m.mixin(m),m.each(["pop","push","reverse","shift","sort","splice","unshift"],function(n){var t=i[n];m.prototype[n]=function(){var r=this._wrapped;return t.apply(r,arguments),"shift"!==n&&"splice"!==n||0!==r.length||delete r[0],z(this,r)}}),m.each(["concat","join","slice"],function(n){var t=i[n];m.prototype[n]=function(){return z(this,t.apply(this._wrapped,arguments))}}),m.prototype.value=function(){return this._wrapped},m.prototype.valueOf=m.prototype.toJSON=m.prototype.value,m.prototype.toString=function(){return""+this._wrapped},"function"==typeof define&&define.amd&&define("underscore",[],function(){return m})}).call(this);
+//# sourceMappingURL=underscore-min.map
+
+(function() {
+
+/*
+Copyright Jason E. Smith 2008 Licensed under the Apache License, Version 2.0 (the "License");
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+*/
+
+
+/*
+* CREDITS:
+* Thanks to Kris Zyp from SitePen for contributing his source for
+* a standalone port of JSONQuery (from the dojox.json.query module).
+*
+* OVERVIEW:
+* JSONQuery.js is a standalone port of the dojox.json.query module. It is intended as
+* a dropin solution with zero dependencies. JSONQuery is intended to succeed and improve upon
+* the JSONPath api (http://goessner.net/articles/JsonPath/) which offers rich powerful
+* querying capabilities similar to those of XQuery.
+*
+* EXAMPLES / USAGE:
+* see http://www.sitepen.com/blog/2008/07/16/jsonquery-data-querying-beyond-jsonpath/
+*
+*     *Ripped from original source.
+*         JSONQuery(queryString,object)
+        and
+        JSONQuery(queryString)(object)
+        always return identical results. The first one immediately evaluates, the second one returns a
+        function that then evaluates the object.
+
+      example:
+        JSONQuery("foo",{foo:"bar"})
+        This will return "bar".
+
+      example:
+        evaluator = JSONQuery("?foo='bar'&rating>3");
+        This creates a function that finds all the objects in an array with a property
+        foo that is equals to "bar" and with a rating property with a value greater
+        than 3.
+        evaluator([{foo:"bar",rating:4},{foo:"baz",rating:2}])
+        This returns:
+        {foo:"bar",rating:4}
+
+      example:
+        evaluator = JSONQuery("$[?price<15.00][\rating][0:10]");
+        This finds objects in array with a price less than 15.00 and sorts then
+        by rating, highest rated first, and returns the first ten items in from this
+        filtered and sorted list.
+
+
+	example:
+		var data = {customers:[
+			{name:"Susan", purchases:29},
+			{name:"Kim", purchases:150},
+			{name:"Jake", purchases:27}
+		]};
+
+		var results = json.JSONQuery("$.customers[?purchases > 21 & name='Jake'][\\purchases]",data);
+		results
+
+		returns customers sorted by higest number of purchases to lowest.
+
+*/
+
+
+
+    function map(arr, fun /*, thisp*/){
+        var len = arr.length;
+        if (typeof fun != "function")
+            throw new TypeError();
+
+        var res = new Array(len);
+        var thisp = arguments[2];
+        for (var i = 0; i < len; i++) {
+            if (i in arr)
+                res[i] = fun.call(thisp, arr[i], i, arr);
+        }
+
+        return res;
+    }
+
+   function filter(arr, fun /*, thisp*/){
+        var len = arr.length;
+        if (typeof fun != "function")
+            throw new TypeError();
+
+        var res = new Array();
+        var thisp = arguments[2];
+        for (var i = 0; i < len; i++) {
+            if (i in arr) {
+                var val = arr[i]; // in case fun mutates this
+                if (fun.call(thisp, val, i, arr))
+                    res.push(val);
+            }
+        }
+
+        return res;
+    };
+
+
+  function slice(obj,start,end,step){
+    // handles slice operations: [3:6:2]
+    var len=obj.length,results = [];
+    end = end || len;
+    start = (start < 0) ? Math.max(0,start+len) : Math.min(len,start);
+    end = (end < 0) ? Math.max(0,end+len) : Math.min(len,end);
+     for(var i=start; i<end; i+=step){
+       results.push(obj[i]);
+     }
+    return results;
+  }
+  function expand(obj,name){
+    // handles ..name, .*, [*], [val1,val2], [val]
+    // name can be a property to search for, undefined for full recursive, or an array for picking by index
+    var results = [];
+    function walk(obj){
+      if(name){
+        if(name===true && !(obj instanceof Array)){
+          //recursive object search
+          results.push(obj);
+        }else if(obj[name]){
+          // found the name, add to our results
+          results.push(obj[name]);
+        }
+      }
+      for(var i in obj){
+        var val = obj[i];
+        if(!name){
+          // if we don't have a name we are just getting all the properties values (.* or [*])
+          results.push(val);
+        }else if(val && typeof val == 'object'){
+
+          walk(val);
+        }
+      }
+    }
+    if(name instanceof Array){
+      // this is called when multiple items are in the brackets: [3,4,5]
+      if(name.length==1){
+        // this can happen as a result of the parser becoming confused about commas
+        // in the brackets like [@.func(4,2)]. Fixing the parser would require recursive
+        // analsys, very expensive, but this fixes the problem nicely.
+        return obj[name[0]];
+      }
+      for(var i = 0; i < name.length; i++){
+        results.push(obj[name[i]]);
+      }
+    }else{
+      // otherwise we expanding
+      walk(obj);
+    }
+    return results;
+  }
+
+  function distinctFilter(array, callback){
+    // does the filter with removal of duplicates in O(n)
+    var outArr = [];
+    var primitives = {};
+    for(var i=0,l=array.length; i<l; ++i){
+      var value = array[i];
+      if(callback(value, i, array)){
+        if(!primitives[JSON.stringify(value)]){
+          // with primitives we prevent duplicates by putting it in a map
+          primitives[JSON.stringify(value)] = true;
+          outArr.push(value);
+        }
+      }
+    }
+    for(i=0,l=outArr.length; i<l; ++i){
+      // cleanup the marker properties
+      if(outArr[i]){
+        delete outArr[i].__included;
+      }
+    }
+    return outArr;
+  }
+  window.uniq = function(array) {
+    return distinctFilter(array, function() { return true; });
+  };
+  var JSONQuery = function(/*String*/query,/*Object?*/obj){
+    // summary:
+    //     Performs a JSONQuery on the provided object and returns the results.
+    //     If no object is provided (just a query), it returns a "compiled" function that evaluates objects
+    //     according to the provided query.
+    // query:
+    //     Query string
+    //   obj:
+    //     Target of the JSONQuery
+    //
+    //  description:
+    //    JSONQuery provides a comprehensive set of data querying tools including filtering,
+    //    recursive search, sorting, mapping, range selection, and powerful expressions with
+    //    wildcard string comparisons and various operators. JSONQuery generally supersets
+    //     JSONPath and provides syntax that matches and behaves like JavaScript where
+    //     possible.
+    //
+    //    JSONQuery evaluations begin with the provided object, which can referenced with
+    //     $. From
+    //     the starting object, various operators can be successively applied, each operating
+    //     on the result of the last operation.
+    //
+    //     Supported Operators:
+    //     --------------------
+    //    * .property - This will return the provided property of the object, behaving exactly
+    //     like JavaScript.
+    //     * [expression] - This returns the property name/index defined by the evaluation of
+    //     the provided expression, behaving exactly like JavaScript.
+    //    * [?expression] - This will perform a filter operation on an array, returning all the
+    //     items in an array that match the provided expression. This operator does not
+    //    need to be in brackets, you can simply use ?expression, but since it does not
+    //    have any containment, no operators can be used afterwards when used
+    //     without brackets.
+    //    * [^?expression] - This will perform a distinct filter operation on an array. This behaves
+    //    as [?expression] except that it will remove any duplicate values/objects from the
+    //    result set.
+    //     * [/expression], [\expression], [/expression, /expression] - This performs a sort
+    //     operation on an array, with sort based on the provide expression. Multiple comma delimited sort
+    //     expressions can be provided for multiple sort orders (first being highest priority). /
+    //    indicates ascending order and \ indicates descending order
+    //     * [=expression] - This performs a map operation on an array, creating a new array
+    //    with each item being the evaluation of the expression for each item in the source array.
+    //    * [start:end:step] - This performs an array slice/range operation, returning the elements
+    //    from the optional start index to the optional end index, stepping by the optional step number.
+    //     * [expr,expr] - This a union operator, returning an array of all the property/index values from
+    //     the evaluation of the comma delimited expressions.
+    //     * .* or [*] - This returns the values of all the properties of the current object.
+    //     * $ - This is the root object, If a JSONQuery expression does not being with a $,
+    //     it will be auto-inserted at the beginning.
+    //     * @ - This is the current object in filter, sort, and map expressions. This is generally
+    //     not necessary, names are auto-converted to property references of the current object
+    //     in expressions.
+    //     *  ..property - Performs a recursive search for the given property name, returning
+    //     an array of all values with such a property name in the current object and any subobjects
+    //     * expr = expr - Performs a comparison (like JS's ==). When comparing to
+    //     a string, the comparison string may contain wildcards * (matches any number of
+    //     characters) and ? (matches any single character).
+    //     * expr ~ expr - Performs a string comparison with case insensitivity.
+    //    * ..[?expression] - This will perform a deep search filter operation on all the objects and
+    //     subobjects of the current data. Rather than only searching an array, this will search
+    //     property values, arrays, and their children.
+    //    * $1,$2,$3, etc. - These are references to extra parameters passed to the query
+    //    function or the evaluator function.
+    //    * +, -, /, *, &, |, %, (, ), <, >, <=, >=, != - These operators behave just as they do
+    //     in JavaScript.
+    //
+    //
+    //
+    //   |  dojox.json.query(queryString,object)
+    //     and
+    //   |  dojox.json.query(queryString)(object)
+    //     always return identical results. The first one immediately evaluates, the second one returns a
+    //     function that then evaluates the object.
+    //
+    //   example:
+    //   |  dojox.json.query("foo",{foo:"bar"})
+    //     This will return "bar".
+    //
+    //  example:
+    //  |  evaluator = dojox.json.query("?foo='bar'&rating>3");
+    //    This creates a function that finds all the objects in an array with a property
+    //    foo that is equals to "bar" and with a rating property with a value greater
+    //    than 3.
+    //  |  evaluator([{foo:"bar",rating:4},{foo:"baz",rating:2}])
+    //     This returns:
+    //   |  {foo:"bar",rating:4}
+    //
+    //  example:
+    //   |  evaluator = dojox.json.query("$[?price<15.00][\rating][0:10]");
+    //      This finds objects in array with a price less than 15.00 and sorts then
+    //     by rating, highest rated first, and returns the first ten items in from this
+    //     filtered and sorted list.
+    tokens = [];
+    var depth = 0;
+    var str = [];
+    query = query.replace(/"(\\.|[^"\\])*"|'(\\.|[^'\\])*'|[\[\]]/g,function(t){
+      depth += t == '[' ? 1 : t == ']' ? -1 : 0; // keep track of bracket depth
+      return (t == ']' && depth > 0) ? '`]' : // we mark all the inner brackets as skippable
+          (t.charAt(0) == '"' || t.charAt(0) == "'") ? "`" + (str.push(t) - 1) :// and replace all the strings
+            t;
+    });
+    var prefix = '';
+    function call(name){
+      // creates a function call and puts the expression so far in a parameter for a call
+      prefix = name + "(" + prefix;
+    }
+    function makeRegex(t,a,b,c,d){
+      // creates a regular expression matcher for when wildcards and ignore case is used
+      return str[d].match(/[\*\?]/) || c == '~' ?
+          "/^" + str[d].substring(1,str[d].length-1).replace(/\\([btnfr\\"'])|([^\w\*\?])/g,"\\$1$2").replace(/([\*\?])/g,".$1") + (c == '~' ? '$/i' : '$/') + ".test(" + a + ")" :
+          t;
+    }
+    query.replace(/(\]|\)|push|pop|shift|splice|sort|reverse)\s*\(/,function(){
+      throw new Error("Unsafe function call");
+    });
+
+    query = query.replace(/([^=]=)([^=])/g,"$1=$2"). // change the equals to comparisons
+      replace(/@|(\.\s*)?[a-zA-Z\$_]+(\s*:)?/g,function(t){
+        return t.charAt(0) == '.' ? t : // leave .prop alone
+          t == '@' ? "$obj" :// the reference to the current object
+          (t.match(/:|^(\$|Math|true|false|null)$/) ? "" : "$obj.") + t; // plain names should be properties of root... unless they are a label in object initializer
+      }).
+      replace(/\.?\.?\[(`\]|[^\]])*\]|\?.*|\.\.([\w\$_]+)|\.\*/g,function(t,a,b){
+        var oper = t.match(/^\.?\.?(\[\s*\^?\?|\^?\?|\[\s*==)(.*?)\]?$/); // [?expr] and ?expr and [=expr and =expr
+        if(oper){
+          var prefix = '';
+          if(t.match(/^\./)){
+            // recursive object search
+            call("expand");
+            prefix = ",true)";
+          }
+          call(oper[1].match(/\=/) ? "map" : oper[1].match(/\^/) ? "distinctFilter" : "filter");
+          return prefix + ",function($obj){return " + oper[2] + "})";
+        }
+        oper = t.match(/^\[\s*([\/\\].*)\]/); // [/sortexpr,\sortexpr]
+        if(oper){
+          // make a copy of the array and then sort it using the sorting expression
+          return ".concat().sort(function(a,b){" + oper[1].replace(/\s*,?\s*([\/\\])\s*([^,\\\/]+)/g,function(t,a,b){
+              return "var av= " + b.replace(/\$obj/,"a") + ",bv= " + b.replace(/\$obj/,"b") + // FIXME: Should check to make sure the $obj token isn't followed by characters
+                  ";if(av>bv||bv==null){return " + (a== "/" ? 1 : -1) +";}\n" +
+                  "if(bv>av||av==null){return " + (a== "/" ? -1 : 1) +";}\n";
+          }) + "})";
+        }
+        oper = t.match(/^\[(-?[0-9]*):(-?[0-9]*):?(-?[0-9]*)\]/); // slice [0:3]
+        if(oper){
+          call("slice");
+          return "," + (oper[1] || 0) + "," + (oper[2] || 0) + "," + (oper[3] || 1) + ")";
+        }
+        if(t.match(/^\.\.|\.\*|\[\s*\*\s*\]|,/)){ // ..prop and [*]
+          call("expand");
+          return (t.charAt(1) == '.' ?
+              ",'" + b + "'" : // ..prop
+                t.match(/,/) ?
+                  "," + t : // [prop1,prop2]
+                  "") + ")"; // [*]
+        }
+        return t;
+      }).
+      replace(/(\$obj\s*(\.\s*[\w_$]+\s*)*)(==|~)\s*`([0-9]+)/g,makeRegex). // create regex matching
+      replace(/`([0-9]+)\s*(==|~)\s*(\$obj(\s*\.\s*[\w_$]+)*)/g,function(t,a,b,c,d){ // and do it for reverse =
+        return makeRegex(t,c,d,b,a);
+      });
+    query = prefix + (query.charAt(0) == '$' ? "" : "$") + query.replace(/`([0-9]+|\])/g,function(t,a){
+      //restore the strings
+      return a == ']' ? ']' : str[a];
+    });
+    // create a function within this scope (so it can use expand and slice)
+
+    var executor = eval("1&&function($,$1,$2,$3,$4,$5,$6,$7,$8,$9){var $obj=$;return " + query + "}");
+    for(var i = 0;i<arguments.length-1;i++){
+      arguments[i] = arguments[i+1];
+    }
+    return obj ? executor.apply(this,arguments) : executor;
+  };
+
+
+  if(typeof namespace == "function"){
+  	namespace("json::JSONQuery", JSONQuery);
+  }
+  else {
+  	window["JSONQuery"] = JSONQuery;
+  }
+})();
+
+/*
+    http://www.JSON.org/json2.js
+    2009-04-16
+
+    Public Domain.
+
+    NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
+
+    See http://www.JSON.org/js.html
+
+    This file creates a global JSON object containing two methods: stringify
+    and parse.
+
+        JSON.stringify(value, replacer, space)
+            value       any JavaScript value, usually an object or array.
+
+            replacer    an optional parameter that determines how object
+                        values are stringified for objects. It can be a
+                        function or an array of strings.
+
+            space       an optional parameter that specifies the indentation
+                        of nested structures. If it is omitted, the text will
+                        be packed without extra whitespace. If it is a number,
+                        it will specify the number of spaces to indent at each
+                        level. If it is a string (such as '\t' or '&nbsp;'),
+                        it contains the characters used to indent at each level.
+
+            This method produces a JSON text from a JavaScript value.
+
+            When an object value is found, if the object contains a toJSON
+            method, its toJSON method will be called and the result will be
+            stringified. A toJSON method does not serialize: it returns the
+            value represented by the name/value pair that should be serialized,
+            or undefined if nothing should be serialized. The toJSON method
+            will be passed the key associated with the value, and this will be
+            bound to the object holding the key.
+
+            For example, this would serialize Dates as ISO strings.
+
+                Date.prototype.toJSON = function (key) {
+                    function f(n) {
+                        // Format integers to have at least two digits.
+                        return n < 10 ? '0' + n : n;
+                    }
+
+                    return this.getUTCFullYear()   + '-' +
+                         f(this.getUTCMonth() + 1) + '-' +
+                         f(this.getUTCDate())      + 'T' +
+                         f(this.getUTCHours())     + ':' +
+                         f(this.getUTCMinutes())   + ':' +
+                         f(this.getUTCSeconds())   + 'Z';
+                };
+
+            You can provide an optional replacer method. It will be passed the
+            key and value of each member, with this bound to the containing
+            object. The value that is returned from your method will be
+            serialized. If your method returns undefined, then the member will
+            be excluded from the serialization.
+
+            If the replacer parameter is an array of strings, then it will be
+            used to select the members to be serialized. It filters the results
+            such that only members with keys listed in the replacer array are
+            stringified.
+
+            Values that do not have JSON representations, such as undefined or
+            functions, will not be serialized. Such values in objects will be
+            dropped; in arrays they will be replaced with null. You can use
+            a replacer function to replace those with JSON values.
+            JSON.stringify(undefined) returns undefined.
+
+            The optional space parameter produces a stringification of the
+            value that is filled with line breaks and indentation to make it
+            easier to read.
+
+            If the space parameter is a non-empty string, then that string will
+            be used for indentation. If the space parameter is a number, then
+            the indentation will be that many spaces.
+
+            Example:
+
+            text = JSON.stringify(['e', {pluribus: 'unum'}]);
+            // text is '["e",{"pluribus":"unum"}]'
+
+
+            text = JSON.stringify(['e', {pluribus: 'unum'}], null, '\t');
+            // text is '[\n\t"e",\n\t{\n\t\t"pluribus": "unum"\n\t}\n]'
+
+            text = JSON.stringify([new Date()], function (key, value) {
+                return this[key] instanceof Date ?
+                    'Date(' + this[key] + ')' : value;
+            });
+            // text is '["Date(---current time---)"]'
+
+
+        JSON.parse(text, reviver)
+            This method parses a JSON text to produce an object or array.
+            It can throw a SyntaxError exception.
+
+            The optional reviver parameter is a function that can filter and
+            transform the results. It receives each of the keys and values,
+            and its return value is used instead of the original value.
+            If it returns what it received, then the structure is not modified.
+            If it returns undefined then the member is deleted.
+
+            Example:
+
+            // Parse the text. Values that look like ISO date strings will
+            // be converted to Date objects.
+
+            myData = JSON.parse(text, function (key, value) {
+                var a;
+                if (typeof value === 'string') {
+                    a =
+/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/.exec(value);
+                    if (a) {
+                        return new Date(Date.UTC(+a[1], +a[2] - 1, +a[3], +a[4],
+                            +a[5], +a[6]));
+                    }
+                }
+                return value;
+            });
+
+            myData = JSON.parse('["Date(09/09/2001)"]', function (key, value) {
+                var d;
+                if (typeof value === 'string' &&
+                        value.slice(0, 5) === 'Date(' &&
+                        value.slice(-1) === ')') {
+                    d = new Date(value.slice(5, -1));
+                    if (d) {
+                        return d;
+                    }
+                }
+                return value;
+            });
+
+
+    This is a reference implementation. You are free to copy, modify, or
+    redistribute.
+
+    This code should be minified before deployment.
+    See http://javascript.crockford.com/jsmin.html
+
+    USE YOUR OWN COPY. IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO
+    NOT CONTROL.
+*/
+
+/*jslint evil: true */
+
+/*global JSON */
+
+/*members "", "\b", "\t", "\n", "\f", "\r", "\"", JSON, "\\", apply,
+    call, charCodeAt, getUTCDate, getUTCFullYear, getUTCHours,
+    getUTCMinutes, getUTCMonth, getUTCSeconds, hasOwnProperty, join,
+    lastIndex, length, parse, prototype, push, replace, slice, stringify,
+    test, toJSON, toString, valueOf
+*/
+
+// Create a JSON object only if one does not already exist. We create the
+// methods in a closure to avoid creating global variables.
+
+if (!this.JSON) {
+    JSON = {};
+}
+(function () {
+
+    function f(n) {
+        // Format integers to have at least two digits.
+        return n < 10 ? '0' + n : n;
+    }
+
+    if (typeof Date.prototype.toJSON !== 'function') {
+
+        Date.prototype.toJSON = function (key) {
+
+            return this.getUTCFullYear()   + '-' +
+                 f(this.getUTCMonth() + 1) + '-' +
+                 f(this.getUTCDate())      + 'T' +
+                 f(this.getUTCHours())     + ':' +
+                 f(this.getUTCMinutes())   + ':' +
+                 f(this.getUTCSeconds())   + 'Z';
+        };
+
+        String.prototype.toJSON =
+        Number.prototype.toJSON =
+        Boolean.prototype.toJSON = function (key) {
+            return this.valueOf();
+        };
+    }
+
+    var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
+        escapable = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
+        gap,
+        indent,
+        meta = {    // table of character substitutions
+            '\b': '\\b',
+            '\t': '\\t',
+            '\n': '\\n',
+            '\f': '\\f',
+            '\r': '\\r',
+            '"' : '\\"',
+            '\\': '\\\\'
+        },
+        rep;
+
+
+    function quote(string) {
+
+// If the string contains no control characters, no quote characters, and no
+// backslash characters, then we can safely slap some quotes around it.
+// Otherwise we must also replace the offending characters with safe escape
+// sequences.
+
+        escapable.lastIndex = 0;
+        return escapable.test(string) ?
+            '"' + string.replace(escapable, function (a) {
+                var c = meta[a];
+                return typeof c === 'string' ? c :
+                    '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
+            }) + '"' :
+            '"' + string + '"';
+    }
+
+
+    function str(key, holder) {
+
+// Produce a string from holder[key].
+
+        var i,          // The loop counter.
+            k,          // The member key.
+            v,          // The member value.
+            length,
+            mind = gap,
+            partial,
+            value = holder[key];
+
+// If the value has a toJSON method, call it to obtain a replacement value.
+
+        if (value && typeof value === 'object' &&
+                typeof value.toJSON === 'function') {
+            value = value.toJSON(key);
+        }
+
+// If we were called with a replacer function, then call the replacer to
+// obtain a replacement value.
+
+        if (typeof rep === 'function') {
+            value = rep.call(holder, key, value);
+        }
+
+// What happens next depends on the value's type.
+
+        switch (typeof value) {
+        case 'string':
+            return quote(value);
+
+        case 'number':
+
+// JSON numbers must be finite. Encode non-finite numbers as null.
+
+            return isFinite(value) ? String(value) : 'null';
+
+        case 'boolean':
+        case 'null':
+
+// If the value is a boolean or null, convert it to a string. Note:
+// typeof null does not produce 'null'. The case is included here in
+// the remote chance that this gets fixed someday.
+
+            return String(value);
+
+// If the type is 'object', we might be dealing with an object or an array or
+// null.
+
+        case 'object':
+
+// Due to a specification blunder in ECMAScript, typeof null is 'object',
+// so watch out for that case.
+
+            if (!value) {
+                return 'null';
+            }
+
+// Make an array to hold the partial results of stringifying this object value.
+
+            gap += indent;
+            partial = [];
+
+// Is the value an array?
+
+            if (Object.prototype.toString.apply(value) === '[object Array]') {
+
+// The value is an array. Stringify every element. Use null as a placeholder
+// for non-JSON values.
+
+                length = value.length;
+                for (i = 0; i < length; i += 1) {
+                    partial[i] = str(i, value) || 'null';
+                }
+
+// Join all of the elements together, separated with commas, and wrap them in
+// brackets.
+
+                v = partial.length === 0 ? '[]' :
+                    gap ? '[\n' + gap +
+                            partial.join(',\n' + gap) + '\n' +
+                                mind + ']' :
+                          '[' + partial.join(',') + ']';
+                gap = mind;
+                return v;
+            }
+
+// If the replacer is an array, use it to select the members to be stringified.
+
+            if (rep && typeof rep === 'object') {
+                length = rep.length;
+                for (i = 0; i < length; i += 1) {
+                    k = rep[i];
+                    if (typeof k === 'string') {
+                        v = str(k, value);
+                        if (v) {
+                            partial.push(quote(k) + (gap ? ': ' : ':') + v);
+                        }
+                    }
+                }
+            } else {
+
+// Otherwise, iterate through all of the keys in the object.
+
+                for (k in value) {
+                    if (Object.hasOwnProperty.call(value, k)) {
+                        v = str(k, value);
+                        if (v) {
+                            partial.push(quote(k) + (gap ? ': ' : ':') + v);
+                        }
+                    }
+                }
+            }
+
+// Join all of the member texts together, separated with commas,
+// and wrap them in braces.
+
+            v = partial.length === 0 ? '{}' :
+                gap ? '{\n' + gap + partial.join(',\n' + gap) + '\n' +
+                        mind + '}' : '{' + partial.join(',') + '}';
+            gap = mind;
+            return v;
+        }
+    }
+
+// If the JSON object does not yet have a stringify method, give it one.
+
+    if (typeof JSON.stringify !== 'function') {
+        JSON.stringify = function (value, replacer, space) {
+
+// The stringify method takes a value and an optional replacer, and an optional
+// space parameter, and returns a JSON text. The replacer can be a function
+// that can replace values, or an array of strings that will select the keys.
+// A default replacer method can be provided. Use of the space parameter can
+// produce text that is more easily readable.
+
+            var i;
+            gap = '';
+            indent = '';
+
+// If the space parameter is a number, make an indent string containing that
+// many spaces.
+
+            if (typeof space === 'number') {
+                for (i = 0; i < space; i += 1) {
+                    indent += ' ';
+                }
+
+// If the space parameter is a string, it will be used as the indent string.
+
+            } else if (typeof space === 'string') {
+                indent = space;
+            }
+
+// If there is a replacer, it must be a function or an array.
+// Otherwise, throw an error.
+
+            rep = replacer;
+            if (replacer && typeof replacer !== 'function' &&
+                    (typeof replacer !== 'object' ||
+                     typeof replacer.length !== 'number')) {
+                throw new Error('JSON.stringify');
+            }
+
+// Make a fake root object containing our value under the key of ''.
+// Return the result of stringifying the value.
+
+            return str('', {'': value});
+        };
+    }
+
+
+// If the JSON object does not yet have a parse method, give it one.
+
+    if (typeof JSON.parse !== 'function') {
+        JSON.parse = function (text, reviver) {
+
+// The parse method takes a text and an optional reviver function, and returns
+// a JavaScript value if the text is a valid JSON text.
+
+            var j;
+
+            function walk(holder, key) {
+
+// The walk method is used to recursively walk the resulting structure so
+// that modifications can be made.
+
+                var k, v, value = holder[key];
+                if (value && typeof value === 'object') {
+                    for (k in value) {
+                        if (Object.hasOwnProperty.call(value, k)) {
+                            v = walk(value, k);
+                            if (v !== undefined) {
+                                value[k] = v;
+                            } else {
+                                delete value[k];
+                            }
+                        }
+                    }
+                }
+                return reviver.call(holder, key, value);
+            }
+
+
+// Parsing happens in four stages. In the first stage, we replace certain
+// Unicode characters with escape sequences. JavaScript handles many characters
+// incorrectly, either silently deleting them, or treating them as line endings.
+
+            cx.lastIndex = 0;
+            if (cx.test(text)) {
+                text = text.replace(cx, function (a) {
+                    return '\\u' +
+                        ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
+                });
+            }
+
+// In the second stage, we run the text against regular expressions that look
+// for non-JSON patterns. We are especially concerned with '()' and 'new'
+// because they can cause invocation, and '=' because it can cause mutation.
+// But just to be safe, we want to reject all unexpected forms.
+
+// We split the second stage into 4 regexp operations in order to work around
+// crippling inefficiencies in IE's and Safari's regexp engines. First we
+// replace the JSON backslash pairs with '@' (a non-JSON character). Second, we
+// replace all simple value tokens with ']' characters. Third, we delete all
+// open brackets that follow a colon or comma or that begin the text. Finally,
+// we look to see that the remaining characters are only whitespace or ']' or
+// ',' or ':' or '{' or '}'. If that is so, then the text is safe for eval.
+
+            if (/^[\],:{}\s]*$/.
+test(text.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, '@').
+replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
+replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+
+// In the third stage we use the eval function to compile the text into a
+// JavaScript structure. The '{' operator is subject to a syntactic ambiguity
+// in JavaScript: it can begin a block or an object literal. We wrap the text
+// in parens to eliminate the ambiguity.
+
+                j = eval('(' + text + ')');
+
+// In the optional fourth stage, we recursively walk the new structure, passing
+// each name/value pair to a reviver function for possible transformation.
+
+                return typeof reviver === 'function' ?
+                    walk({'': j}, '') : j;
+            }
+
+// If the text is not JSON parseable, then a SyntaxError is thrown.
+
+            throw new SyntaxError('JSON.parse');
+        };
+    }
+}());
+
+(function(p) {
+  var doPrint = function() {
+    var args  = Array.prototype.slice.call(arguments);
+    var type  = args.shift();
+    var input = args.join(" ");
+    var lines = input.split("\n");
+    for (var i in lines)
+      p(type, lines[i]);
+  };
+  var doJsonPrint = function() {
+    var args  = Array.prototype.slice.call(arguments);
+    var type  = args.shift();
+    if (args.length > 0) {
+      args = args.length > 1 ? args : args[0];
+      var ret  = typeof(args) == "string" ? args : json(args);
+      doPrint(type, ret);
+    }
+  };
+  window.Q = function() {
+    try {
+      var ret = JSONQuery.apply(window, arguments);
+      ret.length;
+      return ret;
+    } catch (e) {
+      err("jsawk: JSONQuery parse error: '"+arguments[0]+"'");
+      quit(4);
+    }
+  };
+  window.out = function() {
+    var args  = Array.prototype.slice.call(arguments);
+    args.unshift("OUT:");
+    doJsonPrint.apply(window, args);
+  };
+  window.err = function() {
+    var args  = Array.prototype.slice.call(arguments);
+    args.unshift("ERR:");
+    doJsonPrint.apply(window, args);
+  };
+  window.alert = p;
+  window.doJson = function(input) {
+    if (typeof input !== "string") {
+      return input;
+    } else {
+      input = input.replace(/\s*$/,"");
+      if (!input.length) {
+        return {};
+      } else {
+        try {
+          return eval("("+input+")");
+        } catch (e) {
+          err("jsawk: JSON parse error: '"+input+"'");
+          quit(2);
+        }
+      }
+    }
+  };
+  window.doCall = function(fun, obj) {
+    try {
+      return fun.call(obj);
+    } catch (e) {
+      err("jsawk: js error: "+e);
+      quit(3);
+    }
+  };
+  window.makeFilter = function(fun) {
+    try {
+      return eval("(function() { "+fun+"; return this })");
+    } catch (e) {
+      err("jsawk: script parse error: '"+fun+"'");
+      quit(3);
+    }
+  };
+  window.json = function() {
+    try {
+      return JSON.stringify.apply(window, arguments);
+    } catch (e) {
+      err("jsawk: JSON stringify error: "+e);
+      quit(5);
+    }
+  };
+  window.get = function() {
+    return $$ = IS[++$_];
+  };
+  window.put = function(record) {
+    IS = IS.slice(0, $_+1).concat([record]).concat(IS.slice($_+1));
+  };
+  window.forEach = function(ary, fun) {
+    fun = eval("function(index,item) { "+fun+"; }");
+    for (var i=0; i<ary.length; i++) {
+      try {
+        fun.call(ary[i], i, ary[i]);
+      } catch (e) {
+        err("jsawk: js error: "+e);
+        quit(3);
+      }
+    }
+  };
+})(window.print);
+
+(function(argv) {
+  argv = Array.prototype.slice.call(argv);
+
+  var inputLines = argv.shift();
+
+  var usage = function() {
+    err("Usage: jsawk [-n] [-j jsbin] [-f jsfile1.js]* [-q jsonquery] \\\n" +
+        "             [-b script] [-a script] [-v NAME=VALUE] [script]");
+    quit(1);
+  };
+
+  var fun = "";
+  var noprint = false;
+  var libs    = [];
+  var befores = [];
+  var afters  = [];
+  var queries = [];
+  var i,j,k,l,m,n;
+
+  var arg;
+
+  while (arg = argv.shift()) {
+    switch(arg) {
+      case "-j":
+      case "-s":
+      case "-i":
+        argv.shift();
+        break;
+      case "-h":
+        usage();
+        break;
+      case "-n":
+        noprint = true;
+        break;
+      case "-q":
+        if (argv.length < 1) usage();
+        queries.push(argv.shift());
+        break;
+      case "-f":
+        if (argv.length < 1) usage();
+        libs.push(argv.shift());
+        break;
+      case "-b":
+        if (argv.length < 1) usage();
+        befores.push(makeFilter(argv.shift()));
+        break;
+      case "-a":
+        if (argv.length < 1) usage();
+        afters.push(makeFilter(argv.shift()));
+        break;
+      case "-v":
+        if (argv.length < 1) usage();
+        var tmp = argv.shift();
+        var key = tmp.replace(/=.*$/, "");
+        var val = tmp.replace(/^[^=]+=/, "");
+        window[key] = val;
+        break;
+      default:
+        fun = arg;
+    }
+  }
+
+  var input="";
+
+  for (var i=0; i<inputLines; i++) {
+    var line=readline();
+    input += (line ? line : "");
+    input += "\n";
+  }
+
+  var wrapped;
+
+  IS      = doJson(input);
+  wrapped = !(IS instanceof Array);
+
+  if (wrapped)
+    IS = [ IS ];
+
+  for (i in libs)
+    load(libs[i]);
+
+  var f = makeFilter(fun);
+
+  for (i in queries)
+    IS = Q(queries[i], IS);
+
+  $_ = -1;
+  $$ = IS;
+
+  for (i in befores)
+    IS = doCall(befores[i], IS);
+
+  RS = [];
+
+  for ($_=0; $_<IS.length; $_++) {
+    $$ = IS[$_]
+    var tmp = doCall(f, $$);
+    if (tmp != null) RS.push(tmp);
+  }
+
+  $_ = -1;
+  $$ = RS;
+
+  for (i in afters)
+    RS = doCall(afters[i], RS);
+
+  if (wrapped)
+    RS = RS.pop();
+
+  if (!noprint)
+    out(RS);
+})(typeof arguments === 'undefined' ? scriptArgs : arguments);
+__END__
+
+nlines=0
+get_lines="yes"
+input_file=
+input_string=
+
+while getopts :hni:s:j:q:f:b:a:v: opt; do
+  case $opt in
+    h) get_lines="no" ;;
+    i) input_file="$OPTARG" ;;
+    j) js_arg=$OPTARG ;;
+    s) input_string="$OPTARG" ;;
+  esac
+done
+
+if [ $get_lines != "no" ]; then
+  if [ -n "$input_string" ]; then
+  	# Pass in the input string specified directly
+  	echo "$input_string" > $TMP2
+  elif [ -n "$input_file" ]; then
+  	# Pass in the input file contents specified, first checking the file exists
+  	if ! [ -e "$input_file" ]; then
+  		echo "Error: Input file cannot be found: $input_file"
+  		exit 1
+  	fi
+  	cat "$input_file" > $TMP2
+  else
+  	# Read input from STDIN
+    echo "$(cat 2>/dev/null)" > $TMP2
+  fi
+  nlines=$(grep -c '$' $TMP2 2>/dev/null || echo 0)
+fi
+
+if [ -e /etc/jsawkrc ]; then
+  . /etc/jsawkrc
+fi
+
+if [ -e ~/.jsawkrc ]; then
+  . ~/.jsawkrc
+fi
+
+JSBIN=${js_arg:-${JS:-js}}
+
+ret=$?
+res=$(cat $TMP2 2>/dev/null | $JSBIN $TMP1 $nlines "$@")
+out=$(echo "$res" |sed '/^OUT: /s/^.....//p;d')
+err=$(echo "$res" |sed '/^ERR: /s/^.....//p;d')
+
+[ -n "$err" ] && echo "$err" 1>&2
+[ -n "$out" ] && echo "$out"
+
+rm -f $TMP1 $TMP2
+
+exit $ret

@@ -1,0 +1,11 @@
+
+Two capturing groups
+
+Regex:  /(oranges) and (apples) to \1/
+String: "oranges and apples to oranges"
+
+
+One non-capturing group and one capturing group
+
+Regex:  /(?:oranges) and (apples) to \1/
+String: "oranges and apples to apples"

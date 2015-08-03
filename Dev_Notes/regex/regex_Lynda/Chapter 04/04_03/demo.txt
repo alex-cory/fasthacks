@@ -1,0 +1,12 @@
+
+Regex:  /.+\.jpg/
+String: "filename.jpg"
+
+Regex:  /.*[0-9]+/
+String: "Page 266"
+
+Regex:  /\d+\w+\d+/
+String: "01_FY_07_report_99.xls"
+
+Regex:  /".+", ".+"/
+String: "Milton", "Waddams", "Initech, Inc."

@@ -1,0 +1,22 @@
+#!/bin/sh
+    case "$1" in
+    *.awk|*.groff|*.java|*.js|*.m4|*.php|*.pl|*.pm|*.pod|*.sh|\
+    *.ad[asb]|*.asm|*.inc|*.[ch]|*.[ch]pp|*.[ch]xx|*.cc|*.hh|\
+    *.lsp|*.l|*.pas|*.p|*.xml|*.xps|*.xsl|*.axp|*.ppd|*.pov|\
+    *.diff|*.patch|*.py|*.rb|*.sql|*.ebuild|*.eclass)
+        pygmentize -f 256 "$1";;
+    .bashrc|.bash_aliases|.bash_environment)
+        pygmentize -f 256 -l sh "$1"
+        ;;
+    *)
+        scriptExec=$(head -1 "$1" |grep "^#\!" |awk -F" " '{print $1}')
+        scriptExecStatus=$?
+        if [ "$scriptExecStatus" -eq "0" ]; then
+            lexer=$(echo $scriptExec |awk -F/ '{print $NF}')
+            pygmentize -f 256 -l $lexer "$1"
+        else
+            exit 1
+        fi
+esac
+
+exit 0

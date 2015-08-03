@@ -1,0 +1,17 @@
+Regex:  /\w*s/
+String: "We picked apples."
+
+Regex:  /\w+s/
+String: "We picked apples."
+
+Regex:  /[A-Za-z]+s/
+String: "We picked apples."
+
+Regex:  /\s[A-Za-z]+s/
+String: "We picked apples."
+
+Regex:  /\s[a-z]+s/
+String: "We picked apples."
+
+Regex:  /\s[a-z]{5}s/
+String: "We picked apples."

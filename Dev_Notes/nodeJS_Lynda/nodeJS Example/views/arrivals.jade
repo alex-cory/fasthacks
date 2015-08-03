@@ -1,0 +1,10 @@
+extends layout
+
+block content
+	h1= title
+	p= 'Last flight viewed: ' + lastNumber
+	ul
+		// arrivals is passed in via     << routes/index.js -:- functions.arrivals >>
+		each flight, index in arrivals
+			- landed = new Date(flight.actualArrive)
+			li= flight.number + ': ' + flight.origin + '-' + landed

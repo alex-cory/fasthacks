@@ -1,0 +1,45 @@
+Number,Name,Start,End,Party,State,Wikipedia
+1,George Washington,1789,1797,Independent,Virginia,http://en.wikipedia.org/wiki/George_Washington
+2,John Adams,1797,1801,Federalist,Massachusetts,http://en.wikipedia.org/wiki/John_Adams
+3,Thomas Jefferson,1801,1809,Democratic-Republican,Virginia,http://en.wikipedia.org/wiki/Thomas_Jefferson
+4,James Madison,1809,1817,Democratic-Republican,Virginia,http://en.wikipedia.org/wiki/James_Madison
+5,James Monroe,1817,1825,Democratic-Republican,Virginia,http://en.wikipedia.org/wiki/James_Monroe
+6,John Q. Adams,1825,1829,Democratic-Republican/National Republican,Massachusetts,http://en.wikipedia.org/wiki/John_Quincy_Adams
+7,Andrew Jackson,1829,1837,Democratic,Tennessee,http://en.wikipedia.org/wiki/Andrew_Jackson
+8,Martin Van Buren,1837,1841,Democratic,New York,http://en.wikipedia.org/wiki/Martin_Van_Buren
+9,William H. Harrison,1841,1841,Whig,Ohio,http://en.wikipedia.org/wiki/William_Henry_Harrison
+10,John Tyler,1841,1845,Whig,Virginia,http://en.wikipedia.org/wiki/John_Tyler
+11,James K. Polk,1845,1849,Democratic,Tennessee,http://en.wikipedia.org/wiki/James_K._Polk
+12,Zachary Taylor,1849,1850,Whig,Louisiana,http://en.wikipedia.org/wiki/Zachary_Taylor
+13,Millard Fillmore,1850,1853,Whig,New York,http://en.wikipedia.org/wiki/Millard_Fillmore
+14,Franklin Pierce,1853,1857,Democratic,New Hampshire,http://en.wikipedia.org/wiki/Franklin_Pierce
+15,James Buchanan,1857,1861,Democratic,Pennsylvania,http://en.wikipedia.org/wiki/James_Buchanan
+16,Abraham Lincoln,1861,1865,Republican/National Union,Illinois,http://en.wikipedia.org/wiki/Abraham_Lincoln
+17,Andrew Johnson,1865,1869,Democratic/National Union,Tennessee,http://en.wikipedia.org/wiki/Andrew_Johnson
+18,Ulysses S. Grant,1869,1877,Republican,Ohio,http://en.wikipedia.org/wiki/Ulysses_S._Grant
+19,Rutherford B. Hayes,1877,1881,Republican,Ohio,http://en.wikipedia.org/wiki/Rutherford_B._Hayes
+20,James A. Garfield,1881,1881,Republican,Ohio,http://en.wikipedia.org/wiki/James_A._Garfield
+21,Chester A. Arthur,1881,1885,Republican,New York,http://en.wikipedia.org/wiki/Chester_A._Arthur
+22,Grover Cleveland,1885,1889,Democratic,New York,http://en.wikipedia.org/wiki/Grover_Cleveland
+23,Benjamin Harrison,1889,1893,Republican,Indiana,http://en.wikipedia.org/wiki/Benjamin_Harrison
+24,Grover Cleveland,1893,1897,Democratic,New York,http://en.wikipedia.org/wiki/Grover_Cleveland
+25,William McKinley,1897,1901,Republican,Ohio,http://en.wikipedia.org/wiki/William_McKinley
+26,Theodore Roosevelt,1901,1909,Republican,New York,http://en.wikipedia.org/wiki/Theodore_Roosevelt
+27,William H. Taft,1909,1913,Republican,Ohio,http://en.wikipedia.org/wiki/William_Howard_Taft
+28,Woodrow Wilson,1913,1921,Democratic,New Jersey,http://en.wikipedia.org/wiki/Woodrow_Wilson
+29,Warren G. Harding,1921,1923,Republican,Ohio,http://en.wikipedia.org/wiki/Warren_G._Harding
+30,Calvin Coolidge,1923,1929,Republican,Massachusetts,http://en.wikipedia.org/wiki/Calvin_Coolidge
+31,Herbert Hoover,1929,1933,Republican,Iowa,http://en.wikipedia.org/wiki/Herbert_Hoover
+32,Franklin D. Roosevelt,1933,1945,Democratic,New York,http://en.wikipedia.org/wiki/Franklin_D._Roosevelt
+33,Harry S. Truman,1945,1953,Democratic,Missouri,http://en.wikipedia.org/wiki/Harry_S._Truman
+34,Dwight D. Eisenhower,1953,1961,Republican,Texas,http://en.wikipedia.org/wiki/Dwight_D._Eisenhower
+35,John F. Kennedy,1961,1963,Democratic,Massachusetts,http://en.wikipedia.org/wiki/John_F._Kennedy
+36,Lyndon B. Johnson,1963,1969,Democratic,Texas,http://en.wikipedia.org/wiki/Lyndon_B._Johnson
+37,Richard Nixon,1969,1974,Republican,California,http://en.wikipedia.org/wiki/Richard_Nixon
+38,Gerald Ford,1974,1977,Republican,Michigan,http://en.wikipedia.org/wiki/Gerald_Ford
+39,Jimmy Carter,1977,1981,Democratic,Georgia,http://en.wikipedia.org/wiki/Jimmy_Carter
+40,Ronald Reagan,1981,1989,Republican,California,http://en.wikipedia.org/wiki/Ronald_Reagan
+41,George H. W. Bush,1989,1993,Republican,Texas,http://en.wikipedia.org/wiki/George_H._W._Bush
+42,Bill Clinton,1993,2001,Democratic,Arkansas,http://en.wikipedia.org/wiki/Bill_Clinton
+43,George W. Bush,2001,2009,Republican,Texas,http://en.wikipedia.org/wiki/George_W._Bush
+44,Barack Obama,2009,,Democratic,Illinois,http://en.wikipedia.org/wiki/Barack_Obama

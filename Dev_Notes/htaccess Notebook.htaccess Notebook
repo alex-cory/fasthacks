@@ -1,0 +1,72 @@
+## Apache Conf = .htaccess syntax highlighting.
+
+# Tell Apache you want to utilize the rewrite module
+RewriteEngine On
+
+# Specify the url prefix, only really necessary when resources are not
+#   relative to your web root
+# Local
+RewriteBase /
+# Remote
+# RewriteBase /alecory/Spring-2014/CIT-31300/Assignment%202/
+
+
+# Compare the requested path to the files in the web root and if it doesn't
+#   match a file the condition is meet so check the next condition.
+# '-f' (is regular file)
+# 	Treats the TestString as a pathname and tests whether or not it exists, and is a regular file.
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Compare the requested path to the directories in the web root and if it
+#   doesn't match a directory the condition is meet so check the next condition.
+# '-d' (is directory)
+# 	Treats the TestString as a pathname and tests whether or not it exists, and is a directory.
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# No more conditions so execute this rewrite rule: rewrite everything to be
+#   'index.php'. NC is to ignore case ( not really necessary since you are
+#   already rewriting everything ), and L signifies that this should be the
+#   last rule executed.
+RewriteRule ^ index.php [NC,L]
+
+# Check here for more notes: http://goo.gl/6wCpWB
+
+
+
+
+# =================================================================================
+# Making a Subdirectory the Root  				(http://goo.gl/wm3MG1)
+
+# HostMonster.com
+# .htaccess main domain to subdirectory redirect
+
+# Do not change this line.
+RewriteEngine on
+
+# Change example.com to be your main domain.
+RewriteCond %{HTTP_HOST} ^(www.)?example.com$
+
+# Change 'subdirectory' to be the directory you will use for your main domain.
+RewriteCond %{REQUEST_URI} !^/subdirectory/
+
+# Don't change the following two lines.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Change 'subdirectory' to be the directory you will use for your main domain.
+RewriteRule ^(.*)$ /subdirectory/$1
+
+# Change example.com to be your main domain again.
+# Change 'subdirectory' to be the directory you will use for your main domain
+# followed by / then the main file for your site, index.php, index.html, etc.
+RewriteCond %{HTTP_HOST} ^(www.)?example.com$
+RewriteRule ^(/)?$ subdirectory/index.html [L]
+
+
+# Visitors to your Web site will not be able to tell that your main domain is using a subdirectory, they will still see the Web site address as http://www.example.com/page.html.
+
+
+
+
+
+

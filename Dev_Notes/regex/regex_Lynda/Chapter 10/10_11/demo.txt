@@ -1,0 +1,33 @@
+# Password requirements
+#  May contain any character except space
+#  At least 8 characters long
+#  No more than 15 characters long
+#  Must include at least one uppercase letter
+#  Must include at least one lowercase letter
+#  Must include at least one numeric digit
+#  Must include at least one symbol
+
+String: "swordfish"
+Regex:  /^.+$/m
+
+# May contain any character except space
+Regex:  /^\S+$/m
+
+#  At least 8 characters long
+#  No more than 15 characters long
+Regex:  /^\S{8,15}$/m
+
+#  Must include at least one uppercase letter
+Regex:  /^(?=.*[A-Z])\S{8,15}$/m
+String: "swordFish"
+
+#  Must include at least one lowercase letter
+Regex:  /^(?=.*[A-Z])(?=.*[a-z])\S{8,15}$/m
+
+#  Must include at least one numeric digit
+Regex:  /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])\S{8,15}$/m
+String: "sword42Fish"
+
+#  Must include at least one symbol
+Regex:  /^(?=.*\d)(?=.*[~!@#$%^&*()_\-+=|\\{}[\]:;<>?/])(?=.*[A-Z])(?=.*[a-z])\S{8,15}$/m
+String: "sword#42Fish"

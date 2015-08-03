@@ -1,0 +1,13 @@
+(Mac users can access special characters from "Edit > Special Characters")
+
+Regex:  /cafe/
+String: "cafe café café"
+
+Regex:  /café/
+String: "cafe café café"
+
+Regex:  /caf\u00E9/
+String: "cafe café café"
+
+Regex:  /caf\u0065\u0301/
+String: "cafe café café"

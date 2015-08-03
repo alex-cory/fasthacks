@@ -1,0 +1,7 @@
+Regex:    /ACT ([A-Z]+?)\nSCENE ([A-Z]+?)\. (.+?)\n/
+Replace:  "----------
+Act: $1
+Scene: $2
+Location: $3
+----------
+"

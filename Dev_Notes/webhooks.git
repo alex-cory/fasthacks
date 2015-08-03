@@ -1,0 +1,45 @@
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Step 1: 	Create a file that will pull changes from the Git Repo.
+
+	Ex:
+	github.php 				<- File Name
+	<?php `git pull`		<- Contents of File 	(the back tics execute the "git pull" shell command)
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Step 2: 	Create Repo on Github
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Step 3:		Enable Webhooks on Github
+
+	Ex:
+	Your Repository ▶ Settings ▶ Webhooks & Services ▶ Add Webhook 			<- Navigate to Webhooks Setting
+
+	Payload URL: http://hackingedu.co/github.php 							<- URL pointing to the "git pull" file on the server
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+
+
+
+
+
+
+IN SHORT:
+- Make Repo On Github
+- Clone Repo on Server
+- Clone Repo Locally
+- Create "git pull" file locally + remotely
+- Push changes to github
+- Set up Webhook Settings
+	- Payload URL: http://your_domain.com/repository/github.php
+- Boom, set up! :)
+
+
+
+RESOURCE:
+- http://goo.gl/cjQmru

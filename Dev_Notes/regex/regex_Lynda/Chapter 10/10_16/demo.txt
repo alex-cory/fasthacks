@@ -1,0 +1,13 @@
+# "THESEUS\n" to "THESEUS: "
+Regex:    /[A-Z]+/
+Regex:    /^[A-Z]+$/
+Regex:    /^([A-Z]+)\n/
+Replace:  "$1: "
+
+# Add four spaces of indentation to spoken lines
+Regex:    /^[A-Z]+: /
+Regex:    /^(?![A-Z]+: )/
+Regex:    /^(?!([A-Z]+: |[\[\-]))/
+Regex:    /^(?!([A-Z]+: |\n|[\[\-]))/
+Regex:    /^(?!([A-Z]+: |\n|[\[\-]|Act: |Scene: |Location: ))/
+Replace:  "    "

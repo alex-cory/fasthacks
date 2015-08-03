@@ -1,0 +1,40 @@
+# Decimal numbers
+
+String: "
+5.1
+314.27918
+0.123
+.345
+23
+"
+
+Regex:  /^\d+\.\d+$/m
+Regex:  /^\d?\.\d+$/m
+Regex:  /^\d*\.?\d*$/m
+
+# If everything is optional, it matches an empty string!
+
+Regex:  /^(\d*\.\d+|\d+)$/m
+
+
+# Currency
+
+String: "
+$50
+$43.23
+$0.39
+$.60
+"
+
+# U.S. Dollar
+Regex:  /^\$(\d*\.\d{2}|\d+)$/m
+
+# British Pound
+String: "£498.10"
+Regex:  /^(\$|£)(\d*\.\d{2}|\d+)$/m
+Regex:  /^(\$|\u00A3)(\d*\.\d{2}|\d+)$/m
+
+# Japanese Yen
+String: "¥32.76"
+Regex:  /^(\$|\u00A3|¥)(\d*\.\d{2}|\d+)$/m
+Regex:  /^(\$|\u00A3|\u00A5|\uFFE5)(\d*\.\d{2}|\d+)$/m
