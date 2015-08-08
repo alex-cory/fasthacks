@@ -219,6 +219,7 @@ function un() {
 function ud() {
   # export keyboard layout to location in dotfiles repo
   "$KARABINER" export > "$KARABINER_IMPORT";
+  git add --all;
   # sync the local dotfiles repo with remote
   cd "$DOT_PATH";
   if [ "$#" == 1 ]; then
