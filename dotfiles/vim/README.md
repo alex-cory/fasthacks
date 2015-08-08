@@ -3,7 +3,7 @@
 ##### These are a list of cool things I have either thought up and put in my .vimrc, or just cool things I've gathered along the way.
 
 ### Function Shortcuts
-(Only work if you have curley braces with your functions)
+<sup><sub>(Only work if you have curley braces with your functions)</sup></sub>
 
 `cif` Change in function
 
