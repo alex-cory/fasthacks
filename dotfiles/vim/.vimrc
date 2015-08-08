@@ -21,9 +21,24 @@ call vundle#rc()
 " .git so you're aren't searching your entire machine
 :map <leader>cf :CtrlPCurFile<CR>
 
+""""" EasyMotion """""
+" Gif config
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+" nmap f <leader><leader>w
+map f <Plug>(easymotion-w)
+map F <Plug>(easymotion-b)
+
+
+""""" SuperTab """""
 " Super Tab work around
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 "let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
@@ -107,6 +122,7 @@ Plugin 'tomtom/tcomment_vim'
 Bundle 'scrooloose/syntastic'
 " Macvim Transparency: Able to adjust the transparency of macvim.
 Plugin 't9md/vim-macvim-transparency'
+" EasyMotion: super fast word navigation
 Bundle 'Lokaltog/vim-easymotion'
 " SuperTab: Vim completions with tab.
 " Bundle 'ervandew/supertab'
@@ -462,8 +478,8 @@ if executable('ag')
 endif
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-" When \ is pressed, Vim waits for our input
-nnoremap \ :Ag<SPACE>
+" When \ is pressed                                                                                                 , Vim waits for our input
+nnoremap <leader>f :Ag<SPACE>
 
 
 " t_comment remap
@@ -475,26 +491,26 @@ nnoremap \ :Ag<SPACE>
 
 "imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 "let g:user_emmet_expandabbr_key = '<Tab>'
-" When in javascript, expand to 'className' (for jsx support) TODO: doesn't work
+" When in javascript                                                                                                , expand to 'className' (for jsx support) TODO: doesn't work
 "let g:user_emmet_settings = {
-"\    'javascript': {'extends': 'html', 'attribute_name': {'class': 'className'}}
+"\    'javascript': {'extends': 'html'                                                                              , 'attribute_name': {'class': 'className'}}
 "\ }
 
 
 " Tabularize {   (Video: http://bit.ly/1RjVya3)
 if exists(":Tabularize")
   " Aligns all equals signs around cursor
-  nmap <Leader>= :Tabularize /=<CR>
-  vmap <Leader>= :Tabularize /=<CR>
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
   " Aligns all colon signs around cursor
-  nmap <Leader>; :Tabularize /:<CR>
-  vmap <Leader>; :Tabularize /:<CR>
+  nmap <Leader>a; :Tabularize /:<CR>
+  vmap <Leader>a; :Tabularize /:<CR>
   " Aligns values after colons (i.e. JSON or JavaScript Files)
-  nmap <Leader>;; :Tabularize /:\\zs<CR>
-  vmap <Leader>;; :Tabularize /:\\zs<CR>
+  nmap <Leader>a;; :Tabularize /:\\zs<CR>
+  vmap <Leader>a;; :Tabularize /:\\zs<CR>
   " Aligns commas around cursor
-  nmap <Leader>, :Tabularize /,<CR>
-  vmap <Leader>, :Tabularize /,<CR>
+  nmap <Leader>a                                                                                                    , :Tabularize /                                              , <CR>
+  vmap <Leader>a                                                                                                    , :Tabularize /                                              , <CR>
   " Aligns pipes around cursor
   "nmap <Leader>| :Tabularize /|<CR>
   "vmap <Leader>| :Tabularize /|<CR>
@@ -506,11 +522,11 @@ inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 function! s:align()
  let p = '^\s*|\s.*\s|\s*$'
  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-   let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-   let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+   let column = strlen(substitute(getline('.')[0:col('.')]                                                          , '[^|]'                                                     , ''        , 'g'))
+   let position = strlen(matchstr(getline('.')[0:col('.')]                                                          , '.*|\s*\zs.*'))
    Tabularize/|/l1
    normal! 0
-   call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+   call search(repeat('[^|]*|'                                                                                      , column).'\s\{-\}'.repeat('.'                               , position) , 'ce'                     , line('.'))
  endif
 endfunction
 "}
@@ -524,7 +540,7 @@ set noshowmode                    " -- Hide default mode indicator
 "let g:airline#extensions#tmuxline#enabled = 1
 "let g:airline_section_warning = 'syntastic'
 "Custom setup that removes filetype/whitespace from default vim airline bar
-"let g:airline#extensions#default#layout = [[ 'a', 'b', 'c' ], ['x', 'warning' ]]
+"let g:airline#extensions#default#layout = [[ 'a'                                                                   , 'b'                                                        , 'c' ]     , ['x'                     , 'warning' ]]
 " Keep list of open files in buffer at top
 "let g:airline#extensions#tabline#enabled = 1
 
@@ -536,21 +552,21 @@ set noshowmode                    " -- Hide default mode indicator
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 "let g:ctrlp_custom_ignore = {
-  "\ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  "\ 'file': '\v\.(exe|so|dll)$',
-  "\ 'link': 'some_bad_symbolic_links',
+  "\ 'dir':  '\v[\/]\.(git|hg|svn)$'                                                                                ,
+  "\ 'file': '\v\.(exe|so|dll)$'                                                                                    ,
+  "\ 'link': 'some_bad_symbolic_links'                                                                              ,
   "\ }
 " Ignore files we don't want Ctrlp to index
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn
+" set wildignore+=*/tmp/*                                                                                             , *.so                                                       , *.swp     , *.zip     " MacOSX/Linux
+" set wildignore+=*\\tmp\\*                                                                                           , *.swp                                                      , *.zip     , *.exe  " Windows
+" set wildignore+=*.o                                                                                                 , *.obj                                                      , .git      , *.rbc                    , *.class      , .svn
 
 " ### Syntastic ### "
-"let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
+"let g:syntastic_php_checkers=['php'                                                                                , 'phpcs'                                                    , 'phpmd']
 "let g:syntastic_javascript_checkers = ['jsxhint']
 let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
-let g:syntastic_javascript_checkers = ['eslint', 'jsxhint']
-"let g:syntastic_javascript_checkers = ['jsxhint', 'jshint']
+let g:syntastic_javascript_checkers = ['eslint'                                                                     , 'jsxhint']
+"let g:syntastic_javascript_checkers = ['jsxhint'                                                                   , 'jshint']
 "autocmd! BufEnter  *.jsx  let b:syntastic_checkers=['jsxhint']
 " Disable some features to make syntastic faster
 "let g:syntastic_enable_signs = 0
@@ -558,14 +574,14 @@ let g:syntastic_javascript_checkers = ['eslint', 'jsxhint']
 
 " ### SuperTab ### "
 let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+let g:SuperTabContextTextOmniPrecedence = ['&omnifunc'                                                              , '&completefunc']
 let g:SuperTabLongestHighlight = 2
 let g:SuperTabClosePreviewOnPopupClose = 1
 
 " ### Tagbar Options ### "
 "map <F12> :TagbarToggle<CR>
 "let g:tagbar_ctags_bin
-"set tags=./tags,tags;/
+"set tags=./tags                                                                                                    , tags;/
 "let g:tagbar_show_visibility = 1
 "let g:tagbar_expand = 1
 " Tagbar support for javascript/jsctags
@@ -573,12 +589,12 @@ let g:SuperTabClosePreviewOnPopupClose = 1
     "\ 'ctagsbin' : '/path/to/jsctags'
 "\ }
 "let g:tagbar_type_php  = {
-    "\ 'ctagstype' : 'php',
+    "\ 'ctagstype' : 'php'                                                                                          ,
     "\ 'kinds'     : [
-        "\ 'i:interfaces',
-        "\ 'c:classes',
-        "\ 'd:constant definitions',
-        "\ 'f:functions',
+        "\ 'i:interfaces'                                                                                           ,
+        "\ 'c:classes'                                                                                              ,
+        "\ 'd:constant definitions'                                                                                 ,
+        "\ 'f:functions'                                                                                            ,
         "\ 'j:javascript functions:1'
     "\ ]
   "\ }
@@ -586,7 +602,7 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 "latest version of tagbar is only compatible with vim >= 701
 "if v:version > 700
     "Bundle 'majutsushi/tagbar'
-    "" Same as nerdtree, only open if no file was specified
+    "" Same as nerdtree                                                                                             , only open if no file was specified
     "function! StartUpTagbar()
         "if 0 == argc()
            "TagbarOpen

@@ -80,6 +80,14 @@
 
 # My Favorite Plugins
 
+### EasyMotion
+- Summary: Really fast current file navigation.
+- [Details]()
+- [Tutorial](http://code.tutsplus.com/tutorials/vim-essential-plugin-easymotion--net-19223)
+- [Video](https://www.youtube.com/watch?feature=player_embedded&v=Dmv6-dguS3g)
+
+![Alt text](../assets/easymotion.gif)
+
 ### Helm Swoop
 - Summary: Efficiently hopping squeezed lines powered by Emacs helm interface
 - [Details](https://github.com/ShingoFukuyama/helm-swoop)
