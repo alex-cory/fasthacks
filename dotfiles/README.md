@@ -9,6 +9,6 @@ easy, just type `hide` in your terminal.
 
 
 
-![alt text][github]
+![alt text](./assets/dotfiles.png)
 
-[github]: https://github.com/alex-cory/fasthacks/blob/master/dotfiles/dotfiles.png "dotfiles"
+<!-- [github]: https://github.com/alex&#45;cory/fasthacks/blob/master/dotfiles/dotfiles.png "dotfiles" -->

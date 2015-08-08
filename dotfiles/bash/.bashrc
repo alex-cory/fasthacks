@@ -664,6 +664,12 @@ alias cl='spit_colors'
 # Bash Colors Help
 alias clh='colors_help'
 
+# Check Symlinks
+alias chsym="bash $DOT/tools/checkSyms.sh"
+
+# Re-symlink Everything
+alias resym="bash $DOT/tools/resymlink.sh"
+
 # ToDo
 # alias td='$HOME' #TODO: aggregates a list of all todos in all dotfiles with filename and reference.  Kind of like the output of silver_searcher
 
