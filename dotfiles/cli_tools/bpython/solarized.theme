@@ -1,0 +1,24 @@
+# This theme attempts to map Solarized Dark colors to bpython similar to
+# SublimeText 2. Requires Solarized Dark.ML.settings for Terminal.app.
+
+# Copy to ~/.bpython/solarized.theme and
+# set "color_scheme = solarized" in ~/bpython/config
+
+[syntax]
+keyword = g
+name = d
+comment = G
+string = c
+error = r
+number = m
+operator = g
+punctuation = B
+token = R
+paren = W
+
+[interface]
+background = d
+output = b
+main = c
+prompt = W
+prompt_more = C

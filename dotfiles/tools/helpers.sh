@@ -1,6 +1,12 @@
 #!/bin/sh
 # Helpers
 
+###
+# Checks to see if a given substring is contained within the string.
+# Ex: contains 'cool man' 'coo'             -> 1 #aka true
+# Ex: contains 'cool man' 'cool' AND 'man'  -> 1 #aka true
+# Ex: contains 'cool man' 'bro' OR 'an'     -> 1 #aka true
+###
 function contains() {
   local previousDecision=0
   answers=()
@@ -19,10 +25,10 @@ function contains() {
       local substring="$arg"
 
       # Prints a float if not an even number (e.g. 1.4)
-      is_multiple_of_2=$(awk "BEGIN {print $i/2}") 
+      is_multiple_of_2=$(awk "BEGIN {print $i/2}")
 
       # Checks to see if not an integer (e.g. 1, 3, 5)
-      if ! [[ $is_multiple_of_2 =~ ^-?[0-9]+$ ]]; then 
+      if ! [[ $is_multiple_of_2 =~ ^-?[0-9]+$ ]]; then
         # if $i is 3 or greater and odd, it's a && or ||
 
         if [[ $substring == 'OR' ]]; then
@@ -69,23 +75,6 @@ function contains() {
     fi
 
   fi
-  # j=1
-  # for (( j = 1; j <= ${#answers[@]}; j++ )); do
-    # if [[ j > 1 ]]; then
-    #   
-    # else
-    #
-    # fi
-    # if [[ ${answers[j]} ]]; then
-    #   #statements
-    # fi
-    # (( j++ ))
-
-    # if [[ ${answers[0]} ]]; then
-    #   #statements
-    # fi
-    # echo ${answers[$j]}
-  # done
 }
 
 ###
@@ -115,7 +104,7 @@ function esc_chars() {
 }
 
 # Tells you whether a function exists. Can be used in a terminal or in a file.
-function_exists() {
+function function_exists() {
   # declare -f -F $1 > /dev/null
   # return $?
   fname=`declare -f -F $1`
@@ -125,5 +114,42 @@ function_exists() {
 # Shows what's in the function
 function func() {
   fname=`declare -f -F $1`
-  echo $fname 
+  echo $fname
 }
+
+# Checks to see if a file exists
+function exists() {
+  if test -e "$1"; then
+    printf "${Green}Yep! :)"
+  else
+    printf "${Red}Yuck! Where is it??"
+  fi
+}
+
+###
+#
+###
+function if_noexist_create() {
+  if [[ -f "$1" ]]; then
+    return
+    # printf "${Green}File Exists Already:${Off} $1"
+  elif [[ -d "$1" ]]; then
+    return
+    # printf "${Green}Directory Exists Already:${Off} $1"
+  # if the last part of the path contains a slash and doesn't contain a dot
+  elif [[ $2 == 'DIR' ]]; then
+    mkdir "$1"
+  elif [[ $2 == 'FILE' ]]; then
+    touch "$1"
+  fi
+}
+
+function recurseSym() {
+  sourceDir="$1"
+  destDir="$2"
+  cd "$sourceDir"
+  for i in `ls `; do
+    ln -s $i "$destDir"/$i
+  done
+}
+

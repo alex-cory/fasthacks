@@ -15,17 +15,7 @@ call vundle#rc()
 "     quotes
 "   - delete in object
 "   - delete around object
-"   - delete in function
-"   - delete around function
-"   - drif   delete args in function
-"   - draf   delete args in function including ()
 "   - TODO: ONE SPACE LINE NAVIGATION (on releasing space, go to line)
-function! s:MyFunc(...)
-    let num=a:1
-    echo num
-endfunction
-command! -nargs=1 MyCommand call s:MyFunc(<f-args>)
-:nmap <leader>aa :MyCommand<CR>
 
 " Let's you search with ctrlp from within the current directory if there's no
 " .git so you're aren't searching your entire machine
@@ -71,49 +61,75 @@ nnoremap `` ''
 " }}}
 
 " Plugin List {{{
+
+""" Installed plugins
+
 " command Around/In function  'DOESN'T WORK WITH JS :(
 " Plugin 'kana/vim-textobj-function'
-" allows you to configure % to match more than just single characters.
+" Matchit: allows you to configure % to match more than just single characters.
 Plugin 'matchit.zip'
+" Ag: Aka, the silver searcher. Like a search in all files for search term feature.
 Plugin 'rking/ag.vim'
+" Hard Mode: Turns off hjkl single motion.
 Plugin 'wikitopian/hardmode'
-"Plugin 'matchit.zip'
-" Unimpaired = quick mappings such as >p and =p etc.
+" Unimpaired: quick mappings such as >p and =p etc.
 Plugin 'tpope/vim-unimpaired'
-" Vim-Markdown = syntax highlighting and shortcuts
+" Vim Markdown: syntax highlighting and shortcuts
 Plugin 'plasticboy/vim-markdown'
+" CSS Colors: preview colors in source code while editing
 Plugin 'skammer/vim-css-color'
+" Dash: quickly see documentation for a fuction your cursor is currently on
 Plugin 'rizzatti/dash.vim'
 "Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-easytags'
+" Colors Solarized: precision color scheme
 Plugin 'altercation/vim-colors-solarized'
+" Tern: kind of like c-tags
 Plugin 'marijnh/tern_for_vim'
+" Vundle: Vim package manager
 Bundle 'gmarik/vundle'
-"Plugin 'marijnh/tern_for_vim'
 "Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-" Installed plugins
+" Tabular: Quickly aligns code based off of =, commas, pipes, colons, etc
 Plugin 'godlygeek/tabular'
+" Emmet: Super fast html and css coding. Also really great shortcuts
 Plugin 'mattn/emmet-vim'
-Bundle 'corntrace/bufexplorer'
+" Bundle 'corntrace/bufexplorer'
+" Vim Airline: Status tabline for the bottom of vim.
 Bundle 'bling/vim-airline'
+" Ctrl P: Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 Bundle 'kien/ctrlp.vim'
+" Nerd Tree: A file tree explorer plugin. Think of it as the sidebar of a text editor/IDE.
 Bundle 'scrooloose/nerdtree'
+" TComment: an extensible & universal comment vim-plugin that also handles embedded filetypes.
 Plugin 'tomtom/tcomment_vim'
 "Plugin 'scrooloose/nerdcommenter'
+" Syntastic: Syntax check.  Shows the lines that are currently messed up.
 Bundle 'scrooloose/syntastic'
+" Macvim Transparency: Able to adjust the transparency of macvim.
+Plugin 't9md/vim-macvim-transparency'
 Bundle 'Lokaltog/vim-easymotion'
+" SuperTab: Vim completions with tab.
 " Bundle 'ervandew/supertab'
 "Bundle 'shawncplus/phpcomplete.vim'
+" YouCompleteMe: Same as SuperTab
 " Plugin 'Valloric/YouCompleteMe'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Sparkup: Like an emmet knockoff
+" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Fugitive: a git wrapper so awesome it should be illegal.
 Bundle 'tpope/vim-fugitive'
-Bundle 'tobyS/pdv'
-" Ultisnips = filepath completion
+" PDV: php document editor
+" Bundle 'tobyS/pdv'
+" Ultisnips: filepath completion & snippets
 Bundle 'SirVer/ultisnips'
+" Git Gutter: Displays line changes relative to the previous commit.
 "Bundle 'airblade/vim-gitgutter'
+" Twig: Syntax highlighting, snipMate, etc.
 Bundle 'evidens/vim-twig'
+" Autoclose: Autoclose characters for you, like (), {}, []
 Bundle 'Townk/vim-autoclose'
+" Tmuxline: TODO:
 Bundle 'edkolev/tmuxline.vim'
+" Js Ctags: Ctags for javascript. Help you navigate from function call to function definition.
 Plugin 'ramitos/jsctags'
 " Bundle 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
@@ -124,6 +140,7 @@ Plugin 'joyent/node'
 Plugin 'caolan/nodeunit'
 "Plugin 'balderdashy/sails'
 " Plugin 'jamescarr/snipmate-nodejs'
+" Undotree: Shows edit history up to the second of a file.
 Plugin 'mbbill/undotree'
 " Plugin 'justinj/vim-react-snippets'
 
@@ -136,7 +153,9 @@ Bundle "honza/vim-snippets"
 " http://bit.ly/1IteUaf
 
 Plugin 'mxw/vim-jsx'
+" Surround: Allows you to quickly surround pieces of text.
 Plugin 'tpope/vim-surround'
+" Repeat: Allows all your plugins to be repeated with `.`
 Plugin 'tpope/vim-repeat'
 "Plugin 'majutsushi/tagbar' " http://vimawesome.com/plugin/tagbar
 " }}} "
@@ -145,10 +164,31 @@ Plugin 'tpope/vim-repeat'
 " ============================================================================ "
 " ===                           EDITING OPTIONS                            === "
 " ============================================================================ "
+"
+" Function shortcuts
+" Delete
+:nmap dif 0%j[mdi{
+:nmap daf 0%j[mda{dd
+:nmap dr 0%j[m0f)di(
+:nmap dn 0%j[m0wdiw
+" Visual
+:nmap vif 0%j[mvi{
+:nmap vaf 0%j[mva{dd
+:nmap vr 0%j[m0f)vi(
+:nmap vn 0%j[m0wviw
+" Remove and go into insert
+:nmap cif 0%j[mci{
+:nmap caf 0%j[mca{dd
+:nmap cr 0%j[m0f)ci(
+:nmap cn 0%j[m0wciw
+
 " Quickly Comment files in JSX
 " TODO: make this work
 "map: <leader>cj
+
+"fix
 :nmap >p p`[v`]>>
+
 " If file changes outside of vim, autoreload it
 :set autoread
 
@@ -355,58 +395,58 @@ endif
 " ============================================================================ "
 " Surround.vim Additions
 " Changing (for current line)
-:nmap 'ci[ 0f[ci[
-:nmap 'ci] 0f]ci]
-:nmap 'ca[ 0f[ca[
-:nmap 'ca] 0f]ca]
-:nmap 'ci( 0f(ci(
-:nmap 'ci) 0f)ci)
-:nmap 'ca( 0f(ca(
-:nmap 'ca) 0f)ca)
-:nmap 'ci{ 0f{ci{
-:nmap 'ci} 0f}ci}
-:nmap 'ca{ 0f{ca{
-:nmap 'ca} 0f}ca}
+:nmap <leader>ci[ 0f[ci[
+:nmap <leader>ci] 0f]ci]
+:nmap <leader>ca[ 0f[ca[
+:nmap <leader>ca] 0f]ca]
+:nmap <leader>ci( 0f(ci(
+:nmap <leader>ci) 0f)ci)
+:nmap <leader>ca( 0f(ca(
+:nmap <leader>ca) 0f)ca)
+:nmap <leader>ci{ 0f{ci{
+:nmap <leader>ci} 0f}ci}
+:nmap <leader>ca{ 0f{ca{
+:nmap <leader>ca} 0f}ca}
 " Deleting (for current line)
-:nmap 'di[ 0f[di[
-:nmap 'di] 0f]di]
-:nmap 'da[ 0f[da[
-:nmap 'da] 0f]da]
-:nmap 'di( 0f(di(
-:nmap 'di) 0f)di)
-:nmap 'da( 0f(da(
-:nmap 'da) 0f)da)
-:nmap 'di{ 0f{di{
-:nmap 'di} 0f}di}
-:nmap 'da{ 0f{da{
-:nmap 'da} 0f}da}
+:nmap <leader>di[ 0f[di[
+:nmap <leader>di] 0f]di]
+:nmap <leader>da[ 0f[da[
+:nmap <leader>da] 0f]da]
+:nmap <leader>di( 0f(di(
+:nmap <leader>di) 0f)di)
+:nmap <leader>da( 0f(da(
+:nmap <leader>da) 0f)da)
+:nmap <leader>di{ 0f{di{
+:nmap <leader>di} 0f}di}
+:nmap <leader>da{ 0f{da{
+:nmap <leader>da} 0f}da}
 " Visual Mode (for current line)
-:nmap 'vi[ 0f[vi[
-:nmap 'vi] 0f]vi]
-:nmap 'va[ 0f[va[
-:nmap 'va] 0f]va]
-:nmap 'vi( 0f(vi(
-:nmap 'vi) 0f)vi)
-:nmap 'va( 0f(va(
-:nmap 'va) 0f)va)
-:nmap 'vi{ 0f{vi{
-:nmap 'vi} 0f}vi}
-:nmap 'va{ 0f{va{
-:nmap 'va} 0f}va}
+:nmap <leader>vi[ 0f[vi[
+:nmap <leader>vi] 0f]vi]
+:nmap <leader>va[ 0f[va[
+:nmap <leader>va] 0f]va]
+:nmap <leader>vi( 0f(vi(
+:nmap <leader>vi) 0f)vi)
+:nmap <leader>va( 0f(va(
+:nmap <leader>va) 0f)va)
+:nmap <leader>vi{ 0f{vi{
+:nmap <leader>vi} 0f}vi}
+:nmap <leader>va{ 0f{va{
+:nmap <leader>va} 0f}va}
 " Paste in (for current line)
-:nmap 'pi[ 0f[vi[pyi[
-:nmap 'pi] 0f]vi]pyi]
-:nmap 'pi( 0f(vi(pyi(
-:nmap 'pi) 0f)vi)pyi)
-:nmap 'pi{ 0f{vi{pyi{
-:nmap 'pi} 0f}vi}pyi}
+:nmap <leader>pi[ 0f[vi[pyi[
+:nmap <leader>pi] 0f]vi]pyi]
+:nmap <leader>pi( 0f(vi(pyi(
+:nmap <leader>pi) 0f)vi)pyi)
+:nmap <leader>pi{ 0f{vi{pyi{
+:nmap <leader>pi} 0f}vi}pyi}
 " Yank in (for current line)
-:nmap 'yi[ 0f[yi[
-:nmap 'yi] 0f]yi]
-:nmap 'yi( 0f(yi(
-:nmap 'yi) 0f)yi)
-:nmap 'yi{ 0f{yi{
-:nmap 'yi} 0f}yi}
+:nmap <leader>yi[ 0f[yi[
+:nmap <leader>yi] 0f]yi]
+:nmap <leader>yi( 0f(yi(
+:nmap <leader>yi) 0f)yi)
+:nmap <leader>yi{ 0f{yi{
+:nmap <leader>yi} 0f}yi}
 
 
 " The Silver Searcher
@@ -427,11 +467,10 @@ nnoremap \ :Ag<SPACE>
 
 
 " t_comment remap
-:nmap <leader>c gc
-:nmap <leader>cI <c-_>i
-:nmap <leader>cr <c-_>r
-:nmap <leader>cb <c-_>b
-:nmap <leader>cp <c-_>p
+:nmap gci <c-_>i
+:nmap gcr <c-_>r
+:nmap gcb <c-_>b
+:nmap gcp <c-_>p
 
 
 "imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
@@ -661,7 +700,7 @@ autocmd VimEnter * call StartUpNerdtree()
 nmap <silent> <leader><space> :nohlsearch<CR>
 
 " find/search and replace (another windows shortcut)
-map <leader>/ :%s///gc<left><left><left><left>
+map <leader>/ :%s//gc<left><left><left>
 
 " === Nerdtree shorcuts === "
 " Open Nerdtree
@@ -684,7 +723,7 @@ map <leader>/ :%s///gc<left><left><left><left>
 " let g:ctrlp_map = "<leader>t"
 
 " Opens Ctrlp but in buffer search mode to quickly search in recent files
-nmap <leader><leader> :CtrlPBuffer<CR>
+" nmap <leader><leader> :CtrlPBuffer<CR>
 
 " Svn blame highlighted lines in visual mode for svn users
 " vmap gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>

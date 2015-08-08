@@ -1,6 +1,8 @@
 #!/bin/bash
 # git_shortcuts.sh
 
+# alias gstlast='git ls-files --other --modified --exclude-standard|while read filename; do  echo -n "$(stat -c%y -- $filename 2> /dev/null) "; echo $filename;  done|sort'
+
 # Current Branch / HEAD Commit Hash (if not on branch tip)
 HEAD=$(git rev-parse --abbrev-ref HEAD)
 # if on commit hash

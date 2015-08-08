@@ -238,7 +238,7 @@
         | - hold 3 + k to full screen at 3rd from left display
         | - Space Tab    = Command Tab <= maybe
         | - Space Tilda  = Command Tilda <= maybe
-        |
+        | - back to number row for commands keys.  if shift is held, the on hold functionality is lost for all numbers row
         |
         |
         |

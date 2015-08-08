@@ -36,7 +36,7 @@
   },
   {
     "name": ".agignore",
-    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/.agignore",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/cli_tools/.agignore",
     "softLink": "/Users/AlexCory/.agignore"
   },
   {
@@ -102,6 +102,6 @@
   {
     "name": "BPython Config File -> softlink in python folder in dotfiles",
     "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/cli_tools/bpython/config",
-    "softLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/python/bpthonConfig"
+    "softLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/python/bpythonConfig"
   }
 ]

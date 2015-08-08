@@ -1,16 +1,3 @@
-# alias gstlast='git ls-files --other --modified --exclude-standard|while read filename; do  echo -n "$(stat -c%y -- $filename 2> /dev/null) "; echo $filename;  done|sort'
-# TODO:
-# 1. MAKE A TODOs program to display all the todo's in dotfiles
-# 2. Karabiner:
-#    - hold `d`  -> vim navigation
-#    - holde `d+f` -> command + vim navigation
-#    - hold `d+s`  -> option  + vim navigation
-# 3. Vim Shortcut: ⌘ +; -> end of line add semicolon
-# 4. MAKE QUICK ALIAS FUNCTION: aa newAlias 'what this alias does
-# 5. quick alias/function editing
-#    - you type into the terminal: .functionName
-#    - then it opens up the corresponding file at that function name so you can quickly edit it
-
 # ////////////////////////////////////////////////////////////////////
 # //                     Bash Configuration                         //
 # ////////////////////////////////////////////////////////////////////
@@ -19,15 +6,15 @@
 # How To Activate Aliases (use: source ~/.bashrc)
 
 # source "globals" # Where all the custom paths for your machine are stored that are used in the functions below
-source "/etc/globals"
+# source "/etc/globals"
 
 
 # Interview Prep Quick Function
 function interviews() {
-  cd "$LOCAL_REPOS/Interviews"
-  open -a Finder "$BOOKS"
-  mvim
-  open -a Preview "$BOOKS/Cracking The Coding Interview 4th Edition.pdf"
+  cd "$LOCAL_REPOS/Interviews";
+  open -a Finder "$BOOKS";
+  mvim;
+  open -a Preview "$BOOKS/Cracking The Coding Interview 4th Edition.pdf";
 }
 
 # Show File/Dir Sizes for Current Directory Recursively
@@ -99,9 +86,6 @@ function csp() {
   fi
 }
 
-# BUGFIX
-# alias open='/usr/bin/open'
-
 # Search Google
 function ggl() {
     search=""
@@ -116,6 +100,7 @@ function ggl() {
 function src() {
   if [ -z "${1+xxx}" ]; then # If no argument is set
     source "$HOME/.bashrc"
+    ingit_source "$GIT_SHORTCUTS"
     # /bin/bash -c 'source ~/.bashrc'
   else
     source "$HOME/$@"
@@ -139,14 +124,6 @@ function swap() { # Swap 2 filenames around, if they exist (from Uzi's bashrc).
   mv "$1" $TMPFILE
   mv "$2" "$1"
   mv $TMPFILE "$2"
-}
-
-function exists() {
-  if test -e "$1"; then
-    echo "${Green}Yep! :)"
-  else
-    echo "${Red}Yuck! Where is it??"
-  fi
 }
 
 # TODO: fix the commenting
@@ -274,7 +251,7 @@ function man() {
 }
 
 # Colorful Less
-alias less='pygmentize | less'
+# alias less='pygmentize | less'
 function less() {
   local jqError=$(contains "$(command cat $1 | jq '.' 2>&1)" 'parse error: Invalid numeric literal' OR 'No such file or directory')
   local pygError=$(contains "$(command cat $1 | pygmentize 2>&1)" 'Error: no lexer for filename')
@@ -618,6 +595,9 @@ alias .tl="vim $DOT/README.md"
 # open bpython config
 alias .bpy="vim $HOME/.config/bpython/config"
 
+# open python_shortcuts.sh
+alias .ps="vim $DOT/python/python_shortcuts.sh"
+
 # open .pythonrc
 alias .py="vim $HOME/.pythonrc"
 
@@ -954,14 +934,14 @@ function sb() {
 }
 
 # Open Dev Notes in MacVim
-alias mvdn="cd $DEV_PATH/Dev\ Notes; mvim"
+alias mvdn="cd $DEV_PATH/Dev_Notes; mvim"
 
 # Open Dev Notes in Terminal Vim
-alias vdn="cd $DEV_PATH/Dev\ Notes; vim"
+alias vdn="cd $DEV_PATH/Dev_Notes; vim"
 
 # Go To => Dev Notes
 function dn() {
-	cd "$DEV_PATH/Dev Notes/$1"
+	cd "$DEV_PATH/Dev_Notes/$1"
 	# Description: $1: Developer Notes Dirctory/File
 	# Define:  path/to/dev_notes
 	# Live ex: dn example_note
