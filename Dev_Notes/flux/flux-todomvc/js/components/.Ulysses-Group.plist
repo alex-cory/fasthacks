@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>createMarkedFile</key>
+	<false/>
+	<key>sheetClusters</key>
+	<array>
+		<array>
+			<string>Footer.react.js</string>
+		</array>
+		<array>
+			<string>Header.react.js</string>
+		</array>
+		<array>
+			<string>MainSection.react.js</string>
+		</array>
+		<array>
+			<string>TodoApp.react.js</string>
+		</array>
+		<array>
+			<string>TodoItem.react.js</string>
+		</array>
+		<array>
+			<string>TodoTextInput.react.js</string>
+		</array>
+	</array>
+</dict>
+</plist>
