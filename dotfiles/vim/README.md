@@ -58,7 +58,7 @@
 
 `,t` Open new vim vertical split pane (what I think of as a split tab)
 
-# Aligning
+### Aligning
 <sub><sup>(uses Tabularize package)</sup></sub>
 
 `,,`  Aligns surrounding lines based off of commas
@@ -69,7 +69,7 @@
 
 `,;;` Aligns surrounding lines based off of 2 colons
 
-# File Searching
+### File Searching
 `ctrl+p` Control P file search
 
 ` \ `    Silver Searcher (allows you to search all files for specific search term)
