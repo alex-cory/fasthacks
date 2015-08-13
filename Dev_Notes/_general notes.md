@@ -3,17 +3,16 @@ General Notes
 
 Server
 ------
-  ###
-    - In the context of Internet Protocol (IP) networking, a server is a program that operates as a socket listener.
+  - In the context of Internet Protocol (IP) networking, a server is a program that operates as a socket listener.
 
-## Network Socket  
+#### Network Socket  
   - A network socket is an endpoint of an inter-process
     communication across a computer network.
     
-## ASCII: American Standard Code for Information  
+#### ASCII: American Standard Code for Information  
   - http://bit.ly/1Kd9XhD
   
-## CAS: Central Authentication Service  
+#### CAS: Central Authentication Service  
   - a single sign-on protocol for the web. Its purpose
     is to permit a user to access multiple applications
     while providing their credentials (such as userid and
@@ -24,33 +23,33 @@ Server
     protocol.
   - Wikipedia: http://bit.ly/1GtDzcH
   
-## AMD: Asynchronous Module Definition  
+#### AMD: Asynchronous Module Definition  
   - AMD specifies a standard for modular JavaScript such that modules
     can load their dependencies asynchronously, solving the problems
     associated with synchronous loading.
   - Wikipedia: http://bit.ly/1FKUu6R
   
-## CommonJS  
+#### CommonJS  
   - a project with the goal of specifying an ecosystem for JavaScript
     outside the browser (for example, on the server or for native desktop
     applications).
   - Wikipedia: http://bit.ly/1e52J6R
 
-## Module Bundler  
+#### Module Bundler  
   -
 
-## Browserfy  
+#### Browserfy  
   -
 
-## Webpack  
+#### Webpack  
   - a module bundler. Takes modules with dependencies and generates static
     assets representing those modules.
   - Website: http://bit.ly/1e52XuQ
 
-## Web Syndication  
+#### Web Syndication  
   - refers to the websites providing information and the websites displaying it.
 
-## IRC: Internet Relay Chat  
+#### IRC: Internet Relay Chat  
   - is an application layer protocol that facilitates the transfer of messages
     in the form of text. The chat process works on a client/server networking
     model. IRC clients are computer programs that a user can install on their
@@ -60,7 +59,7 @@ Server
     messages as well as chat and data transfer, including file sharing.
   - Wikipedia: http://bit.ly/1I3A2yD
 
-## FOSS: Free and open-source software  
+#### FOSS: Free and open-source software  
   - is computer software that can be classified as both free software and
     open-source software. That is, anyone is freely licensed to use, copy,
     study, and change the software in any way, and the source code is openly
@@ -70,29 +69,29 @@ Server
     hidden from the users.
   - Wikipedia: http://bit.ly/1GAjqDF
 
-## Freenode  
+#### Freenode  
   - an IRC network providing discussion facilities for the Free and Open
     Source Software communities, not-for-profit organizations, and related
     communities.
   - Website: https://freenode.net/
 
-## cURL: Client URL Request Library  
+#### cURL: Client URL Request Library  
   - Think of it as a "copy for URLs" -- it can copy to or from a given URL in
     any nine different protocols
   - Reference: http://bit.ly/1GaEA4S
 
-## grep: Global Regular Expression Print  
+#### grep: Global Regular Expression Print  
   - a Unix command used to search files for the occurrence of a string of characters that matches a specified pattern.
   - Website: https://kb.iu.edu/d/abnd
 
-## SuperAgent  
+#### SuperAgent  
   - Super Agent is light-weight progressive ajax API crafted for flexibility,
     readability, and a low learning curve after being frustrated with many of
     the existing request APIs.
   - It's basically a nice simple way to make http requests to apis.
   - Website: http://bit.ly/1LjeEf1
 
-## Data-Flow Programming/Flow Based Programming  
+#### Data-Flow Programming/Flow Based Programming  
   - where data flows through the application in a single direction — there are
     no two-way bindings.
 
