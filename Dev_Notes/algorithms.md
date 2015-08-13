@@ -8,6 +8,7 @@ Algorithms in JavaScript Es6
 **[Selection Sort](#selection-sort)**  
 **[Merge Sort](#merge-sort)**  
 **[Quick Sort](#merge-sort)**  
+**[Shell Sort](#shell-sort)**  
 **[Resources](#overall-resources)**  
 
 
@@ -517,7 +518,23 @@ no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
 #### Implementation
 ```javascript
+function shellSort (items) {
 
+  for (var h = items.length; h = parseInt(h / 2);) {
+
+    for (var i = h; i < items.length; i++) {
+
+      var k = items[i];
+
+      for (var j = i; j >= h && k < items[j - h]; j -= h) {
+
+        items[j] = items[j - h];
+        items[j] = k;
+      }
+    }
+  }
+  return items;
+}
 ```
 
 #### Resources
