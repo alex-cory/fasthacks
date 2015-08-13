@@ -9,6 +9,8 @@
     communication across a computer network.
   ###
     -
+## ASCII: American Standard Code for Information 
+  - http://bit.ly/1Kd9XhD
 ## CAS: Central Authentication Service
   - a single sign-on protocol for the web. Its purpose
     is to permit a user to access multiple applications

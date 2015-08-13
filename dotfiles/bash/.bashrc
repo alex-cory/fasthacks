@@ -8,6 +8,10 @@
 # source "globals" # Where all the custom paths for your machine are stored that are used in the functions below
 # source "/etc/globals"
 
+# Copy Files Only
+function cpf() {
+  find . -maxdepth 1 -type f -name "$@" -exec cp -n {} "${@: -1}" \;
+}
 
 # Interview Prep Quick Function
 function interviews() {
@@ -71,10 +75,10 @@ function fm() {
 }
 
 # Open Last Screenshot Taken
-# function ols() {
-#   screenshot=$(find . "$SCREENSHOTS" -type f -print0 | xargs -0 stat -f \"%m %N\" | sort -rn | head -1 | cut -f2- -d\" \")
-#   open "$screenshot"
-# }
+function ols() {
+  screenshot="$(find . $SCREENSHOTS -type f -print0 | xargs -0 stat -f "%m %N" | sort -rn | head -1 | cut -f2- -d" ")" &&
+  open "$screenshot"
+}
 
 # Change Screenshot Path
 function csp() {
@@ -913,7 +917,8 @@ alias dev='~/GoogleDrive/_Server_/Developer/'
 alias htdocs='/Applications/MAMP/htdocs/'
 
 # Go To => Downloads
-alias downloads='~/Downloads/'
+alias downloads='cd ~/Downloads/'
+alias dl='cd ~/Downloads/'
 
 # Go To => Alfred Data
 alias alfred-data='~/Library/Application Support/Alfred 2/Workflow Data/'

@@ -31,8 +31,15 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 " nmap f <leader><leader>w
-map f <Plug>(easymotion-w)
-map F <Plug>(easymotion-b)
+nmap sj <Plug>(easymotion-w)
+nmap sk <Plug>(easymotion-b)
+" Gif config
+map sl <Plug>(easymotion-lineforward)
+map ssj <Plug>(easymotion-j)
+map ssk <Plug>(easymotion-k)
+map sh <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 
 
 """"" SuperTab """""
@@ -182,21 +189,42 @@ Plugin 'tpope/vim-repeat'
 " ============================================================================ "
 "
 " Function shortcuts
-" Delete
+" " Delete
+" :nmap dif 0%j[mdi{
+" :nmap daf 0%j[mda{dd
+" :nmap dr 0%j[m0/)<cr>adi(
+" :nmap dfn 0%j[m0wdiw
+" " Visual
+" :nmap vif 0%j[mvi{
+" :nmap vaf 0%j[mva{dd
+" :nmap vfr 0%j[m0/)<cr>avi(
+" :nmap vfn 0%j[m0wviw
+" " Remove and go into insert
+" :nmap cif 0%j[mci{
+" :nmap caf 0%j[mca{dd
+" :nmap cfr 0%j[m0/)<cr>aci(
+" :nmap cfn 0%j[m0wciw
+
+" " Delete (without custom easymotion setup)
+" Delete in function
 :nmap dif 0%j[mdi{
+" Delete around function
 :nmap daf 0%j[mda{dd
+" Delete args of function
 :nmap dr 0%j[m0f)di(
-:nmap dn 0%j[m0wdiw
-" Visual
+" Delete function name
+:nmap dfn 0%j[m0wdiw
+" Visual (without custom easymotion setup)
 :nmap vif 0%j[mvi{
 :nmap vaf 0%j[mva{dd
-:nmap vr 0%j[m0f)vi(
-:nmap vn 0%j[m0wviw
-" Remove and go into insert
+:nmap vfr 0%j[m0f)vi(
+:nmap vfn 0%j[m0wviw
+" Remove and go into insert (without custom easymotion setup)
 :nmap cif 0%j[mci{
 :nmap caf 0%j[mca{dd
-:nmap cr 0%j[m0f)ci(
-:nmap cn 0%j[m0wciw
+:nmap cfr 0%j[m0f)ci(
+:nmap cfn 0%j[m0wciw
+
 
 " Quickly Comment files in JSX
 " TODO: make this work
@@ -276,7 +304,8 @@ set backspace=indent,eol,start
 set clipboard=unnamed
 
 " Search highlighting
-set hlsearch
+" set hlsearch
+set nohlsearch
 
 " Syntax highlighting and colors
 syntax enable
@@ -484,14 +513,26 @@ nnoremap <leader>f :Ag<SPACE>
 
 " t_comment remap
 :nmap gci <c-_>i
-:nmap gcr <c-_>r
-:nmap gcb <c-_>b
-:nmap gcp <c-_>p
+:nmap gr <c-_>r
+:nmap gb <c-_>b
+:nmap gs <c-_>b
+:nmap gp <c-_>p
+" comment function
+:nmap gcf 0%j[mgca{
 
+" function! ShowFuncName()
+"     let cursor_pos = getpos('.')
+"     echohl ModeMsg
+"     normal! [k
+"     echo getline('.')
+"     echohl None
+"     call setpos('.', cursor_pos)
+" endfunction
+" nmap [[k :call <SID>ShowFuncName()
 
 "imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 "let g:user_emmet_expandabbr_key = '<Tab>'
-" When in javascript                                                                                                , expand to 'className' (for jsx support) TODO: doesn't work
+" When in, expand to 'className' (for jsx support) TODO: doesn't work
 "let g:user_emmet_settings = {
 "\    'javascript': {'extends': 'html'                                                                              , 'attribute_name': {'class': 'className'}}
 "\ }
@@ -562,10 +603,13 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " set wildignore+=*.o                                                                                                 , *.obj                                                      , .git      , *.rbc                    , *.class      , .svn
 
 " ### Syntastic ### "
+" ReactJS Syntax Linter:
+" let g:syntastic_javascript_checkers = ['eslint', 'jsxhint']
+" JavaScript Syntax Linter:
+let g:syntastic_javascript_checkers = ['eslint']
 "let g:syntastic_php_checkers=['php'                                                                                , 'phpcs'                                                    , 'phpmd']
 "let g:syntastic_javascript_checkers = ['jsxhint']
-let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
-let g:syntastic_javascript_checkers = ['eslint'                                                                     , 'jsxhint']
+" let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 "let g:syntastic_javascript_checkers = ['jsxhint'                                                                   , 'jshint']
 "autocmd! BufEnter  *.jsx  let b:syntastic_checkers=['jsxhint']
 " Disable some features to make syntastic faster
@@ -574,7 +618,7 @@ let g:syntastic_javascript_checkers = ['eslint'                                 
 
 " ### SuperTab ### "
 let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextTextOmniPrecedence = ['&omnifunc'                                                              , '&completefunc']
+let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
 let g:SuperTabLongestHighlight = 2
 let g:SuperTabClosePreviewOnPopupClose = 1
 
