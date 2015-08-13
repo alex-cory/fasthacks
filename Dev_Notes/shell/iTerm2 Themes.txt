@@ -1,0 +1,194 @@
+
+
+
+---------------------------------------------------------------------------------------------
+Setting Up Theme: (http://goo.gl/Qjw51h)
+
+
+-- Step 1: Setup iTerm
+
+
+
+
+-- Step 2: Install ZSH
+
+Back on the command line in iTerm make sure you are in your home directory (Users/yourUserName) and type:
+
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
+
+
+
+-- Step 3: Editing the Config File
+
+Now that we have ZSH up and running, its time to enable some features. Run the following command:
+
+nano ~/.zshrc
+
+
+Browse themes:  (http://goo.gl/0TDfL)
+
+Change the theme by changing the following line:
+
+ZSH_THEME="robbyrussell"
+
+Like so:
+
+ZSH_THEME="mortalscumbag"
+
+
+You can hide your user information in the terminal by adding this next bit on another line:
+
+DEFAULT_USER="yourUserNameGoesHere"
+
+
+As you scroll down in the configuration file, you will see a portion that looks something like this
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/p$
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git)
+
+
+The line that starts with plugins is the line we are going to edit to include some default plugins that come bundled with oh-my-zsh. Change it to include the sublime plugin and the ruby plugin. (You can change these to meet your needs)
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/p$
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git ruby sublime)
+
+The sublime plugin will allow you to launch Sublime Text 2 or 3 from the command line to edit text files(instead of nano). If you don’t have Sublime Text 2 installed, you can find it here: Sublime Text 2 Type CTRL-X to exit nano, and choose Y when prompted to save. You will also be prompted for the filename to save, but just hit ENTER to overwrite the current config file. 
+
+
+Now that we have saved the config file, we need to reload it to affect the settings in ZSH. Type:
+
+source ~/.zshrc
+
+ZSH will load the config file and you should see the theme load. It may look different than the image you saw in the theme preview. We still need to setup our color scheme and font.
+
+
+
+
+-- Step 4: Adding a Custom Color Scheme
+
+To change the color scheme, in iTerm go to Preferences > Profiles > Colors. Click on the Load Presets button to load a preset color scheme. 
+
+
+
+
+-- Step 5: Importing Custom Fonts
+
+
+
+---------------------------------------------------------------------------------------------
+Themes I liked:		~/.zshrc 	source ~/.zshrc
+
+
+-- Pretty Good
+nicoulaj
+
+frontcube
+
+nanotech
+
+
+-- Not Bad
+jnrowe (not bad with solarized dark)
+
+
+-- Better than the others
+fishy -- it's okay
+
+pmcgee -- it's okay (I like the white path)
+
+sunaku -- mehh
+
+
+-- Kinda good but...
+steeef
+jreese
+mortalscumbag
+
+
+
+	optionally set DEFAULT_USER in ~/.zshrc to your regular username to hide the “user@hostname” info when you’re logged in as yourself on your local machine.
+
+Yellow is for repositories that have uncommited changes, and green is for a repository that has no uncommited changes.
+
+---------------------------------------------------------------------------------------------
+If I Could Make My Own
+
+Desktop/Code_Playground •••                                  • git | master | 2:00 PM
+❯ cd
+
+
+~ •••                                       							    | 2:00 PM
+❯ cd
+
+
+
+
+
+										
+Ξ in Desktop/root/ ••• 										            • 1 master | 2:00 PM
+  pwd
+/Users/alexcory/Desktop/root
+
+
+Ξ in Desktop/root/ • 											        • 2 master | 2:00 PM
+••• pwd
+/Users/alexcory/Desktop/root
+
+
+Ξ in Desktop/root/ • 												    • ✖ master | 2:00 PM
+• pwd
+/Users/alexcory/Desktop/root
+
+
+•• in Desktop/root/ • 												    •• on master | 2:00 PM
+• pwd
+/Users/alexcory/Desktop/root
+
+
+••• pwd															 Desktop/root/ | 2 master | cmbp 
+/Users/alexcory/Desktop/root
+
+
+master •• pwd												  ~/Desktop/root/ | cmbp | 2:00 PM
+/Users/alexcory/Desktop/root
+
+
+
+
+
+
+
+( I like when the path is lit up in bright white or green as a distinguisher )
+
+
+                                                                                                      
+
+
+ 
+
+
+✖
+
+»
+Ω
+
+Ü
+∞
+➞ 
+☮
+>
+❖
+
+ ≡
+Ξ 
+
+[master]
+ruby-2.0.0-p0
+cmbp
+alexcory@Alexs-MacBook-Air
+

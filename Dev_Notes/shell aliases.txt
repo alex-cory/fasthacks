@@ -1,5 +1,0 @@
-These are the aliases I have created
-
-alias dp='~/Desktop/Code_Playground/Dev\ Notes/'
-
-alias dev='cat ~/Desktop/Code_Playground/Dev\ Notes/Console/Console\ Essentials.txt'

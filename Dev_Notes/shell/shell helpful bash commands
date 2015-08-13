@@ -1,0 +1,6 @@
+
+## Search For Files All '.txt' Files
+find /path/to/directory/ -name '*.txt'
+
+## Search For Files in the 3 directories mentioned below for anything containing tmux
+find ~/ /etc /usr -iname *tmux*

@@ -21,6 +21,9 @@ function interviews() {
   open -a Preview "$BOOKS/Cracking The Coding Interview 4th Edition.pdf";
 }
 
+# Find all directories in the current directory
+alias lsd='find . -maxdepth 1 -type d -not -name "\.*"'
+
 # Show File/Dir Sizes for Current Directory Recursively
 alias sz='du -a -h | sort -r | less -R' # list all file sizes
 alias tsz=''

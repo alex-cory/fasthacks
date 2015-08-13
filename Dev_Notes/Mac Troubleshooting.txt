@@ -1,8 +1,0 @@
-
-Can't open a website?
-1 -- make new user
-2 -- safe mode
-    -- it performs checks -- and will reset/repair certain things that might have been making it not work
-
-3 -- OPEN Disk Utility
-  	- Repair Disk

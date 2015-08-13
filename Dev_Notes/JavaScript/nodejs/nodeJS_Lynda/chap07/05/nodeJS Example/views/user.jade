@@ -1,0 +1,6 @@
+extends layout
+
+block content
+	h1= title
+	// user is passed in via     << routes/index.js -:- functions.user >>
+	p= 'Hello ' + user.username + '!'
