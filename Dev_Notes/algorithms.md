@@ -1,6 +1,5 @@
-Algorithms
-==========
-####(in JavaScript ES6)
+Algorithms in JavaScript Es6
+============================
 
 
 ### Table of Contents
