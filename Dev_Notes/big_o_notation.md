@@ -378,6 +378,7 @@ Heap Operations
     <th colspan="1" scope="colgroup">Types</th>
     <th colspan="7" scope="colgroup">Time Complexity</th>
   </tr>
+  <th></th>
 <th>Heapify</th>
 <th>Find Max</th>
 <th>Extract Max</th>
