@@ -7,7 +7,7 @@ Algorithms in JavaScript Es6
 **[Bubble Sort](#bubble-sort)**  
 **[Selection Sort](#selection-sort)**  
 **[Merge Sort](#merge-sort)**  
-**[Quick Sort](#merge-sort)**  
+**[Quick Sort](#quick-sort)**  
 **[Shell Sort](#shell-sort)**  
 **[Resources](#overall-resources)**  
 
