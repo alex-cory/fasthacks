@@ -2,9 +2,9 @@ Data Structures
 ===============
 
 ### Table of Contents
-**[Binary Tree](#binary-tree)**
-**[Binary Search Tree](#binary-search-tree)**
-**[Ternary Tree](#ternary-tree)**
+**[Binary Tree](#binary-tree)**  
+**[Binary Search Tree](#binary-search-tree)**  
+**[Ternary Tree](#ternary-tree)**  
 
 Binary Tree
 -----------
