@@ -3,7 +3,7 @@
 	email = results@alexcory.com
 
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/AlexCory/.gitignore_global
 	editor = /usr/local/bin/vim
 
 [alias]
