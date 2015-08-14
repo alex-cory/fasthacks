@@ -2,9 +2,9 @@ Data Structures
 ===============
 
 ### Table of Contents
-**[Binary Tree](#binary-tree)**
-**[Binary Search Tree](#binary-search-tree)**
-**[Ternary Tree](#ternary-tree)**
+**[Binary Tree](#binary-tree)**  
+**[Binary Search Tree](#binary-search-tree)**  
+**[Ternary Tree](#ternary-tree)**  
 
 Binary Tree
 -----------
@@ -78,7 +78,7 @@ Implementation:
   }
 ```
 
-Binary Tree
+Ternary Tree
 -----------
 
 Each node has up to 3 leaves. Doesn't matter what the leaf node values are.
@@ -87,13 +87,14 @@ Each node has up to 3 leaves. Doesn't matter what the leaf node values are.
      / | \
     2  1  3
 
+
+
+<!--
 [Reference]()
-
-
 **NEXT Data Structure
 ---------------
 
-
+-->
 
 References
 ----------

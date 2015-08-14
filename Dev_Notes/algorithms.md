@@ -1,17 +1,15 @@
-Algorithms
-==========
-####(in JavaScript ES6)
+Algorithms in JavaScript Es6
+============================
 
-### Resources
-
-- [Data Structure Visualizations](http://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
 
 ### Table of Contents
 **[Insertion Sort](#insertion-sort)**  
 **[Bubble Sort](#bubble-sort)**  
 **[Selection Sort](#selection-sort)**  
 **[Merge Sort](#merge-sort)**  
-**[Quick Sort](#merge-sort)**  
+**[Quick Sort](#quick-sort)**  
+**[Shell Sort](#shell-sort)**  
+**[Resources](#overall-resources)**  
 
 
 
@@ -21,14 +19,34 @@ Insertion Sort
 - **Definition:** This algorithm separates an array/list of items into two parts, sorted, and unsorted.
 The sorted part is on the left.
 
+<!--
 | Time Complexity                  | Space Complexity    |
 |  Best  |   Average   |   Worst   |                     |
 | -------------------------------- | :-----------------: |
 | `O(n)` |  `O(n²)`    |  `O(n²)`  |       `O(1)`        |
-
-- **Time Complexity:** `O(n²)`
-
-- **Space Complexity:** `O(1)`
+-->
+<table>
+<thead>
+<tr>
+  <tr>
+    <th colspan="3" scope="colgroup">Time Complexity</th>
+    <th colspan="1" scope="colgroup">Space Complexity</th>
+  </tr>
+<th>Best</th>
+<th>Average</th>
+<th>Worst</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>O(n)</code></td>
+<td><code>O(n²)</code></td>
+<td><code>O(n²)</code></td>
+<td><code>O(1)</code></td>
+</tr>
+</tbody>
+</table>
 
 #### Implementation
 
@@ -75,14 +93,35 @@ Bubble Sort
 time, swapping them if necessary. It then repeats the process until no swaps are
 required.
 
+<!--
 | Time Complexity                  | Space Complexity    |
 |  Best  |   Average   |   Worst   |                     |
 | -------------------------------- | :-----------------: |
 | `O(n)` |  `O(n²)`   |  `O(n²)`   |       `O(1)`        |
+-->
+<table>
+<thead>
+<tr>
+  <tr>
+    <th colspan="3" scope="colgroup">Time Complexity</th>
+    <th colspan="1" scope="colgroup">Space Complexity</th>
+  </tr>
+<th>Best</th>
+<th>Average</th>
+<th>Worst</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>O(n)</code></td>
+<td><code>O(n²)</code></td>
+<td><code>O(n²)</code></td>
+<td><code>O(1)</code></td>
+</tr>
+</tbody>
+</table>
 
-- **Time Complexity:** `O(n²)`
-
-- **Space Complexity:** `O(1)`
 
 #### Implementation
 
@@ -128,15 +167,35 @@ Selection Sort
     - Continue until the end of the data set is reached.
 
     - If the minimum value is not the item you started with, swap them.
-
+<!--
 | Time Complexity                  | Space Complexity    |
 |  Best  |   Average   |   Worst   |                     |
 | -------------------------------- | :-----------------: |
 | `O(n)` |  `O(n²)`    |  `O(n²)`  |       `O(1)`        |
+-->
 
-- **Time Complexity:** `O(n²)`
-
-- **Space Complexity:**
+<table>
+<thead>
+<tr>
+  <tr>
+    <th colspan="3" scope="colgroup">Time Complexity</th>
+    <th colspan="1" scope="colgroup">Space Complexity</th>
+  </tr>
+<th>Best</th>
+<th>Average</th>
+<th>Worst</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>O(n)</code></td>
+<td><code>O(n²)</code></td>
+<td><code>O(n²)</code></td>
+<td><code>O(1)</code></td>
+</tr>
+</tbody>
+</table>
 
 #### Implementation
 
@@ -189,14 +248,36 @@ the smaller of the two values is placed into the results list. So if the smaller
 value is now from list B, then the next step is to compare the second item from
 list A to the second item in list B."
 
+<!--
 | Time Complexity                          | Space Complexity    |
 |  Best  |    Average     |      Worst     |                     |
 | ---------------------------------------- | :-----------------: |
 | `O(n)` | `O(n log(n))`  |  `O(n log(n))` |       `O(n)`        |
+-->
+<table>
+<thead>
+<tr>
+  <tr>
+    <th colspan="3" scope="colgroup">Time Complexity</th>
+    <th colspan="1" scope="colgroup">Space Complexity</th>
+  </tr>
+<th>Best</th>
+<th>Average</th>
+<th>Worst</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>O(n)</code></td>
+<td><code>O(n log(n))</code></td>
+<td><code>O(n log(n))</code></td>
+<td><code>O(n)</code></td>
+</tr>
+</tbody>
+</table>
 
-- **Time Complexity:** `O(n log(n))`
 
-- **Space Complexity:**
 
 #### Implementation
 
@@ -294,14 +375,37 @@ Quick Sort
 
     - If the left pointer and right pointer don’t meet, go to step 1.
 
+<!--
 | Time Complexity                         | Space Complexity    |
 |  Best         |    Average    | Worst   |                     |
 | --------------------------------------- | :-----------------: |
 | `O(n log(n))` | `O(n log(n))` | `O(n²)` |     `O(log(n))`     |
+-->
 
-- **Time Complexity:** `O(n log(n))`
+<table>
+<thead>
+<tr>
+  <tr>
+    <th colspan="3" scope="colgroup">Time Complexity</th>
+    <th colspan="1" scope="colgroup">Space Complexity</th>
+  </tr>
+<th>Best</th>
+<th>Average</th>
+<th>Worst</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>O(n log(n))</code></td>
+<td><code>O(n log(n))</code></td>
+<td><code>O(n²)</code></td>
+<td><code>O(log(n))</code></td>
+</tr>
+</tbody>
+</table>
 
-- **Space Complexity:** `O(log(n))`
+
 
 #### Implementation
 ```javascript
@@ -380,18 +484,57 @@ tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
 vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
 no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
+<!--
 | Time Complexity                              | Space Complexity    |
 |  Best         |    Average    | Worst        |                     |
 | -------------------------------------------- | :-----------------: |
 | `O(n)`        |`O((nlog(n)²)` |`O((nlog(n)²)`|       `O(1)`        |
+-->
 
-- **Time Complexity:** `O(n²) CHANGE`
+<table>
+<thead>
+<tr>
+  <tr>
+    <th colspan="3" scope="colgroup">Time Complexity</th>
+    <th colspan="1" scope="colgroup">Space Complexity</th>
+  </tr>
+<th>Best</th>
+<th>Average</th>
+<th>Worst</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>O(n)</code></td>
+<td><code>O((nlog(n)²)</code></td>
+<td><code>O((nlog(n)²)</code></td>
+<td><code>O(1)</code></td>
+</tr>
+</tbody>
+</table>
 
-- **Space Complexity:**
+
 
 #### Implementation
 ```javascript
+function shellSort (items) {
 
+  for (var h = items.length; h = parseInt(h / 2);) {
+
+    for (var i = h; i < items.length; i++) {
+
+      var k = items[i];
+
+      for (var j = i; j >= h && k < items[j - h]; j -= h) {
+
+        items[j] = items[j - h];
+        items[j] = k;
+      }
+    }
+  }
+  return items;
+}
 ```
 
 #### Resources
@@ -399,7 +542,13 @@ no sea takimata sanctus est Lorem ipsum dolor sit amet.
 - [Computer Algorithms: Shell Sort Article](http://bit.ly/1MYxcBY)
 - [YouTube Video](http://bit.ly/1MYxFE9)
 
+ 
+Overall Resources
+-----------------
 
+- [Data Structure Visualizations](http://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+
+<!--
 
 **ALOGRITHM
 -----------
@@ -423,3 +572,4 @@ no sea takimata sanctus est Lorem ipsum dolor sit amet.
 - [EXAMPLE INTERACTIVE OR ARTICLE](http:EXAMPLE.COM)
 
 - [Harvard YouTube Video](http:EXAMPLE.COM)
+-->
