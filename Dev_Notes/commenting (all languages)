@@ -1,35 +1,59 @@
-
+**Commenting** (All Languages)
+=========
 -----------------------------------------------------------------------
-PHP
+
+### PHP
+```php
 // comment goes here
 #  comment goes here
+```
 
 -----------------------------------------------------------------------
-AppleScript
+
+### AppleScript
+```applescript
 -- comment goes here
-
+```
 -----------------------------------------------------------------------
-mySQL
+### mySQL
+```sql
 -- comment goes here
 #  comment goes here
+```
 
 -----------------------------------------------------------------------
-.vimrc
+
+### .vimrc
+```vim
 " comment goes here
+```
 
 -----------------------------------------------------------------------
-HTML
+
+### HTML
+```html
 <!-- comment goes here -->
+```
 
 -----------------------------------------------------------------------
-Ruby
 
+### Ruby
+```ruby
+ 
+```
 
 -----------------------------------------------------------------------
-Bash (.bash_profile)
+
+### Bash (.bash_profile)
+```shell
 # comment goes here
+```
 
 -----------------------------------------------------------------------
-Zsh  (.zshrc)
+
+### Zsh  (.zshrc)
+```shell
 # To activate the bash-style comments.
+```
+
 setopt interactivecomments
