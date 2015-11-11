@@ -1,7 +1,7 @@
 Keyboard Layout
 ===============
 
-To use this you need the [Karabiner](https://pqrs.org/osx/karabiner/) mac application.
+To use this you need the [Karabiner](https://pqrs.org/osx/karabiner/) mac application. The [private.xml](https://github.com/alex-cory/fasthacks/blob/master/dotfiles/keyboard_layout/private_old.xml) file is the config file here.  Make all your tweaks there for now.
 
 
 Keyboard Shortcuts
