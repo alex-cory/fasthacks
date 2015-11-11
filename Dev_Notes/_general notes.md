@@ -1,8 +1,7 @@
 General Notes
 ============
 
-Server
-------
+#### Server
   - In the context of Internet Protocol (IP) networking, a server is a program that operates as a socket listener.
 
 #### Network Socket  
