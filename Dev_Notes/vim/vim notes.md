@@ -1,12 +1,13 @@
-# Vim Notes
+Vim Notes
+=========
 
------------------------------------------------------------------------
-## to look at later
+To look at later
+----------------
   1.  Function Under Cursor + Press Key -> Open Language Documentation on Web (http://goo.gl/hLFIk6)
 
 
------------------------------------------------------------------------
-## Quick Tips
+
+Quick Tips
 
   ### Knowing that visual selection is often not needed to act on these blocks of text will get you even further:
   `c/foo<cr>`
@@ -27,34 +28,34 @@
 -----------------------------------------------------------------------
 ## Commands / Shortcuts
 
-  ### Show Leader Key
+#### Show Leader Key
   `:let mapleader`
 
-  ### Move to Right of Screen or View
+#### Move to Right of Screen or View
   `g$`
 
-  ### Move to Left of Screen or View
+#### Move to Left of Screen or View
   `g0`
 
-  ### Refresh CtrlP Buffer
+#### Refresh CtrlP Buffer
   `:CtrlPClearCache`
 
-  ### Select Previously Selected Text
+#### Select Previously Selected Text
   `gv`
 
-  ### Select Previously Pasted Text (from my .vimrc)
+#### Select Previously Pasted Text (from my .vimrc)
   `vp`
 
-  ### Reopen a previously closed window
+#### Reopen a previously closed window
   `:vs#`
 
-  ### Delete Around Paragraph
+#### Delete Around Paragraph
   `dap`
 
-  ### Nth Character in Line  (ref: http://bit.ly/1KXhAKA)
+#### Nth Character in Line  (ref: http://bit.ly/1KXhAKA)
   `3fs`
 
-  ### New Verticle Window
+#### New Verticle Window
   `<C-w>v`
 
   ### Open file name under cursor
