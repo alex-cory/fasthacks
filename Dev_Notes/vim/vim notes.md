@@ -8,16 +8,21 @@ To look at later
 
 
 Quick Tips
-
-  ### Knowing that visual selection is often not needed to act on these blocks of text will get you even further:
+----------
+##### Knowing that visual selection is often not needed to act on these blocks of text will get you even further:
+  
   `c/foo<cr>`
+  
   `d?bar<cr>`
+  
   `:,50d`
+  
   `:10,30y`
+  
   `:74p`
 
------------------------------------------------------------------------
-## Resources
+Resources
+---------
   - Best Vim Tips:                http://bit.ly/1Khjj0i
   - Great Vimrc:                  http://dougblack.io/words/a-good-vimrc.html
   - Inline Commenting in a Vimrc: http://bit.ly/1FgKcgK
@@ -25,187 +30,189 @@ Quick Tips
   - Vim reference Card:           http://bit.ly/1EhGfEp
   - Commenting:                   http://bit.ly/1Imdeix
 
------------------------------------------------------------------------
 ## Commands / Shortcuts
 
-#### Show Leader Key
+##### Show Leader Key
   `:let mapleader`
 
-#### Move to Right of Screen or View
+##### Move to Right of Screen or View
   `g$`
 
-#### Move to Left of Screen or View
+##### Move to Left of Screen or View
   `g0`
 
-#### Refresh CtrlP Buffer
+##### Refresh CtrlP Buffer
   `:CtrlPClearCache`
 
-#### Select Previously Selected Text
+##### Select Previously Selected Text
   `gv`
 
-#### Select Previously Pasted Text (from my .vimrc)
+##### Select Previously Pasted Text (from my .vimrc)
   `vp`
 
-#### Reopen a previously closed window
+##### Reopen a previously closed window
   `:vs#`
 
-#### Delete Around Paragraph
+##### Delete Around Paragraph
   `dap`
 
-#### Nth Character in Line  (ref: http://bit.ly/1KXhAKA)
+##### Nth Character in Line  (ref: http://bit.ly/1KXhAKA)
   `3fs`
 
-#### New Verticle Window
+##### New Verticle Window
   `<C-w>v`
 
-  ### Open file name under cursor
+##### Open file name under cursor
   `gf`
 
-  ### select from here to next foo
+##### select from here to next foo
   `v/foo<cr>`
 
-  ### select from here to previous foo
+##### select from here to previous foo
   `v?bar<cr>`
 
-  ### select from here to mark a
+##### select from here to mark a
   `v'a`
 
-  ### select from here to line 50
+##### select from here to line 50
   `v50G`
 
-  ### select from here to 6 lines above
+##### select from here to 6 lines above
   `v6k`
 
-  ### select between two double quotes
+##### select between two double quotes
   `vi"`
 
-  ### select this HTML tag
+##### select this HTML tag
   `vat`
 
 -----------------------------------------------------------------------
-## Plugin Specific
+
+Plugin Specific
+===============
 
 ### NERD Commenter
-  #### Comment out the current line or text selected in visual mode. (NERDComComment)
+
+#### Comment out the current line or text selected in visual mode. (NERDComComment)
   ```
   3<leader>cc
   ```
 
-  #### Same as <leader>cc but forces nesting. (NERDComNestedComment)
+#### Same as <leader>cc but forces nesting. (NERDComNestedComment)
   ```
   3<leader>cn
   ```
 
-  #### Toggles the comment state of the selected line(s). If the topmost selected line is commented, all selected lines are uncommented and vice versa. (NERDComToggleComment)
+#### Toggles the comment state of the selected line(s). If the topmost selected line is commented, all selected lines are uncommented and vice versa. (NERDComToggleComment)
   ```
   3<leader>c
   ```
 
-  #### Comments the given lines using only one set of multipart delimiters. (NERDComMinimalComment)
+#### Comments the given lines using only one set of multipart delimiters. (NERDComMinimalComment)
   ```
   /* example here */
   3<leader>cm
   ```
 
-  #### Toggles the comment state of the selected line(s) individually. (NERDComInvertComment)
+#### Toggles the comment state of the selected line(s) individually. (NERDComInvertComment)
   ```
   3<leader>ci
   ```
 
-  #### Comments out the selected lines ``sexily'' (NERDComSexyComment)
+#### Comments out the selected lines ``sexily'' (NERDComSexyComment)
   ```
   3<leader>cs
   ```
 
-  #### Same as <leader>cc except that the commented line(s) are yanked first. (NERDComYankComment)
+#### Same as <leader>cc except that the commented line(s) are yanked first. (NERDComYankComment)
   ```
   3<leader>cy
   ```
 
-  #### Comments the current line from the cursor to the end of line. (NERDComEOLComment)
+#### Comments the current line from the cursor to the end of line. (NERDComEOLComment)
   ```
   <leader>c$
   ```
 
-  #### Adds comment delimiters to the end of line and goes into insert mode between them. (NERDComAppendComment)
+#### Adds comment delimiters to the end of line and goes into insert mode between them. (NERDComAppendComment)
   ```
   <leader>cA
   ```
 
-  #### Adds comment delimiters at the current cursor position and inserts between. Disabled by default. (NERDComInsertComment)
+#### Adds comment delimiters at the current cursor position and inserts between. Disabled by default. (NERDComInsertComment)
   ```
 
   ```
 
-  #### Switches to the alternative set of delimiters. (NERDComAltDelim)
+#### Switches to the alternative set of delimiters. (NERDComAltDelim)
   `<leader>ca `
 
-  #### Same as (NERDComComment) except that the delimiters are aligned down the left side (<leader>cl) or both sides (<leader>cb). (NERDComAlignedComment)
+#### Same as (NERDComComment) except that the delimiters are aligned down the left side (<leader>cl) or both sides (<leader>cb). (NERDComAlignedComment)
   `3<leader>cb`
   `3<leader>cl`
 
-  #### Uncomments the selected line(s). (NERDComUncommentLine)
+#### Uncomments the selected line(s). (NERDComUncommentLine)
   ```
   3<leader>cu
   ```
 
 ### Surround.vim
 
-  #### Change Surrounding
+##### Change Surrounding
   ```
   "Hello world!" -> 'Hello world!'
   cs"'
   ```
 
-  #### Change Surrounding
+##### Change Surrounding
   ```
   'Hello world!' -> <q>Hello world!</q>
   cs'<q>
   ```
 
-  #### Change Surrounding
+##### Change Surrounding
   ```
   <q>Hello world!</q> -> "Hello world!"
   cst"
   ```
 
-  #### Delete Surrounding
+##### Delete Surrounding
   ```
   "Hello world!" -> Hello world!
   ds"
   ```
 
-  #### Delete surrounding
+##### Delete surrounding
   ```
   [Hello] -> Hello
   ds[
   ```
 
-  #### Surround word
+##### Surround word
   ```
   Hello -> [Hello]
   ysiw]
   ```
 
-  #### Change Surrounding
+##### Change Surrounding
   ```
   [Hello] -> { Hello }
   cs]{
   ```
 
-  #### Wrap the entire line in parentheses
+##### Wrap the entire line in parentheses
   ```
   [Hello] World -> ([Hello] World)
   yssb or yss)
   ```
 
-  #### Surround word (think: yank surround in word)
+##### Surround word (think: yank surround in word)
   ```
   Hello -> <em>Hello</em>
   ysiw<em>
   ```
 
-  #### Surround word (think: yank surround in word)
+##### Surround word (think: yank surround in word)
   ```
   Hello World -> <p>
                     Hello World
