@@ -34,3 +34,8 @@ Current Features
 | `up[update]`   | Allows anything to be updated with just one command. | Started |
 | `un[uninstall]` | Uninstalls the specified applications. | Started |
 | 
+
+ToDo's
+------
+- [ ] Install Script
+- [ ] Website + documentation
