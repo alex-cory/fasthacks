@@ -9,7 +9,7 @@ Current Ideas
 | Idea/Command         | Description                                                                  | Status     |
 | -------------------- | ---------------------------------------------------------------------------- | ----------- |
 | `fh`                 | if no arguments are passed, shows a list maybe of what all fasthacks does    | Not Started |
-| `td[todo]`           | todo app                                                                     | Not Started |
+| `td` or `todo`       | todo app                                                                     | Not Started |
 | `pathm`              | tool for helping you manage your machines path.  Things often get lost, out of order, and it can beconfusing to keep track of it all.  This will have a json file with all the paths in it call `paths.json`. | Not Started |
 | `up`                 | an awesome update tool that will update all packages if no argument is specified. If a program/plugin/app is updated, it will update them reguardless of package manager | In Progress (sorta) |
 | `help`               | universal help tool. (ex: help ruby, etc.) (may not be necessary)            | Not Started |
@@ -17,10 +17,10 @@ Current Ideas
 | `use`                | switch between versions of anything (ex: use ruby 2.1, use nodejs 3.7, etc.) | Not Started |
 
 
-Current Features Complete & in the Works
+Current Commands Done & in the Works
 ----------------------------------------
 
-| Feature              | Eventual gif/Description                                    | Status      |
+| Command              | Eventual gif/Description                                    | Status      |
 | -------------------- | ----------------------------------------------------------- | ----------- |
 | `cat`                | Colored `cat` output! The goal is for syntax highlighting!  | Not Production Quality |
 | `less`               | Colored `less` output! The goal is for syntax highlighting! | Not Production Quality |
