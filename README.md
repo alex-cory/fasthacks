@@ -3,8 +3,8 @@ fast Hacks
 
 This project started out as a library of my notes, what I was currently learning, and what I wanted to learn. Now it has grown into a very useful tool as you can see below the things I am working on.
 
-Current Things in the Works
----------------------------
+Current Ideas
+-------------
 
 | Idea/Command  | Description          | Status     |
 | ------------- | -------------------- | ---------- |
@@ -17,8 +17,8 @@ Current Things in the Works
 | `use`         | switch between versions of anything (ex: use ruby 2.1, use nodejs 3.7, etc.) | Not Started |
 
 
-Current Features
-----------------
+Current Features Complete & in the Works
+----------------------------
 
 | Feature       | Eventual gif/Description         | Status      |
 | ------------- | -------------------------------- | ----------- |
@@ -33,7 +33,9 @@ Current Features
 | `src`          | Quick sourcing.  No more `source ~/.bashrc` etc, etc.  Just type `src` and it'll take care of the rest for you!. | Needs Review |
 | `up[update]`   | Allows anything to be updated with just one command. | Started |
 | `un[uninstall]` | Uninstalls the specified applications. | Started |
-| 
+| `resymlink`    | You put all the absolute paths to your dotfiles with names, etc. into this `symlinks.json` file.  If something ever goes wrong, just type resymlink! | Started |
+| `checksyms`    | Checks to see which symlinks are broken | Started |
+| `clrs[colors]` | Spits out colors and codes.  | Done |
 
 ToDo's
 ------
