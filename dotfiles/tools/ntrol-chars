@@ -1,0 +1,107 @@
+[
+  {
+    "name": ".bash_profile",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/bash/.bash_profile",
+    "softLink": "/Users/AlexCory/.bash_profile"
+  },
+  {
+    "name": ".bashrc",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/bash/.bashrc",
+    "softLink": "/Users/AlexCory/.bashrc"
+  },
+  {
+    "name": ".zshrc",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/zsh/.zshrc",
+    "softLink": "/Users/AlexCory/.zshrc"
+  },
+  {
+    "name": "bash.md",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/bash/README.md",
+    "softLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/Dev_Notes/bash.md"
+  },
+  {
+    "name": "Default (OSX).sublime-keymap",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/Sublime Text/Default (OSX).sublime-keymap",
+    "softLink": "/Users/AlexCory/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap"
+  },
+  {
+    "name": "Preferences.sublime-settings",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/Sublime Text/Preferences.sublime-settings",
+    "softLink": "/Users/AlexCory/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+  },
+  {
+    "name": "Dev Notes",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/Dev_Notes",
+    "softLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/Dev_Notes"
+  },
+  {
+    "name": ".agignore",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/cli_tools/.agignore",
+    "softLink": "/Users/AlexCory/.agignore"
+  },
+  {
+    "name": ".gitignore",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/git/.gitignore",
+    "softLink": "/Users/AlexCory/.gitignore"
+  },
+  {
+    "name": ".gitconfig",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/git/.gitconfig",
+    "softLink": "/Users/AlexCory/.gitconfig"
+  },
+  {
+    "name": ".vimrc",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/vim/.vimrc",
+    "softLink": "/Users/AlexCory/.vimrc"
+  },
+  {
+    "name": "globals",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/globals",
+    "softLink": "/etc/globals"
+  },
+  {
+    "name": "private.xml",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/keyboard_layout/private.xml",
+    "softLink": "/Users/AlexCory/Library/Application Support/Karabiner/private.xml"
+  },
+  {
+    "name": "KarabinerExamples",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/keyboard_layout/KarabinerExamples",
+    "softLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/tool_enhancers/Karabiner/src/core/server/Resources/include/checkbox"
+  },
+  {
+    "name": ".pythonrc: Python Shell Config",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/python/.pythonrc",
+    "softLink": "/Users/AlexCory/.pythonrc"
+  },
+  {
+    "name": "vim-snippets",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/snippets/vim-snippets",
+    "softLink": "/Users/AlexCory/.vim/bundle/vim-snippets/snippets"
+  },
+  {
+    "name": ".lessfilter: For `less` colored output (currently doesn't work)",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/cli_tools/.lessfilter",
+    "softLink": "/Users/AlexCory/.lessfilter"
+  },
+  {
+    "name": "BPython Config File",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/cli_tools/bpython/config",
+    "softLink": "/Users/AlexCory/.config/bpython/config"
+  },
+  {
+    "name": "BPython Solarized Theme",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/cli_tools/bpython/solarized.theme",
+    "softLink": "/Users/AlexCory/.config/bpython/solarized.theme"
+  },
+  {
+    "name": "BPython Solarized Theme -> softlink in python folder in dotfiles",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/cli_tools/bpython/solarized.theme",
+    "softLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/python/solarized.theme"
+  },
+  {
+    "name": "BPython Config File -> softlink in python folder in dotfiles",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/cli_tools/bpython/config",
+    "softLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/python/bpythonConfig"
+  }
+]

@@ -16,7 +16,7 @@
 # }
 
 # Color Variables
-function spit_colors() {
+function clrs() {
   echo
   echo "regular   bold       underline  background   hi intensity bold hi intensity  background hi intensity"
   echo "${Black}\${Black}  ${BBlack}\${BBlack}  ${UBlack}\${UBlack}${Off}  ${On_Black}\${On_Black}${Off}  ${IBlack}\${IBlack}    ${BIBlack}\${BIBlack}         ${On_IBlack}\${On_IBlack}${Off}"
