@@ -10,7 +10,7 @@ Current Ideas
 | -------------------- | ---------------------------------------------------------------------------- | ----------- |
 | `fh`                 | if no arguments are passed, shows a list maybe of what all fasthacks does    | Not Started |
 | `td` or `todo`       | todo app                                                                     | Not Started |
-| `pathm`              | tool for helping you manage your machines path.  Things often get lost, out of order, and it can beconfusing to keep track of it all.  This will have a json file with all the paths in it call `paths.json`. | Not Started |
+| `pathm`              | tool for helping you manage your machines `$PATH`.  Things often get lost, out of order, and it can beconfusing to keep track of it all.  This will have a json file with all the paths in it call `paths.json`. | Not Started |
 | `up`                 | an awesome update tool that will update all packages if no argument is specified. If a program/plugin/app is updated, it will update them reguardless of package manager | In Progress (sorta) |
 | `help`               | universal help tool. (ex: help ruby, etc.) (may not be necessary)            | Not Started |
 | `il`                 | install location - shows all the locations an app, program, etc. is installed on your computer. (i.e. checks to see if vim is installed aditionally by homebrew or elsewhere.) Can help solve dependency issues quicker.        | Not Started |
