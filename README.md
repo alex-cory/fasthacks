@@ -16,7 +16,17 @@ Current Ideas
 | `il`                 | install location - shows all the locations an app, program, etc. is installed on your computer. (i.e. checks to see if vim is installed aditionally by homebrew or elsewhere.) Can help solve dependency issues quicker.        | Not Started |
 | `use`                | switch between versions of anything (ex: use ruby 2.1, use nodejs 3.7, etc.) | Not Started |
 | `theme`              | switch between themes for everything in your terminal or specific programs.  | Not Started |
+| `details`            | Similar to doing `which cmd` wher `cmd` is something you have in your .bashrc or elsewhere.  <br> Ex:   <br>`$ details up` <br> `Description: Updates everything if no argumetns passed or updates the specified program.` <br> `Example: up vim` <br> `Location: .bashrc on line 21` <br> `Path: ~/.bashrc`  | Not Started |
+| `theme`              | switch between themes for everything in your terminal or specific programs.  | Not Started |
 
+<!--|                      | `$ details up`  | |
+|                      | `Command: up`  | |
+|                      | `Description: Updates everything or whatever.`  | | 
+|                      | `Usage: up [program] `  | |
+|                      | `Example: up vim `  | |
+|                      | `Location: .bashrc `  | |
+|                      | `Line: 21 `  | |
+|                      | `Path to Location: ~/.bashrc`  | |-->
 
 Current Commands Done & in the Works
 ----------------------------------------
