@@ -15,6 +15,7 @@ Current Ideas
 | `help`               | universal help tool. (ex: help ruby, etc.) (may not be necessary)            | Not Started |
 | `il`                 | install location - shows all the locations an app, program, etc. is installed on your computer. (i.e. checks to see if vim is installed aditionally by homebrew or elsewhere.) Can help solve dependency issues quicker.        | Not Started |
 | `use`                | switch between versions of anything (ex: use ruby 2.1, use nodejs 3.7, etc.) | Not Started |
+| `theme`              | switch between themes for everything in your terminal or specific programs.  | Not Started |
 
 
 Current Commands Done & in the Works
