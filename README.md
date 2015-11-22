@@ -15,7 +15,18 @@ Current Ideas
 | `help`               | universal help tool. (ex: help ruby, etc.) (may not be necessary)            | Not Started |
 | `il`                 | install location - shows all the locations an app, program, etc. is installed on your computer. (i.e. checks to see if vim is installed aditionally by homebrew or elsewhere.) Can help solve dependency issues quicker.        | Not Started |
 | `use`                | switch between versions of anything (ex: use ruby 2.1, use nodejs 3.7, etc.) | Not Started |
+| `theme`              | switch between themes for everything in your terminal or specific programs.  | Not Started |
+| `details`            | Similar to doing `which cmd` where `cmd` is a function or alias you have in your .bashrc or elsewhere.  <br> Ex:   <br>`$ details up` <br> `Description: Updates everything if no argumetns passed or updates the specified program.` <br> `Example: up vim` <br> `Location: .bashrc on line 21` <br> `Path: ~/.bashrc`  | Not Started |
+| `edit`               | quickly edit your functions and aliases for your dotfiles.                    | Not Started |
 
+<!--|                      | `$ details up`  | |
+|                      | `Command: up`  | |
+|                      | `Description: Updates everything or whatever.`  | | 
+|                      | `Usage: up [program] `  | |
+|                      | `Example: up vim `  | |
+|                      | `Location: .bashrc `  | |
+|                      | `Line: 21 `  | |
+|                      | `Path to Location: ~/.bashrc`  | |-->
 
 Current Commands Done & in the Works
 ----------------------------------------
@@ -26,7 +37,7 @@ Current Commands Done & in the Works
 | `less`               | Colored `less` output! The goal is for syntax highlighting! | Not Production Quality |
 | `man`                | Colored `man` pages! The goal is for syntax highlighting!   | Not Production Quality |
 | `ssh`                | Setup default servers you go to the most so all you have to do is type `ssh` and boom presto shazam. | Done, needs reviews
-| `pv`                 | Colored preview of file.                                    | Not Production Quality |
+| `pv` or `preview`    | Colored preview of file.  It also allows you to lookup what an alias or command does. | Not Production Quality |
 | `olss`               | Open last screen shot                                       | Needs Optimization & Testing |
 | `path`               | Will probably eventually be replaced by `pathm`, but shows the $PATH in a prettier format.| Should Be Good |
 | `src`                | Quick sourcing.  No more `source ~/.bashrc` etc, etc.  Just type `src` and it'll take care of the rest for you! You may also pass a path to it `src ~/.bashrc`. | Needs Review |

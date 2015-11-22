@@ -5,6 +5,21 @@
 # Bash Style Guide: (http://bit.ly/1H7w1IX)
 # How To Activate Aliases (use: source ~/.bashrc)
 
+### Todo's
+## Fasthacks
+# - `fh` - if no arguments are passed, shows a list maybe of what all fasthacks does?
+## Bashrc
+# - make a todo's program
+# - simpler path manager (so you don't lose track of what's what in your path and in what order they're invoked.  put these in a jason file called path.json.)
+# - `vsn[version]` function: tells version of any program. (ex: version ruby, version npm)
+# - `up` - will update all packages if nothing is specified otherwise will update reguardless of package manager
+#    - vim - http://stackoverflow.com/questions/7211820/update-built-in-vim-on-mac-os-x 
+# - `help` - universal help tool
+# - `il` - install location - shows all the locations an app, program, etc. is installed on your computer. (i.e. checks to see if vim is installed aditionally by homebrew or elsewhere.)
+# - `use` - switch between versions of anything (ex: use ruby 2.1, use nodejs 3.7, etc.)
+## Karabiner
+# - `double tab hold` - function
+
 # source "globals" # Where all the custom paths for your machine are stored that are used in the functions below
 # source "/etc/globals"
 
@@ -17,7 +32,7 @@ function cpf() {
 function interviews() {
   cd "$LOCAL_REPOS/Interviews";
   open -a Finder "$BOOKS";
-  mvim;
+  vim;
   open -a Preview "$BOOKS/Cracking The Coding Interview 4th Edition.pdf";
 }
 
@@ -78,13 +93,13 @@ function fm() {
 }
 
 # Open Last Screenshot Taken
-function ols() {
-  screenshot="$(find . $SCREENSHOTS -type f -print0 | xargs -0 stat -f "%m %N" | sort -rn | head -1 | cut -f2- -d" ")" &&
+function olss() {
+  screenshot="$(find "$SCREENSHOTS" -type f -print0 | xargs -0 stat -f "%m %N" | sort -rn | head -1 | cut -f2- -d " ")" &&
   open "$screenshot"
 }
 
 # Change Screenshot Path
-function csp() {
+function cssp() {
   if [ -z "${1+xxx}" ]; then # If no argument is set
     echo "You must specify a path! ^_^"
   else
@@ -156,7 +171,7 @@ function x() {     # Handy Extract Program
 }
 
 # One command to update them all
-function u() {
+function up() {
   # if no args
   if [ -z "${1+xxx}" ]; then
     # Update
@@ -260,71 +275,90 @@ function man() {
 
 # Colorful Less
 # alias less='pygmentize | less'
-function less() {
-  local jqError=$(contains "$(command cat $1 | jq '.' 2>&1)" 'parse error: Invalid numeric literal' OR 'No such file or directory')
-  local pygError=$(contains "$(command cat $1 | pygmentize 2>&1)" 'Error: no lexer for filename')
+# function less() {
+  # while read data; do
+  # if read data; then
+  #   # pygmentize "$data" | command less -r
+  #   
+  #   # printf "$data"
+  # fi
+  # read foo
+  # echo "$foo"
+  # local jqError=$(contains "$(command cat $1 | jq '.' 2>&1)" 'parse error: Invalid numeric literal' OR 'No such file or directory')
+  # local pygError=$(contains "$(command cat $1 | pygmentize 2>&1)" 'Error: no lexer for filename')
+  #
+  # if [[ $1 == *.json ]] || [[ $1 == *.sublime-settings ]]; then
+  #
+  #   # If neither of them work, just us normal less
+  #   if [[ $jqError == 1 ]] && [[ $pygError == 1 ]]; then
+  #     command less
+  #
+  #   # Default to JQ
+  #   # elif [[ $jqError != 1 ]]; then
+  #     # jq '.' | command less
+  #
+  #   # if they both work
+  #   # elif [[ $pygError != 1 ]] && [[ $jqError != 1 ]]; then
+  #     # pygmentize | command less
+  #
+  #   # if only Pygments works
+  #   # elif [[ $pygError != 1 ]] && [[ $jqError == 1 ]]; then
+  #   else
+  #     pygmentize $1 | command less
+  #   fi
+  #
+  # else
+  #   # if they both don't work
+  #   if [[ $pygError == 1 ]] && [[ $jqError == 1 ]]; then
+  #     command less
+  #   else
+  #     pygmentize $1 | command less
+  #   fi
+  # fi
+# }
 
-  if [[ $1 == *.json ]] || [[ $1 == *.sublime-settings ]]; then
-
-    # If neither of them work, just us normal less
-    if [[ $jqError == 1 ]] && [[ $pygError == 1 ]]; then
-      command less
-
-    # Default to JQ
-    elif [[ $jqError != 1 ]]; then
-      jq '.' | command less
-
-    # if they both work
-    elif [[ $pygError != 1 ]] && [[ $jqError != 1 ]]; then
-      pygmentize | command less
-
-    # if only Pygments works
-    elif [[ $pygError != 1 ]] && [[ $jqError == 1 ]]; then
-      pygmentize | command less
-    fi
-
-  else
-    # if they both don't work
-    if [[ $pygError == 1 ]] && [[ $jqError == 1 ]]; then
-      command less
-    else
-      pygmentize | command less
-    fi
-  fi
-}
 # Quickly Preview a file
 function pv() {
   local jqError=$(contains "$(command cat $1 | jq '.' 2>&1)" 'parse error: Invalid numeric literal' OR 'No such file or directory')
   local pygError=$(contains "$(command cat $1 | pygmentize 2>&1)" 'Error: no lexer for filename')
 
+  # echo "$($pygError != 1)"
   if [[ $1 == *.json ]] || [[ $1 == *.sublime-settings ]]; then
 
-    # If neither of them work, just us normal less
-    if [[ $jqError == 1 ]] && [[ $pygError == 1 ]]; then
-      command cat $1 | command less
-
-    # Default to JQ
-    elif [[ $jqError != 1 ]]; then
-      command cat "$1" | jq '.' | command less
-
     # if they both work
-    elif [[ $pygError != 1 ]] && [[ $jqError != 1 ]]; then
-      command cat "$1" | jq '.' | command less
+    if [[ $pygError != 1 ]] && [[ $jqError != 1 ]]; then
+      pygmentize $1 | command less -r
+      # command cat "$1" | jq '.' | command less
 
     # if only Pygments works
     elif [[ $pygError != 1 ]] && [[ $jqError == 1 ]]; then
-      command cat "$1" | pygmentize | command less
+      pygmentize $1 | command less -r
+      # command cat "$1" | pygmentize | command less
+
+    # If neither of them work, just use normal `less`
+    elif [[ $jqError == 1 ]] && [[ $pygError == 1 ]]; then
+      echo "something went wrong :("
+      # command cat $1 | command less
+
+    # Default to JQ
+    elif [[ $jqError != 1 ]]; then
+      pygmentize $1 | command less -r
+      # command cat "$1" | jq '.' | command less
     fi
   elif [[ $1 == .* ]]; then
-    command cat "$1" | pygmentize -l sh | command less
+      pygmentize $1 | command less -r
+    # command cat "$1" | pygmentize -l sh | command less
 
   else
     # if only Pygments works
-    if [[ $pygError == 1 ]] && [[ $jqError == 1 ]]; then
-      command cat $1 | command less
-    else
-      command cat "$1" | pygmentize | command less
-    fi
+    # if [[ $pygError == 1 ]] && [[ $jqError == 1 ]]; then
+      pygmentize $1 | command less -r
+      # LINE NUMBERS
+      # pygmentize $1 -O linenos=1 | command less -r
+      # command cat $1 | command less
+    # else
+    #   command cat "$1" | pygmentize | command less
+    # fi
   fi
 }
 
@@ -491,13 +525,13 @@ function chide() {
 # Unhide an application from ⌘ + tab
 # If an argument is not set, default to unhiding iTerm.
 # Usage Examples:
-# 				cunhide
-# 				cunhide iTerm
+# 				cshow
+# 				cshow iTerm
 # Arguments:
 #   			$1: App Name You Want To Unhide From `⌘ + tab screen`
 #######################################
-function cunhide() {
-  # if the `cunhide` argument is not set
+function cshow() {
+  # if the `cshow` argument is not set
   if [ -z "${1+xxx}" ]; then
     # then auto hide `iterm`
     /usr/libexec/PlistBuddy -c 'Add :LSUIElement bool true' /Applications/iTerm.app/Contents/Info.plist
@@ -568,6 +602,9 @@ function myip() {
   echo "$N_IP"'                  '"$E_IP"
 }
 
+# Open App
+alias oa='open -a'
+
 # Opens iOS Emulator
 # function ios() {
 #   xcrun instruments -w "iPhone 6 (8.3 Simulator)"
@@ -595,7 +632,7 @@ alias .php='vim /etc/php.ini'
 alias .vh='vim /etc/apache2/extra/httpd-vhosts.conf'
 
 # edit dotfiles
-alias .dot="cd $DOT; mvim; cd -"
+alias .dot="cd $DOT; vim; cd -"
 
 # cli tools list
 alias .tl="vim $DOT/README.md"
@@ -628,10 +665,10 @@ alias .bp='vim ~/.bash_profile'
 alias .n='vim $NPM_SHORTCUTS'
 
 # Karabiner Private.xml
-alias .k='mvim $KARABINER_PRIVATE'
+alias .k='vim $KARABINER_PRIVATE'
 
 # Karabiner Private_old.xml
-alias .ko="mvim $DOT_PATH/keyboard_layout/private_old.xml"
+alias .ko="vim $DOT_PATH/keyboard_layout/private_old.xml"
 
 # Git Ignore
 alias .gi='vim ~/.gitignore'
@@ -649,10 +686,10 @@ alias .gl="sudo vim /etc/globals"
 alias .cl="vim $COLORS"
 
 # Karabiner Examples
-alias ke='mvim $KARABINER_EXAMPLES'
+alias ke='vim $KARABINER_EXAMPLES'
 
 # Karabiner Key Codes
-alias kk='mvim $KARABINER_KEY_CODES'
+alias kk='vim $KARABINER_KEY_CODES'
 
 # Karabiner CLI  (notes: http://bit.ly/1I1clek)
 alias kb="$KARABINER"
@@ -734,7 +771,7 @@ alias apache-error-log='tail -f /Applications/MAMP/logs/apache_error.log'
 # alias br='open -a Brackets'
 
 # Quickly Edit Vim Files
-alias v='mvim'
+alias v='vim'
 
 # See http://www.shellperson.net/using-sudo-with-an-alias/
 alias sudo='sudo '
@@ -911,7 +948,7 @@ alias cbg="git rev-parse --verify HEAD | pbcopy"
 
 # Quick Path Reference Aliases / Functions  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Go To => {directory}  and list contents
-function cdl() { cd $1; ls; }
+# function cdl() { cd $1; ls; }
 
 # Go To => Developer
 alias dev='~/GoogleDrive/_Server_/Developer/'
@@ -949,7 +986,7 @@ function sb() {
 }
 
 # Open Dev Notes in MacVim
-alias mvdn="cd $DEV_PATH/Dev_Notes; mvim"
+alias mvdn="cd $DEV_PATH/Dev_Notes; vim"
 
 # Open Dev Notes in Terminal Vim
 alias vdn="cd $DEV_PATH/Dev_Notes; vim"

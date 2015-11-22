@@ -107,7 +107,7 @@ Plugin 'rizzatti/dash.vim'
 " Colors Solarized: precision color scheme
 Plugin 'altercation/vim-colors-solarized'
 " Tern: kind of like c-tags
-Plugin 'marijnh/tern_for_vim'
+" Plugin 'marijnh/tern_for_vim'
 " Vundle: Vim package manager
 Bundle 'gmarik/vundle'
 "Plugin 'jeffkreeftmeijer/vim-numbertoggle'

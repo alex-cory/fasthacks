@@ -8,6 +8,9 @@ alias n='npm'
 # Start
 alias ns='npm start'
 
+# Help
+alias nh='npm help'
+
 # Run
 alias nr='npm run'
 
