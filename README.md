@@ -58,7 +58,9 @@ Theme
 
 #### Resources:
  - [Terminal Color Scheme Designer](http://ciembor.github.io/4bit/#)
- - 
+ - [Make a Terminal prompt](http://bashrcgenerator.com/)
+ - [Beautify Logfile Commands](http://korpus.juls.savba.sk/~garabik/software/grc.html)
+ - [A Stylesheet author's guide to terminal colors](http://wynnnetherland.com/journal/a-stylesheet-author-s-guide-to-terminal-colors/)
 
 ToDo's
 ------
