@@ -17,10 +17,10 @@ Keyboard Shortcuts
 `open Google Chrome`
 
 ##### Space + J
-`⌘ + shift + left`
+`⌘ + shift + {`
 
 ##### Space + L
-`⌘ + shift + right`
+`⌘ + shift + }`
 
 ##### Space + R
 `current application -> browser -> refresh page`
