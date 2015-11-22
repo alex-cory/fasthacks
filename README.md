@@ -51,6 +51,15 @@ Current Commands Done & in the Works
 | `show`               | Shows all your hidden dot files.                            | Done |
 | `hide`               | Re-hides all your hidden dot files.                         | Done |
 
+Theme
+-----
+#### Usage:
+ - ToDo
+
+#### Resources:
+ - [Terminal Color Scheme Designer](http://ciembor.github.io/4bit/#)
+ - 
+
 ToDo's
 ------
 - [ ] Install Script
