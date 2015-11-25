@@ -119,18 +119,18 @@ Lynx
 Mitmproxy
 ---------
 - An interactive console program that allows traffic flows to be intercepted, inspected, modified and replayed.
-- Details: http://bit.ly/1Ik6221
+- [Details](http://bit.ly/1Ik6221)
 - Install: `brew install mitmproxy`
 
 Whatmask
 ---------
-- Details: http://bit.ly/1HYhOmq
+- [Details](http://bit.ly/1HYhOmq)
 - Install: `brew install whatmask`
 
 xml2json
 --------
 - Converts XML to JSON
-- Details: https://github.com/parmentf/xml2json
+- [Details](https://github.com/parmentf/xml2json)
 - Install: `npm install -g xml2json-command`
 
 Homebrew
