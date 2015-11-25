@@ -139,6 +139,23 @@ itermocil
 ---------
  - Create pre-defined window/pane layouts and run commands in iTerm
  - [Details](https://github.com/TomAnthony/itermocil)
+ - Install:
+   ```
+   # Install `itermocil` via Homebrew
+   $ brew update
+   $ brew install TomAnthony/brews/itermocil
+   
+   # Create your layout directory
+   $ mkdir ~/.teamocil
+   
+   # Edit ~/.teamocil/sample.yml (look for sample layouts in this very `README.md`)
+   # There are also a variety of example files in 'test_layouts' directory in this repo
+   $ itermocil --edit sample
+   
+   # Run your newly-created sample layout
+   $ itermocil sample
+   ```
+ 
  ![alt text](http://imgur.com/n9E8aPe.png "Title")
 
 Ansi
