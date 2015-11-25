@@ -105,6 +105,13 @@ Ngrep
     ngrep -q -W byline "search" host www.google.com and port 80
 ```
 
+Lynx
+----
+ - Web browser in the terminal.
+ - [Details](http://lynx.invisible-island.net/lynx_help/lynx_help_main.html)
+ - Install: `brew install lynx`
+![alt text](http://www.tecmint.com/wp-content/uploads/2015/04/lynx-commandline-web-browsing.gif "Title")
+
 Mitmproxy
 ---------
 - An interactive console program that allows traffic flows to be intercepted, inspected, modified and replayed.
