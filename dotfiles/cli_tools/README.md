@@ -177,8 +177,8 @@ Really Great Lists of Command Line Tools
 
 Lists of awesome dotfiles
 -------------------------
-- [Awesome dotfiles](https://github.com/webpro/awesome-dotfiles)
-- 
+ - [Awesome dotfiles](https://github.com/webpro/awesome-dotfiles)
+ - 
 
 Other Lists
 ------------
