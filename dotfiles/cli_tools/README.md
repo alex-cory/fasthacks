@@ -135,6 +135,19 @@ Homebrew
 PIP
 ---
 
+itermocil
+---------
+ - Create pre-defined window/pane layouts and run commands in iTerm
+ - [Details](https://github.com/TomAnthony/itermocil)
+ ![alt text](http://imgur.com/n9E8aPe.png "Title")
+
+Ansi
+----
+ - Ansi escape code tool for bash.
+ - [Detais](https://github.com/fidian/ansi)
+ 
+ ![alt text](http://imgur.com/uT0FB2c.png "Title")
+
 Really Great Lists of Command Line Tools
 ----------------------------------------
 - http://bit.ly/1DU2JNb
@@ -143,4 +156,10 @@ Really Great Lists of Command Line Tools
 
 Lists of awesome dotfiles
 -------------------------
-- Awesome dotfiles - https://github.com/webpro/awesome-dotfiles
+- [Awesome dotfiles](https://github.com/webpro/awesome-dotfiles)
+- 
+
+Other Lists
+------------
+ - [Awesome Big Data](https://github.com/onurakpolat/awesome-bigdata)
+ - [Awesome awesome](https://github.com/emijrp/awesome-awesome) - random awesome lists
