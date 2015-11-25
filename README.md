@@ -50,6 +50,7 @@ Current Commands Done & in the Works
 | `cshow`              | Unhides hidden application from the `command + tab` window. | Done, Need Reviews |
 | `show`               | Shows all your hidden dot files.                            | Done |
 | `hide`               | Re-hides all your hidden dot files.                         | Done |
+| `most`               | Displays a lit of your most used commands.                  | Done |
 
 Theme
 -----
