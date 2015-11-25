@@ -4,32 +4,36 @@ List of Amazing Terminal/Command Line Tools
 Percol
 ------
 - adds a flavor of interactive selection to the shell
-- Details: https://github.com/mooz/percol
+- [Details](https://github.com/mooz/percol)
 - Install: `pip install percol`
 
 HTTPIE
 ------
 - super awesome http request color output and more
-- Details: https://github.com/jkbrzt/httpie
+- [Details](https://github.com/jkbrzt/httpie)
 - Install: `brew install httpie`
 
 The Silver Searcher
 -------------------
 - A code searching tool similar to ack, with a focus on speed.
-- Details: http://git.io/d9N0MA
+- [Details](http://git.io/d9N0MA)
 - Install: `brew install the_silver_searcher`
 
 BPython
 -------
 - Fancy Interface to the Python Interpreter
-- Details: http://bpython-interpreter.org/downloads.html
+- [Details](http://bpython-interpreter.org/downloads.html)
 - Install: `pip install bpython`
 
  
 vtop
 ----
-![alt text](http://imgur.com/QadBfPU.png "Title")
-- [cool way to view processes](https://parall.ax/blog/view/3131/vtop-revisiting-the-activity-monitor)
+ - A graphical activity monitor for the command line. Written in node.js.
+ - [Details](https://github.com/MrRio/vtop)
+ - Install: `sudo npm install -g vtop`
+ - [cool way to view processes](https://parall.ax/blog/view/3131/vtop-revisiting-the-activity-monitor)
+
+ ![alt text](http://imgur.com/QadBfPU.png "Title")
 
 Mutt
 ----
@@ -42,38 +46,38 @@ Bro Pages
 ---------
 - bro pages are a highly readable supplement to man pages
   bro pages show concise, common-case examples for Unix commands
-- Details: http://bropages.org/
+- [Details](http://bropages.org/)
 - Install: `sudo gem install bropages`
 
 MTR
 ----
 - mtr combines the functionality of the 'traceroute' and 'ping' programs in a single network diagnostic tool.
-- Details: http://bit.ly/1HYhOmq
+- [Details](http://bit.ly/1HYhOmq)
 - Install: `brew install mtr`
 
 JQ
 ---
 - colored json output
-- Learn:   https://jqplay.org/
-- Details: http://stedolan.github.io/jq/
-- Install: http://stedolan.github.io/jq/
+- [Learn](https://jqplay.org/)
+- [Details](http://stedolan.github.io/jq/)
+- Install: `brew install jq`
 
 Auto-fu.zsh
 -----------
 - Automatic word complete & list choices
-- Details: https://github.com/hchbaw/auto-fu.zsh
+- [Details](https://github.com/hchbaw/auto-fu.zsh)
 - Install: Go to his github.
 
 Boom
 -----
 - Great cli tool for lists
-- Details: http://zachholman.com/boom/
+- [Details](http://zachholman.com/boom/)
 - Install: `sudo gem install boom`
 
 Autojump
 --------
 - A cd command that learns - easily navigate directories from the command line
-- Details: http://git.io/vLgfd
+- [Details](http://git.io/vLgfd)
 - Install: brew install autojump
 
 NPM
@@ -82,19 +86,19 @@ NPM
 NVM
 ---
 - version manager for node.js
-- Details: https://github.com/creationix/nvm
+- [Details](https://github.com/creationix/nvm)
 - Install: `brew install nvm`
 
 Pyenv
 -----
 - version manager for python
-- Details: https://github.com/yyuu/pyenv
+- [Details](https://github.com/yyuu/pyenv)
 - Install: `brew install pyenv`
 
 Ngrep
 -----
 - For serious network packet analysis.
-- Details: http://bit.ly/1Ik4llk
+- [Details](http://bit.ly/1Ik4llk)
 - Install: `brew install ngrep`
 - Usage:
 ```
@@ -173,8 +177,8 @@ Really Great Lists of Command Line Tools
 
 Lists of awesome dotfiles
 -------------------------
- - [Awesome dotfiles](https://github.com/webpro/awesome-dotfiles)
- 
+- [Awesome dotfiles](https://github.com/webpro/awesome-dotfiles)
+- 
 
 Other Lists
 ------------
