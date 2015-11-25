@@ -9,7 +9,7 @@ Current Ideas
 | Idea/Command         | Description                                                                  | Status     |
 | -------------------- | ---------------------------------------------------------------------------- | ----------- |
 | `fh`                 | if no arguments are passed, shows a list maybe of what all fasthacks does    | Not Started |
-| `td` or `todo`       | todo app                                                                     | Not Started |
+| `t` or `task`        | todo app                                                                     | Not Started |
 | `pathm`              | tool for helping you manage your machines `$PATH`.  Things often get lost, out of order, and it can be confusing to keep track of it all.  This will have a json file with all the paths in it call `paths.json`. | Not Started |
 | `up`                 | an awesome update tool that will update all packages if no argument is specified. If a program/plugin/app is updated, it will update them reguardless of package manager | In Progress (sorta) |
 | `help`               | universal help tool. (ex: help ruby, etc.) (may not be necessary)            | Not Started |
@@ -62,7 +62,25 @@ Theme
  - [Beautify Logfile Commands](http://korpus.juls.savba.sk/~garabik/software/grc.html)
  - [A Stylesheet author's guide to terminal colors](http://wynnnetherland.com/journal/a-stylesheet-author-s-guide-to-terminal-colors/)
 
+Task ([Taskwarior](http://taskwarrior.org/tools/))
+----
+
+#### Usage:
+ - It's an amazing todo program for the console.
+ 
+#### Resources
+ - 
+ 
+#### Great Taskwarior Extensions
+ - [taskopen](https://github.com/ValiValpas/taskopen): Script for taking notes and open urls with taskwarrior.
+ - [tasknc](https://github.com/flickerfly/taskwarrior-notifications): A collection of ways to alert me/bring attention to my task list because I'm easily distracted and need help focusing.
+ - [taskwarrior-time-tracking-hook](https://github.com/kostajh/taskwarrior-time-tracking-hook): A simple Taskwarrior hook allowing one to track total time spent on a task.
+ - [taskwarrior-web](http://theunraveler.com/taskwarrior-web/): Web interface
+
+
 ToDo's
 ------
 - [ ] Install Script
 - [ ] Website + documentation
+- [ ] [alias-tips](https://github.com/djui/alias-tips)
+- [ ] [zsh completions](https://github.com/zsh-users/zsh-completions)
