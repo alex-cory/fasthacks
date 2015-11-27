@@ -3,6 +3,9 @@ fast Hacks
 
 This project started out as a library of my notes, what I was currently learning, and what I wanted to learn. Now it has grown into a very useful tool as you can see below the things I am working on.
 
+![alt text](http://imgur.com/JNX9z6b.png)  
+When you found out this actually existed.
+
 Current Ideas
 -------------
 
