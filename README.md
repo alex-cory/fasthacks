@@ -49,8 +49,8 @@ Current Commands Done & in the Works
 | `resymlink`          | You put all the absolute paths to your dotfiles with names, etc. into this `symlinks.json` file.  If something ever goes wrong, just type resymlink!                            | Started |
 | `checksyms`          | Checks to see which symlinks are broken                     | Started |
 | `clrs` or `colors`   | Spits out colors and codes.                                 | Done |
-| `chide`              | Hides the specified app from the `command + tab` window.    | Done, Need Reviews (didn't work on Google Chrome |
-| `cshow`              | Unhides hidden application from the `command + tab` window. | Done, Need Reviews |
+| `chide`              | Hides the specified app from the `command + tab` window.    | Works on Mavericks, but trouble on Yosemite. Can cause some apps to crash. |
+| `cshow`              | Unhides hidden application from the `command + tab` window. | Works on Mavericks, but trouble on Yosemite |
 | `show`               | Shows all your hidden dot files.                            | Done |
 | `hide`               | Re-hides all your hidden dot files.                         | Done |
 | `most`               | Displays a lit of your most used commands.                  | Done |
