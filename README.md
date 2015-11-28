@@ -21,26 +21,27 @@ Current Ideas/Commands/Features
 | `theme`              | switch between themes for everything in your terminal or specific programs.  | Not Started |
 | `details`            | Similar to doing `which cmd` where `cmd` is a function or alias you have in your .bashrc or elsewhere.  <br> Ex:   <br>`$ details up` <br> `Description: Updates everything if no argumetns passed or updates the specified program.` <br> `Example: up vim` <br> `Location: .bashrc on line 21` <br> `Path: ~/.bashrc` <br> It's not complete, but here's where we're at currently. ![Alt text](./assets/details.gif) | Started, but not even close |
 | `edit`               | quickly edit your functions and aliases for your dotfiles.                   | Not Started |
-| `cat`                | Colored `cat` output! The goal is for syntax highlighting!                   | Not Production Quality |
+| `cat`                | Colored `cat` output! The goal is for syntax highlighting! ![Alt text](./assets/cat.gif) | Not Production Quality |
 | `less`               | Colored `less` output! The goal is for syntax highlighting!                  | Not Production Quality |
 | `man`                | Colored `man` pages! The goal is for syntax highlighting!  ![Alt text](./assets/man.gif)  | Not Production Quality |
 | `top`                | Colored `top`!  It uses a program called `htop` to do this currently with an alias in the `.bashrc`. ![Alt text](./assets/top.gif)  | Not Production Quality |
 | `ssh`                | Setup default servers you go to the most so all you have to do is type `ssh` and boom presto shazam. | Done, needs reviews
 | `pv` or `preview`    | Colored preview of file.  It also allows you to lookup what an alias or command does.  ![Alt text](./assets/pv.gif)| Not Production Quality |
-| `olss`               | Open last screen shot                                       | Needs Optimization & Testing |
+| `olss`               | Open last screen shot  ![Alt text](./assets/olss.gif) | Needs Optimization & Testing |
 | `path`               | Will probably eventually be replaced by `pathm`, but shows the $PATH in a prettier format.| Should Be Good |
 | `src`                | Quick sourcing.  No more `source ~/.bashrc` etc, etc.  Just type `src` and it'll take care of the rest for you! You may also pass a path to it `src ~/.bashrc`. | Needs Review |
 | `up` or `update`     | Allows anything to be updated with just one command.        | Started |
 | `un` or `uninstall`  | Uninstalls the specified applications.                      | Started |
 | `resymlink`          | You put all the absolute paths to your dotfiles with names, etc. into this `symlinks.json` file.  If something ever goes wrong, just type resymlink!                            | Started |
-| `checksyms`          | Checks to see which symlinks are broken. ![Alt text](./assets/checksyms.gif)                     | Started |
+| `checksyms`          | Checks to see which symlinks are broken.  ![Alt text](./assets/checksyms.gif)                     | Started |
 | `clrs` or `colors`   | Spits out colors and codes. Used when making bash scripts and you want to colorize output.  ![Alt text](./assets/clrs.gif) | Done |
 | `chide`              | Hides the specified app from the `command + tab` window.    | Works on Mavericks, but trouble on Yosemite. Can cause some apps to crash. |
 | `cshow`              | Unhides hidden application from the `command + tab` window. | Works on Mavericks, but trouble on Yosemite |
 | `show`               | Shows all your hidden dot files.                            | Done |
 | `hide`               | Re-hides all your hidden dot files.                         | Done |
-| `most`               | Displays a lit of your most used commands.                  | Done |
+| `most`               | Displays a list of your most used commands.  ![Alt text](./assets/most.gif) | Done |
 | `zsh-syntax-highlighting` | Colors your command green if it's valid and red if it won't work.  ![Alt text](./assets/zsh-syntax-highlighting.gif)| Done |
+| `hh` or `ctrl + r`   | Better command history searching.  ![Alt text](./assets/hh.gif) | Done |
 
 Theme
 -----
