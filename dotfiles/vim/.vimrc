@@ -21,6 +21,10 @@ call vundle#rc()
 " .git so you're aren't searching your entire machine
 :map <leader>cf :CtrlPCurFile<CR>
 
+" Quickly repeat previous : cmd. Use case:  ":w !preview preview.js" will save
+" and run the file again really quickly
+nmap <leader>r :@:<CR>
+
 """"" EasyMotion """""
 " Gif config
 map  / <Plug>(easymotion-sn)
@@ -86,6 +90,8 @@ nnoremap `` ''
 
 """ Installed plugins
 
+" Vim Taskwarrior: managing tasks within vim
+Bundle 'farseer90718/vim-taskwarrior'
 " command Around/In function  'DOESN'T WORK WITH JS :(
 " Plugin 'kana/vim-textobj-function'
 " Matchit: allows you to configure % to match more than just single characters.
@@ -302,6 +308,7 @@ set backspace=indent,eol,start
 
 " yank and paste with the system clipboard
 set clipboard=unnamed
+" set clipboard=unnamedplus
 
 " Search highlighting
 " set hlsearch
@@ -684,6 +691,8 @@ autocmd VimEnter * call StartUpNerdtree()
 :map <leader>w :wq<CR>
 " Quick quit
 :map <leader>q :q<CR>
+" Quick quit all
+:map <leader>x :qa<CR>
 " For quick jump to line
 :map <SPACE> Gzz
 " STOP USING ARROW KEYS! A.K.A. Vim Hard Mode

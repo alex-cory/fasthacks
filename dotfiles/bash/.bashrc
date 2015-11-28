@@ -1,3 +1,4 @@
+source ~/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/globals.sh
 # ////////////////////////////////////////////////////////////////////
 # //                     Bash Configuration                         //
 # ////////////////////////////////////////////////////////////////////
@@ -5,23 +6,64 @@
 # Bash Style Guide: (http://bit.ly/1H7w1IX)
 # How To Activate Aliases (use: source ~/.bashrc)
 
-### Todo's
-## Fasthacks
-# - `fh` - if no arguments are passed, shows a list maybe of what all fasthacks does?
-## Bashrc
-# - make a todo's program
-# - simpler path manager (so you don't lose track of what's what in your path and in what order they're invoked.  put these in a jason file called path.json.)
-# - `vsn[version]` function: tells version of any program. (ex: version ruby, version npm)
-# - `up` - will update all packages if nothing is specified otherwise will update reguardless of package manager
-#    - vim - http://stackoverflow.com/questions/7211820/update-built-in-vim-on-mac-os-x 
-# - `help` - universal help tool
-# - `il` - install location - shows all the locations an app, program, etc. is installed on your computer. (i.e. checks to see if vim is installed aditionally by homebrew or elsewhere.)
-# - `use` - switch between versions of anything (ex: use ruby 2.1, use nodejs 3.7, etc.)
-## Karabiner
-# - `double tab hold` - function
 
-# source "globals" # Where all the custom paths for your machine are stored that are used in the functions below
-# source "/etc/globals"
+# Details about an alias. (might not work properly on some machines, but should spit out the code for an alias with syntax highlighting)
+function details() {
+  which "$@" | pygmentize -l sh
+}
+
+# Use `htop` instead of `top`
+alias top="htop" # you may have to use `sudo htop`
+
+# upload images to imgur
+alias imgur="imguru"
+
+# AWESOME SPACESHIP! (dependencies: npm: terminal-kit - https://github.com/cronvel/terminal-kit)
+alias spaceship="node /usr/local/lib/node_modules/terminal-kit/demo/spaceship.js"
+
+# Enhance `mkdir` so you can make all parents too. ex: `mkdir -p tmp/a/b/c`
+alias mkdir="command mkdir -p"
+
+# Mispells
+alias mkdr="command mkdir -p"
+alias eho="echo"
+
+# Silver Searcher pager awesomeness (if the output from `ag` is longer than a page, enable scrolling pager)
+function ag() {
+  agLineCount="$(($(command ag $@ | wc -l)*2))"
+  screenHeight="$(echo $(tput lines))"
+
+  # if output from `ag` is longer than the screen height
+  if [ "$agLineCount" -gt "$screenHeight" ]; then
+    # echo "AG LINE COUNT IS BIGGER THAN SCREEN"
+    # use the pager
+    command ag --pager 'less -R' "$@"
+  else
+    # echo "AG LINE COUNT IS SMALLER THAN SCREEN."
+    # otherwise don't
+    command ag "$@"
+  fi
+}
+
+# Enhance `remove`
+alias rmr="rm -r"
+
+# Add alias on the fly
+# function add-alias() {
+#   echo "alias $1=\047$2\047" >> ~/.bashrc
+# }
+
+# Show open ports
+alias ports="netstat -tulanp"
+
+# Remove an alias
+# unalias aliasname
+
+# List Most commonly used commands
+function most() {
+  var="$(history | awk 'BEGIN {FS="[ \t]+|\\|"} {print $3}' | sort | uniq -c | sort -nr | head)";
+  echo "$var"
+}
 
 # Copy Files Only
 function cpf() {
@@ -122,7 +164,9 @@ function ggl() {
 function src() {
   if [ -z "${1+xxx}" ]; then # If no argument is set
     source "$HOME/.bashrc"
+    source "$HOME/.zshrc"
     ingit_source "$GIT_SHORTCUTS"
+    source "$NPM_SHORTCUTS"
     # /bin/bash -c 'source ~/.bashrc'
   else
     source "$HOME/$@"
@@ -319,55 +363,75 @@ function man() {
 
 # Quickly Preview a file
 function pv() {
-  local jqError=$(contains "$(command cat $1 | jq '.' 2>&1)" 'parse error: Invalid numeric literal' OR 'No such file or directory')
-  local pygError=$(contains "$(command cat $1 | pygmentize 2>&1)" 'Error: no lexer for filename')
-
-  # echo "$($pygError != 1)"
-  if [[ $1 == *.json ]] || [[ $1 == *.sublime-settings ]]; then
-
-    # if they both work
-    if [[ $pygError != 1 ]] && [[ $jqError != 1 ]]; then
-      pygmentize $1 | command less -r
-      # command cat "$1" | jq '.' | command less
-
-    # if only Pygments works
-    elif [[ $pygError != 1 ]] && [[ $jqError == 1 ]]; then
-      pygmentize $1 | command less -r
-      # command cat "$1" | pygmentize | command less
-
-    # If neither of them work, just use normal `less`
-    elif [[ $jqError == 1 ]] && [[ $pygError == 1 ]]; then
-      echo "something went wrong :("
-      # command cat $1 | command less
-
-    # Default to JQ
-    elif [[ $jqError != 1 ]]; then
-      pygmentize $1 | command less -r
-      # command cat "$1" | jq '.' | command less
-    fi
-  elif [[ $1 == .* ]]; then
-      pygmentize $1 | command less -r
-    # command cat "$1" | pygmentize -l sh | command less
-
-  else
-    # if only Pygments works
-    # if [[ $pygError == 1 ]] && [[ $jqError == 1 ]]; then
-      pygmentize $1 | command less -r
-      # LINE NUMBERS
-      # pygmentize $1 -O linenos=1 | command less -r
-      # command cat $1 | command less
-    # else
-    #   command cat "$1" | pygmentize | command less
-    # fi
+  if [ ! -x "$(which pygmentize)" ]; then
+      echo "package \'pygmentize\' is not installed!"
+      return -1
   fi
+
+  if [ $# -eq 0 ]; then
+      pygmentize -g $@
+  fi
+
+  for FNAME in $@
+  do
+      filename=$(basename "$FNAME")
+      lexer=`pygmentize -N \"$filename\"`
+      if [ "Z$lexer" != "Ztext" ]; then
+          pygmentize -l $lexer "$FNAME" | command less -R
+      else
+          pygmentize -g "$FNAME" | command less -R
+      fi
+  done  
+  # local jqError=$(contains "$(command cat $1 | jq '.' 2>&1)" 'parse error: Invalid numeric literal' OR 'No such file or directory')
+  # local pygError=$(contains "$(command cat $1 | pygmentize 2>&1)" 'Error: no lexer for filename')
+  #
+  # # echo "$($pygError != 1)"
+  # if [[ $1 == *.json ]] || [[ $1 == *.sublime-settings ]]; then
+  #
+  #   # if they both work
+  #   if [[ $pygError != 1 ]] && [[ $jqError != 1 ]]; then
+  #     pygmentize $1 | command less -r
+  #     # command cat "$1" | jq '.' | command less
+  #
+  #   # if only Pygments works
+  #   elif [[ $pygError != 1 ]] && [[ $jqError == 1 ]]; then
+  #     pygmentize $1 | command less -r
+  #     # command cat "$1" | pygmentize | command less
+  #
+  #   # If neither of them work, just use normal `less`
+  #   elif [[ $jqError == 1 ]] && [[ $pygError == 1 ]]; then
+  #     echo "something went wrong :("
+  #     # command cat $1 | command less
+  #
+  #   # Default to JQ
+  #   elif [[ $jqError != 1 ]]; then
+  #     pygmentize $1 | command less -r
+  #     # command cat "$1" | jq '.' | command less
+  #   fi
+  # elif [[ $1 == .* ]]; then
+  #     pygmentize $1 | command less -r
+  #   # command cat "$1" | pygmentize -l sh | command less
+  #
+  # else
+  #   # if only Pygments works
+  #   # if [[ $pygError == 1 ]] && [[ $jqError == 1 ]]; then
+  #     pygmentize $1 | command less -r
+  #     # LINE NUMBERS
+  #     # pygmentize $1 -O linenos=1 | command less -r
+  #     # command cat $1 | command less
+  #   # else
+  #   #   command cat "$1" | pygmentize | command less
+  #   # fi
+  # fi
 }
 
 alias grep='grep --color=auto'
 
 # Colorful Cat
-function cat() {
-  local jqError=$(contains "$(command cat $1 | jq '.' 2>&1)" 'parse error: Invalid numeric literal' OR 'No such file or directory')
-  local pygError=$(contains "$(command cat $1 | pygmentize 2>&1)" 'Error: no lexer for filename')
+alias cat='vimcat'
+# function cat() {
+  # local jqError=$(contains "$(command cat $1 | jq '.' 2>&1)" 'parse error: Invalid numeric literal' OR 'No such file or directory')
+  # local pygError=$(contains "$(command cat $1 | pygmentize 2>&1)" 'Error: no lexer for filename')
     # local out colored
     # out=$(/bin/cat $@)
     # colored=$(echo $out | pygmentize -f console -g 2>/dev/null)
@@ -397,14 +461,14 @@ function cat() {
   #   else
   #     command cat "$1" | pygmentize | command less
   #   fi
-  if [[ $1 == *.json ]] || [[ $1 == *.sublime* ]]; then
-    command cat "$1" | jq '.'
-  elif [[ $1 == .* ]]; then
-    command cat "$1" | pygmentize -l sh
-  else
-    command cat "$1" | pygmentize
-  fi
-}
+#   if [[ $1 == *.json ]] || [[ $1 == *.sublime* ]]; then
+#     command cat "$1" | jq '.'
+#   elif [[ $1 == .* ]]; then
+#     command cat "$1" | pygmentize -l sh
+#   else
+#     command cat "$1" | pygmentize
+#   fi
+# }
 
 
 # Create a ZIP archive of a file or folder.
@@ -631,8 +695,15 @@ alias .httpd='vim /etc/apache2/httpd.conf'
 alias .php='vim /etc/php.ini'
 alias .vh='vim /etc/apache2/extra/httpd-vhosts.conf'
 
+# edit taskwarrior config
+alias .taskrc='vim $HOME/.taskrc'
+alias .tw='vim $HOME/.taskrc'
+
 # edit dotfiles
 alias .dot="cd $DOT; vim; cd -"
+
+# edit fast hacks
+alias .fh="cd $DOT/../; vim; cd -"
 
 # cli tools list
 alias .tl="vim $DOT/README.md"
@@ -680,7 +751,7 @@ alias .v='vim $HOME/.vimrc'
 alias .z='vim $HOME/.zshrc'
 
 # Open Globals
-alias .gl="sudo vim /etc/globals"
+alias .gl="sudo vim /etc/globals.sh"
 
 # Edit Colors
 alias .cl="vim $COLORS"
@@ -1022,3 +1093,48 @@ export NVM_DIR="/Users/`whoami`/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 export LC_ALL=en_US.UTF-8 export LANG=en_US.UTF-8 # This loads the fonts for .vimrc
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+### Todo's
+## Fasthacks
+# - `fh` - if no arguments are passed, shows a list maybe of what all fasthacks does?
+## Bashrc
+# - make a todo's program
+# - simpler path manager (so you don't lose track of what's what in your path and in what order they're invoked.  put these in a jason file called path.json.)
+# - `vsn[version]` function: tells version of any program. (ex: version ruby, version npm)
+# - `up` - will update all packages if nothing is specified otherwise will update reguardless of package manager
+#    - vim - http://stackoverflow.com/questions/7211820/update-built-in-vim-on-mac-os-x 
+# - `help` - universal help tool
+# - `il` - install location - shows all the locations an app, program, etc. is installed on your computer. (i.e. checks to see if vim is installed aditionally by homebrew or elsewhere.)
+# - `use` - switch between versions of anything (ex: use ruby 2.1, use nodejs 3.7, etc.)
+## Karabiner
+# - `double tab hold` - function
+
+# source "globals" # Where all the custom paths for your machine are stored that are used in the functions below
+# source "/etc/globals"
+
+# This keeps the number of todos always available the right hand side of my
+# command line. I filter it to only count those tagged as "+next", so it's more
+# of a motivation to clear out the list.
+# function todo_count() {
+#   if $(which todo &> /dev/null)
+#   then
+#     num=$(echo $(todo ls $1 | wc -l))
+#     let todos=num-2
+#     if [ $todos != 0 ]
+#     then
+#       echo "$todos"
+#     else
+#       echo ""
+#     fi
+#   else
+#     echo ""
+#   fi
+# }
+#
+# function todo_prompt() {
+#   local COUNT=$(todo_count $1);
+#   if [ $COUNT != 0 ]; then
+#     echo "$1: $COUNT";
+#   else
+#     echo "";
+#   fi
+# }

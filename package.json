@@ -13,7 +13,7 @@
   "author": "alex-cory",
   "license": "ISC",
   "bin": {
-    "preview": "./commands/preview.js"
+    "preview": "./preview.js"
   },
   "bugs": {
     "url": "https://github.com/alex-cory/fasthacks/issues"
@@ -22,10 +22,13 @@
   "dependencies": {
     "babel": "^6.1.18",
     "cardinal": "^0.6.0",
+    "cli-color": "^1.1.0",
     "commander": "^2.9.0",
     "console-highlight": "^0.1.0",
     "highlight.js": "^8.9.1",
+    "modhelp": "^2.1.1",
     "node-syntaxhighlighter": "^0.8.1",
-    "pygmentize-bundled": "^2.3.0"
+    "pygmentize-bundled": "^2.3.0",
+    "terminal-kit": "^0.15.12"
   }
 }

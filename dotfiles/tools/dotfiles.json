@@ -55,9 +55,9 @@
     "softLink": "/Users/AlexCory/.vimrc"
   },
   {
-    "name": "globals",
-    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/globals",
-    "softLink": "/etc/globals"
+    "name": "globals.sh",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/globals.sh",
+    "softLink": "/etc/globals.sh"
   },
   {
     "name": "private.xml",

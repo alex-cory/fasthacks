@@ -5,6 +5,9 @@
 # Npm
 alias n='npm'
 
+# Node
+alias nd='node'
+
 # Start
 alias ns='npm start'
 

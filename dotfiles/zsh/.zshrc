@@ -1,6 +1,6 @@
 # This is the file to use if you need to set something globally (at least for me since I run zsh)
 
-source '/etc/globals'
+source '/etc/globals.sh'
 export ZSH=$HOME/.oh-my-zsh
 
 # For Autojump to work properly
@@ -51,6 +51,10 @@ if exists percol; then
     bindkey '^R' percol_select_history
 fi
 
+# Turns Alias Tips white so they're more noticeable
+export ZSH_PLUGINS_ALIAS_TIPS_TEXT="$(echo ${BWhite}Alias tip:) "
+# Exlude some tings from alias tips
+export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="eho mkdr"
 
 # Makes Testing For Devices Anywhere
 export PATH=/Applications/Android\ Studio.app/sdk/platform-tools:$PATH
@@ -95,7 +99,9 @@ DEFAULT_USER="Alex"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby sublime)
+plugins=(git ruby sublime command-not-found taskwarrior alias-tips)
+plugins+=(zsh-completions)
+autoload -U compinit && compinit
 
 source "$HOME/.bash_profile"
 source "$DOT_PATH/bash/.bashrc" # Runs the .bash_profile & .bashrc on startup making all aliases available from the git-go
@@ -118,3 +124,11 @@ eval "$(pyenv init -)"
 
 # Citrix
 # export PATH="$CITRIX_LOCAL/apache-maven-3.1.1/bin"
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+. `brew --prefix`/etc/profile.d/z.sh
+
+# For `hstr` cmd: which is nice command history searching
+# export HISTFILE=~/.zsh_history  # ensure history file visibility
+# export HH_CONFIG=hicolor        # get more colors
+# bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)

@@ -8,7 +8,7 @@
 #   a. file path completion
 #   b. tab completion
 # Super Globals
-source "/etc/globals"
+source "/etc/globals.sh"
 
 
 #######################################
@@ -120,3 +120,4 @@ function replaceSymlink() {
 ## SCP remote -> local
 # scp -r -P 2325 james@ssh.hackingedu.co:/home/james/website-ro /Users/AlexCory/GoogleDrive/_Server_/Developer/git\ repositories/
 source "$HOME/.profile"
+source "`brew --prefix grc`/etc/grc.bashrc"

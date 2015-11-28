@@ -22,6 +22,7 @@
 	"line_padding_top": 1,
 	"scroll_past_end": true,
 	"show_full_path": true,
+	"theme": "SoDaReloaded Dark.sublime-theme",
 	"trim_trailing_white_space_on_save": true,
 	"vintageous_use_ctrl_keys": false,
 	"word_wrap": true
