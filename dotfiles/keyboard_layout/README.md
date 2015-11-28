@@ -30,7 +30,7 @@ Custom Keyboard Shortcuts
 | hold `space` tap `r`  | regardless of application, will take you to Google Chrome and refresh the current tab | Complete |
 | tap `⇪caps lock`      | `escape`                                                                     | Complete    |
 | hold `cmd` tap `F6`   | Toggles `fn mode` meaning all `F#` keys are turned on or off.                | Not Started |
-| hold `space` tap `9`  | Switches to previous appliation. (basically does `cmd + tab`                 | Not Started |
+| hold `space` tap `tab` | Switches to previous appliation. (basically does `cmd + tab`)               | Not Started |
 
 Todos
 -----
