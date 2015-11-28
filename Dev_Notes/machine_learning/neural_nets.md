@@ -9,6 +9,15 @@ An ANN is typically defined by three types of parameters:
  2. The learning process for updating the weights of the interconnections
  3. The activation function that converts a neuron's weighted input to its output activation.
 
+The cost function `C` is an important concept in learning, as it is a measure of how far away a particular solution is from an optimal solution to the problem to be solved. Learning algorithms search through the solution space to find a function that has the smallest possible cost.
+
+```
+C = cost
+E = experience
+T = tasks
+P = performance
+```
+
 ### History  
 
 Examinations of humans' central nervous systems inspired the concept of artificial neural networks. In an artificial neural network, simple artificial nodes, known as "neurons", "neurodes", "processing elements" or "units", are connected together to form a network which mimics a biological neural network.
@@ -16,7 +25,17 @@ Examinations of humans' central nervous systems inspired the concept of artifici
 ### Models  
 Neural network models in artificial intelligence are usually referred to as artificial neural networks (ANNs); these are essentially simple mathematical models defining a function  `f : X → Y`  or a distribution over `X` or both `X` and `Y`, but sometimes models are also intimately associated with a particular learning algorithm or learning rule. A common use of the phrase "ANN model" is really the definition of a class of such functions (where members of the class are obtained by varying parameters, connection weights, or specifics of the architecture such as the number of neurons or their connectivity).
 
+### Training Neural Nets
+Most of the algorithms used in training artificial neural networks employ some form of gradient descent, using backpropagation to compute the actual gradients. This is done by simply taking the derivative of the cost function with respect to the network parameters and then changing those parameters in a gradient-related direction. The backpropagation training algorithms are usually classified into three categories: steepest descent (with variable learning rate, with variable learning rate and momentum, resilient backpropagation), quasi-Newton (Broyden-Fletcher-Goldfarb-Shanno, one step secant, Levenberg-Marquardt) and conjugate gradient (Fletcher-Reeves update, Polak-Ribiére update, Powell-Beale restart, scaled conjugate gradient)([src](https://www.wikiwand.com/en/Artificial_neural_network#Learning_algorithms)).
 
+### Commonly Used Methods for Training Neural Nets
+ - [**Evolutionary algorithm**](https://www.wikiwand.com/en/Evolutionary_methods) - In artificial intelligence, an evolutionary algorithm (EA) is a subset of evolutionary computation, a generic population-based metaheuristic optimization algorithm. An EA uses mechanisms inspired by biological evolution, such as reproduction, mutation, recombination, and selection.
+ - [**Gene expression programming**](https://www.wikiwand.com/en/Gene_expression_programming) - In computer programming, gene expression programming (GEP) is an evolutionary algorithm that creates computer programs or models. These computer programs are complex tree structures that learn and adapt by changing their sizes, shapes, and composition, much like a living organism.
+ - [**Simulated annealing**](https://www.wikiwand.com/en/Simulated_annealing) - Simulated annealing (SA) is a probabilistic technique for approximating the global optimum of a given function. Specifically, it is a metaheuristic for approximate global optimization in a large search space.
+ - [**Expectation–maximization algorithm**](https://www.wikiwand.com/en/Expectation-maximization) - In statistics, an expectation–maximization (EM) algorithm is an iterative method for finding maximum likelihood or maximum a posteriori (MAP) estimates of parameters in statistical models, where the model depends on unobserved latent variables. The EM iteration alternates between performing an expectation (E) step, which creates a function for the expectation of the log-likelihood evaluated using the current estimate for the parameters, and a maximization (M) step, which computes parameters maximizing the expected log-likelihood found on the E step.
+ - [**Nonparametric statistics**](https://www.wikiwand.com/en/Non-parametric_methods) - Nonparametric statistics are statistics not based on parameterized families of probability distributions. They include both descriptive and inferential statistics.
+ - [**Particle swarm optimization**](https://www.wikiwand.com/en/Particle_swarm_optimization) - In computer science, particle swarm optimization (PSO) is a computational method that optimizes a problem by iteratively trying to improve a candidate solution with regard to a given measure of quality. PSO optimizes a problem by having a population of candidate solutions, here dubbed particles, and moving these particles around in the search-space according to simple mathematical formulae over the particle's position and velocity.
+ - 
 
 Types of Neural Nets
 --------------------  
@@ -24,6 +43,8 @@ Types of Neural Nets
   - Examples:
    - [Long short-term memory (LSTM)](https://www.wikiwand.com/en/Long_short_term_memory) - Long short-term memory (LSTM) is a recurrent neural network (RNN) architecture (an artificial neural network) published in 1997 by Sepp Hochreiter and Jürgen Schmidhuber. Like most RNNs, an LSTM network is universal in the sense that given enough network units it can compute anything a conventional computer can compute, provided it has the proper weight matrix, which may be viewed as its program.
  - [Neocognitron](https://www.wikiwand.com/en/Neocognitron) - The neocognitron is a hierarchical, multilayered artificial neural network proposed by Kunihiko Fukushima in the 1980s. It has been used for handwritten character recognition and other pattern recognition tasks, and served as the inspiration for convolutional neural networks.
+ - [**Feedforward neural network**](https://www.wikiwand.com/en/Feedforward_neural_network) - A feedforward neural network is an artificial neural network where connections between the units do not form a cycle. This is different from recurrent neural networks.
+ - [**Multilayer perceptron**](https://www.wikiwand.com/en/Multilayer_perceptron) - A multilayer perceptron (MLP) is a feedforward artificial neural network model that maps sets of input data onto a set of appropriate outputs. An MLP consists of multiple layers of nodes in a directed graph, with each layer fully connected to the next one.
  - [**
  
  
@@ -42,21 +63,30 @@ Terms
  - [**Graphics processing unit (GPU)**](https://www.wikiwand.com/en/GPU) - A graphics processing unit (GPU), also occasionally called visual processing unit (VPU), is a specialized electronic circuit designed to rapidly manipulate and alter memory to accelerate the creation of images in a frame buffer intended for output to a display. GPUs are used in embedded systems, mobile phones, personal computers, workstations, and game consoles.
  - [**Visual cortex**](https://www.wikiwand.com/en/Visual_cortex) - The visual cortex of the brain is the part of the cerebral cortex responsible for processing visual information. This article addresses the ventral/dorsal model of the visual cortex.
  - [**Graphical model**](https://www.wikiwand.com/en/Graphical_models) - A graphical model or probabilistic graphical model (PGM) is a probabilistic model for which a graph expresses the conditional dependence structure between random variables.
- - [**
+ - [**Directed acyclic graph**](https://www.wikiwand.com/en/Directed_acyclic_graph) - In mathematics and computer science, a directed acyclic graph (DAG /ˈdæɡ/), is a directed graph with no directed cycles. That is, it is formed by a collection of vertices and directed edges, each edge connecting one vertex to another, such that there is no way to start at some vertex v and follow a sequence of edges that eventually loops back to v again.
+ - [**Mathematical optimization**](https://www.wikiwand.com/en/Mathematical_optimization) - In mathematics, computer science and operations research, mathematical optimization (alternatively, optimization or mathematical programming) is the selection of a best element (with regard to some criteria) from some set of available alternatives. In the simplest case, an optimization problem consists of maximizing or minimizing a real function by systematically choosing input values from within an allowed set and computing the value of the function.
+ - [**Mean squared error**](https://www.wikiwand.com/en/Mean-squared_error) - In statistics, the mean squared error (MSE) of an estimator measures the average of the squares of the "errors", that is, the difference between the estimator and what is estimated. MSE is a risk function, corresponding to the expected value of the squared error loss or quadratic loss.
+ - [**Regression analysis**](https://www.wikiwand.com/en/Regression_analysis) - Also known as _function approximation_, in Models, regression analysis is a statistical process for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when the focus is on the relationship between a dependent variable and one or more independent variables (or 'predictors').
+ - [**Markov decision process (MDP)**](https://www.wikiwand.com/en/Markov_decision_process) - Markov decision processes (MDPs) provide a mathematical framework for modeling decision making in situations where outcomes are partly random and partly under the control of a decision maker. MDPs are useful for studying a wide range of optimization problems solved via dynamic programming and reinforcement learning.
+ - [**Markov chain (MC)**](https://www.wikiwand.com/en/Markov_chain) - A Markov chain (discrete-time Markov chain or DTMC), named after Andrey Markov, is a random process that undergoes transitions from one state to another on a state space. It must possess a property that is usually characterized as "memorylessness": the probability distribution of the next state depends only on the current state and not on the sequence of events that preceded it. *(The aim is to discover the policy (i.e., the MC) that minimizes the cost in Reinforcement Learning.)*
+ - [**Bayesian probability**](https://www.wikiwand.com/en/Bayesian_probability) - Bayesian probability is one interpretation of the concept of probability. In contrast to interpreting probability as frequency or propensity of some phenomenon, Bayesian probability is a quantity that we assign to represent a state of knowledge, or a state of belief.
 
 Algorithms
 ----------  
  - [**Perceptron**](https://www.wikiwand.com/en/Perceptron) - In machine learning, the perceptron is an algorithm for supervised learning of binary classifiers: functions that can decide whether an input (represented by a vector of numbers) belongs to one class or another. It is a type of linear classifier
- - [**
+ - [**Gradient descent**](https://www.wikiwand.com/en/Gradient_descent) - Gradient descent is a first-order optimization algorithm. To find a local minimum of a function using gradient descent, one takes steps proportional to the negative of the gradient (or of the approximate gradient) of the function at the current point.
+ - [**Backpropagation**](https://www.wikiwand.com/en/Backpropagation) - Backpropagation, an abbreviation for "backward propagation of errors", is a common method of training artificial neural networks used in conjunction with an optimization method such as gradient descent. The method calculates the gradient of a loss function with respect to all the weights in the network.
+ - [**Expectation–maximization algorithm**](https://www.wikiwand.com/en/Expectation-maximization) - In statistics, an expectation–maximization (EM) algorithm is an iterative method for finding maximum likelihood or maximum a posteriori (MAP) estimates of parameters in statistical models, where the model depends on unobserved latent variables. The EM iteration alternates between performing an expectation (E) step, which creates a function for the expectation of the log-likelihood evaluated using the current estimate for the parameters, and a maximization (M) step, which computes parameters maximizing the expected log-likelihood found on the E step.
+ - [**Evolutionary algorithm**](https://www.wikiwand.com/en/Evolutionary_methods) - In artificial intelligence, an evolutionary algorithm (EA) is a subset of evolutionary computation, a generic population-based metaheuristic optimization algorithm. An EA uses mechanisms inspired by biological evolution, such as reproduction, mutation, recombination, and selection.
  
- 
+
 Examples
 --------  
 
 Resources
 ---------  
  - [**MNIST database (Mixed National Institute of Standards and Technology database)**](https://www.wikiwand.com/en/MNIST_database) - The MNIST database is a large database of handwritten digits that is commonly used for training various image processing systems. The database is also widely used for training and testing in the field of machine learning.
- - 
+ - **Article:** [**Comparison of Feed-Forward Neural Network Training Algorithms for Oscillometric Blood Pressure Estimation**](http://www.researchgate.net/publication/224173336_Comparison_of_Feed-Forward_Neural_Network_training_algorithms_for_oscillometric_blood_pressure_estimation)
 
 Important People 
 ----------------  
@@ -71,6 +101,7 @@ Important People
  - Kunihiko Fukushima
  - [Torsten Wiesel](https://www.wikiwand.com/en/Torsten_Wiesel)
  - [David H. Hubel](https://www.wikiwand.com/en/David_H._Hubel)
+ - [Dimitri Bertsekas](https://www.wikiwand.com/en/Dimitri_Bertsekas)
 
 
 Conferences  
