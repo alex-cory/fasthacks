@@ -17,6 +17,7 @@ Custom Keyboard Shortcuts
 | hold `2` or `0`       | results in holding `option ⌥` down                                           | Not Started |
 | hold `3` or `9`       | results in holding `cmd ⌘` down                                              | Not Started |
 | hold `` ` `` or `=`   | results in holding `shift ⇧` down                                            | Not Started |
+| hold `4` or `8`       | results in holding `fn` down                                                 | Not Started |
 | hold `⇪caps lock` or `'`| results in holding `ctrl ⌃` down                                           | Complete    |
 | **My Personals**      |                                                                              |             |
 | hold `tab`            | acts as `cmd⌘ + shift⇧` (ex: `tab + t` reopens previously closed Chrome tab) | Complete    |
@@ -26,6 +27,7 @@ Custom Keyboard Shortcuts
 | hold `space` tap `a`  | opens Slack                                                                  | Complete    |
 | hold `space` tap `m`  | opens Spotify                                                                | Complete    |
 | hold `space` tap `j` or `l` | Moves to left or right in browser tabs (aka `⌘ + shift + } or {`)      | Complete    |
-| hold `space` tap `r`  | regardless of application, will take you to Google Chrome and refresh the current tab | Complete    |
+| hold `space` tap `r`  | regardless of application, will take you to Google Chrome and refresh the current tab | Complete |
 | tap `⇪caps lock`      | `escape`                                                                     | Complete    |
+| hold `cmd` tap `F6`   | Toggles `fn mode` meaning all `F#` keys are turned on or off.                | Not Started |
 
