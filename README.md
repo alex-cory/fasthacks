@@ -27,7 +27,7 @@ Current Ideas/Commands/Features
 | `top`                | Colored `top`!  It uses a program called `htop` to do this currently with an alias in the `.bashrc`. ![Alt text](./assets/top.gif)  | Not Production Quality |
 | `ssh`                | Setup default servers you go to the most so all you have to do is type `ssh` and boom presto shazam. | Done, needs reviews
 | `pv` or `preview`    | Colored preview of file.  It also allows you to lookup what an alias or command does.  ![Alt text](./assets/pv.gif)| Not Production Quality |
-| `olss`               | Open last screen shot  ![Alt text](./assets/olss.gif) | Needs Optimization & Testing |
+| `olss`               | Open last screen shot  ![Alt text](./assets/olss.gif) | Done |
 | `path`               | Will probably eventually be replaced by `pathm`, but shows the $PATH in a prettier format.| Should Be Good |
 | `src`                | Quick sourcing.  No more `source ~/.bashrc` etc, etc.  Just type `src` and it'll take care of the rest for you! You may also pass a path to it `src ~/.bashrc`. | Needs Review |
 | `up` or `update`     | Allows anything to be updated with just one command.        | Started |
