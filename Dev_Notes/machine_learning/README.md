@@ -5,8 +5,8 @@ Overview
 --------
 It’s a subfield of computer science stemming from _pattern recogintion_ and  _computational learning theory_ in artificial intelligence. In industrial context, could be referred to as _predictive analytics_ or _predictive modeling._  "A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E <sub><sup>(Tom M. Mitchell)<sub><sup>".
 
-Types
------
+Types of Learning
+-----------------
 ### Supervised Learning
 - The program is given example inputs and desired outputs given by a "teacher" where the goal is to learn a rule that maps inputs to outputs.
 - [Wikipedia](sl-wiki)
@@ -21,10 +21,10 @@ Types
  
 ### [Deep Learning](./deep_learning.md)
 - A class of machine learning algorithms.
-- [Deep Learning Wikipedia](dl-wiki)
+- [Wikipedia](dl-wiki)
 
 
-
+### Other Types of Learning
 - [Classification]()
 - [Regression]()
 - [Clustering]()
