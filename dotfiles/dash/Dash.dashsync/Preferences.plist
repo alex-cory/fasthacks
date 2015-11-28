@@ -357,7 +357,7 @@
 			<key>~/Library/Application Support/Dash/DocSets/Lo-Dash/Lo-Dash.docset</key>
 			<string>l</string>
 			<key>~/Library/Application Support/Dash/DocSets/Markdown/Markdown.docset</key>
-			<string>.m:</string>
+			<string>md:</string>
 			<key>~/Library/Application Support/Dash/DocSets/NodeJS/NodeJS.docset</key>
 			<string>n</string>
 			<key>~/Library/Application Support/Dash/DocSets/Vim/Vim.docset</key>
