@@ -41,7 +41,7 @@ Current Ideas/Commands/Features
 | `hide`               | Re-hides all your hidden dot files.                         | Done |
 | `most`               | Displays a list of your most used commands.  ![Alt text](./assets/most.gif) | Done |
 | `zsh-syntax-highlighting` | Colors your command green if it's valid and red if it won't work.  ![Alt text](./assets/zsh-syntax-highlighting.gif)| Done |
-| `hh` or `ctrl + r`   | Better command history searching.  ![Alt text](./assets/hh.gif) | Done |
+| `hh` or `ctrl + r`   | Better command history searching.  It uses a program called `hstr`.  ![Alt text](./assets/hh.gif) | Done |
 
 Theme
 -----
