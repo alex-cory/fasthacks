@@ -33,8 +33,8 @@ Current Ideas/Commands/Features
 | `up` or `update`     | Allows anything to be updated with just one command.        | Started |
 | `un` or `uninstall`  | Uninstalls the specified applications.                      | Started |
 | `resymlink`          | You put all the absolute paths to your dotfiles with names, etc. into this `symlinks.json` file.  If something ever goes wrong, just type resymlink!                            | Started |
-| `checksyms`          | Checks to see which symlinks are broken                     | Started |
-| `clrs` or `colors`   | Spits out colors and codes.                                 | Done |
+| `checksyms`          | Checks to see which symlinks are broken. ![Alt text](./assets/checksyms.gif)                     | Started |
+| `clrs` or `colors`   | Spits out colors and codes. Used when making bash scripts and you want to colorize output.  ![Alt text](./assets/clrs.gif) | Done |
 | `chide`              | Hides the specified app from the `command + tab` window.    | Works on Mavericks, but trouble on Yosemite. Can cause some apps to crash. |
 | `cshow`              | Unhides hidden application from the `command + tab` window. | Works on Mavericks, but trouble on Yosemite |
 | `show`               | Shows all your hidden dot files.                            | Done |
