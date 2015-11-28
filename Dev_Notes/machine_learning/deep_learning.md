@@ -1,6 +1,8 @@
 Deep Learning
 =============
 
+[Go Back to Main Machine Learning](https://github.com/alex-cory/fasthacks/blob/master/Dev_Notes/machine_learning/README.md)
+
 Overview
 --------
 
@@ -69,3 +71,6 @@ Libraries
 ### RNNLMPara
   - Parallel RNN language model trainer open source.
   - [Github](https://github.com/zhiheng-huang/RNNLMPara)
+
+
+[Go Back to Main Machine Learning](https://github.com/alex-cory/fasthacks/blob/master/Dev_Notes/machine_learning/README.md)
