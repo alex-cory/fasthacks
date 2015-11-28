@@ -23,8 +23,8 @@ Current Ideas/Commands/Features
 | `edit`               | quickly edit your functions and aliases for your dotfiles.                   | Not Started |
 | `cat`                | Colored `cat` output! The goal is for syntax highlighting! ![Alt text](./assets/cat.gif) | Not Production Quality |
 | `less`               | Colored `less` output! The goal is for syntax highlighting!                  | Not Production Quality |
-| `man`                | Colored `man` pages! The goal is for syntax highlighting!  ![Alt text](./assets/man.gif)  | Not Production Quality |
-| `top`                | Colored `top`!  It uses a program called `htop` to do this currently with an alias in the `.bashrc`. ![Alt text](./assets/top.gif)  | Not Production Quality |
+| `man`                | Colored `man` pages! The goal is for syntax highlighting!  ![Alt text](./assets/man.gif)  | Done |
+| `top`                | Colored `top`!  It uses a program called `htop` to do this currently with an alias in the `.bashrc`. ![Alt text](./assets/top.gif)  | Done |
 | `ssh`                | Setup default servers you go to the most so all you have to do is type `ssh` and boom presto shazam. | Done, needs reviews
 | `pv` or `preview`    | Colored preview of file.  It also allows you to lookup what an alias or command does.  ![Alt text](./assets/pv.gif)| Not Production Quality |
 | `olss`               | Open last screen shot  ![Alt text](./assets/olss.gif) | Done |
