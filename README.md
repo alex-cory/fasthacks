@@ -12,6 +12,7 @@ Current Ideas/Commands/Features
 | Idea/Command/Feature | Description                                                                  | Status     |
 | -------------------- | ---------------------------------------------------------------------------- | ----------- |
 | `fh`                 | if no arguments are passed, shows a list maybe of what all fasthacks does    | Not Started |
+| `ls`                 | Colored `ls`! Woohoo!  ![Alt text](./assets/ls.gif) | Done |
 | `t` or `task`        | todo app                                                                     | Not Started |
 | `pathm`              | tool for helping you manage your machines `$PATH`.  Things often get lost, out of order, and it can be confusing to keep track of it all.  This will have a json file with all the paths in it call `paths.json`. | Not Started |
 | `up`                 | an awesome update tool that will update all packages if no argument is specified. If a program/plugin/app is updated, it will update them reguardless of package manager | In Progress (sorta) |
