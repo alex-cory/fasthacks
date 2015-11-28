@@ -1,0 +1,211 @@
+[
+  {
+    "name": "pathm (EXAMPLE)",
+    "description": "This tool helps you manage all of your dotfiles.",
+    "notes": "",
+    "image_url": "TODO",
+    "repo_url": "TODO",
+    "website_url": "TODO",
+    "status": "in progress",
+    "enabled": "TODO  /* Can you physically use the command in your terminal or do you have it disabled. */",
+    "config": {
+      "main": {
+        "name": ".pathm",
+        "hardlink": "TODO /* The physical location where the files are stored on your machine. Usually in a centralized repo. */",
+        "softlink": "TODO /* The location where the symlink is located. */"
+      },
+      "theme": {
+        "name": "solarized dark",
+        "hardlink": "",
+        "softlink": ""
+      }
+    },
+    "package_manager": "brew /* If you didn't install this on a package manager, this is `na`. Examples: pip, easy_install, yum, etc. */",
+    "author": "alex-cory",
+    "tags": ["syntax highlighting"],
+    "to_enable": {
+      "command": "source /usr/local/share/zsh-syntax-highlighting/highlighters",
+      "use_in": "~/.bashrc"
+    },
+    "install_location": "",
+    "version_in_use": "",
+    "PATH": "",
+    "GLOBALS": [
+       "EXAMPLE_GLOBAL_VARIABLE_FOR_THIS_PACKAGE": ""
+    ]
+  },
+  {
+    "name": "zsh-syntax-highlighting",
+    "description": "It tells you if a command is valid before you hit the enter key. If it is a valid command the first part of the command remains green.  If it is not, then it turns red.",
+    "notes": "",
+    "image_url": "http://jilles.me/content/images/2014/11/Screen-Shot-2014-11-05-at-20-28-29.png",
+    "repo_url": "https://github.com/zsh-users/zsh-syntax-highlighting",
+    "website_url": "TODO",
+    "status": "production",
+    "enabled": "true",
+    "config": {
+      "main": {
+        "name": ".pathm",
+        "hardlink": "TODO /* The physical location where the files are stored on your machine. Usually in a centralized repo. */",
+        "softlink": "TODO /* The location where the symlink is located. */"
+      },
+      "theme": {
+        "name": "solarized dark",
+        "hardlink": "",
+        "softlink": ""
+      }
+    },
+    "package_manager": "brew",
+    "author": "danielshahaf",
+    "tags": ["syntax highlighting", "zsh"],
+    "to_enable": {
+      "command": "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh",
+      "use_in": "~/.zshrc"
+    },
+    "install_location": "",
+    "version_in_use": "",
+    "PATH": "",
+    "GLOBALS": [
+       "ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR": ""
+    ]
+  },
+  {
+    "name": "z",
+    "description": "Tracks most-used directories to make cd smarter",
+    "notes": "The 'to_source' PATH after extended should look like '/usr/local/etc/profile.d/z.sh'",
+    "image_url": "TODO",
+    "repo_url": "https://github.com/rupa/z",
+    "website_url": "TODO",
+    "status": "production",
+    "enabled": "true",
+    "config": {
+      "main": {
+        "name": "TODO",
+        "hardlink": "TODO /* The physical location where the files are stored on your machine. Usually in a centralized repo. */",
+        "softlink": "TODO /* The location where the symlink is located. */"
+      },
+      "theme": {
+        "name": "TODO",
+        "hardlink": "",
+        "softlink": ""
+      }
+    },
+    "package_manager": "brew",
+    "author": "rupa",
+    "tags": ["directory navigation"],
+    "to_enable": {
+      "command": ". `brew --prefix`/etc/profile.d/z.sh",
+      "use_in": "~/.zshrc"
+    },
+    "install_location": "",
+    "version_in_use": "",
+    "PATH": "",
+    "GLOBALS": []
+  },
+  {
+    "name": "alias-tips",
+    "description": "A Zsh plugin to help remembering those aliases you once defined.",
+    "notes": "",
+    "image_url": "TODO",
+    "repo_url": "https://github.com/djui/alias-tips",
+    "website_url": "TODO",
+    "status": "production",
+    "enabled": "true",
+    "config": {
+      "main": {
+        "name": "TODO",
+        "hardlink": "TODO /* The physical location where the files are stored on your machine. Usually in a centralized repo. */",
+        "softlink": "TODO /* The location where the symlink is located. */"
+      },
+      "theme": {
+        "name": "TODO",
+        "hardlink": "",
+        "softlink": ""
+      }
+    },
+    "package_manager": "",
+    "author": "djui",
+    "tags": ["alias tips", "tips", "alias"],
+    "to_enable": {
+      "command": "source ~/.oh-my-zsh/custom/plugins/alias-tips/alias-tips.plugin.zsh",
+      "use_in": "~/.zshrc"
+    },
+    "install_location": "~/.oh-my-zsh/custom/plugins/alias-tips/alias-tips.plugin.zsh",
+    "version_in_use": "",
+    "PATH": "",
+    "GLOBALS": []
+  },
+  {
+    "name": "taskwarrior",
+    "description": "Taskwarrior is Free and Open Source Software that manages your TODO list from your command line. It is flexible, fast, efficient, and unobtrusive. It does its job then gets out of your way.",
+    "notes": "The current hardlink is in the soft link location.",
+    "image_url": "http://taskwarrior.org/docs/images/solarized-dark-256.png",
+    "repo_url": "https://github.com/taskwarrior/task",
+    "website_url": "https://taskwarrior.org/docs/",
+    "status": "production",
+    "enabled": "true",
+    "config": {
+      "main": {
+        "name": ".taskrc",
+        "hardlink": "TODO",
+        "softlink": "~/.taskrc"
+      },
+      "theme": {
+        "name": "solarized dark",
+        "hardlink": "TODO",
+        "softlink": ""
+      }
+    },
+    "package_manager": "brew",
+    "author": "pbeckingham",
+    "tags": ["task manager"],
+    "to_enable": {
+      "command": "",
+      "use_in": "~/.zshrc"
+    },
+    "install_location": "/usr/local/Cellar/task",
+    "version_in_use": "2.5.0",
+    "PATH": "",
+    "GLOBALS": [
+      "TASKRC": "~/.taskrc",
+      "TASKDATA": "~/.task"
+    ]
+  },
+
+
+
+  {
+    "name": "",
+    "description": "",
+    "notes": "",
+    "image_url": "TODO",
+    "repo_url": "",
+    "website_url": "TODO",
+    "status": "production",
+    "enabled": "true",
+    "config": {
+      "main": {
+        "name": "TODO",
+        "hardlink": "TODO /* The physical location where the files are stored on your machine. Usually in a centralized repo. */",
+        "softlink": "TODO /* The location where the symlink is located. */"
+      },
+      "theme": {
+        "name": "TODO",
+        "hardlink": "",
+        "softlink": ""
+      }
+    },
+    "package_manager": "",
+    "author": "djui",
+    "tags": [],
+    "to_enable": {
+      "command": "",
+      "use_in": "~/.zshrc"
+    },
+    "install_location": "",
+    "version_in_use": "",
+    "PATH": "",
+    "GLOBALS": []
+  }
+
+]
