@@ -2,8 +2,6 @@
 Machine Learning
 ================
 
-Example Table of Contents
---------------------
 
 **[Overview](#overview)**  
 **[Problems](#problems)**  
