@@ -1,7 +1,7 @@
 Deep Learning
 =============
 
-[Go Back to Main Machine Learning](https://github.com/alex-cory/fasthacks/blob/master/Dev_Notes/machine_learning/README.md)
+[Go Back to Main Machine Learning](./README.md)
 
 Overview
 --------
