@@ -1,5 +1,6 @@
 Artificial Neural Networks (ANN)
-================================
+================================  
+[Go Back to Main Machine Learning](./README.md)
 ### (aka Neural Nets)
 
 In machine learning and cognitive science, artificial neural networks (ANNs) are a family of models inspired by biological neural networks (the central nervous systems of animals, in particular the brain) and are used to estimate or approximate functions that can depend on a large number of inputs and are generally unknown. Artificial neural networks are generally presented as systems of interconnected "neurons" which exchange messages between each other. The connections have numeric weights that can be tuned based on experience, making neural nets adaptive to inputs and capable of learning.  Neural networks, as used in artificial intelligence, have traditionally been viewed as simplified models of neural processing in the brain, even though the relation between this model and the biological architecture of the brain is debated; it's not clear to what degree artificial neural networks mirror brain function ([src](http://uhaweb.hartford.edu/compsci/neural-networks-definition.html)).
