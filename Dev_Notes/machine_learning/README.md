@@ -21,8 +21,6 @@ Machine learning is a scientific discipline that explores the construction and s
 Problems
 --------
 
-## Types of Learning
-
 ### Supervised Learning
 - The program is given example inputs and desired outputs given by a "teacher" where the goal is to learn a rule that maps inputs to outputs.
 - [Wikipedia](sl-wiki)
