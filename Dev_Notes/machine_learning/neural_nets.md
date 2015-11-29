@@ -18,6 +18,23 @@ T = tasks
 P = performance
 ```
 
+### Parts  
+ - [**Autoencoder**](https://www.wikiwand.com/en/Autoencoder)
+  - An autoencoder, autoassociator or Diabolo network is an artificial neural network used for learning efficient codings. The aim of an auto-encoder is to learn a compressed, distributed representation (encoding) for a set of data, typically for the purpose of dimensionality reduction.
+ - [**Deep learning**](./deep_learning.md)
+  - Deep learning (deep machine learning, or deep structured learning, or hierarchical learning, or sometimes DL) is a branch of machine learning based on a set of algorithms that attempt to model high-level abstractions in data by using multiple processing layers with complex structures or otherwise, composed of multiple non-linear transformations. Deep learning is part of a broader family of machine learning methods based on learning representations of data.
+  - [Wikipedia](https://www.wikiwand.com/en/Deep_learning)
+ - [**Multilayer perceptron**](https://www.wikiwand.com/en/Multilayer_perceptron)
+  - A multilayer perceptron (MLP) is a feedforward artificial neural network model that maps sets of input data onto a set of appropriate outputs. An MLP consists of multiple layers of nodes in a directed graph, with each layer fully connected to the next one.
+ - [**Recurrent Neural Network (RNN)**](https://www.wikiwand.com/en/Recurrent_neural_network)
+  - A recurrent neural network (RNN) is a class of artificial neural network where connections between units form a directed cycle. This creates an internal state of the network which allows it to exhibit dynamic temporal behavior.
+ - [**Restricted Boltzmann machine**](https://www.wikiwand.com/en/Restricted_Boltzmann_machine)
+  - A restricted Boltzmann machine (RBM) is a generative stochastic artificial neural network that can learn a probability distribution over its set of inputs. RBMs were initially invented under the name Harmonium by Paul Smolensky in 1986, but only rose to prominence after Geoffrey Hinton and collaborators invented fast learning algorithms for them in the mid-2000s.
+ - [**SOM**](https://www.wikiwand.com/en/Self-organizing_map)
+  - A self-organizing map (SOM) or self-organising feature map (SOFM) is a type of artificial neural network (ANN) that is trained using unsupervised learning to produce a low-dimensional (typically two-dimensional), discretized representation of the input space of the training samples, called a map. Self-organizing maps are different from other artificial neural networks as they apply competitive learning as opposed to error-correction learning (such as backpropagation with gradient descent), and in the sense that they use a neighborhood function to preserve the topological properties of the input space.
+ - [**Convolutional neural network**](https://www.wikiwand.com/en/Convolutional_neural_network)
+  - In machine learning, a convolutional neural network (CNN, or ConvNet) is a type of feed-forward artificial neural network where the individual neurons are tiled in such a way that they respond to overlapping regions in the visual field. Convolutional networks were inspired by biological processes and are variations of multilayer perceptrons which are designed to use minimal amounts of preprocessing.
+
 ### History  
 
 Examinations of humans' central nervous systems inspired the concept of artificial neural networks. In an artificial neural network, simple artificial nodes, known as "neurons", "neurodes", "processing elements" or "units", are connected together to form a network which mimics a biological neural network.
