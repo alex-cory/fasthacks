@@ -44,6 +44,8 @@ The tasks artificial neural networks are applied to tend to fall within the foll
  - Data processing, including filtering, clustering, [blind source separation](#blind) and compression.
  - Robotics, including directing manipulators, prosthesis.
  - Control, including [Computer numerical control](#cnc).
+ - Vehicle control, trajectory prediction, process control, natural resources management, quantum chemistry, game-playing and decision making (backgammon, chess, poker), pattern recognition (radar systems, face identification, object recognition and more), sequence recognition (gesture, speech, handwritten text recognition), medical diagnosis, financial applications (e.g. automated trading systems), data mining (or knowledge discovery in databases, "KDD"), visualization and e-mail spam filtering.
+ - Artificial neural networks have also been used to diagnose several cancers. An ANN based hybrid lung cancer detection system named HLND improves the accuracy of diagnosis and the speed of lung cancer radiology. These networks have also been used to diagnose prostate cancer. The diagnoses can be used to make specific models taken from a large group of patients compared to information of one given patient. The models do not depend on assumptions about correlations of different variables. Colorectal cancer has also been predicted using the neural networks. Neural networks could predict the outcome for a patient with colorectal cancer with more accuracy than the current clinical methods. After training, the networks could predict multiple patient outcomes from unrelated institutions.
 
 Types of Neural Nets
 --------------------  
