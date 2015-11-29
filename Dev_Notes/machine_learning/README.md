@@ -5,13 +5,13 @@ Machine Learning
 
 **[Overview](#overview)**  
 **[Problems](#problems)**  
-**[Supervised Learning](#section-b)**   
-**[Clustering](#section-c)**   
-**[Dimensionality reduction](#section-c)**   
-**[Structured prediction](#section-c)**   
-**[Anomaly detection](#section-c)**   
+**[Supervised Learning](./supervised_learning.md)**   
+**[Clustering](./clustering.md)**   
+**[Dimensionality reduction](./dimensionality_reduction.md)**   
+<!--**[Structured prediction](#section-c)**   -->  
+<!--**[Anomaly detection](#section-c)**   -->
 **[Neural nets](./neural_nets.md)**   
-**[Theory](#section-c)**   
+**[Theory](./theory.md)**   
 
 Overview
 --------
