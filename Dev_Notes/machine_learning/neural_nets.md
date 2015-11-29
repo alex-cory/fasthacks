@@ -39,11 +39,11 @@ Most of the algorithms used in training artificial neural networks employ some f
  
 ### Real Life Applications
 The tasks artificial neural networks are applied to tend to fall within the following broad categories:  
- - [Function approximation](#function_approximation), or regression analysis, including time series prediction, fitness approximation and modeling.
- - Classification, including pattern and sequence recognition, novelty detection and sequential decision making.
- - Data processing, including filtering, clustering, blind source separation and compression.
+ - [Function approximation](#function_approximation), or [regression analysis](#regression), including [time series prediction](#time-series-prediction), [fitness approximation](#fitness-approximation) and modeling.
+ - [Classification](#classification), including pattern and sequence recognition, [novelty detection](#novelty-detection) and sequential decision making.
+ - Data processing, including filtering, clustering, [blind source separation](#blind) and compression.
  - Robotics, including directing manipulators, prosthesis.
- - Control, including Computer numerical control.
+ - Control, including [Computer numerical control](#cnc).
 
 Types of Neural Nets
 --------------------  
@@ -99,6 +99,7 @@ Terms
  - [**Directed acyclic graph**](https://www.wikiwand.com/en/Directed_acyclic_graph) - In mathematics and computer science, a directed acyclic graph (DAG /ˈdæɡ/), is a directed graph with no directed cycles. That is, it is formed by a collection of vertices and directed edges, each edge connecting one vertex to another, such that there is no way to start at some vertex v and follow a sequence of edges that eventually loops back to v again.
  - [**Mathematical optimization**](https://www.wikiwand.com/en/Mathematical_optimization) - In mathematics, computer science and operations research, mathematical optimization (alternatively, optimization or mathematical programming) is the selection of a best element (with regard to some criteria) from some set of available alternatives. In the simplest case, an optimization problem consists of maximizing or minimizing a real function by systematically choosing input values from within an allowed set and computing the value of the function.
  - [**Mean squared error**](https://www.wikiwand.com/en/Mean-squared_error) - In statistics, the mean squared error (MSE) of an estimator measures the average of the squares of the "errors", that is, the difference between the estimator and what is estimated. MSE is a risk function, corresponding to the expected value of the squared error loss or quadratic loss.
+ <div id="regression"></div>
  - [**Regression analysis**](https://www.wikiwand.com/en/Regression_analysis) - Also known as _function approximation_, in Models, regression analysis is a statistical process for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when the focus is on the relationship between a dependent variable and one or more independent variables (or 'predictors').
  - [**Markov decision process (MDP)**](https://www.wikiwand.com/en/Markov_decision_process) - Markov decision processes (MDPs) provide a mathematical framework for modeling decision making in situations where outcomes are partly random and partly under the control of a decision maker. MDPs are useful for studying a wide range of optimization problems solved via dynamic programming and reinforcement learning.
  - [**Markov chain (MC)**](https://www.wikiwand.com/en/Markov_chain) - A Markov chain (discrete-time Markov chain or DTMC), named after Andrey Markov, is a random process that undergoes transitions from one state to another on a state space. It must possess a property that is usually characterized as "memorylessness": the probability distribution of the next state depends only on the current state and not on the sequence of events that preceded it. *(The aim is to discover the policy (i.e., the MC) that minimizes the cost in Reinforcement Learning.)*
@@ -113,6 +114,18 @@ Terms
  - [**Polychronize**](http://senselab.med.yale.edu/ModelDB/showmodel.cshtml?model=115968) - exhibit reproducible time-locked but not synchronous firing patterns with millisecond precision.
  <div id="function_approximation"></div>
  - [**Function approximation**](https://www.wikiwand.com/en/Function_approximation) - The need for function approximations arises in many branches of applied mathematics, and computer science in particular. In general, a function approximation problem asks us to select a function among a well-defined class that closely matches ("approximates") a target function in a task-specific way.
+ <div id="time-series-prediction"></div>
+ - [**Time series prediction**](https://www.wikiwand.com/en/Time_series_prediction) - A time series is a sequence of data points, typically consisting of successive measurements made over a time interval. Examples of time series are ocean tides, counts of sunspots, and the daily closing value of the Dow Jones Industrial Average.
+ <div id="fitness-approximation"></div>
+ - [**Fitness approximation**](https://www.wikiwand.com/en/Fitness_approximation) - In function optimization, fitness approximation is a method for decreasing the number of fitness function evaluations to reach a target solution.
+ <div id="classification"></div>
+ - [**Statistical classification**](https://www.wikiwand.com/en/Statistical_classification) - In machine learning and statistics, classification is the problem of identifying to which of a set of categories (sub-populations) a new observation belongs, on the basis of a training set of data containing observations (or instances) whose category membership is known. An example would be assigning a given email into "spam" or "non-spam" classes or assigning a diagnosis to a given patient as described by observed characteristics of the patient (gender, blood pressure, presence or absence of certain symptoms, etc.).
+ <div id="novelty-detection"></div>
+ - [**Novelty detection**](https://www.wikiwand.com/en/Novelty_detection) - Novelty detection is the identification of new or unknown data that a machine learning system has not been trained with and was not previously aware of, with the help of either statistical or machine learning based approaches. Novelty detection is one of the fundamental requirements of a good classification system.
+ <div id="blind"></div>
+ - [**Blind signal separation**](https://www.wikiwand.com/en/Blind_source_separation) - Blind signal separation, also known as blind source separation, is the separation of a set of source signals from a set of mixed signals, without the aid of information (or with very little information) about the source signals or the mixing process. This problem is in general highly underdetermined, but useful solutions can be derived under a surprising variety of conditions.
+ <div id="cnc"></div>
+ - [**Numerical control**](https://www.wikiwand.com/en/Computer_numerical_control) - Numerical control (NC) is the automation of machine tools that are operated by precisely programmed commands encoded on a storage medium, as opposed to controlled manually by hand wheels or levers, or mechanically automated by cams alone. Most NC today is computer (or computerized) numerical control (CNC), in which computers play an integral part of the control.
 
 Algorithms
 ----------  
@@ -123,7 +136,6 @@ Algorithms
  - [**Evolutionary algorithm**](https://www.wikiwand.com/en/Evolutionary_methods) - In artificial intelligence, an evolutionary algorithm (EA) is a subset of evolutionary computation, a generic population-based metaheuristic optimization algorithm. An EA uses mechanisms inspired by biological evolution, such as reproduction, mutation, recombination, and selection.
  - [**Learning vector quantization**](https://www.wikiwand.com/en/Learning_Vector_Quantization) - In computer science, learning vector quantization (LVQ), is a prototype-based supervised classification algorithm. LVQ is the supervised counterpart of vector quantization systems.
  - [**K-nearest neighbors algorithm**](https://www.wikiwand.com/en/Nearest_neighbor_(pattern_recognition)) - In pattern recognition, the k-Nearest Neighbors algorithm (or k-NN for short) is a non-parametric method used for classification and regression. In both cases, the input consists of the k closest training examples in the feature space.
- - 
  
 
 Examples
