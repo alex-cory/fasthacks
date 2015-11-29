@@ -177,6 +177,7 @@ Groups
 
 Publications/Journals/Media
 ---------------------------  
+ - [**ACM Digital Library: Neural Nets**](http://dl.acm.org/results.cfm?query=neural+nets&Go.x=0&Go.y=0)
 
 Companies
 ---------  
