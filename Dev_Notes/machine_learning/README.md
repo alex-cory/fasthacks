@@ -63,7 +63,7 @@ Problems
  - [Wikipedia](https://www.wikiwand.com/en/Regression_analysis)
 
 ### [Clustering](./clustering.md)
- - 
+ - Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense or another) to each other than to those in other groups (clusters).
  - [Wikipedia](https://www.wikiwand.com/en/Cluster_analysis)
 
 
@@ -72,9 +72,9 @@ Problems
  - [Wikipedia]()
  
  
-### [Dimensionality Reduction]()
- - 
- - [Wikipedia]()
+### [Dimensionality Reduction](dimensionality_reduction.md)
+ - In machine learning and statistics, dimensionality reduction or dimension reduction is the process of reducing the number of random variables under consideration, and can be divided into feature selection and feature extraction.
+ - [Wikipedia](https://www.wikiwand.com/en/Dimensionality_reduction)
  
 
 ### [Topic Modeling]()
