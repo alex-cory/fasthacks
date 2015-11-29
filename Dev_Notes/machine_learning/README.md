@@ -67,9 +67,9 @@ Problems
  - [Wikipedia](https://www.wikiwand.com/en/Cluster_analysis)
 
 
-### [Density Estimation]()
- - 
- - [Wikipedia]()
+### Density Estimation
+ - In probability and statistics, density estimation is the construction of an estimate, based on observed data, of an unobservable underlying probability density function. The unobservable density function is thought of as the density according to which a large population is distributed; the data are usually thought of as a random sample from that population.
+ - [Wikipedia](https://www.wikiwand.com/en/Density_estimation)
  
  
 ### [Dimensionality Reduction](dimensionality_reduction.md)
@@ -77,9 +77,9 @@ Problems
  - [Wikipedia](https://www.wikiwand.com/en/Dimensionality_reduction)
  
 
-### [Topic Modeling]()
- - 
- - [Wikipedia]()
+### Topic Modeling
+ - In machine learning and natural language processing, a topic model is a type of statistical model for discovering the abstract "topics" that occur in a collection of documents. Intuitively, given that a document is about a particular topic, one would expect particular words to appear in the document more or less frequently: "dog" and "bone" will appear more often in documents about dogs, "cat" and "meow" will appear in documents about cats, and "the" and "is" will appear equally in both.
+ - [Wikipedia](https://www.wikiwand.com/en/Topic_modeling)
 
 #### Difference Between Datamining & Machine Learning
  - Machine learning:
