@@ -2,6 +2,7 @@
 Machine Learning
 ================
 
+> go here: https://www.wikiwand.com/en/List_of_machine_learning_concepts
 
 **[Overview](#overview)**  
 **[Problems](#problems)**  
