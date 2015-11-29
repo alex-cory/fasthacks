@@ -6,6 +6,10 @@ Deep Learning
 Overview
 --------
 
+Articles
+--------
+ - [**Growing pains for deep learning**](http://dl.acm.org/ft_gateway.cfm?id=2771283&ftid=1596834&dwn=1&CFID=564574779&CFTOKEN=90298781)
+ - [**ACM Digital Library: Deep Learning**](http://dl.acm.org/results.cfm?within=owners.owner%3DACM&srt=_score&query=deep+learning&Go.x=0&Go.y=0)
 
 Libraries
 --------
