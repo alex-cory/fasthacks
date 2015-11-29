@@ -8,10 +8,10 @@ Machine Learning
 **[Supervised Learning](./supervised_learning.md)**   
 **[Clustering](./clustering.md)**   
 **[Dimensionality reduction](./dimensionality_reduction.md)**   
-<!--**[Structured prediction](#section-c)**   -->  
-<!--**[Anomaly detection](#section-c)**   -->
 **[Neural nets](./neural_nets.md)**   
 **[Theory](./theory.md)**   
+<!--**[Structured prediction](#section-c)**   -->  
+<!--**[Anomaly detection](#section-c)**   -->
 
 Overview
 --------
