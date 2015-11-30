@@ -103,5 +103,10 @@
     "name": "BPython Config File -> softlink in python folder in dotfiles",
     "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/cli_tools/bpython/config",
     "softLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/python/bpythonConfig"
+  },
+  {
+    "name": "global git ignore",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/git/.gitignore_global",
+    "softLink": "/Users/AlexCory/.gitignore_global"
   }
 ]

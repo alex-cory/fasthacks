@@ -1,7 +1,7 @@
 #!/bin/bash
 # Filename: error_checking.sh
 # source '/etc/globals'
-source 'colors'
+source 'colors.sh'
 source 'helpers.sh'
 
 function checkStatus() {
