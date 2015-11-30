@@ -189,35 +189,28 @@ Tips for API Modeling
 
 RESTful Web APIs
 ----------------  
-### Most Important HTTP Header:
-  - is `Content-Type,` which tells the HTTP client how to understand
-    the `entity-body`. **It’s so important that its value has a special name.** We say the value of the
-    `Content-Type header is the entity-body’s media type.` (It’s also called the `MIME type or the
-    content type.` Sometimes “media type” is hyphenated: media-type.)  
+##### Most Important HTTP Header:
+is `Content-Type,` which tells the HTTP client how to understand the `entity-body`. **It’s so important that its value has a special name.** We say the value of the `Content-Type header is the entity-body’s media type.` (It’s also called the `MIME type or the content type.` Sometimes “media type” is hyphenated: media-type.)  
 
-### Creator of REST  
-  - Roy T. Fielding’s 2000 dissertation on software architecture, which gathered them together
-    under the name “REST.”
+#### Creator of REST  
+Roy T. Fielding’s 2000 dissertation on software architecture, which gathered them together under the name “REST.”
 
-### Hypermedia Controls  
-  -
-  - Ex: `<a>, <form>, <audio>, <video>, <iframe>, and <img>`[ref: 1]
+#### Hypermedia Controls  
+Ex: `<a>, <form>, <audio>, <video>, <iframe>, and <img>`[ref: 1]
 
-### AtomPub  
-  - AtomPub has the same concepts as Collection+JSON, but uses different terminology. Instead
-    of a “collection” that contains “items,” this is a “feed” that contains “entries.”
-  - The Atom Publishing Protocol is a standardized workflow for editing and publishing news
-    articles, using the Atom file format as the representation format. RFC 5023
+#### AtomPub  
+  - AtomPub has the same concepts as Collection+JSON, but uses different terminology. Instead of a “collection” that contains “items,” this is a “feed” that contains “entries.”
+  - The Atom Publishing Protocol is a standardized workflow for editing and publishing news articles, using the Atom file format as the representation format. RFC 5023
   - The first standard to describe the collection pattern.
 
-### Profiles  
+#### Profiles  
   - A profile is defined to not alter the semantics of the
     resource representation itself, but to allow clients to
     learn about additional semantics… associated with the
     resource representation, in addition to those defined
     by the media type… [2]
 
-### Idempotent  
+#### Idempotent  
   - Sending a request twice has the same effect on resource state as
     sending it once.
   - The DELETE method has another useful property: it’s idempotent. Once
@@ -233,7 +226,7 @@ RESTful Web APIs
     multiplies a resource by zero.
   - Reference: RESTful Web APIs (O'Reily book)
 
-### Referential transparency  
+#### Referential transparency  
   - In the most simplest, yet somewhat incorrect way to put this, don't
     use global variables and make sure your functions keep a tighter scope
     to stay within the bounds of referential transparency. LOOK AT EXAMPLES
