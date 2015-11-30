@@ -1,0 +1,211 @@
+
+
+/* ----------------------------------------------------------------------------------------
+    VCS Basics   */
+
+
+    .- Version (or Revision or Source)
+   /.- Control
+  //.- System
+ ///
+VCS: This is what allows all our developers to work on the same code base without stepping on eachothers toes along 
+	 with some other added benefits.  It's basically like a record of the changes you make to the files.
+		- repository (collection of commits)
+		- browse project history
+		- collaborate
+		- tools great for really complex projects
+
+
+Cowboy Coders: choose to work without regards to common best practices
+
+
+Versions are also called Commit's
+
+
+In UNIX-based systems, hidden files and folders are indicated by having their name prefixed with a '.' - so a file named repository isn't hidden, but a file named .repository would be. Windows doesn't respect this convention, so don't be surprised if your "hidden" repository folder is perfectly visible on a Windows machine. Just pretend it isn't there :)
+
+
+
+Types of VCS's
+	- Decentralized
+	- Centralized
+	-
+
+
+Other VCS's:  (http://goo.gl/wWKc0)
+	- Codeville
+	- Vesta
+	- AccuRev
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

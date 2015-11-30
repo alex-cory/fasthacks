@@ -1,0 +1,41 @@
+Regex:  /\bblack\b(?! dog)/
+String: "The black dog followed the black car into the black night."
+
+# Contrasted with the positive lookahead assertion
+Regex:  /\bblack\b(?= dog)/
+String: "The black dog followed the black car into the black night."
+
+
+Regex:  /(?=^[0-5\-]+$)(?=.*4321)\d{3}-\d{3}-\d{4}/m
+String: "
+555-302-4321
+555-781-6978
+555-245-1312
+"
+
+Regex:  /(?=^[0-5\-]+$)(?!.*4321)\d{3}-\d{3}-\d{4}/m
+String: "
+555-302-4321
+555-781-6978
+555-245-1312
+"
+
+# All words NOT followed by a comma.
+Regex:  /\b[A-Za-z']+?\b(?=,)/
+String: see self-reliance.txt
+
+# All words NOT followed by a comma.
+Regex:  /\b[A-Za-z']+?\b(?!,)/
+String: see self-reliance.txt
+
+# All words NOT followed by a comma or period
+Regex:  /\b[A-Za-z']+?\b(?![,.])/
+String: see self-reliance.txt
+
+
+# Last occurrence: an item that isn't followed by itself.
+Regex:  /\bblack\b(?!.*\bblack\b)/
+String: "The black dog followed the black car into the black night."
+
+Regex:  /(\bblack\b)(?!.*\1)/
+String: "The black dog followed the black car into the black night."

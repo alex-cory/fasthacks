@@ -1,0 +1,33 @@
+# Tell Apache you want to utilize the rewrite module
+RewriteEngine On
+
+# Specify the url prefix, only really necessary when resources are not 
+#   relative to your web root
+# Local
+RewriteBase /
+# Remote
+# RewriteBase /alecory/Spring-2014/CIT-31300/Assignment%202/
+
+
+# Compare the requested path to the files in the web root and if it doesn't 
+#   match a file the condition is meet so check the next condition. 
+# '-f' (is regular file)
+# 	Treats the TestString as a pathname and tests whether or not it exists, and is a regular file.
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Compare the requested path to the directories in the web root and if it 
+#   doesn't match a directory the condition is meet so check the next condition.
+# '-d' (is directory)
+# 	Treats the TestString as a pathname and tests whether or not it exists, and is a directory.
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# No more conditions so execute this rewrite rule: rewrite everything to be 
+#   'index.php'. NC is to ignore case ( not really necessary since you are 
+#   already rewriting everything ), and L signifies that this should be the 
+#   last rule executed.
+RewriteRule ^ index.php [NC,L]
+
+# Check here for more notes: http://goo.gl/6wCpWB
+
+
+

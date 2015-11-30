@@ -1,0 +1,17 @@
+Regex:  /9\.00/
+String: "9.00 9500 9-00"
+
+String: "his_export.txt her_export.txt"
+Regex:  /h.._export.txt/
+Regex:  /h.._export\.txt/
+
+String: "resume1.txt resume2.txt resume3_txt.zip"
+Regex:  /resume..txt/
+Regex:  /resume.\.txt/
+
+
+Also may need to escape /
+
+String: "/home/user/document.txt"
+Regex:  //home/user/document\.txt/
+Regex:  /\/home\/user\/document\.txt/

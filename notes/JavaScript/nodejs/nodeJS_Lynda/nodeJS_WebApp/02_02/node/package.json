@@ -1,0 +1,13 @@
+{
+  "name": "SampleApp",
+  "version": "0.0.0",
+  "description": "A sample Node and Express Application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ray Villalobos",
+  "dependencies": {
+    "express": "^3.5.1"
+  }
+}

@@ -1,0 +1,13 @@
+
+\X is only supported in Perl and PHP
+Not supported in JavaScript
+
+Regex:  /caf\X/
+String: "cafe café café"
+
+
+\p and \P are only supported in Java, .NET, Perl, PHP, Ruby
+Not supported in JavaScript
+
+Regex:  /caf\P{M}\p{M}/
+String: "cafe café café"

@@ -1,0 +1,19 @@
+Regex:  /\w{5}\s/
+String: (use shakespeare_sonnet.txt)
+
+Regex:  /\w{2,5}\s/
+Regex:  /\w{5,}\s/
+
+
+Regex:  /\d{3}-\d{3}-\d{4}/
+String: 555-867-5309
+
+Regex:  /A{1,2} bonds/
+String: "A bonds AA bonds AAA bonds"
+
+
+Regex:  /\w+_\d+-\d+/
+String: "report_1997-04 budget_03-04 memo_712539-100"
+
+Regex:  /\w+_\d{2,4}-\d{2}/
+String: "report_1997-04 budget_03-04 memo_712539-100"

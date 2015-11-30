@@ -1,0 +1,421 @@
+@import url("http://fonts.googleapis.com/css?family=Bree+Serif|Merriweather:400,300,700,900");
+@import url("http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+body {
+  font-family: Merriweather, serif;
+  font-size: 1.2rem;
+  line-height: 160%;
+  background: #eae3cb;
+  color: #0a2933;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Bree Serif, serif;
+  font-weight: normal;
+  color: #475b62;
+  text-shadow: #fcf4dc 1px 1px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  color: #1f7f9e;
+  margin-bottom: .4rem;
+  border-bottom: 1px solid #819090;
+  padding-top: 10px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 100%;
+  margin: 20px 0 0 0;
+  color: #bd3613;
+}
+
+h3 {
+  font-size: 1.8rem;
+  line-height: 60%;
+  color: #bd3613;
+}
+
+a {
+  text-decoration: underline;
+  color: #536870;
+}
+a:hover {
+  color: #bd3613;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+.small {
+  font-size: 1rem;
+  color: #2176c7;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.layout {
+  *zoom: 1;
+  max-width: 61em;
+  _width: 61em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.layout:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.layout .primary {
+  margin-top: .2em;
+}
+
+footer {
+  color: #eae3cb;
+  background: #0d3340;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 100px;
+}
+
+.speakers h3 {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px dotted #819090;
+  margin-bottom: 5px;
+}
+.speakers img {
+  width: 120px;
+  float: left;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.socialmediaicons .title {
+  float: left;
+}
+.socialmediaicons ul {
+  float: left;
+}
+.socialmediaicons ul li {
+  display: inline-block;
+  margin-left: 5px;
+}
+.socialmediaicons ul li img {
+  width: 30px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.pixgrid {
+  overflow: hidden;
+  *zoom: 1;
+}
+.pixgrid img {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  width: 30%;
+  max-width: 120px;
+  cursor: pointer;
+}
+
+.nextmeeting {
+  overflow: hidden;
+  *zoom: 1;
+}
+.nextmeeting img {
+  width: 30%;
+  max-width: 130px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  float: left;
+  margin-right: 3%;
+}
+
+header img {
+  max-width: 100%;
+  margin-top: 10px;
+}
+header .hero {
+  width: 100%;
+}
+
+header .navigation {
+  background: #124b5e;
+}
+
+header .navigation ul.nav li {
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+header .navigation ul.nav li i {
+  color: #f7b71a;
+  padding-right: .5em;
+}
+header .navigation ul.nav li a {
+  display: block;
+  text-decoration: none;
+  padding: 5px 10px;
+  color: #fcf4dc;
+}
+header .navigation ul.nav li:hover {
+  background: #bd3613;
+}
+header .navigation ul.nav li:hover a {
+  color: #f8c64c;
+}
+
+@media (min-width: 47em) {
+  .layout .primary {
+    width: 66.10169%;
+    float: left;
+    margin-right: 1.69492%;
+  }
+
+  .layout .secondary {
+    width: 32.20339%;
+    float: right;
+    margin-right: 0;
+    font-size: 1.1rem;
+  }
+  .layout .secondary h1 {
+    font-size: 1.8rem;
+    color: #bd3613;
+    padding-bottom: 5px;
+  }
+  header .hero {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 450px;
+    background: -webkit-gradient(linear, 0% 100%, 100% 0%, color-stop(0%, rgba(4, 32, 41, 0.6)), color-stop(100%, rgba(4, 32, 41, 0))), url('../../images/misc/helper.jpg?1378515912');
+    background: -webkit-linear-gradient(bottom left, rgba(4, 32, 41, 0.6), rgba(4, 32, 41, 0)), url('../../images/misc/helper.jpg?1378515912');
+    background: -moz-linear-gradient(bottom left, rgba(4, 32, 41, 0.6), rgba(4, 32, 41, 0)), url('../../images/misc/helper.jpg?1378515912');
+    background: -o-linear-gradient(bottom left, rgba(4, 32, 41, 0.6), rgba(4, 32, 41, 0)), url('../../images/misc/helper.jpg?1378515912');
+    background: linear-gradient(bottom left, rgba(4, 32, 41, 0.6), rgba(4, 32, 41, 0)), url('../../images/misc/helper.jpg?1378515912');
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0 auto;
+    display: block;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+  }
+  header .hero .branding {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .home .speakerslist {
+    text-align: center;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0d3340), color-stop(100%, #042029));
+    background: -webkit-linear-gradient(top, #0d3340, #042029);
+    background: -moz-linear-gradient(top, #0d3340, #042029);
+    background: -o-linear-gradient(top, #0d3340, #042029);
+    background: linear-gradient(top, #0d3340, #042029);
+    color: rgba(234, 227, 203, 0.5);
+    overflow: hidden;
+    padding-bottom: 10px;
+  }
+
+  .home .speakerslist h1, .home .speakerslist h2, .home .speakerslist h3, .home .speakerslist h4, .home .speakerslist h5, .home .speakerslist h6 {
+    text-shadow: none;
+    border-bottom: none !important;
+  }
+
+  .home .speakerslist h1 {
+    font-size: 2.6rem;
+    line-height: 1em;
+    color: #738a05;
+  }
+
+  .home .speakerslist h3 {
+    color: #d69a08;
+    line-height: .9em;
+  }
+
+  .home .speakerslist .small {
+    padding-top: .4em !important;
+    line-height: 1em;
+    color: #2390b3;
+  }
+
+  .home .speakerslist .small a {
+    color: #2390b3;
+    text-decoration: none;
+  }
+
+  .home .speakerslist .small a:hover {
+    text-decoration: underline;
+  }
+
+  .home .speakerslist img.speaker {
+    float: none;
+    width: 40%;
+    max-width: 170px;
+    margin: 0 auto;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+  }
+
+  .home .speakerslist .small {
+    display: block;
+  }
+
+  .home .speakerslist p:nth-of-type(2) {
+    font-weight: 200 !important;
+    text-align: left;
+    font-size: .8em;
+    line-height: 0;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    opacity: 0;
+  }
+
+  .home .speakerslist:hover p:nth-of-type(2) {
+    line-height: 1.5em;
+    opacity: 1;
+  }
+
+  .home .speakerslist .artist {
+    width: 32.20339%;
+    float: left;
+    margin-right: 1.69492%;
+  }
+
+  .home .speakerslist .artist:nth-of-type(3) {
+    width: 32.20339%;
+    float: right;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 47em) {
+  .home .speakerslist {
+    display: none;
+  }
+}
+
+@media (min-width: 30em) {
+  header .navigation ul.nav {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+  }
+
+  header .navigation ul.nav li {
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0;
+    white-space: nowrap;
+    display: inline;
+    float: left;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  header .navigation ul.nav li:first-child, header .navigation ul.nav li.first {
+    padding-left: 0;
+  }
+
+  header .navigation ul.nav li:last-child {
+    padding-right: 0;
+  }
+
+  header .navigation ul.nav li.last {
+    padding-right: 0;
+  }
+}
+

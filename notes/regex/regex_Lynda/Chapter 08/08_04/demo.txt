@@ -1,0 +1,19 @@
+# Will not work in JavaScript!
+
+Regex:  /(?<=base)ball/
+String: "I like baseball and football."
+
+Regex:  /(?!=base)ball/
+String: "I like baseball and football."
+
+Regex:  /(jamin|ny)/
+String: "Benny Benjamin Jenny Lenny"
+
+Regex:  /(?<=Ben)(jamin|ny)/
+String: "Benny Benjamin Jenny Lenny"
+
+Regex:  /(?<=Ben|Jen)(jamin|ny)/
+String: "Benny Benjamin Jenny Lenny"
+
+Regex:  /(?<!Ben|Jen)(jamin|ny)/
+String: "Benny Benjamin Jenny Lenny"

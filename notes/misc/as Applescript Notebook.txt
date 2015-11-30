@@ -1,0 +1,200 @@
+_________________________________________________________________________________________________
+AppleScript Notebook
+
+
+Finder References -------------------------------------------------------------------------------
+
+You'll often use object references in the scripts you write, here's a short overview of how to create an object reference for use with the Finder application.
+
+folder "Smith Project" of folder "Documents" of ¬
+ folder <name of your home directory> of ¬
+  folder "Users" of disk "Macintosh HD"
+
+OR you can use 
+
+folder "Smith Project" of folder "Documents" of home
+
+
+
+tell application "Finder" to set the target of ¬
+	the front Finder window to folder "root" of ¬
+		folder "Desktop" of home
+
+
+
+
+The Current View Property -------------------------------------------------------------------------------
+
+The value of the current view property matches the view mode currently used by the Finder window.
+ 
+
+tell application "Finder" to ¬
+ get the current view of the front Finder window
+ --> returns either: icon view, list view, flow view, or column view
+
+Try these scripts and watch as the front Finder window changes its method of display:
+
+Click to open example in the Script Editor applicationScripts to change the view mode of the frontmost Finder window.
+ 
+
+tell application "Finder" to ¬
+ set the current view of the front Finder window to list view
+
+tell application "Finder" to ¬
+ set the current view of the front Finder window to column view
+
+tell application "Finder" to ¬
+ set the current view of the front Finder window to flow view
+ --> flow view is new in Mac OS X v10.5 (Leopard)
+
+tell application "Finder" to ¬
+ set the current view of the front Finder window to icon view
+
+
+
+TIP: 
+If you’re the kind of person who likes all folders to open in the same view mode, here’s a simple tell statement that will change the view display mode of every folder within an indicated folder, such as your home directory:
+
+tell application "Finder" to set the current view of ¬
+ the window of every folder of home to icon view
+
+
+
+The Position Property -------------------------------------------------------------------------------
+
+ tell application "Finder" to set the position of the front Finder window to {94, 134}
+
+
+
+
+
+
+
+The Bounds Property -------------------------------------------------------------------------------
+
+If you find yourself always resizing windows, you will probably write many scripts using the bounds property.
+
+tell application "Finder" to get the bounds of the front window
+--> returns something like: {72, 90, 512, 481}
+
+List item 1: {72, 90, 512, 481}
+The distance in pixels from the left side of the screen to the left side of the Finder window.
+
+List item 2: {72, 90, 512, 481}
+The distance in pixels from the top of the screen to the top of the Finder window.
+
+List item 3: {72, 90, 512, 481}
+The distance in pixels from the left side of the screen to the right side of the Finder window.
+
+List item 4: {72, 90, 512, 481}
+The distance in pixels from the top of the screen to the bottom of the Finder window.
+
+
+TIP: 
+To set the size of a window to a specific size, such as 500 pixels wide by 300 pixels tall, add the value of the first bounds list item to the desired width to create the third bounds list item: {24, 96, (24 + 500), 396}. Do the same for the window height, and add the value of the second list item to the desired window height to create the fourth list item: {24, 96, 524, (96 + 300)}.
+
+
+Verbs Used with Windows -------------------------------------------------------------------------------
+
+get: 	used to access the current values of a window property
+set: 	used to apply a new value to a window property
+open: 	causes a window to display in the Finder
+close: 	causes a window to close
+select:	causes a window to come to the front
+
+
+
+Tell and Nested Tell Blocks-------------------------------------------------------------------------------
+Both below are equivalent
+
+Ex Tell Block:
+
+tell application "Finder"
+	close every window
+	open home
+	set toolbar visible of the front Finder window to true
+	set the sidebar width of the front Finder window to 135
+	set the current view of the front Finder window to column view
+	set the bounds of the front Finder window to {36, 116, 511, 674}
+	open folder "Documents" of home
+	set toolbar visible of the front Finder window to false
+	set the current view of the front Finder window to flow view
+	set the bounds of front Finder window to {528, 116, 1016, 674}
+	select the last Finder window
+end tell
+
+
+Ex Nested Tell Block:
+
+tell application "Finder"
+	close every window
+	open home
+	tell the front Finder window
+		set toolbar visible to true
+		set the sidebar width to 135
+		set the current view to column view
+		set the bounds to {36, 116, 511, 674}
+	end tell
+	open folder "Documents" of home
+	tell the front Finder window
+		set toolbar visible to false
+		set the current view to flow view
+		set the bounds to {528, 116, 1016, 674}
+	end tell
+	select the last Finder window
+end tell
+
+
+-------------------------------------------------------------------------------
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+
+tell application "Finder" to set the toolbar visible of the last Finder window to false
+
+tell application "Finder" to set the current view of the last Finder window to flow view
+
+tell application "Finder" to get the bounds of Finder window 1
+{0, 44, 720, 896}
+
+tell application "Finder" to get the bounds of Finder window 2
+{720, 44, 1440, 896}
+
+
+
+
+
+
+

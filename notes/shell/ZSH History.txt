@@ -1,0 +1,38 @@
+
+-------------------------------------------------------------------------------------------------------------------------
+ZSH History  		-- (http://goo.gl/Ivc29)
+
+
+-- Short Intro
+
+The shell is always running, even when the command you typed is running, too; the shell simply hangs around waiting for it to finish: you may know from other shells about putting commands in the background by putting an `&' after the command, which means that the shell doesn't wait for them to finish. The shell is there even if the command's in the foreground, but in this case doing nothing.
+
+Second, it doesn't just run other people's commands, it has some of its own, called builtin commands or just builtins, and you can even add your own commands as lists of instructions to the shell called functions; builtins and functions always run in the shell itself. That's important to know, because things which don't run in the shell itself can't affect it, and hence can't alter parameters, functions, aliases, and all the other things I shall talk about.
+
+
+--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

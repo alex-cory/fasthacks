@@ -1,0 +1,24 @@
+
+Regex: /[ABCDEFGHIJKLMNOPQRSTUVWXYZ]ello/
+String: "Hello"
+
+Regex: /[A-Z]ello/
+String: "Hello"
+
+Regex: /[A-Za-z]/
+String: "Hello"
+
+
+Phone number
+
+String: "555-666-7890"
+Regex: /[0-9][0-9][0-9]-[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]/
+
+
+Postal codes
+
+String: "90210"
+Regex:  /[0-9][0-9][0-9][0-9][0-9]/
+
+String: "WC2H 9AW"
+Regex:  "[0-9A-Z][0-9A-Z][0-9A-Z][0-9A-Z] [0-9A-Z][0-9A-Z][0-9A-Z]"

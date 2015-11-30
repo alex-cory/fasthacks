@@ -1,0 +1,23 @@
+
+
+Linus Torvalds
+	- Inventor of Git
+	- father of the Linux OS
+	- Still maintains the Linux Kernel
+
+
+The Linux Kernal
+	- Over 15 million lines of code
+	- About 3,500 new lines of code are added every day
+	- Every new kernel released involves aproximately 1,000 developers
+
+
+Git
+	- Linus designed it to maintain the Linux Kernal
+	- If it can help keep a project of that magnitude running smoothely, think what it can do for your projects
+
+Why Git?
+	- Distributed VCS (centralized VCS has many disadvantages)
+	- Built to build VCS's but ended up gaining some commands of it's own and turned into a fully functional VCS
+
+

@@ -1,0 +1,37 @@
+Regex:  /\w+/
+String: "
+Kevin
+Lynda
+Charlie
+Lucy
+Linus
+Sally
+"
+
+Regex:  /^\w+$/m
+String: "$kevin"
+
+Regex:  /^[A-Za-z]+$/m
+String: "0kevin"
+
+# Does first letter have to be capitalized?
+Regex:  /^[A-Z][A-Za-z]+$/m
+String: "kevin"
+
+Regex:  /^[A-Z][A-Za-z.'\-]+$/m
+String: "J.R."
+
+# Match first and last name
+Regex:  /^[A-Z][A-Za-z.'\- ]+$/m
+String: "George Washington"
+
+# Capture first and last name
+Regex:  /^([A-Z][A-Za-z.'\-]+) ([A-Z][A-Za-z.'\-]+)$/m
+String: "George Washington"
+
+# Capture first, middle, and last name
+Regex:  /^([A-Z][A-Za-z.'\-]+) (?:([A-Z][A-Za-z.'\-]+) )?([A-Z][A-Za-z.'\-]+)$/m
+String: "John Quincy Adams"
+
+# Tough call
+String: "Martin Van Buren"

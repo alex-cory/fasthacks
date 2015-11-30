@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>createMarkedFile</key>
+	<false/>
+	<key>sheetClusters</key>
+	<array>
+		<array>
+			<string>iTerm2 Shortcuts.txt</string>
+		</array>
+		<array>
+			<string>key Most Used Keyboard Shortcuts.txt</string>
+		</array>
+		<array>
+			<string>key My Info.txt</string>
+		</array>
+		<array>
+			<string>Mac Shortcuts.txt</string>
+		</array>
+		<array>
+			<string>sc Google Docs Kebyboard Shortcuts.txt</string>
+		</array>
+		<array>
+			<string>shell Console Essentials.txt</string>
+		</array>
+		<array>
+			<string>shell Console Shortcuts.txt</string>
+		</array>
+		<array>
+			<string>Sublime Shortcuts.txt</string>
+		</array>
+		<array>
+			<string>ulysses.md</string>
+		</array>
+	</array>
+</dict>
+</plist>

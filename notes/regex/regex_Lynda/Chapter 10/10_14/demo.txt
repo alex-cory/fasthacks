@@ -1,0 +1,13 @@
+# ( to [
+Regex:    /^\(/
+
+Regex:    /\n\n\(/
+Replace:  "\n\n\n["
+
+# Did we miss any?
+Regex:    /\n^(/
+Replace:  "\n["
+
+# ) to ]
+Regex:    /)$/
+Replace:  "]"

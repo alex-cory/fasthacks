@@ -1,0 +1,29 @@
+Regex:  /(?=seashore)sea/
+String: "seashore seaside"
+
+Regex:  /sea(?=shore)/
+String: "seashore seaside"
+
+
+# Contrast lookahead with capturing and non-capturing
+
+Regex:  /sea(?:shore)/
+String: "seashore seaside"
+
+Regex:  /(sea)shore/
+String: "seashore seaside"
+
+
+# All words followed by a comma
+
+Regex:  /\b[A-Za-z']+?\b,/
+String: (see self-reliance.txt)
+
+Regex:  /\b[A-Za-z']+?\b(?=,)/
+String: (see self-reliance.txt)
+
+
+# Compare with non-capturing
+
+Regex:  /\b[A-Za-z']+?\b(?:,)/
+String: (see self-reliance.txt)

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>childOrder</key>
+	<array>
+		<string>cli_tools</string>
+	</array>
+	<key>createMarkedFile</key>
+	<false/>
+	<key>sheetClusters</key>
+	<array>
+		<array>
+			<string>bash mv multiple files.bash</string>
+		</array>
+		<array>
+			<string>cli-syntax-highlighting.md</string>
+		</array>
+		<array>
+			<string>curl download file.sh</string>
+		</array>
+		<array>
+			<string>iTerm2 Info+History.txt</string>
+		</array>
+		<array>
+			<string>iTerm2 Themes.txt</string>
+		</array>
+		<array>
+			<string>scp ftp.sh</string>
+		</array>
+		<array>
+			<string>sftp.md</string>
+		</array>
+		<array>
+			<string>shell Console Essentials.txt</string>
+		</array>
+		<array>
+			<string>Shells Notebook.txt</string>
+		</array>
+		<array>
+			<string>ZSH History.txt</string>
+		</array>
+		<array>
+			<string>ZSH Notebook.txt</string>
+		</array>
+	</array>
+</dict>
+</plist>

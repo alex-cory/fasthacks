@@ -1,0 +1,18 @@
+Regex:  /^\w+@\w+\.\w{3}$/
+String: "someone@somewhere.com"
+
+Regex:  /^[\w.%+\-]+@[\w.\-]+\.\w{2,3}$/
+String: "someone@somewhere.co.uk"
+
+Regex:  /^\w+@[\w.\-]+\.[A-Za-z]{2,3}$/
+String: "someone@somewhere.co.uk"
+
+# Email and domain specifications allow other characters
+Regex:  /^[\w.%+\-]+@[\w.\-]+\.[A-Za-z]{2,3}$/
+
+Regex:  /^[\w.%+\-]+@[\w.\-]+\.[A-Za-z]{2,6}$/
+String: "someone@somewhere.museum"
+
+# Top-level domain verfication
+Regex:  /^[\w.%+\-]+@[\w.\-]+\.([A-Za-z]{2}|aero|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|xxx)$/
+String: "someone@somewhere.museum"

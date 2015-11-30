@@ -1,0 +1,30 @@
+Regex:  /[A-Z]/
+String: "Mr. Smith went to Washington."
+
+Regex:  /^[A-Z]/
+String: "Mr. Smith went to Washington."
+
+Regex:  /\./
+String: "Mr. Smith went to Washington."
+
+Regex:  /\.$/
+String: "Mr. Smith went to Washington."
+
+Regex:  /^[A-Z][A-Za-z.\- ]+\.$/
+String: "Mr. Smith went to Washington."
+
+
+Regex:  /^\w+@\w+\.[a-z]{3}$/
+String: "nobody@nowhere.com"
+
+Regex:  /^\w+@\w+\.[a-z]{3}$/
+String: "nobody@nowhere.com, somebody@somewhere.com"
+
+
+Find whitespace
+
+Regex:  /^[ \t]+/
+String: "    It was a dark and stormy night."
+
+Regex:  /[ \t]+$/
+String: "And they lived happily ever after.      "

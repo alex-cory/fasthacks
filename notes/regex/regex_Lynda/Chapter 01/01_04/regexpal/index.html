@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<!--
+  RegexPal 0.1.4c (modified)
+  Modified version:
+    (c) 2011 lynda.com
+  Original version:
+    (c) 2007-2008 Steven Levithan <stevenlevithan.com>
+    GNU LGPL 3.0 license
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Regex Tester &ndash; RegexPal</title>
+    <link href="stylesheets/regexpal.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <div id="header">
+      <img src="images/regexpal.gif" alt="RegexPal"/>
+      <h1><span class="t1">Regex</span><span class="t2">Pal</span>
+        <span id="version">0.1.4</span>
+        <span id="subtitle">&mdash; a JavaScript regular expression tester</span>
+      </h1>
+    </div>
+
+    <div id="options">
+      <ul>
+        <li><input id="flagG" type="checkbox" checked="checked"/><label for="flagG">Global</label> <span class="flag">(g)</span></li>
+        <li><input id="flagI" type="checkbox"/><label for="flagI">Case insensitive</label> <span class="flag">(i)</span></li>
+        <li><input id="flagM" type="checkbox"/><label for="flagM">Multiline anchors</label> <span class="flag">(m)</span></li>
+        <li><input id="flagS" type="checkbox"/><label for="flagS">Dot matches all</label> <span class="flag">(s)</span></li>
+        <li class="optGroup" id="quickReferenceDropdown">Quick Reference</li>
+        <li class="optGroup" id="optionsDropdown">Options
+          <ul>
+            <li><input id="highlightSyntax" type="checkbox" checked="checked"/><label for="highlightSyntax">Highlight regex syntax</label></li>
+            <li><input id="highlightMatches" type="checkbox" checked="checked"/><label for="highlightMatches">Highlight matches</label></li>
+            <li class="hidden"><input id="invertMatches" type="checkbox"/><label for="invertMatches" title="Match any text not matched by the regex">Invert results</label></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div id="quickReference" class="hidden">
+      <h2>JavaScript Regex Quick Reference</h2>
+      <img src="images/pin.gif" class="pin" alt="pin" title="pin"/>
+      <img src="images/close.gif" class="close" alt="close" title="close"/>
+      <table cellspacing="0" summary="Regular expressions reference">
+        <tbody>
+          <tr>
+            <td><code>.</code></td>
+            <td>Any character except newline.</td>
+          </tr>
+          <tr class="altBg">
+            <td><code>\.</code></td>
+            <td>A period (and so on for <code>\*</code>, <code>\(</code>, <code>\\</code>, etc.)</td>
+          </tr>
+          <tr>
+            <td><code>^</code></td>
+            <td>The start of the string.</td>
+          </tr>
+          <tr class="altBg">
+            <td><code>$</code></td>
+            <td>The end of the string.</td>
+          </tr>
+          <tr>
+            <td><code>\d</code>,<code>\w</code>,<code>\s</code></td>
+            <td>A digit, word character <code>[A-Za-z0-9_]</code>, or whitespace.</td>
+          </tr>
+          <tr class="altBg">
+            <td><code>\D</code>,<code>\W</code>,<code>\S</code></td>
+            <td>Anything except a digit, word character, or whitespace.</td>
+          </tr>
+          <tr>
+            <td><code>[abc]</code></td>
+            <td>Character a, b, or c.</td>
+          </tr>
+          <tr class="altBg">
+            <td><code>[a-z]</code></td>
+            <td>a through z.</td>
+          </tr>
+          <tr>
+            <td><code>[^abc]</code></td>
+            <td>Any character except a, b, or c.</td>
+          </tr>
+          <tr class="altBg">
+            <td><code>aa|bb</code></td>
+            <td>Either aa or bb.</td>
+          </tr>
+          <tr>
+            <td><code>?</code></td>
+            <td>Zero or one of the preceding element.</td>
+          </tr>
+          <tr class="altBg">
+            <td><code>*</code></td>
+            <td>Zero or more of the preceding element.</td>
+          </tr>
+          <tr>
+            <td><code>+</code></td>
+            <td>One or more of the preceding element.</td>
+          </tr>
+          <tr class="altBg">
+            <td><code>{<em>n</em>}</code></td>
+            <td>Exactly <em>n</em> of the preceding element.</td>
+          </tr>
+          <tr>
+            <td><code>{<em>n</em>,}</code></td>
+            <td><em>n</em> or more of the preceding element.</td>
+          </tr>
+          <tr class="altBg">
+            <td><code>{<em>m</em>,<em>n</em>}</code></td>
+            <td>Between <em>m</em> and <em>n</em> of the preceding element.</td>
+          </tr>
+          <tr>
+            <td><code>??</code>,<code>*?</code>,<code>+?</code>,<br/><code>{<em>n</em>}?</code>, etc.</td>
+            <td>Same as above, but as few times as possible.</td>
+          </tr>
+          <tr class="altBg">
+            <td><code>(</code><em>expr</em><code>)</code></td>
+            <td>Capture <em>expr</em> for use with <code>\1</code>, etc.</td>
+          </tr>
+          <tr>
+            <td><code>(?:</code><em>expr</em><code>)</code></td>
+            <td>Non-capturing group.</td>
+          </tr>
+          <tr class="altBg">
+            <td><code>(?=</code><em>expr</em><code>)</code></td>
+            <td>Followed by <em>expr</em>.</td>
+          </tr>
+          <tr>
+            <td><code>(?!</code><em>expr</em><code>)</code></td>
+            <td>Not followed by <em>expr</em>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="body">
+      <div id="search" class="smartField">
+        <textarea cols="100" rows="3" tabindex="1" spellcheck="false">Enter regex here</textarea>
+      </div>
+      <div id="input" class="smartField">
+        <textarea cols="100" rows="10" tabindex="2" spellcheck="false">Enter test data here</textarea>
+      </div>
+    </div>
+
+    <div id="footer" class="small">
+      <p id="copyright">&copy; 2010 <a href="http://blog.stevenlevithan.com">Steven Levithan</a> :: <a href="http://code.google.com/p/regexpal/">Google Code</a></p>
+    </div>
+
+    <script type="text/javascript" src="javascripts/xregexp.js"></script>
+    <script type="text/javascript" src="javascripts/helpers.js"></script>
+    <script type="text/javascript" src="javascripts/regexpal.js"></script>
+    
+  </body>
+</html>

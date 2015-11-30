@@ -1,0 +1,8 @@
+extends layout
+
+block content
+	h1= title
+	ul
+		each flight, index in arrivals
+			- landed = new Date(flight.actualArrive)
+			li= flight.number + ': ' + flight.origin + '-' + landed

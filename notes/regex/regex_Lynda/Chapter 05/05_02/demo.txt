@@ -1,0 +1,20 @@
+Regex:  /apple|orange/
+String: "apple orange appleorange apple|orange"
+
+Regex:  /abc|def|ghi|jkl/
+String: "abcdefghijklmnopqrstuvwxyz"
+
+
+Grouping is always a good idea, and sometimes required.
+
+Regex:  /applejuice|sauce/
+String: "applejuice applesauce"
+
+Regex:  /apple(juice|sauce)/
+String: "applejuice applesauce"
+
+
+Find misspelled words.
+
+Regex:  /w(ei|ie)rd/
+String: "weird and wierd"

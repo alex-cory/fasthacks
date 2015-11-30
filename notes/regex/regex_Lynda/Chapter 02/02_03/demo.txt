@@ -1,0 +1,11 @@
+Regex:  /h.t/
+String: "hat hot hit heat hzt h t h#t h:t"
+
+Regex:  /.a.a.a/
+String: "banana papaya abacab"
+
+Regex:  /a.a.a./
+String: "banana papaya abacab"
+
+Write a regex that matches all three words:
+String: "silver sliver slider"

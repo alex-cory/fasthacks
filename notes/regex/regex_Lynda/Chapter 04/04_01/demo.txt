@@ -1,0 +1,38 @@
+Regex:  /apples*/
+String: "apple apples applesssssss"
+
+Regex:  /apples+/
+String: "apple apples applesssssss"
+
+Regex:  /apples?/
+String: "apple apples applesssssss"
+
+
+Regex:  /\d\d\d\d*/
+String: "123456789 1234 123 12"
+
+Regex:  /\d\d\d+/
+String: "123456789 1234 123 12"
+
+
+Regex:  /[a-z]+\d[a-z]*/
+String: "abc9xyz"
+String: "a9xyz"
+String: "9xyz"
+
+Regex:  /[a-z]+\d[a-z]*/
+String: "abc9xyz"
+String: "abc9z"
+String: "abc9"
+
+
+Optional letter "u"
+
+Regex:  /colou?r/
+String: "color colour"
+
+
+Find any word that ends in "s"
+
+Regex:  /\w+s/
+String: "We picked apples."
