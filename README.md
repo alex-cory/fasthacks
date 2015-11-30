@@ -44,6 +44,8 @@ Current Ideas/Commands/Features
 | `most`               | Displays a list of your most used commands.  ![Alt text](./assets/most.gif) | Done |
 | `zsh-syntax-highlighting` | Colors your command green if it's valid and red if it won't work.  ![Alt text](./assets/zsh-syntax-highlighting.gif)| Done |
 | `hh` or `ctrl + r`   | Better command history searching.  It uses a program called `hstr`.  ![Alt text](./assets/hh.gif) | Done |
+| `ag`                 | Pagination for the silver searcher.  If the results of what you searched for are longer than the screen of your console, it will paginate it. Press `q` to quit pagination. ![Alt text](./assets/ag.gif) | Done |
+| alias tips           | When you type a command where you already have an alias for it, it will display that below your prompt.  ![Alt text](./assets/alias-tips.gif) | Done |
 
 Theme
 -----
