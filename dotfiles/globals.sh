@@ -46,7 +46,7 @@ export CLINT_FORCE_COLOR=1
 
 export PYTHONSTARTUP="$HOME/.pythonrc"
 
-export DN="$DEV_PATH/Dev_Notes"
+export DN="$LOCAL_REPOS/fasthacks/notes"
 
 # SHORT - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # Globals

@@ -1,3 +1,0 @@
-Notice the syntax coloring
-
-Regex: . * + [abc] ^ $ | ? (abc) \d{2,3}

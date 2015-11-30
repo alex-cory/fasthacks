@@ -1,3 +1,0 @@
-This command only works on Unix
-
-ps aux | grep --regexp="s[[:digit:]]"

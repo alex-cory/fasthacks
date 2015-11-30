@@ -1,9 +1,0 @@
-extends layout
-
-block content
-	h1= title
-	ul
-		// flights is passed in via     << server.js -> app.js -> routes/index.js -:- functions.list >>
-		each flight, index in flights
-			- flight = flight.getInformation()
-			li= flight.number + ': ' + flight.origin + '-' + flight.destination

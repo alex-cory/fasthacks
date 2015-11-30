@@ -1059,14 +1059,14 @@ function sb() {
 }
 
 # Open Dev Notes in MacVim
-alias mvdn="cd $DEV_PATH/Dev_Notes; vim"
+alias mvdn="cd $DN; vim"
 
 # Open Dev Notes in Terminal Vim
-alias vdn="cd $DEV_PATH/Dev_Notes; vim"
+alias vdn="cd $DN; vim"
 
 # Go To => Dev Notes
 function dn() {
-	cd "$DEV_PATH/Dev_Notes/$1"
+	cd "$DN/$1"
 	# Description: $1: Developer Notes Dirctory/File
 	# Define:  path/to/dev_notes
 	# Live ex: dn example_note

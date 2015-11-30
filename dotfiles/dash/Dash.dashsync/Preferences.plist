@@ -335,7 +335,7 @@
 	<key>DHWebViewIsDark</key>
 	<true/>
 	<key>annotationsAreShown</key>
-	<false/>
+	<true/>
 	<key>bookmarks</key>
 	<array/>
 	<key>docsets</key>
