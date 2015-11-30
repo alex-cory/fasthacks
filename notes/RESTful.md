@@ -189,7 +189,7 @@ Tips for API Modeling
 
 RESTful Web APIs
 ----------------  
-##### Most Important HTTP Header:
+#### Most Important HTTP Header:
 is `Content-Type,` which tells the HTTP client how to understand the `entity-body`. **It’s so important that its value has a special name.** We say the value of the `Content-Type header is the entity-body’s media type.` (It’s also called the `MIME type or the content type.` Sometimes “media type” is hyphenated: media-type.)  
 
 #### Creator of REST  
