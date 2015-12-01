@@ -8,7 +8,7 @@ General Notes
   - A network socket is an endpoint of an inter-process
     communication across a computer network.
     
-#### ASCII: [American Standard Code for Information](http://bit.ly/1Kd9XhD)
+#### ASCII: [American Standard Code for Information Interchange](http://bit.ly/1Kd9XhD)
   
 #### CAS: [Central Authentication Service](http://bit.ly/1GtDzcH)
   - a single sign-on protocol for the web. Its purpose
