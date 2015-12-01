@@ -1,0 +1,129 @@
+
+
+
+---------------------------------------------------------------------------------------------
+Favorite iTerm Keyboard Shortcuts / Settings
+
+ABSOLUTE PATH: /Users/alexcory/Desktop/root/ whatever project you're working on
+
+Sublime Text 2 Package Path: /Users/alexcory/Library/Application Support/Sublime Text 2/Packages
+
+
+---------------------------------------------------------------------------------------------
+Favorite iTerm Keyboard Shortcuts / Settings
+
+⌘ D 	: split pane left-right
+
+⌘ ⇧ D 	: split pane top-bottom 
+
+-
+⌘ ⇧ ] 	: Next Tab
+
+⌘ ⇧ [ 	: Previous Tab
+
+OR
+
+⌘ # 	: Navigate to each tab
+-
+
+Don't show tabs when you only have one
+
+Show the ⌘ # on each open tab
+
+
+
+---------------------------------------------------------------------------------------------
+Custom iTerm Keyboard Shortcuts
+⌘ ⌥ ⇧ ◄ ► ▲ ▼
+
+⌘ ◄ 	: beginning of row
+
+⌘ ► 	: end of row
+
+⌥ ◄ 	: beginning of word
+
+⌥ ► 	: end of word
+
+---------------------------------------------------------------------------------------------
+Package Manager
+
+Homebrew
+
+http://brew.sh/
+
+
+---------------------------------------------------------------------------------------------
+Shell
+
+zsh
+
+
+
+
+---------------------------------------------------------------------------------------------
+Theme 
+
+nicoulaj
+
+https://github.com/robbyrussell/oh-my-zsh
+
+
+
+
+---------------------------------------------------------------------------------------------
+Terminal
+
+          prompt
+|-----------------------------|
+ Alexs-MacBook-Air:~ alexcory$
+|-----------------|
+     username
+
+
+
+---------------------------------------------------------------------------------------------
+Config
+
+Absolute Path:  /Users/alexcory
+
+~  ls -la
+total 208
+drwxr-xr-x+  34 alexcory  staff   1156 Nov 27 01:03 .
+drwxr-xr-x    5 root      admin    170 Oct 24 20:58 ..
+-rw-------    1 alexcory  staff      3 Apr 20  2013 .CFUserTextEncoding
+-rw-r--r--@   1 alexcory  staff  24580 Nov 26 22:22 .DS_Store
+drwx------   12 alexcory  staff    408 Nov 27 00:53 .Trash
+drwxr-xr-x    4 alexcory  staff    136 May  8  2013 .adobe
+-rw-------    1 alexcory  staff   6531 Nov 27 00:56 .bash_history
+-rw-r--r--    1 alexcory  staff    427 Nov 26 16:39 .bash_profile
+-rw-r--r--    1 alexcory  staff    225 Nov 26 03:42 .bash_profile`
+drwxr-xr-x    7 alexcory  staff    238 Sep 22 01:44 .codeintel
+drwxr-xr-x    3 alexcory  staff    102 Nov 22 18:59 .config
+drwx------    3 alexcory  staff    102 Apr 21  2013 .cups
+-rw-r--r--    1 alexcory  staff    222 Nov 26 03:37 .dash_profile
+drwxr-xr-x    4 alexcory  staff    136 Oct  3 19:59 .gem
+-rw-r--r--    1 alexcory  staff     52 Nov 26 16:44 .gitconfig
+drwxr-xr-x    3 alexcory  staff    102 Aug 18 04:43 .mplayer
+drwxr-xr-x   14 alexcory  staff    476 Nov 27 00:55 .oh-my-zsh
+drwx------    5 alexcory  staff    170 Nov 22 19:07 .ssh
+-rw-------    1 alexcory  staff   1422 Nov 26 15:49 .viminfo
+-rw-r--r--    1 alexcory  staff  35370 Nov 27 00:55 .zcompdump-Alex’s MacBook Air-5.0.2
+-rw-r--r--    1 alexcory  staff     17 Nov 27 00:55 .zsh-update
+-rw-------    1 alexcory  staff     76 Nov 27 01:03 .zsh_history
+-rw-r--r--    1 alexcory  staff   1594 Nov 27 00:55 .zshrc
+drwxr-xr-x    4 alexcory  staff    136 Nov 22 19:32 Applications
+drwx------+  10 alexcory  staff    340 Nov 26 21:47 Desktop
+drwx------+  12 alexcory  staff    408 Nov 22 19:18 Documents
+drwx------@  17 alexcory  staff    578 Nov 26 22:56 Downloads
+drwx------@ 163 alexcory  staff   5542 Nov 25 23:36 Google Drive
+drwx------@  66 alexcory  staff   2244 Nov 24 15:19 Library
+drwx------+   7 alexcory  staff    238 Jul 17 10:10 Movies
+drwx------+   6 alexcory  staff    204 May 16  2013 Music
+drwx------+ 244 alexcory  staff   8296 Nov 22 13:11 Pictures
+drwxr-xr-x+   4 alexcory  staff    136 Apr 20  2013 Public
+drwxr-xr-x    7 alexcory  staff    238 Nov 26 21:01 my_really_cool_project
+➜  ~  
+
+
+
+

@@ -1,0 +1,3 @@
+[submodule "node_modules/repl-rainbow"]
+	path = node_modules/repl-rainbow
+	url = git@github.com:Benvie/repl-rainbow.git

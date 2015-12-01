@@ -2,7 +2,7 @@
 	"bold_folder_labels": true,
 	"caret_style": "phase",
 	"close_windows_when_empty": false,
-	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Solarized (Dark) (SL).tmTheme",
 	"font_size": 14,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
@@ -16,7 +16,8 @@
 		"SFTP",
 		"SmartMarkdown",
 		"Terminal",
-		"Vintage"
+		"Vintage",
+		"Vintageous"
 	],
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
