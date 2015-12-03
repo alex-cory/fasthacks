@@ -200,22 +200,22 @@ Companies
 
 
 <!--[c]: #citations-->
-[sl]: 
+<!--[sl]: -->
 [sl-wiki]: https://www.wikiwand.com/en/Supervised_learning
-[ul]: 
+<!--[ul]: -->
 [ul-wiki]: https://www.wikiwand.com/en/Unsupervised_learning
 [rl-wiki]: https://www.wikiwand.com/en/Reinforcement_learning
-[rl]: 
+<!--[rl]: -->
 [dl-wiki]: https://www.wikiwand.com/en/Deep_learning
-[dl]: 
-[dl-lib1]:
+<!--[dl]: -->
+<!--[dl-lib1]:-->
 [dl-lib1-wiki]: https://www.wikiwand.com/en/TensorFlow
-[dl-lib2]: 
+<!--[dl-lib2]: -->
 [dl-lib2-wiki]: https://www.wikiwand.com/en/Torch_(machine_learning)
-[dl-lib3]: 
-[dl-lib3-wiki]: 
-[dl-lib4]: 
-[dl-lib4-wiki]: 
-[dl-lib5]: 
-[dl-lib5-wiki]: 
+<!--[dl-lib3]: -->
+<!--[dl-lib3-wiki]: -->
+<!--[dl-lib4]: -->
+<!--[dl-lib4-wiki]: -->
+<!--[dl-lib5]: -->
+<!--[dl-lib5-wiki]: -->
 [bp]: https://www.wikiwand.com/en/Backpropagation
