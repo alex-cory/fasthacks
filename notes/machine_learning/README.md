@@ -5,6 +5,7 @@ Machine Learning
 > go here: https://www.wikiwand.com/en/List_of_machine_learning_concepts
 
 **[Overview](#overview)**  
+**[Resources](./resources.md)**  
 **[Problems](#problems)**  
 **[Supervised Learning](./supervised_learning.md)**   
 **[Clustering](./clustering.md)**   
