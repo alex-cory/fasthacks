@@ -10,8 +10,9 @@ Videos
 
 
 Books
------
- 1. [Neural Networks for Pattern Recognition](http://amzn.to/21wU6Gk) (Advanced Texts in Econometrics)
+-----  
+ 1. [Neural Networks for Pattern Recognition](http://amzn.to/21wU6Gk) (Advanced Texts in Econometrics)  
 
 Articles
---------
+--------  
+ 1. [A Tour of Machine Learning Algorithms](http://bit.ly/1LPZJ75)
