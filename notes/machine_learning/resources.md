@@ -1,5 +1,6 @@
 Machine Learning Resources
 ==========================
+[List of Machine Learning Concepts](http://bit.ly/1LQ0rRG)
 
 Courses
 -------
