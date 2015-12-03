@@ -13,6 +13,7 @@ Videos
 Books
 -----  
  1. [Neural Networks for Pattern Recognition](http://amzn.to/21wU6Gk) (Advanced Texts in Econometrics)  
+ 2. [Hacker's guide to Neural Networks](http://karpathy.github.io/neuralnets/)
 
 Articles
 --------  
