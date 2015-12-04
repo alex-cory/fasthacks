@@ -1,7 +1,7 @@
 fast Hacks
 ==========
 
-This project started out as a library of my notes, what I was currently learning, and what I wanted to learn. Now it has grown into a very useful tool as you can see below the things I am working on.
+This project started out as a library of my notes, what I was currently learning, and what I wanted to learn. Now it has grown into a very useful tool as you can see below the things I am working on. **Please note that many of these features are not fully implemented.** I would love them to all work, but have little time to commit to this project, so if you want to help let me know!
 
 ![alt text](http://imgur.com/JNX9z6b.png)  
 When you found out this actually existed.
@@ -79,5 +79,3 @@ ToDo's
 ------
 - [ ] Install Script
 - [ ] Website + documentation
-- [ ] [alias-tips](https://github.com/djui/alias-tips)
-- [ ] [zsh completions](https://github.com/zsh-users/zsh-completions)
