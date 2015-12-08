@@ -31,6 +31,7 @@ Custom Keyboard Shortcuts
 | tap `⇪caps lock`      | `escape`                                                                     | Complete    |
 | hold `cmd` tap `F6`   | Toggles `fn mode` meaning all `F#` keys are turned on or off.                | Not Started |
 | hold `space` tap `tab` | Switches to previous appliation. (basically does `cmd + tab`)               | Not Started |
+| hold `[`              | results in holding `cmd + option`                                            | Complete    |
 | **Google Chrome**     | | |
 | `⌘ . `                | Open Extensions Page:<br>Since Extensions is a menu item in Chrome, you can assign it a keyboard shortcut through OS X's System Preferences. <br>1. Go to the 'Keyboard' Panel<br>2. Select the 'Shortcuts' tab<br>Choose 'App Shortcuts' from the left column<br>3. Click the + under the right column to add Google Chrome as an App in the list.<br>4. In the pop-up, type "Extensions" (without quotes) in the space beside 'Menu Title'<br>5. Assign a keyboard shortcut (I use `⌘ .` | Complete |
 Todos
