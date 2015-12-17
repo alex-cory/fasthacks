@@ -79,3 +79,4 @@ ToDo's
 ------
 - [ ] Install Script
 - [ ] Website + documentation
+- [ ] [Make your dotfiles follow you automatically when you ssh to a server](http://klaig.blogspot.com/2013/04/make-your-dotfiles-follow-you.html)
