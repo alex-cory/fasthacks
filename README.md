@@ -1,6 +1,6 @@
 # fast Hacks
 
-This project started out as a library of my notes, what I was currently learning, and what I wanted to learn. Now it has grown into a very useful tool as you can see below the things I am working on.
+This project started out as a library of my notes, what I was currently learning, and what I wanted to learn. Now it has grown into a very useful tool as you can see below the things I am working on. **Please note that many of these features are not fully implemented.** I would love them to all work, but have little time to commit to this project, so if you want to help let me know!
 
 ![alt text](http://imgur.com/JNX9z6b.png)  
 
@@ -53,13 +53,13 @@ When you found out this actually existed.
 - ToDo
 
 #### Resources:
+ - [Terminal Color Scheme Designer](http://ciembor.github.io/4bit/#)
+ - [Make a Terminal prompt](http://bashrcgenerator.com/)
+ - [Beautify Logfile Commands](http://korpus.juls.savba.sk/~garabik/software/grc.html)
+ - [A Stylesheet author's guide to terminal colors](http://wynnnetherland.com/journal/a-stylesheet-author-s-guide-to-terminal-colors/)
+ - [colorama](https://pypi.python.org/pypi/colorama/) - Cross-platform colored terminal text
 
-- [Terminal Color Scheme Designer](http://ciembor.github.io/4bit/#)
-- [Make a Terminal prompt](http://bashrcgenerator.com/)
-- [Beautify Logfile Commands](http://korpus.juls.savba.sk/~garabik/software/grc.html)
-- [A Stylesheet author's guide to terminal colors](http://wynnnetherland.com/journal/a-stylesheet-author-s-guide-to-terminal-colors/)
-
-## Task ([Taskwarior](http://taskwarrior.org/tools/))
+### Task ([Taskwarior](http://taskwarrior.org/tools/))
 
 #### Usage:
 
@@ -67,9 +67,7 @@ When you found out this actually existed.
 
 #### Resources
 
--​
-   
- #### Great Taskwarior Extensions
+#### Great Taskwarior Extensions
   
 - [taskopen](https://github.com/ValiValpas/taskopen): Script for taking notes and open urls with taskwarrior.
   
@@ -85,3 +83,4 @@ When you found out this actually existed.
 - [ ] Website + documentation
 - [ ] [alias-tips](https://github.com/djui/alias-tips)
 - [ ] [zsh completions](https://github.com/zsh-users/zsh-completions)
+- [ ] [Make your dotfiles follow you automatically when you ssh to a server](http://klaig.blogspot.com/2013/04/make-your-dotfiles-follow-you.html)

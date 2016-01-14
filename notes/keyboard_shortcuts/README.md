@@ -9,9 +9,7 @@ Applications
 
 **[Ulysses](./ulysses.md)**   
 **[Sublime Text](#sublime-text)**   
-
-
-[Back to Top](#applications)
+**[IntelliJ](./intellij.md)**  
 
 
 
