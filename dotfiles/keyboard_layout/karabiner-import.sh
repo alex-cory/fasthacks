@@ -10,15 +10,11 @@ $cli set remap.spaceAndBracketR2cmdShiftBracketR 1
 /bin/echo -n .
 $cli set remap.controlL2controlL_escape 1
 /bin/echo -n .
-$cli set remap.shiftL2shiftL_escape 1
-/bin/echo -n .
 $cli set parameter.fixed_distance_magnification 10
 /bin/echo -n .
 $cli set remap.four2shiftCommand 1
 /bin/echo -n .
 $cli set remap.simple_vi_mode 1
-/bin/echo -n .
-$cli set repeat.initial_wait 250
 /bin/echo -n .
 $cli set remap.two2tabOnHold 1
 /bin/echo -n .
@@ -76,7 +72,7 @@ $cli set remap.period2tabOnHold 1
 /bin/echo -n .
 $cli set remap.singleQuoteOnHold2Control_L 1
 /bin/echo -n .
-$cli set parameter.simultaneouskeypresses_delay 30
+$cli set parameter.simultaneouskeypresses_delay 100
 /bin/echo -n .
 $cli set private.right_command_c 1
 /bin/echo -n .

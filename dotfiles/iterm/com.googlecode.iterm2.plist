@@ -646,7 +646,7 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame Preferences</key>
-	<string>410 257 606 456 0 0 1440 877 </string>
+	<string>410 402 606 456 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 4 1440 873 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
@@ -5405,31 +5405,31 @@
 					<key>Text</key>
 					<string>0x7f</string>
 				</dict>
-				<key>0x69-0x180000</key>
+				<key>0x68-0x180000</key>
 				<dict>
 					<key>Action</key>
-					<integer>20</integer>
+					<integer>18</integer>
 					<key>Text</key>
 					<string></string>
 				</dict>
-				<key>0x6f-0x180000</key>
-				<dict>
-					<key>Action</key>
-					<integer>19</integer>
-					<key>Text</key>
-					<string></string>
-				</dict>
-				<key>0x75-0x180000</key>
+				<key>0x6a-0x180000</key>
 				<dict>
 					<key>Action</key>
 					<integer>21</integer>
 					<key>Text</key>
 					<string></string>
 				</dict>
-				<key>0x79-0x180000</key>
+				<key>0x6b-0x180000</key>
 				<dict>
 					<key>Action</key>
-					<integer>18</integer>
+					<integer>20</integer>
+					<key>Text</key>
+					<string></string>
+				</dict>
+				<key>0x6c-0x180000</key>
+				<dict>
+					<key>Action</key>
+					<integer>19</integer>
 					<key>Text</key>
 					<string></string>
 				</dict>
@@ -5844,7 +5844,7 @@
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
-			<false/>
+			<true/>
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
@@ -5869,18 +5869,34 @@
 			<string>/Users/AlexCory</string>
 		</dict>
 	</array>
+	<key>NoSyncLastTipTime</key>
+	<real>471086231.58617997</real>
 	<key>NoSyncNeverRemindPrefsChangesCopy</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
+	<key>NoSyncPermissionToShowTip</key>
+	<true/>
+	<key>NoSyncSilenceAnnoyingBellAutomatically</key>
+	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>470133004.64562398</real>
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>453234640.81401902</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
 	<real>469976226.98220801</real>
+	<key>NoSyncTipsDisabled</key>
+	<true/>
+	<key>NoSyncTipsToNotShow</key>
+	<array>
+		<string>000</string>
+		<string>0000</string>
+		<string>0001</string>
+		<string>0002</string>
+		<string>0003</string>
+	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -5945,11 +5961,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/nightly.xml</string>
+	<string>https://iterm2.com/appcasts/testing3.xml</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-11-25T06:28:06Z</date>
+	<date>2015-12-06T02:13:10Z</date>
 	<key>SUSkippedVersion</key>
 	<string>2.1.4</string>
 	<key>SavePasteHistory</key>
@@ -11497,7 +11513,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20151121-nightly</string>
+	<string>2.9.20151111</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

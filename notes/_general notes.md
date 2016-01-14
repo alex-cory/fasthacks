@@ -8,9 +8,9 @@ General Notes
   - A network socket is an endpoint of an inter-process
     communication across a computer network.
     
-#### ASCII: [American Standard Code for Information Interchange](http://bit.ly/1Kd9XhD)
+#### [ASCII](http://bit.ly/1Kd9XhD): American Standard Code for Information Interchange
   
-#### CAS: [Central Authentication Service](http://bit.ly/1GtDzcH)
+#### [CAS](http://bit.ly/1GtDzcH): Central Authentication Service
   - a single sign-on protocol for the web. Its purpose
     is to permit a user to access multiple applications
     while providing their credentials (such as userid and
@@ -20,7 +20,7 @@ General Notes
     also refers to a software package that implements this
     protocol.
   
-#### AMD: [Asynchronous Module Definition](http://bit.ly/1FKUu6R)
+#### [AMD](http://bit.ly/1FKUu6R): Asynchronous Module Definition
   - AMD specifies a standard for modular JavaScript such that modules
     can load their dependencies asynchronously, solving the problems
     associated with synchronous loading.
@@ -43,7 +43,7 @@ General Notes
 #### Web Syndication  
   - refers to the websites providing information and the websites displaying it.
 
-#### IRC: [Internet Relay Chat](http://bit.ly/1I3A2yD)
+#### [IRC](http://bit.ly/1I3A2yD): Internet Relay Chat
   - is an application layer protocol that facilitates the transfer of messages
     in the form of text. The chat process works on a client/server networking
     model. IRC clients are computer programs that a user can install on their
@@ -52,7 +52,7 @@ General Notes
     forums, called channels, but also allows one-on-one communication via private
     messages as well as chat and data transfer, including file sharing.
 
-#### FOSS: [Free and open-source software](http://bit.ly/1GAjqDF)
+#### [FOSS](http://bit.ly/1GAjqDF): Free and open-source software
   - is computer software that can be classified as both free software and
     open-source software. That is, anyone is freely licensed to use, copy,
     study, and change the software in any way, and the source code is openly
@@ -66,11 +66,11 @@ General Notes
     Source Software communities, not-for-profit organizations, and related
     communities.
 
-#### cURL: [Client URL Request Library](http://bit.ly/1GaEA4S)
+#### [cURL](http://bit.ly/1GaEA4S): Client URL Request Library
   - Think of it as a "copy for URLs" -- it can copy to or from a given URL in
     any nine different protocols
 
-#### grep: [Global Regular Expression Print](https://kb.iu.edu/d/abnd)
+#### [grep](https://kb.iu.edu/d/abnd): Global Regular Expression Print
   - a Unix command used to search files for the occurrence of a string of characters that matches a specified pattern.
 
 #### [SuperAgent](http://bit.ly/1LjeEf1)
@@ -87,23 +87,23 @@ General Notes
 Internet Associations  
 --------------------
 
-#### IANA: [Internet Assigned Numbers Association](http://bit.ly/1G1moOa)
+#### [IANA](http://bit.ly/1G1moOa): Internet Assigned Numbers Association
   - is responsible for the global coordination of the DNS Root, IP addressing, and other
     Internet protocol resources.
   - Website: http://www.iana.org/
 
-#### WC3: [World Wide Web Consortium](http://bit.ly/1JtVNx2)
+#### [WC3](http://bit.ly/1JtVNx2): World Wide Web Consortium
   - The main international standards organization for the World Wide Web.
   - Developing protocols and guidelines that ensure long-term growth for the Web.
   - Website: http://www.w3.org/
 
-#### ICANN: [Internet Corporation for Assigned Names and Numbers](http://bit.ly/1G1mkhg)
+#### [ICANN](http://bit.ly/1G1mkhg): Internet Corporation for Assigned Names and Numbers
   - a nonprofit organization that is responsible for the coordination
     of maintenance and methodology of several databases of unique
     identifiers related to the namespaces of the Internet, and
     ensuring the network's stable and secure operation
 
-#### IETF: [The Internet Engineering Task Force](http://bit.ly/1G1nWb5)
+#### [IETF](http://bit.ly/1G1nWb5): The Internet Engineering Task Force
   - develops and promotes voluntary Internet standards, in
     particular the standards that comprise the Internet protocol
     suite (TCP/IP). It is an open standards organization, with
@@ -112,7 +112,7 @@ Internet Associations
     funded by their employers or sponsors.
   - Website: https://www.ietf.org/
 
-#### ECMA: [European Computer Manufacturers Association](http://bit.ly/1IrkGt8)
+#### [ECMA](http://bit.ly/1IrkGt8): European Computer Manufacturers Association
   - an international private (membership-based) non-profit
     standards organization for information and communication
     systems.

@@ -34,7 +34,7 @@ export KARABINER_IMPORT="$DOT_PATH/keyboard_layout/karabiner-import.sh" # help: 
 
 export GIT_SHORTCUTS="$DOT_PATH/git/git_shortcuts.sh"
 
-export NPM_SHORTCUTS="$DOT_PATH/npm_shortcuts.sh"
+export NPM_SHORTCUTS="$DOT_PATH/npm/npm_shortcuts.sh"
 
 export NPM_GLOBAL_NODE_MODULES="/usr/local/lib/node_modules/"
 
@@ -46,8 +46,37 @@ export CLINT_FORCE_COLOR=1
 
 export PYTHONSTARTUP="$HOME/.pythonrc"
 
-export DN="$LOCAL_REPOS/fasthacks/notes"
+export DN="$DOT_PATH/notes"
 
+export ANDROID_HOME="/usr/local/opt/android-sdk"
+
+export JAVA_HOME="$(/usr/libexec/java_home)"
+
+export EC2_PRIVATE_KEY="$(/bin/ls "$HOME"/.ssh/pk-*.pem | /usr/bin/head -1)"
+
+# export EC2_CERT="$(/bin/ls "$HOME"/.ec2/cert-*.pem | /usr/bin/head -1)"
+
+export AWS_AUTO_SCALING_HOME="/usr/local/Cellar/auto-scaling/1.0.61.3/libexec"
+
+export AWS_CLOUDFORMATION_HOME="/usr/local/Cellar/aws-cfn-tools/1.0.12/libexec"
+
+export AWS_ELASTICACHE_HOME="/usr/local/Cellar/aws-elasticache/1.9.000/libexec"
+
+export AWS_ELB_HOME="/usr/local/Cellar/elb-tools/1.0.23.0/libexec"
+
+export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.6.12.0/libexec"
+
+export AWS_IAM_HOME="/usr/local/opt/aws-iam-tools/jars"
+
+export AWS_SNS_HOME="/usr/local/Cellar/aws-sns-cli/2013-09-27/libexec"
+
+export AWS_CLOUDWATCH_HOME="/usr/local/Cellar/cloud-watch/1.0.13.4/libexec"
+
+export SERVICE_HOME="$AWS_CLOUDWATCH_HOME"
+
+export EC2_AMITOOL_HOME="/usr/local/Cellar/ec2-ami-tools/1.4.0.9/libexec"
+
+export AWS_RDS_HOME="/usr/local/Cellar/rds-command-line-tools/1.14.001/libexec"
 # SHORT - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # Globals
 export G="/etc/globals"
@@ -134,4 +163,5 @@ source "$DOT/tools/helpers.sh"
 source "$DOT/tools/spitcolors.sh"
 # source "$DOT/tools/resymlink.sh"
 source "$DOT/python/python_shortcuts.sh"
+source "$DOT/docker_shortcuts.sh"
 # .profile is sourced in .bash_profile

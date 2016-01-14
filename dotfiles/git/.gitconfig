@@ -8,12 +8,22 @@
 
 [alias]
     ch = checkout
-    gb = branch
+    br = branch
+
+[url "https://bitbucket.org/"]
+    insteadOf = bb:
+
+[url "https://github.com/"]
+    insteadOf = gh:
+
+[url "https://gist.github.com/"]
+    insteadOf = gist:
 
 # How To Alias: http://bit.ly/1EBiTKx
 # Example Git Config: https://gist.github.com/pksunkara/988716
 [push]
 	default = simple
+
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f

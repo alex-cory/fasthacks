@@ -38,20 +38,20 @@ alias glm='git pull origin master'
 
 # Git Checkout
 # TODO: add functionality where if there are changes made to current commit/branch, stash, then checkout.  Also, use gch to go back to previous commit and run stash pop
-function gch() {
-  re='^[0-9]+$'
-  # if you want to go back to the last commit/branch you were at
-  # EX: gch
-  if [ -z "${1+xxx}" ]; then
-    git checkout -
-  # if you want to checkout a specific head
-  # EX: gch 1
-  elif [[ "$1" =~ $re ]] ; then
-      git checkout HEAD@{"$1"}
-  else
-      git checkout "$@"
-  fi
-}
+# function gch() {
+#   re='^[0-9]+$'
+#   # if you want to go back to the last commit/branch you were at
+#   # EX: gch
+#   if [ -z "${1+xxx}" ]; then
+#     git checkout -
+#   # if you want to checkout a specific head
+#   # EX: gch 1
+#   elif [[ "$1" =~ $re ]] ; then
+#       git checkout HEAD@{"$1"}
+#   else
+#       git checkout "$@"
+#   fi
+# }
 
 # Git Stash
 alias gs='git stash'

@@ -21,6 +21,17 @@ call vundle#rc()
 " .git so you're aren't searching your entire machine
 :map <leader>cf :CtrlPCurFile<CR>
 
+" Can't figure out how to get name of current file to run it
+" :let myfile = expand('%:t')
+" function Myex()
+"   " echo "hello"
+"    execute ':w'
+"    execute ':!!'
+" endfunction
+" :map <F2> <Esc>:w<CR>:echo myfile
+" nnoremap <F1> :call Myex()<cr>
+"execute ':!zsh ' . file
+
 " Quickly repeat previous : cmd. Use case:  ":w !preview preview.js" will save
 " and run the file again really quickly
 nmap <leader>r :@:<CR>

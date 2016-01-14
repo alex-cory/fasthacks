@@ -57,6 +57,7 @@ export ZSH_PLUGINS_ALIAS_TIPS_TEXT="$(echo ${BWhite}Alias tip:) "
 export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="eho mkdr"
 
 # Makes Testing For Devices Anywhere
+# Genymotion stuff
 export PATH=/Applications/Android\ Studio.app/sdk/platform-tools:$PATH
 # command: adb devices
 
@@ -99,8 +100,8 @@ DEFAULT_USER="Alex"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby sublime command-not-found taskwarrior alias-tips)
-plugins+=(zsh-completions)
+plugins=(git ruby sublime command-not-found taskwarrior alias-tips osx chucknorris)
+plugins+=(zsh-completions docker)
 autoload -U compinit && compinit
 
 source "$HOME/.bash_profile"
@@ -112,6 +113,7 @@ export LESSOPEN='|~/.lessfilter %s'
 # Customize to your needs...
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 
+PATH=$PATH:/Applications/Genymotion\ Shell.app/Contents/MacOS/:/Applications/Genymotion.app/Contents/MacOS/
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 ### Added by the Heroku Toolbelt
@@ -132,3 +134,20 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export HISTFILE=~/.zsh_history  # ensure history file visibility
 export HH_CONFIG=hicolor        # get more colors
 bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
+
+# jsenv usage for managing java versions
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+# AWS
+export PATH=$PATH:$AWS_IAM_HOME/bin
+
+# Docker    (TODO: I feel like I shouldn't have to do this)
+# eval "$(docker-machine env default)"
+
+# Go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+# Zsh Completions for AWS tool
+source '/Users/AlexCory/.pyenv/versions/3.4.0/lib/python3.4/site-packages/awscli/bin/aws_zsh_completer.sh'
+

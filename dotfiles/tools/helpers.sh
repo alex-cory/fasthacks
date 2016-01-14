@@ -153,3 +153,16 @@ function recurseSym() {
   done
 }
 
+function paginate_if_long() {
+  line_count="$(($($@ | wc -l)*2))"
+  screen_height="$(echo $(tput lines))"
+
+  # if output is longer than the screen height
+  if [ "$line_count" -gt "$screen_height" ]; then
+    # use the basic pager
+    "$@" | less -R
+  else
+    # otherwise don't
+    echo "$@"
+  fi
+}

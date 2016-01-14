@@ -6,10 +6,60 @@ source ~/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/glob
 # Bash Style Guide: (http://bit.ly/1H7w1IX)
 # How To Activate Aliases (use: source ~/.bashrc)
 
+# Install leveraging all package managers
+function in() {
+  # TODO
+}
+
+# Un leveraging all package managers
+function un() {
+  # TODO
+}
+
+# Android
+alias a="android"
+
+# Genymotion
+alias gny="genyshell"
+
+# Bower
+alias bw="bower"
+alias bwi="bower install"
+alias bwinfo="bower info"
+alias bw:="bower search"
+alias bwun="bower uninstall"
+alias bwup="bower update"
+alias bwl="bower list"
+alias bwit="bower init"
+alias bwh="bower help"
+alias bwv="bower version"
+
+# React Native Shortcuts
+alias rn="react-native"
+alias rnit="react-native init"
+
+# Gem Install
+alias gi="gem install"
 
 # Details about an alias. (might not work properly on some machines, but should spit out the code for an alias with syntax highlighting)
 function details() {
   which "$@" | pygmentize -l sh
+}
+
+# Toggles hiding your desktop icons
+function tdt() {
+  # checks visibility and stores value in a variable
+  isVisible="$(defaults read com.apple.finder CreateDesktop)"
+
+ # toggle desktop icon visibility based on variable
+  if [ "$isVisible" = "true" ]; then
+    defaults write com.apple.finder CreateDesktop false
+  else
+    defaults write com.apple.finder CreateDesktop true
+  fi
+
+  # force changes by restarting Finder
+  killall Finder
 }
 
 # Use `htop` instead of `top`
@@ -60,7 +110,7 @@ alias ports="netstat -tulanp"
 # unalias aliasname
 
 # List Most commonly used commands
-function most() {
+function mostused() {
   var="$(history | awk 'BEGIN {FS="[ \t]+|\\|"} {print $3}' | sort | uniq -c | sort -nr | head)";
   echo "$var"
 }
@@ -138,6 +188,12 @@ function fm() {
 function olss() {
   screenshot="$(find "$SCREENSHOTS" -type f -print0 | xargs -0 stat -f "%m %N" | sort -rn | head -1 | cut -f2- -d " ")" &&
   open "$screenshot"
+}
+
+# Show path to last Screenshot
+lss () {
+  screenshot="$(find "$SCREENSHOTS" -type f -print0 | xargs -0 stat -f "%m %N" | sort -rn | head -1 | cut -f2- -d " ")"
+  echo "$screenshot"
 }
 
 # Change Screenshot Path
@@ -221,6 +277,10 @@ function up() {
     # Update
     brew update;
     brew upgrade --all;
+    brew upgrade `brew outdated`;
+    brew upgrade brew-cask;
+    brew cleanup;
+    brew cask cleanup;
     sudo pip install --upgrade pip;
     sudo gem update --system;
     rvm get head;
@@ -297,6 +357,7 @@ function ud() {
   git push origin "$HEAD";
   cd -;
 }
+
 
 # Colorful Curl
 # Idea: always output data from curl in a pretty, color coated format
@@ -720,8 +781,20 @@ alias .py="vim $HOME/.pythonrc"
 # open dotfile symlinks
 alias .sl="vim $DOT/tools/dotfiles.json"
 
+# open install script
+alias .fhinstall="vim $DOT/tools/install.sh"
+alias .fhin="vim $DOT/tools/install.sh"
+alias .install="vim $DOT/tools/install.sh"
+alias .in="vim $DOT/tools/install.sh"
+
 # open .agignore
-alias .ai="vim $DOT_PATH/.agignore"
+alias .ai="vim $DOT/.agignore"
+
+# Edit docker shortcuts
+alias .d="vim $DOT/docker_shortcuts.sh"
+
+# Edit SSH Config
+alias .ssh="vim $HOME/.ssh/config"
 
 # open `b`ashrc in `t`erminal
 alias .b='vim ~/.bashrc'
@@ -739,7 +812,7 @@ alias .n='vim $NPM_SHORTCUTS'
 alias .k='vim $KARABINER_PRIVATE'
 
 # Karabiner Private_old.xml
-alias .ko="vim $DOT_PATH/keyboard_layout/private_old.xml"
+alias .ko="vim $DOT/keyboard_layout/private_old.xml"
 
 # Git Ignore
 alias .gi='vim ~/.gitignore'
@@ -939,13 +1012,37 @@ alias pi='pip install'
 alias pl='pip list'
 
 # Pip Search # POTENTIAL BUGFIX (idk if you can put semicolons in alias names)
-alias p:='pip search'
+function p:() {
+  lineCount="$(($(command pip search $@ | wc -l)*2))"
+  screenHeight="$(echo $(tput lines))"
+
+  # if output is longer than the screen height
+  if [ "$lineCount" -gt "$screenHeight" ]; then
+    # use the pager
+    command pip search "$@" | less -R 
+  else
+    # otherwise don't
+    command pip search "$@"
+  fi
+}
+# alias p:='pip search'
 
 # Pip Unintall
 alias pu='pip uninstall'
 
 # Easy Install
 alias ei='easy_install'
+
+# Homebrew Cask
+alias bc='brew cask'
+alias bca='brew cask audit'
+alias bci='brew cask install'
+alias bcinfo='brew cask info'
+alias bcl='brew cask list'
+alias bcun='brew cask uninstall'
+alias bcup='brew cask update'
+alias bchm='brew cask home'
+alias bc:='brew cask search'
 
 # Quick Install
 alias bi='brew install'
@@ -973,6 +1070,9 @@ alias binfo='brew info'
 
 # Brew
 alias b='brew'
+
+# Brew 
+alias bhm="brew home"
 
 # Heroku
 alias h='heroku'
