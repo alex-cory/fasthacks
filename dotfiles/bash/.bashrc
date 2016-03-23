@@ -358,18 +358,18 @@ function un() {
 # Update Dotfiles Repo
 function ud() {
   # export keyboard layout to location in dotfiles repo
-  "$KARABINER" export > "$KARABINER_IMPORT";
-  git add --all;
+  "$KARABINER" export > "$KARABINER_IMPORT" &&
+  git add --all &&
   # sync the local dotfiles repo with remote
-  cd "$DOT_PATH";
+  cd "$DOT_PATH" &&
   if [ "$#" == 1 ]; then
-    git commit -a -m "$1";
+    git commit -a -m "$1" &&
   else
-    git commit -a -m 'quick update';
+    git commit -a -m 'quick update' &&
   fi
-  git pull origin "$HEAD";
-  git push origin "$HEAD";
-  cd -;
+  git pull origin "$HEAD" &&
+  git push origin "$HEAD" &&
+  cd -
 }
 
 
