@@ -3,11 +3,12 @@
 
 # alias gstlast='git ls-files --other --modified --exclude-standard|while read filename; do  echo -n "$(stat -c%y -- $filename 2> /dev/null) "; echo $filename;  done|sort'
 
-# Current Branch / HEAD Commit Hash (if not on branch tip)
+# TODO: fix the errors when you `src` in a git repo that hasn't been initialized yet
+# Current Branch / HEAD Commit Hash (if not on branch, tip)
 HEAD=$(git rev-parse --abbrev-ref HEAD)
 # if on commit hash
 if [[ $HEAD == 'HEAD' ]]; then
-  HEAD=$(cat .git/HEAD)
+  HEAD="$(cat .git/HEAD)"
 fi
 
 # Project Root
@@ -72,10 +73,10 @@ function gsa() {
 alias gsp='git stash pop'
 
 # Git Pull Push
-function gpp() {
-  git pull origin "$HEAD"
-  git push origin "$HEAD"
-}
+# function gpp() {
+#   git pull origin "$HEAD"
+#   git push origin "$HEAD"
+# }
 
 # Git Pull
 function gpl() {
@@ -197,4 +198,20 @@ alias gst='git status -s'
 # Git Overwrite local Changes
 function gol() {
   git fetch origin && git reset --hard origin/master
+}
+
+# Setup a new repository
+function gsetup() {
+  echo "${Yellow}git init${Off}"
+  git init &&
+  echo "${Yellow}git add .${Off}"
+  git add . &&
+  echo "${Yellow}git commit -m "first commit"${Off}"
+  git commit -m "first commit" &&
+  echo "${Yellow}git remote add origin $1 ${Off}"
+  git remote add origin "$1" &&
+  echo "${Yellow}git pull origin master${Off}"
+  git pull origin master
+  echo "${Yellow}git push origin master${Off}"
+  git push origin master
 }
