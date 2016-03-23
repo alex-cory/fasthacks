@@ -3,7 +3,15 @@
 	"caret_style": "phase",
 	"close_windows_when_empty": false,
 	"color_scheme": "Packages/User/SublimeLinter/Solarized (Dark) (SL).tmTheme",
-	"font_size": 14,
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		"node_modules"
+	],
+	"font_size": 12,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -16,16 +24,19 @@
 		"SFTP",
 		"SmartMarkdown",
 		"Terminal",
-		"tern_for_sublime",
 		"Vintage",
 		"Vintageous"
 	],
+	"line_numbers": true,
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
+	"overlay_scroll_bars": "enabled",
 	"scroll_past_end": true,
 	"show_full_path": true,
+	"tab_size": 2,
 	"theme": "SoDaReloaded Dark.sublime-theme",
+	"translate_tabs_to_spaces": false,
 	"trim_trailing_white_space_on_save": true,
 	"vintageous_use_ctrl_keys": false,
-	"word_wrap": true
+	"word_wrap": false
 }

@@ -158,6 +158,15 @@
         }
     },
 
+    /* Supposed to toggle line numbers */
+    {
+        "keys": ["super+l", "super+n"],
+        "command": "toggle_setting",
+        "args": {
+            "setting": "line_numbers"
+        }
+    },
+
     /* The PHP Manual:  Using Goto Documentation  (now I use the Dash lookup because it's faster :p ) */
     // { "keys": ["f1"], "command": "goto_documentation" },
 

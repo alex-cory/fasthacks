@@ -6,6 +6,16 @@ source ~/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/glob
 # Bash Style Guide: (http://bit.ly/1H7w1IX)
 # How To Activate Aliases (use: source ~/.bashrc)
 
+# Create files and parent directories simultaniously
+# ex: ptouch path/to/dir/file.txt
+ptouch() {
+  for p in "$@"; do
+    _dir="$(dirname -- "$p")"
+    [ -d "$_dir" ] || mkdir -p -- "$_dir"
+    touch -- "$p"
+  done
+}
+
 # Install leveraging all package managers
 function in() {
   # TODO
@@ -33,6 +43,9 @@ alias bwl="bower list"
 alias bwit="bower init"
 alias bwh="bower help"
 alias bwv="bower version"
+alias bwlp="bower list --paths"
+alias bwis="bower install --save"
+alias bwus="bower uninstall --save"
 
 # React Native Shortcuts
 alias rn="react-native"
@@ -288,6 +301,7 @@ function up() {
     sudo npm cache clean -f;
     sudo npm install -g n;
     sudo n stable;
+    npm install -g bower;
     # Current Versions
     echo "\n-------- Versions --------"
     echo "${RED}$(brew -v)";
@@ -807,6 +821,10 @@ alias .bp='vim ~/.bash_profile'
 
 # NPM Helpers
 alias .n='vim $NPM_SHORTCUTS'
+
+# Babelrc
+alias .bb="vim $DOT/.babelrc"
+alias .babel="vim $DOT/.babelrc"
 
 # Karabiner Private.xml
 alias .k='vim $KARABINER_PRIVATE'

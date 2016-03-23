@@ -1,8 +1,8 @@
 #!/bin/bash
 # Filename: error_checking.sh
 # source '/etc/globals'
-source 'colors.sh'
-source 'helpers.sh'
+source './colors'
+source './helpers.sh'
 
 function checkStatus() {
   # Broken Symlink

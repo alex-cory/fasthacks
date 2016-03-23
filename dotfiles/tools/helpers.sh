@@ -166,3 +166,9 @@ function paginate_if_long() {
     echo "$@"
   fi
 }
+
+# TODO: when complete, is supposed to tell if output is a javascript object
+#       so it can be parsed as json with `jq`
+function is_js_object() {
+  echo "$@"
+}

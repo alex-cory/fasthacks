@@ -16,7 +16,11 @@ $cli set remap.four2shiftCommand 1
 /bin/echo -n .
 $cli set remap.simple_vi_mode 1
 /bin/echo -n .
+$cli set repeat.initial_wait 1000
+/bin/echo -n .
 $cli set remap.two2tabOnHold 1
+/bin/echo -n .
+$cli set repeat.keyoverlaidmodifier_initial_wait 200
 /bin/echo -n .
 $cli set remap.three2commandRonHold 1
 /bin/echo -n .
@@ -41,6 +45,8 @@ $cli set private.focusChromeAndRefresh 1
 $cli set remap.rightBracket2commandRonHold 1
 /bin/echo -n .
 $cli set private.hotKey_Google_Chrome 1
+/bin/echo -n .
+$cli set remap.hotkey_ST 1
 /bin/echo -n .
 $cli set parameter.mousekey_high_speed_of_pointer 0
 /bin/echo -n .

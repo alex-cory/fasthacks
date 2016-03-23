@@ -11,8 +11,11 @@ alias nlsg="ls /usr/local/lib/node_modules/"
 # Path to all globally installed packages
 alias npmGlobalModules='/usr/local/lib/node_modules/'
 
+# Save Dev
+alias nisd='npm install --save-dev' # -D
+
 # Node
-alias nd="node" 
+alias nd="node"
 
 # Start
 alias ns='npm start'

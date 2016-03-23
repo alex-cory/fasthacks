@@ -118,5 +118,10 @@
     "name": "NPM Config: .npmrc --- hardlink:/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/npm/.npmrc, softLink:/Users/AlexCory/.npmrc",
     "hardLink": "",
     "softLink": ""
+  },
+  {
+    "name": "Babel Config: .babelrc",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/.babelrc",
+    "softLink": "/Users/AlexCory/.babelrc"
   }
 ]
