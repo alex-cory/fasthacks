@@ -61,14 +61,14 @@ alias nt='npm test'
 
 # Fix Issues --Hard
 function nf() {
-  rm -rf ./node_modules;
-  npm clear cache;
-  npm clean cache;
+  rm -rf ./node_modules &&
+  npm cache clear &&
+  npm cache clean &&
   npm install;
 }
 
 # Fix Issues
 function nfh() {
-  npm clear cache;
-  npm clean cache;
+  npm cache clear;
+  npm cache clean ;
 }
