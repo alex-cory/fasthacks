@@ -8,6 +8,10 @@ General Notes
   - A network socket is an endpoint of an inter-process
     communication across a computer network.
     
+#### UMD: Universal Module Definition
+
+#### AMD: Asynchronous Module Definition
+
 #### [ASCII](http://bit.ly/1Kd9XhD): American Standard Code for Information Interchange
   
 #### [CAS](http://bit.ly/1GtDzcH): Central Authentication Service

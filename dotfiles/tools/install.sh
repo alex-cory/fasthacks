@@ -46,6 +46,8 @@
 #   - pip install awscli
 # - go
 #   - brew install go
+# - gulp
+#   - npm install -g gulp-cli
 
 # Applications
 # - Alfred
