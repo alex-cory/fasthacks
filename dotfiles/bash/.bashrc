@@ -6,13 +6,13 @@ source ~/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/glob
 # Bash Style Guide: (http://bit.ly/1H7w1IX)
 # How To Activate Aliases (use: source ~/.bashrc)
 
-# Create files and parent directories simultaniously
-# ex: ptouch path/to/dir/file.txt
-ptouch() {
+# Better touch: Create files and parent directories simultaniously
+# ex: touch path/to/dir/file.txt
+touch() {
   for p in "$@"; do
     _dir="$(dirname -- "$p")"
     [ -d "$_dir" ] || mkdir -p -- "$_dir"
-    touch -- "$p"
+    command touch -- "$p"
   done
 }
 
@@ -56,6 +56,9 @@ alias gi="gem install"
 
 # Details about an alias. (might not work properly on some machines, but should spit out the code for an alias with syntax highlighting)
 function details() {
+  which "$@" | pygmentize -l sh
+}
+function deets() {
   which "$@" | pygmentize -l sh
 }
 
@@ -938,10 +941,10 @@ alias apache-error-log='tail -f /Applications/MAMP/logs/apache_error.log'
 alias v='vim'
 
 # See http://www.shellperson.net/using-sudo-with-an-alias/
-alias sudo='sudo '
+# alias sudo='sudo'
 
 # Quicker Sudo
-alias s='sudo '
+alias s='sudo'
 
 # Quicker Exit/Quit
 alias q='exit'
