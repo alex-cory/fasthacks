@@ -16,6 +16,10 @@ Video Tutorials
  - [Getting Started with webpack](https://www.youtube.com/watch?v=TaWKUpahFZM) (youtube)
  - [Introduction to Webpack by Jeremy Lund](https://www.youtube.com/watch?v=RKqRj3VgR_c) (youtube)
  - [Advanced Webpack](https://www.youtube.com/watch?v=MzVFrIAwwS8&nohtml5=False) (youtube)
+ - [OSCON 2014: How Instagram.com Works; Pete Hunt](https://www.youtube.com/watch?v=VkTCL6Nqm6Y)
+ - [Efficient Static Assets Pipeline with Webpack](https://www.youtube.com/watch?v=w1dAb_Umt8o)
+ - [JavaScript Ep 15: Webpack Basics](https://www.youtube.com/watch?v=BWpgk4_GJTk)
+ - [JavaScript Ep. 16: Webpack Context](https://www.youtube.com/watch?v=VnrzGbVi79o)
 
 
 <!--Section B
