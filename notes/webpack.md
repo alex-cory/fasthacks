@@ -15,6 +15,7 @@ Video Tutorials
  - [Webpack Tutorial - Replace Gulp/Grunt plugins with a single tool](https://www.youtube.com/watch?v=9kJVYpOqcVU) (youtube)
  - [Getting Started with webpack](https://www.youtube.com/watch?v=TaWKUpahFZM) (youtube)
  - [Introduction to Webpack by Jeremy Lund](https://www.youtube.com/watch?v=RKqRj3VgR_c) (youtube)
+ - [Advanced Webpack](https://www.youtube.com/watch?v=MzVFrIAwwS8&nohtml5=False) (youtube)
 
 
 <!--Section B
