@@ -520,6 +520,11 @@
 				<key>date</key>
 				<date>2015-03-10T23:42:09Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/React.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2016-04-04T21:25:20Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/Sass.xml</key>
 			<dict>
 				<key>date</key>
