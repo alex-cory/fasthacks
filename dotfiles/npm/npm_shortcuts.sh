@@ -14,6 +14,9 @@ alias npmGlobalModules='/usr/local/lib/node_modules/'
 # Save Dev
 alias nisd='npm install --save-dev' # -D
 
+# Uninstall Save Dev
+alias nusd='npm uninstall --save-dev'
+
 # Node
 alias nd="node"
 

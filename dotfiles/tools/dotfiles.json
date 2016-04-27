@@ -120,8 +120,13 @@
     "softLink": ""
   },
   {
-    "name": "Babel Config: .babelrc",
+    "name": "Babel Config: .babelrc /* I think this only works per project, but I could be wrong */",
     "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/.babelrc",
     "softLink": "/Users/AlexCory/.babelrc"
+  },
+  {
+    "name": "Rsync Ignore: .rsyncignore",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/.rsyncignore",
+    "softLink": "/Users/AlexCory/.rsyncignore"
   }
 ]
