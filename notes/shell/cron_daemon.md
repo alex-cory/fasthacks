@@ -1,11 +1,16 @@
 cron
+====
 
-Examples
+#### Examples
+
 The following specifies that the Apache error log clears at one minute past midnight (00:01) of every day of the month, of every day of the week, assuming that the default shell for the cron user is Bourne shell compliant:
 
+```sh
 1 0 * * *  printf > /var/log/apache/error_log
+```
 The following line makes the user program test.pl—ostensibly a Perl script—run every two hours, at midnight, 2am, 4am, 6am, 8am, and so on:
 
+```sh
 0 */2 * * *  /home/username/test.pl
 Another example showing how to run a shell program called export_dump.sh at 0th minute of 20th hour, every day.
 
