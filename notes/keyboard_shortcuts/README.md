@@ -10,6 +10,7 @@ Applications
 **[Ulysses](./ulysses.md)**   
 **[Sublime Text](#sublime-text)**   
 **[IntelliJ](./intellij.md)**  
+**[Github](./github.md)**  
 
 
 
