@@ -1,8 +1,0 @@
-ps
-
-The ps command displays information about programs (i.e., processes) that are currently running. Entered without arguments, it lists basic information about interactive processes you own. However, it also has many options for determining what processes to display, as well as the amount of information about each. Like lp and lpr, the options available differ between BSD and System V implementations. For example, to view detailed information about all running processes, in a BSD system, you would use ps with the following arguments:
-
-  ps -alxww
-To display similar information in System V, use the arguments:
-
-  ps -elf
