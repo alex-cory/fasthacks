@@ -48,6 +48,8 @@
 #   - brew install go
 # - gulp
 #   - npm install -g gulp-cli
+# - fast-cli
+#   - npm install --global fast-cli
 
 # Applications
 # - Alfred

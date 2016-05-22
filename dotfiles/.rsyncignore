@@ -21,3 +21,5 @@ ey.yml
 config/unicorn.rb
 fsevent_rsync.rb
 .gitmodules
+*.sublime-project
+*.sublime-workspace

@@ -6,9 +6,15 @@ source ~/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/glob
 # Bash Style Guide: (http://bit.ly/1H7w1IX)
 # How To Activate Aliases (use: source ~/.bashrc)
 
+# Better file compression
+function zip() {
+  # command zip -r "$1.zip" "$1" -x "*/\.DS_Store"
+  command zip -r "$1.zip" "$1"
+}
+
 # Better touch: Create files and parent directories simultaniously
 # ex: touch path/to/dir/file.txt
-touch() {
+function touch() {
   for p in "$@"; do
     _dir="$(dirname -- "$p")"
     [ -d "$_dir" ] || mkdir -p -- "$_dir"
@@ -812,6 +818,10 @@ alias .d="vim $DOT/docker_shortcuts.sh"
 
 # Edit SSH Config
 alias .ssh="vim $HOME/.ssh/config"
+
+# Edit .rsyncignore
+alias .rsync="vim $HOME/.rsyncignore"
+alias .ri="vim $HOME/.rsyncignore"
 
 # open `b`ashrc in `t`erminal
 alias .b='vim ~/.bashrc'

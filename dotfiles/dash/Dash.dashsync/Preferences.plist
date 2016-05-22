@@ -156,7 +156,7 @@
 			<key>HTTP_Status_Codes</key>
 			<dict>
 				<key>date</key>
-				<date>2015-07-06T23:10:05Z</date>
+				<date>2016-05-14T01:43:31Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -354,6 +354,8 @@
 			<string>exp</string>
 			<key>~/Library/Application Support/Dash/DocSets/JavaScript/JavaScript.docset</key>
 			<string>js:</string>
+			<key>~/Library/Application Support/Dash/DocSets/Java_SE8/Java.docset</key>
+			<string>java:</string>
 			<key>~/Library/Application Support/Dash/DocSets/Lo-Dash/Lo-Dash.docset</key>
 			<string>l</string>
 			<key>~/Library/Application Support/Dash/DocSets/Markdown/Markdown.docset</key>
