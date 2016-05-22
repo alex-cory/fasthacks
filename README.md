@@ -10,8 +10,8 @@ When you found out this actually existed.
 
 | Idea/Command/Feature      | Description                              | Status                                   |
 | ------------------------- | ---------------------------------------- | ---------------------------------------- |
-| `fh`                      | if no arguments are passed, shows a list maybe of what all fasthacks does | Not Started                              |
-| `ls`                      | Colored `ls`! Woohoo!  ![Alt text](./assets/ls.gif) | Done                                     |
+| `fh`                      | if no arguments are passed, shows a list maybe of what all fasthacks does | Not Started |
+| `ls`                      | Colored `ls`! Woohoo!  ![Alt text](./assets/ls.gif) | Done                           |
 | `py`                      | Amazing python REPL with autosuggestions, syntax highlighting, etc.  ![Alt text](./assets/py.gif) | Done                                     |
 | `t` or `task`             | todo app                                 | Not Started                              |
 | `pathm`                   | tool for helping you manage your machines `$PATH`.  Things often get lost, out of order, and it can be confusing to keep track of it all.  This will have a json file with all the paths in it call `paths.json`. | Not Started                              |
@@ -21,10 +21,10 @@ When you found out this actually existed.
 | `use`                     | switch between versions of anything (ex: use ruby 2.1, use nodejs 3.7, etc.) | Not Started                              |
 | `theme`                   | switch between themes for everything in your terminal or specific programs. | Not Started                              |
 | `details`                 | Similar to doing `which cmd` where `cmd` is a function or alias you have in your .bashrc or elsewhere.  <br> Ex:   <br>`$ details up `<br>` Description: Updates everything if no argumetns passed or updates the specified program. `<br>` Example: up vim `<br>` Location: .bashrc on line 21 `<br>` Path: ~/.bashrc `<br> It's not complete, but here's where we're at currently. ![Alt text](./assets/details.gif) | Started, but not even close              |
-|` edit                    `| quickly edit your functions and aliases for your dotfiles. | Not Started                              |
+|` edit                    `| quickly edit your functions and aliases for your dotfiles. | Not Started            |
 |` cat                     `| Colored` cat `output! The goal is for syntax highlighting! ![Alt text](./assets/cat.gif) | Not Production Quality                   |
-|` less                    `| Colored` less `output! The goal is for syntax highlighting! | Not Production Quality                   |
-|` man                     `| Colored` man `pages! The goal is for syntax highlighting!  ![Alt text](./assets/man.gif) | Done                                     |
+|` less                    `| Colored` less `output! The goal is for syntax highlighting! | Not Production Quality |
+|` man                   `| Colored` man `pages! The goal is for syntax highlighting!  ![Alt text](./assets/man.gif) | Done |
 |` top                     `| Colored` top`!  It uses a program called` htop `to do this currently with an alias in the` .bashrc`. ![Alt text](./assets/top.gif) | Done                                     |
 |` ssh                     `| Setup default servers you go to the most so all you have to do is type` ssh `and boom presto shazam. | Done, needs reviews                      |
 |` pv `or` preview         `| Colored preview of file.  It also allows you to lookup what an alias or command does.  ![Alt text](./assets/pv.gif) | Not Production Quality                   |
@@ -45,6 +45,7 @@ When you found out this actually existed.
 |` hh `or` ctrl + r        `| Better command history searching.  It uses a program called` hstr`.  ![Alt text](./assets/hh.gif) | Done                                     |
 |` ag                      `| Pagination for the silver searcher.  If the results of what you searched for are longer than the screen of your console, it will paginate it. Press` q` to quit pagination. ![Alt text](./assets/ag.gif) | Done                                     |
 | alias tips                | When you type a command where you already have an alias for it, it will display that below your prompt.  ![Alt text](./assets/alias-tips.gif) | Done                                     |
+| `fast`   | Internet speed! ![alt text](./assets/fast.gif "Title") | Done |
 
 ## Theme
 
