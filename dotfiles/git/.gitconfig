@@ -7,8 +7,11 @@
 	editor = /usr/local/bin/vim
 
 [alias]
-    ch = checkout
-    br = branch
+        ch = checkout
+        br = branch
+        o = origin
+        m = master
+	conflicts = diff --name-only --diff-filter=U
 
 [url "https://bitbucket.org/"]
     insteadOf = bb:

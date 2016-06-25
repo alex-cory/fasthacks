@@ -3,7 +3,9 @@
 
 # NPM Quickes   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Npm
-alias n='npm'
+# alias n='npm'
+
+alias nif='npm init -f'
 
 # List all globally install packages
 alias nlsg="ls /usr/local/lib/node_modules/"
@@ -52,6 +54,7 @@ alias nigs="npm install -g $@ --save"
 
 # Install and Save
 alias niss="npm install $@ --save"
+alias niS="npm install $@ --save"
 
 # Install and Start
 alias nis='npm install && npm start'
@@ -65,6 +68,7 @@ alias nt='npm test'
 # Fix Issues --Hard
 function nf() {
   rm -rf ./node_modules &&
+  npm prune &&
   npm cache clear &&
   npm cache clean &&
   npm install;

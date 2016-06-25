@@ -648,7 +648,7 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>3489 235 445 103 1440 202 2560 1440 </string>
+	<string>758 373 445 77 0 0 1440 900 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>410 444 606 456 0 0 1440 900 </string>
 	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
@@ -1275,7 +1275,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Monaco 12</string>
+			<string>RobotoMonoForPowerline-Regular 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prevent Opening in a Tab</key>
@@ -1451,7 +1451,7 @@
 			<key>Use Tab Color</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>1</real>
+			<real>0.85258024284638556</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
@@ -6679,10 +6679,14 @@
 			<string>/Users/AlexCory</string>
 		</dict>
 	</array>
+	<key>NoSyncConfirmBeta</key>
+	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>0</integer>
+	<key>NoSyncInstallationId</key>
+	<string>25FEF1C3-221F-4A26-908B-D38EB37B50B7</string>
 	<key>NoSyncLastTipTime</key>
 	<real>471086231.58617997</real>
 	<key>NoSyncNeverRemindPrefsChangesCopy</key>
@@ -6725,6 +6729,8 @@
 	<false/>
 	<key>PasteFromClipboard</key>
 	<false/>
+	<key>PasteTabToStringTabStopSize</key>
+	<integer>2</integer>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -6775,11 +6781,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing3.xml</string>
+	<string>https://iterm2.com/appcasts/testing3.xml?shard=69</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-04-28T06:32:43Z</date>
+	<date>2016-06-23T01:06:51Z</date>
 	<key>SUSkippedVersion</key>
 	<string>2.1.4</string>
 	<key>SavePasteHistory</key>
@@ -12327,7 +12333,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20160313</string>
+	<string>3.0.2</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>1</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

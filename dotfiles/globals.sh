@@ -164,4 +164,5 @@ source "$DOT/tools/spitcolors.sh"
 # source "$DOT/tools/resymlink.sh"
 source "$DOT/python/python_shortcuts.sh"
 source "$DOT/docker_shortcuts.sh"
+source "$LR/table.co/.tablerc"
 # .profile is sourced in .bash_profile

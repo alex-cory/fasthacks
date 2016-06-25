@@ -100,7 +100,7 @@ DEFAULT_USER="Alex"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby sublime command-not-found taskwarrior alias-tips osx chucknorris)
+plugins=(git ruby sublime command-not-found taskwarrior alias-tips osx chucknorris ) # vi-mode
 plugins+=(zsh-completions docker)
 autoload -U compinit && compinit
 
@@ -121,7 +121,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 # Django
-export PATH="$PYENV_ROOT/bin:$PATH"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 
 # Citrix
@@ -140,7 +141,7 @@ export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
 # AWS
-export PATH=$PATH:$AWS_IAM_HOME/bin
+# export PATH=$PATH:$AWS_IAM_HOME/bin
 
 # Docker    (TODO: I feel like I shouldn't have to do this)
 # eval "$(docker-machine env default)"
@@ -151,3 +152,9 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 # Zsh Completions for AWS tool
 source '/Users/AlexCory/.pyenv/versions/3.4.0/lib/python3.4/site-packages/awscli/bin/aws_zsh_completer.sh'
 
+
+# The next line updates PATH for the Google Cloud SDK.
+# source '/Users/AlexCory/Downloads/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+# source '/Users/AlexCory/Downloads/google-cloud-sdk/completion.zsh.inc'

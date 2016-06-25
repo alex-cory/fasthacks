@@ -6,6 +6,36 @@ source ~/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/glob
 # Bash Style Guide: (http://bit.ly/1H7w1IX)
 # How To Activate Aliases (use: source ~/.bashrc)
 
+es2016 () {
+  PROJECT_ROOT=$(git rev-parse --show-toplevel)
+  cd $PROJECT_ROOT
+  BABELRC='{
+    "ignore": [
+      "src/server/public/bundle.js"
+    ],
+    "presets": [
+      "node6",
+      "async-to-bluebird",
+      "react"
+    ],
+    "plugins": [
+      "transform-decorators-legacy",
+      "transform-class-properties",
+      "transform-function-bind"
+    ]
+  }'
+  echo $BABELRC >> .babelrc
+  npm i -S babel-plugin-transform-function-bind babel-preset-async-to-bluebird bluebird babel-plugin-transform-decorators-legacy babel-preset-node6 babel-plugin-transform-class-properties babel-plugin-transform-async-to-generator babel-preset-react
+}
+
+# Tells you where a bash function is defined!
+# http://brettterpstra.com/projects/where/
+# http://brettterpstra.com/2015/03/21/a-bash-function-for-finding-your-bash-functions/
+# http://superuser.com/questions/144772/finding-the-definition-of-a-bash-function#answer-229038
+# function where() {
+# TODO
+# }
+
 # Better file compression
 function zip() {
   # command zip -r "$1.zip" "$1" -x "*/\.DS_Store"
@@ -14,7 +44,7 @@ function zip() {
 
 # Better touch: Create files and parent directories simultaniously
 # ex: touch path/to/dir/file.txt
-function touch() {
+touch() {
   for p in "$@"; do
     _dir="$(dirname -- "$p")"
     [ -d "$_dir" ] || mkdir -p -- "$_dir"
@@ -23,14 +53,14 @@ function touch() {
 }
 
 # Install leveraging all package managers
-function in() {
+# function in() {
   # TODO
-}
+# }
 
 # Un leveraging all package managers
-function un() {
+# function un() {
   # TODO
-}
+# }
 
 # Android
 alias a="android"
@@ -772,6 +802,9 @@ alias .helpers="vim $DOT/tools/helpers.sh"
 
 # The alias that takes me here - to editing these very aliases
 alias .pr='vim ~/.profile'
+
+# Edit git config
+alias .gc="vim $HOME/.gitconfig"
 
 # I do a lot of web development, so I need to edit these non-owned files fairly often
 alias .h='vim /etc/hosts'

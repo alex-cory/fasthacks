@@ -4,7 +4,7 @@
 # alias gstlast='git ls-files --other --modified --exclude-standard|while read filename; do  echo -n "$(stat -c%y -- $filename 2> /dev/null) "; echo $filename;  done|sort'
 
 # TODO: fix the errors when you `src` in a git repo that hasn't been initialized yet
-# Current Branch / HEAD Commit Hash (if not on branch, tip)
+# Current Branch / HEAD Commit Hash (if not on branch, return the tip hash)
 HEAD=$(git rev-parse --abbrev-ref HEAD)
 # if on commit hash
 if [[ $HEAD == 'HEAD' ]]; then
@@ -108,7 +108,7 @@ alias glme="git log --graph --abbrev-commit --decorate --format=format:'%C(bold 
 alias tree="git log --pretty=format:\"%C(green)%h %C(magenta)(%ar) %C(blue)%an %C(reset)%s\""
 
 # Pretty Git Log All
-alias gla="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(red)- %an%C(reset)' --all"
+# alias gla="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(red)- %an%C(reset)' --all"
 alias gl1="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 
 # Pretty Git Log All Detailed
@@ -133,6 +133,8 @@ function gam() {
 
 # Git Add Commit All (gac = git <add> <commit>)
 function gac() {
+  cd $PROJECT_ROOT
+  git add -A
   # if 1 argument (i.e. gac `you commit message`)
   if [ "$#" == 1 ]; then
     git commit -a -m "$1"
@@ -140,6 +142,7 @@ function gac() {
   elif [ "$#" == 2 ]; then
     git commit "$1"am "$2"
   fi
+  cd -
 }
 
 # Git Pull Origin
@@ -159,13 +162,18 @@ alias gcm="git checkout master"
 function gacpp() {
   # if 1 argument (i.e. gac `you commit message`)
   if [ "$#" == 1 ]; then
+    cd $PROJECT_ROOT
+    git add -A
     git commit -a -m "$1"
     # if 2 arguments (i.e. gac `-n` "your commit message")
   elif [ "$#" == 2 ]; then
+    cd $PROJECT_ROOT
+    git add -A
     git commit "$1"am "$2"
   fi
   git pull origin "$HEAD";
   git push origin "$HEAD";
+  cd -
 }
 
 # Git Quick Update Pull & Push  (gacfrp = git <add> <commit> <fetch> <rebase> <force push>)

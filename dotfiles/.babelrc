@@ -1,9 +1,15 @@
 {
-  "presets": ["es2015”, “stage-3”],
+  "ignore": [
+    "src/server/public/bundle.js"
+  ],
+  "presets": [
+    "node6",
+    "async-to-bluebird",
+    "react"
+  ],
   "plugins": [
-    "syntax-async-functions",
-    "transform-async-to-generator",
-    "transform-regenerator",
-    "transform-runtime"
+    "transform-decorators-legacy",
+    "transform-class-properties",
+    "transform-function-bind"
   ]
 }
