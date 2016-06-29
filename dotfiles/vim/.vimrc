@@ -88,7 +88,7 @@ nnoremap '' ``zz
 nnoremap `` ''
 
 " Auto-Refreshes NerdTree
-"set autoread
+:set autoread
 "au CursorHold * if exists("t:NerdTreeBufName") | call <SNR>15_refreshRoot() | endif
 
 " Vim Hard Mode UNCOMMENT AS SOON AS YOUR HAND STARTS FEELING BETTER!!!!!
@@ -101,6 +101,8 @@ nnoremap `` ''
 
 """ Installed plugins
 
+" Python syntax and style checker
+Plugin 'nvie/vim-flake8'
 " Vim Taskwarrior: managing tasks within vim
 Bundle 'farseer90718/vim-taskwarrior'
 " command Around/In function  'DOESN'T WORK WITH JS :(
@@ -539,6 +541,15 @@ let g:airline_symbols.linenr = ''
 :nmap <leader>yi{ 0f{yi{
 :nmap <leader>yi} 0f}yi}
 
+" PEP8/flake8 Setup
+" let g:PyFlakeOnWrite = 1
+" autocmd BufWritePost *.py call Flake8()
+
+" Syntastic Setup
+let g:syntastic_javascript_checkers = ['standard']
+" automatic formatting on save
+autocmd bufwritepost *.js silent !standard-format -w %
+set autoread
 
 " The Silver Searcher
 if executable('ag')
@@ -711,6 +722,8 @@ function! StartUpNerdtree()
 endfunction
 
 autocmd VimEnter * call StartUpNerdtree()
+" Nerd Tree Ignore certain files by extension
+let NERDTreeIgnore = ['\.pyc$']
 " }}} "
 
 " Key Mappings {{{
