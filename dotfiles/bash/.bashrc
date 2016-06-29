@@ -1,4 +1,4 @@
-source ~/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/globals.sh
+# source ~/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/globals.sh
 # ////////////////////////////////////////////////////////////////////
 # //                     Bash Configuration                         //
 # ////////////////////////////////////////////////////////////////////
@@ -44,7 +44,7 @@ es2016() {
   fi
 
   if [ "$setup_es2016" = true ]; then
-    echo $BABELRC >> .babelrc
+    echo $BABELRC > .babelrc
     npm i -S babel-plugin-transform-function-bind babel-plugin-transform-decorators-legacy babel-preset-node6 babel-plugin-transform-class-properties babel-plugin-transform-async-to-generator babel-preset-react && npm i -g babel-cli
   fi
 }

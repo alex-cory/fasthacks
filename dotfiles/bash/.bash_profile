@@ -8,7 +8,7 @@
 #   a. file path completion
 #   b. tab completion
 # Super Globals
-source "/etc/globals.sh"
+# source "/etc/globals.sh"
 
 
 #######################################

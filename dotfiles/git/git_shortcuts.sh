@@ -5,7 +5,7 @@
 
 # TODO: fix the errors when you `src` in a git repo that hasn't been initialized yet
 # Current Branch / HEAD Commit Hash (if not on branch, return the tip hash)
-HEAD=$(git rev-parse --abbrev-ref HEAD)
+HEAD="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
 # if on commit hash
 if [[ $HEAD == 'HEAD' ]]; then
   HEAD="$(cat .git/HEAD)"
