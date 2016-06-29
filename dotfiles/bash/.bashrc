@@ -6,9 +6,8 @@ source ~/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/glob
 # Bash Style Guide: (http://bit.ly/1H7w1IX)
 # How To Activate Aliases (use: source ~/.bashrc)
 
+# Set up your node repos with ES2016
 es2016 () {
-  PROJECT_ROOT=$(git rev-parse --show-toplevel)
-  cd $PROJECT_ROOT
   BABELRC='{
     "ignore": [
       "src/server/public/bundle.js"
@@ -24,8 +23,29 @@ es2016 () {
       "transform-function-bind"
     ]
   }'
-  echo $BABELRC >> .babelrc
-  npm i -S babel-plugin-transform-function-bind babel-preset-async-to-bluebird bluebird babel-plugin-transform-decorators-legacy babel-preset-node6 babel-plugin-transform-class-properties babel-plugin-transform-async-to-generator babel-preset-react
+  setup_es2016=false
+
+  inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
+  if [ "$inside_git_repo" ]; then
+    PROJECT_ROOT=$(git rev-parse --show-toplevel)
+    cd $PROJECT_ROOT
+    setup_es2016=true
+
+  elif [ ! -f ./package.json ] || [ ! -d ./node_modules ]; then
+    echo -n "We didn't see a package.json or a node_modules folder. \nAre you in the root folder of your project? (y or n): "
+    read answer
+    if [ $(echo "$answer" | grep -iq "^y") ]; then
+      echo "Yes"
+      setup_es2016=true
+    else
+        echo "\n\`cd\` in to your project root and run \`es2016\` again"
+    fi
+  fi
+
+  if [ "$setup_es2016" = true ]; then
+    echo $BABELRC >> .babelrc
+    npm i -S babel-plugin-transform-function-bind babel-preset-async-to-bluebird bluebird babel-plugin-transform-decorators-legacy babel-preset-node6 babel-plugin-transform-class-properties babel-plugin-transform-async-to-generator babel-preset-react && npm i -g babel-cli
+  fi
 }
 
 # Tells you where a bash function is defined!
