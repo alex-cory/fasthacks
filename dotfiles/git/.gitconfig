@@ -5,6 +5,7 @@
 [core]
 	excludesfile = /Users/AlexCory/.gitignore_global
 	editor = /usr/local/bin/vim
+        t = tableco
 
 [alias]
         ch = checkout
@@ -13,12 +14,20 @@
         m = master
 	conflicts = diff --name-only --diff-filter=U
         lg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+        # list branches sorted by last modified
+        b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
 
 [url "https://bitbucket.org/"]
     insteadOf = bb:
 
 [url "https://github.com/"]
     insteadOf = gh:
+
+[url "git@github.com:"]
+    insteadOf = :
+
+[url "git@github.com:tableco/"]
+    insteadOf = t:
 
 [url "https://gist.github.com/"]
     insteadOf = gist:

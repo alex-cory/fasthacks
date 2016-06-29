@@ -50,6 +50,15 @@
 #   - npm install -g gulp-cli
 # - fast-cli
 #   - npm install --global fast-cli
+# - jsawk - like awk but for json
+#   - brew install jsawk
+# - bropages
+#   - sudo gem install -n /usr/local/bin bropages
+# - resty - REST client for makeing requests to apis
+#   - brew install resty
+# - spidermonkey - run js in the terminal
+#   - brew install spidermonkey
+
 
 # Applications
 # - Alfred

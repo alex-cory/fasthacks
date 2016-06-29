@@ -7,9 +7,15 @@
 # How To Activate Aliases (use: source ~/.bashrc)
 
 # Work related (grab token from email)
-# TOKEN() {
-#   obj="$(http localhost:8080/api/profile?email=$1)"
-# }
+token() {
+  email="alex@table.co"
+  obj="$(http :8080/api/profile?email=$email)"
+  echo $obj
+  # # id = echo $obj | jsawk 'return this.id'
+  # id="$(echo $obj | jq '.[].id')"
+  # tokenobj="$(http :8080/api/)"
+  # echo $id
+}
 
 # Set up your node repos with ES2016
 es2016() {

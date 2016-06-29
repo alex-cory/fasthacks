@@ -55,6 +55,14 @@ alias gch='git checkout'
 #   fi
 # }
 
+# Git Clone
+# ex: gcl visionmedia/express
+# function gcl() {
+  # cd into repo
+  # if there's a package.json, run npm install
+#   
+# }
+
 # Git Stash
 alias gs='git stash'
 
