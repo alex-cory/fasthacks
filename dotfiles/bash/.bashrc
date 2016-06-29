@@ -6,15 +6,16 @@ source ~/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/glob
 # Bash Style Guide: (http://bit.ly/1H7w1IX)
 # How To Activate Aliases (use: source ~/.bashrc)
 
+# Work related (grab token from email)
+# TOKEN() {
+#   obj="$(http localhost:8080/api/profile?email=$1)"
+# }
+
 # Set up your node repos with ES2016
-es2016 () {
+es2016() {
   BABELRC='{
-    "ignore": [
-      "src/server/public/bundle.js"
-    ],
     "presets": [
       "node6",
-      "async-to-bluebird",
       "react"
     ],
     "plugins": [
@@ -44,7 +45,7 @@ es2016 () {
 
   if [ "$setup_es2016" = true ]; then
     echo $BABELRC >> .babelrc
-    npm i -S babel-plugin-transform-function-bind babel-preset-async-to-bluebird bluebird babel-plugin-transform-decorators-legacy babel-preset-node6 babel-plugin-transform-class-properties babel-plugin-transform-async-to-generator babel-preset-react && npm i -g babel-cli
+    npm i -S babel-plugin-transform-function-bind babel-plugin-transform-decorators-legacy babel-preset-node6 babel-plugin-transform-class-properties babel-plugin-transform-async-to-generator babel-preset-react && npm i -g babel-cli
   fi
 }
 
