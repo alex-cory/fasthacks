@@ -6,16 +6,6 @@
 # Bash Style Guide: (http://bit.ly/1H7w1IX)
 # How To Activate Aliases (use: source ~/.bashrc)
 
-# Work related (grab token from email)
-token() {
-  email="alex@table.co"
-  obj="$(http :8080/api/profile?email=$email)"
-  echo $obj
-  # # id = echo $obj | jsawk 'return this.id'
-  # id="$(echo $obj | jq '.[].id')"
-  # tokenobj="$(http :8080/api/)"
-  # echo $id
-}
 
 # Set up your node repos with ES2016
 es2016() {
@@ -27,7 +17,8 @@ es2016() {
     "plugins": [
       "transform-decorators-legacy",
       "transform-class-properties",
-      "transform-function-bind"
+      "transform-function-bind",
+      "transform-async-to-generator"
     ]
   }'
   setup_es2016=false
@@ -42,7 +33,6 @@ es2016() {
     echo -n "We didn't see a package.json or a node_modules folder. \nAre you in the root folder of your project? (y or n): "
     read answer
     if [ $(echo "$answer" | grep -iq "^y") ]; then
-      echo "Yes"
       setup_es2016=true
     else
         echo "\n\`cd\` in to your project root and run \`es2016\` again"
@@ -53,6 +43,8 @@ es2016() {
     echo $BABELRC > .babelrc
     npm i -S babel-plugin-transform-function-bind babel-plugin-transform-decorators-legacy babel-preset-node6 babel-plugin-transform-class-properties babel-plugin-transform-async-to-generator babel-preset-react && npm i -g babel-cli
   fi
+  # go back to previous folder
+  cd -
 }
 
 # Tells you where a bash function is defined!
@@ -176,6 +168,7 @@ function ag() {
 
 # Enhance `remove`
 alias rmr="rm -r"
+alias rmrf="rm -rf"
 
 # Add alias on the fly
 # function add-alias() {

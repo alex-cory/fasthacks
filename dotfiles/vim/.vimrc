@@ -87,6 +87,17 @@ nnoremap <expr> vp '`[' . getregtype()[0] . '`]'
 nnoremap '' ``zz
 nnoremap `` ''
 
+" fun! PullAndRefresh()
+"   set noconfirm
+"   !git pull
+"   bufdo e!
+"   set confirm
+" endfun
+"
+" nmap <leader>gl call PullAndRefresh()
+
+" Should auto refresh after git pull (needs :set autoread too)
+" :checkt[ime]
 " Auto-Refreshes NerdTree
 :set autoread
 "au CursorHold * if exists("t:NerdTreeBufName") | call <SNR>15_refreshRoot() | endif
@@ -548,8 +559,8 @@ let g:airline_symbols.linenr = ''
 " Syntastic Setup
 let g:syntastic_javascript_checkers = ['standard']
 " automatic formatting on save
-autocmd bufwritepost *.js silent !standard-format -w %
-set autoread
+" autocmd bufwritepost *.js silent !standard-format -w %
+" set autoread
 
 " The Silver Searcher
 if executable('ag')

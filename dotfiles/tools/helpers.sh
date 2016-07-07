@@ -77,6 +77,17 @@ function contains() {
   fi
 }
 
+function file_contains() {
+  file="$1"
+  string="$2"
+  if grep -q $string "$file"; then
+    echo 1 # true
+
+  else
+    echo 0 # false
+  fi
+}
+
 ###
 # Simple for printing out arrays
 ###
