@@ -154,7 +154,7 @@ source '/Users/AlexCory/.pyenv/versions/3.4.0/lib/python3.4/site-packages/awscli
 
 
 # The next line updates PATH for the Google Cloud SDK.
-# source '/Users/AlexCory/Downloads/google-cloud-sdk/path.zsh.inc'
+source '/Users/AlexCory/Downloads/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables shell command completion for gcloud.
-# source '/Users/AlexCory/Downloads/google-cloud-sdk/completion.zsh.inc'
+source '/Users/AlexCory/Downloads/google-cloud-sdk/completion.zsh.inc'

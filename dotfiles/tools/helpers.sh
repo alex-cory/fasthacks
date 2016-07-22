@@ -77,6 +77,14 @@ function contains() {
   fi
 }
 
+function num_of_occurences() {
+  needle="$2"
+  haystack="$1"
+  chars="${haystack//[^$needle]}"
+  num="${#chars}"
+  echo "$num"
+}
+
 function file_contains() {
   file="$1"
   string="$2"

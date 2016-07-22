@@ -3,21 +3,93 @@
 
 # alias gstlast='git ls-files --other --modified --exclude-standard|while read filename; do  echo -n "$(stat -c%y -- $filename 2> /dev/null) "; echo $filename;  done|sort'
 
-# TODO: fix the errors when you `src` in a git repo that hasn't been initialized yet
-# Current Branch / HEAD Commit Hash (if not on branch, return the tip hash)
-HEAD="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
-# if on commit hash
-if [[ $HEAD == 'HEAD' ]]; then
-  HEAD="$(cat .git/HEAD)"
+# GIT GLOBALS
+# if you're currently in a git repository
+# function ingit_source() {
+#   inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
+#   if [ "$inside_git_repo" ]; then
+#     source "$1"
+#   else
+#     GIT_ERROR="${Red}Are you in a git repo?"
+#   fi
+# }
+
+# GIT COMMANDS ONLY AVAILABLE IN GIT REPOS
+inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
+if [ "$inside_git_repo" ]; then
+
+  # TODO: fix the errors when you `src` in a git repo that hasn't been initialized yet
+  # Current Branch / HEAD Commit Hash (if not on branch, return the tip hash)
+  HEAD="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
+  # if on commit hash
+  if [[ $HEAD == 'HEAD' ]]; then
+    HEAD="$(cat .git/HEAD)"
+  fi
+
+  # Project Root
+  PROJECT_ROOT=$(git rev-parse --show-toplevel)
+
+  # GitHub Aliases / Functions  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  # Git Exclude
+  alias .ge="vim $PROJECT_ROOT/.git/info/exclude"
+
+  # Git Add Commit All (gac = git <add> <commit>)
+  function gac() {
+    cd $PROJECT_ROOT
+    git add -A
+    # if 1 argument (i.e. gac `you commit message`)
+    if [ "$#" == 1 ]; then
+      git commit -a -m "$1"
+      # if 2 arguments (i.e. gac `-n` "your commit message")
+    elif [ "$#" == 2 ]; then
+      git commit "$1"am "$2"
+    fi
+    cd -
+  }
+
+
+
+  # Git Quick Update Pull & Push  (gacpp = git <add> <commit> <pull> <push>)
+  function gacpp() {
+    # if 1 argument (i.e. gac `you commit message`)
+    if [ "$#" == 1 ]; then
+      cd $PROJECT_ROOT
+      git add -A
+      git commit -a -m "$1"
+      # if 2 arguments (i.e. gac `-n` "your commit message")
+    elif [ "$#" == 2 ]; then
+      cd $PROJECT_ROOT
+      git add -A
+      git commit "$1"am "$2"
+    fi
+    git pull origin "$HEAD";
+    git push origin "$HEAD";
+    cd -
+  }
+
+  # Git Quick Add Commit Push
+  function gacp() { # EX: gacp "commit message" branchName
+    # if 1 argument (i.e. gac `you commit message`)
+    if [ "$#" == 1 ]; then
+      git commit -a -m "$1"
+      # if 2 arguments (i.e. gac `-n` "your commit message")
+    elif [ "$#" == 2 ]; then
+      git commit "$1"am "$2"
+    fi
+    git push origin "$HEAD";
+  }
+
+else
+  GIT_ERROR="${Red}Are you in a git repo?"
 fi
 
-# Project Root
-PROJECT_ROOT=$(git rev-parse --show-toplevel)
-
-# GitHub Aliases / Functions  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Git Exclude
-alias ge="vim $PROJECT_ROOT/.git/info/exclude"
+# Git Delete Branch (or: git push origin :<branchName>)
+# alias gdb="git push origin --delete $@"
+function gdb() {
+  git push origin --delete "$@"
+  git branch -d "$@"
+}
 
 # Set Global Git Ignore  (help: http://bit.ly/1DhMjhi)
 alias set_global_gitignore="git config --global core.excludesfile '~/.gitignore'"
@@ -56,12 +128,49 @@ alias gch='git checkout'
 # }
 
 # Git Clone
-# ex: gcl visionmedia/express
-# function gcl() {
-  # cd into repo
+function gcl1() {
+  if [[ $(num_of_occurences $1 '/') == 1 ]]; then
+    # ex: gcl visionmedia/express
+    git clone "git@github.com:$@"
+  else
+    git clone $@
+  fi
+  repo_name="$(get_repo_name $1)"
+  cd $repo_name
   # if there's a package.json, run npm install
-#   
-# }
+  if [ -f ./package.json ]; then
+    npm install
+  elif [ -f ./requirements.txt ] && [ -d ./lib ]; then
+    pip install -r requirements.txt -t lib
+  fi
+}
+
+
+function get_repo_name() {
+  # Resources:
+  # - https://git-scm.com/docs/git-clone#_git_urls_a_id_urls_a
+  # - regex: http://www.regexr.com/3drvn
+  # Gotchas:
+  # - figure out a way to see the .gitconfig so if there's any special configurations, things will still work
+  # Cases:
+  # 1. ssh://[user@]host.xz[:port]/path/to/repo.git/
+  # 2. git://host.xz[:port]/path/to/repo.git/
+  # 3. http[s]://host.xz[:port]/path/to/repo.git/
+  # 4. ftp[s]://host.xz[:port]/path/to/repo.git/
+  # 5. visionmedia/express
+  # 6. git@github.com:tableco/profilesvc
+  # 7. https://github.com/tableco/appengine
+  # Find Name Options
+  #   1. visionmedia/express
+  #   2. search for repo.git 
+  repo_name="$(basename $1)"
+  if [[ $1 == *'.git'* ]]; then
+    # remove the file extension
+    repo_name="${repo_name%.git}"
+  fi
+  echo "$repo_name"
+}
+
 
 # Git Stash
 alias gs='git stash'
@@ -139,19 +248,6 @@ function gam() {
   fi
 }
 
-# Git Add Commit All (gac = git <add> <commit>)
-function gac() {
-  cd $PROJECT_ROOT
-  git add -A
-  # if 1 argument (i.e. gac `you commit message`)
-  if [ "$#" == 1 ]; then
-    git commit -a -m "$1"
-    # if 2 arguments (i.e. gac `-n` "your commit message")
-  elif [ "$#" == 2 ]; then
-    git commit "$1"am "$2"
-  fi
-  cd -
-}
 
 # Git Pull Origin
 function glo() {
@@ -166,39 +262,9 @@ function gpo() {
 # Git Checkout Master
 alias gcm="git checkout master"
 
-# Git Quick Update Pull & Push  (gacpp = git <add> <commit> <pull> <push>)
-function gacpp() {
-  # if 1 argument (i.e. gac `you commit message`)
-  if [ "$#" == 1 ]; then
-    cd $PROJECT_ROOT
-    git add -A
-    git commit -a -m "$1"
-    # if 2 arguments (i.e. gac `-n` "your commit message")
-  elif [ "$#" == 2 ]; then
-    cd $PROJECT_ROOT
-    git add -A
-    git commit "$1"am "$2"
-  fi
-  git pull origin "$HEAD";
-  git push origin "$HEAD";
-  cd -
-}
-
 # Git Quick Update Pull & Push  (gacfrp = git <add> <commit> <fetch> <rebase> <force push>)
 function gacfrp() {
   git add --all && git commit -a -m "$1" && git fetch && git rebase origin "$2" && git push -f origin "$3"
-}
-
-# Git Quick Add Commit Push
-function gacp() { # EX: gacp "commit message" branchName
-  # if 1 argument (i.e. gac `you commit message`)
-  if [ "$#" == 1 ]; then
-    git commit -a -m "$1"
-    # if 2 arguments (i.e. gac `-n` "your commit message")
-  elif [ "$#" == 2 ]; then
-    git commit "$1"am "$2"
-  fi
-  git push origin "$HEAD";
 }
 
 # Remove file/dir from remote repo (http://bit.ly/1EPhAaH)

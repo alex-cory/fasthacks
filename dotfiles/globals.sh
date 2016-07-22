@@ -156,7 +156,7 @@ function ingit_source() {
 #                              AUTO SOURCE                                #
 # =========================================================================
 ifexists_source "/etc/private.sh" # private paths
-ingit_source "$GIT_SHORTCUTS"
+source "$GIT_SHORTCUTS"
 source "$COLORS"
 source "$NPM_SHORTCUTS"
 source "$DOT/tools/helpers.sh"

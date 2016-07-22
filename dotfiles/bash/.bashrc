@@ -422,9 +422,9 @@ function ud() {
   cd "$DOT_PATH" &&
   git add --all &&
   if [ "$#" == 1 ]; then
-    git commit -a -m "$1" &&
+    git commit -A -m "$1" &&
   else
-    git commit -a -m 'quick update' &&
+    git commit -A -m 'quick update' &&
   fi
   git pull origin "$HEAD" &&
   git push origin "$HEAD" &&
@@ -1086,11 +1086,51 @@ alias pev='pyenv version'
 # Pyenv Versions
 alias pevs='pyenv versions'
 
+# Install pip packages like nodejs
+# alias piS='pip install -r requirements.txt -t lib'
+
 # Pip Info
 alias pinfo='pip show'
 
 # Pip Install
 alias pi='pip install'
+
+# Pip Install --save
+function piS() {
+  inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
+  if [ "$inside_git_repo" ]; then
+    . $DOT/git/git_shortcuts.sh
+    cd $PROJECT_ROOT
+    if [[ ! -f ./requirements.txt ]]; then
+      touch ./requirements.txt
+    fi
+    if [[ ! -d ./lib ]]; then
+      mkdir ./lib
+    fi
+    pip install -r requirements.txt -t lib $1
+    cd -
+  else
+    if [[ ! -f ./requirements.txt ]]; then
+      echo -n "Are you in the root folder of your project? (y or n): "
+      read answer
+      if [ $(echo "$answer" | grep -iq "^y") ]; then
+        echo NO REQUIREMENTS
+        # if [[ ! -d ./lib ]]; then
+        #   mkdir ./lib
+        # fi
+        # touch ./requirements.txt
+        # pip install -r requirements.txt -l lib $1
+      else
+        echo "\n\`cd\` in to your project root and run \`piS <package_name>\` again"
+      fi
+    else 
+      if [[ ! -d ./lib ]]; then
+        mkdir ./lib
+      fi
+      pip install -r requirements.txt -t lib $1
+    fi
+  fi
+}
 
 # Pip List
 alias pl='pip list'

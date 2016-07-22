@@ -99,7 +99,7 @@ nnoremap `` ''
 " Should auto refresh after git pull (needs :set autoread too)
 " :checkt[ime]
 " Auto-Refreshes NerdTree
-:set autoread
+" :set autoread
 "au CursorHold * if exists("t:NerdTreeBufName") | call <SNR>15_refreshRoot() | endif
 
 " Vim Hard Mode UNCOMMENT AS SOON AS YOUR HAND STARTS FEELING BETTER!!!!!
@@ -311,7 +311,7 @@ set guioptions-=t
 set go-=L
 
 " edit vimrc/zshrc and load vimrc bindings
-nnoremap <leader>v :vsp $MYVIMRC<cr>
+nnoremap .v :vsp $MYVIMRC<cr>
 " edit vim notes quickly
 nnoremap <leader>vn :vsp /Users/AlexCory/GoogleDrive/_Server_/Developer/git\ repositories/fasthacks/Dev\ Notes/vim\ notes.md<cr>
 "nnoremap <leader>ez :vsp ~/.zshrc<cr>
@@ -497,64 +497,43 @@ let g:airline_symbols.linenr = ''
 " ============================================================================ "
 " ===                             PLUGIN SETUP                             === "
 " ============================================================================ "
-" Surround.vim Additions
-" Changing (for current line)
-:nmap <leader>ci[ 0f[ci[
-:nmap <leader>ci] 0f]ci]
-:nmap <leader>ca[ 0f[ca[
-:nmap <leader>ca] 0f]ca]
-:nmap <leader>ci( 0f(ci(
-:nmap <leader>ci) 0f)ci)
-:nmap <leader>ca( 0f(ca(
-:nmap <leader>ca) 0f)ca)
-:nmap <leader>ci{ 0f{ci{
-:nmap <leader>ci} 0f}ci}
-:nmap <leader>ca{ 0f{ca{
-:nmap <leader>ca} 0f}ca}
-" Deleting (for current line)
-:nmap <leader>di[ 0f[di[
-:nmap <leader>di] 0f]di]
-:nmap <leader>da[ 0f[da[
-:nmap <leader>da] 0f]da]
-:nmap <leader>di( 0f(di(
-:nmap <leader>di) 0f)di)
-:nmap <leader>da( 0f(da(
-:nmap <leader>da) 0f)da)
-:nmap <leader>di{ 0f{di{
-:nmap <leader>di} 0f}di}
-:nmap <leader>da{ 0f{da{
-:nmap <leader>da} 0f}da}
-" Visual Mode (for current line)
-:nmap <leader>vi[ 0f[vi[
-:nmap <leader>vi] 0f]vi]
-:nmap <leader>va[ 0f[va[
-:nmap <leader>va] 0f]va]
-:nmap <leader>vi( 0f(vi(
-:nmap <leader>vi) 0f)vi)
-:nmap <leader>va( 0f(va(
-:nmap <leader>va) 0f)va)
-:nmap <leader>vi{ 0f{vi{
-:nmap <leader>vi} 0f}vi}
-:nmap <leader>va{ 0f{va{
-:nmap <leader>va} 0f}va}
-" Paste in (for current line)
-:nmap <leader>pi[ 0f[vi[pyi[
-:nmap <leader>pi] 0f]vi]pyi]
-:nmap <leader>pi( 0f(vi(pyi(
-:nmap <leader>pi) 0f)vi)pyi)
-:nmap <leader>pi{ 0f{vi{pyi{
-:nmap <leader>pi} 0f}vi}pyi}
-" Yank in (for current line)
-:nmap <leader>yi[ 0f[yi[
-:nmap <leader>yi] 0f]yi]
-:nmap <leader>yi( 0f(yi(
-:nmap <leader>yi) 0f)yi)
-:nmap <leader>yi{ 0f{yi{
-:nmap <leader>yi} 0f}yi}
+" Access in and around parenthesis, brackets, and curly braces from anywhere on a line
+nnoremap di( %di(
+nnoremap da( %da(
+nnoremap ci( %ci(
+nnoremap ca( %ca(
+nnoremap vi( %vi(
+nnoremap va( %va(
+nnoremap yi( %yi(
+nnoremap ya( %ya(
+nnoremap pi( %vi(p
+nnoremap pa( %va(p
+nnoremap di[ %di[
+nnoremap da[ %da[
+nnoremap ci[ %ci[
+nnoremap ca[ %ca[
+nnoremap vi[ %vi[
+nnoremap va[ %va[
+nnoremap yi[ %yi[
+nnoremap ya[ %ya[
+nnoremap pi[ %vi[p
+nnoremap pa[ %va[p
+nnoremap di{ %di{
+nnoremap da{ %da{
+nnoremap ci{ %ci{
+nnoremap ca{ %ca{
+nnoremap vi{ %vi{
+nnoremap va{ %va{
+nnoremap yi{ %yi{
+nnoremap ya{ %ya{
+nnoremap pi{ %vi{p
+nnoremap pa{ %va{p
 
 " PEP8/flake8 Setup
+" to get workig on mac you need to symlink. Run this command: ln -s ~/.vim/bundle/vim-flake8/plugin ~/.vim/bundle/vim-flake8/ftplugin
 " let g:PyFlakeOnWrite = 1
-" autocmd BufWritePost *.py call Flake8()
+let g:flake8_show_in_gutter=1
+autocmd BufWritePost *.py call Flake8()
 
 " Syntastic Setup
 let g:syntastic_javascript_checkers = ['standard']
@@ -618,8 +597,8 @@ if exists(":Tabularize")
   nmap <Leader>a;; :Tabularize /:\\zs<CR>
   vmap <Leader>a;; :Tabularize /:\\zs<CR>
   " Aligns commas around cursor
-  nmap <Leader>a                                                                                                    , :Tabularize /                                              , <CR>
-  vmap <Leader>a                                                                                                    , :Tabularize /                                              , <CR>
+  nmap <Leader>a, :Tabularize /,<CR>
+  vmap <Leader>a :Tabularize /,<CR>
   " Aligns pipes around cursor
   "nmap <Leader>| :Tabularize /|<CR>
   "vmap <Leader>| :Tabularize /|<CR>
@@ -745,7 +724,7 @@ let NERDTreeIgnore = ['\.pyc$']
 " shortcuts so you have a better idea of what can be done with the default
 " setup
 " Quickly move to middle of current line
-:map <c-m> :call cursor(0, len(getline('.'))/2)<cr>
+" :map <c-m> :call cursor(0, len(getline('.'))/2)<cr>
 " Quick save all
 :map <leader>a :wa<CR>
 " Fast line movement
