@@ -12,7 +12,7 @@ When you found out this actually existed.
 | ------------------------- | ---------------------------------------- | ---------------------------------------- |
 | `fh`                      | if no arguments are passed, shows a list maybe of what all fasthacks does | Not Started |
 | `ls`                      | Colored `ls`! Woohoo!  ![Alt text](./assets/ls.gif) | Done                           |
-| `py`                      | Amazing python REPL with autosuggestions, syntax highlighting, etc.  ![Alt text](./assets/py.gif) | Done                                     |
+| `py`                      | Amazing python REPL with autosuggestions, syntax highlighting, etc.  ![Alt text](./assets/bpython.gif) | Done                                     |
 | `t` or `task`             | todo app                                 | Not Started                              |
 | `pathm`                   | tool for helping you manage your machines `$PATH`.  Things often get lost, out of order, and it can be confusing to keep track of it all.  This will have a json file with all the paths in it call `paths.json`. | Not Started                              |
 | `up`                      | an awesome update tool that will update all packages if no argument is specified. If a program/plugin/app is updated, it will update them reguardless of package manager | In Progress (sorta)                      |
@@ -46,6 +46,8 @@ When you found out this actually existed.
 |` ag                      `| Pagination for the silver searcher.  If the results of what you searched for are longer than the screen of your console, it will paginate it. Press` q` to quit pagination. ![Alt text](./assets/ag.gif) | Done                                     |
 | alias tips                | When you type a command where you already have an alias for it, it will display that below your prompt.  ![Alt text](./assets/alias-tips.gif) | Done                                     |
 | `fast`   | Internet speed! ![alt text](./assets/fast.gif "Title") | Done |
+| `cmatrix`   | Pretty much just cool. ![alt text](./assets/cmatrix.gif "Title") | Done |
+| `touch`   | Better touch! You can create directories and sub directories with a file. ![alt text](./assets/touch.gif "Title") | Done |
 
 ## Theme
 
