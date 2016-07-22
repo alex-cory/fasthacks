@@ -48,6 +48,7 @@ When you found out this actually existed.
 | `fast`   | Internet speed! ![alt text](./assets/fast.gif "Title") | Done |
 | `cmatrix`   | Pretty much just cool. ![alt text](./assets/cmatrix.gif "Title") | Done |
 | `touch`   | Better touch! You can create directories and sub directories with a file. ![alt text](./assets/touch.gif "Title") | Done |
+| `gcl`   | **Awesome git clone!** Auto `cd`s you into the repo and if there's a `package.json`, it will install all the node_modules and if it's a python repo and there's a `requirements.txt` it will install all the python dependencies! | Done |
 
 ## Theme
 
