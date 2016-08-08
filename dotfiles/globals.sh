@@ -116,6 +116,7 @@ export NS="$NPM_SHORTCUTS"
 #                           EIRONMENT VARIABLES                           #
 # =========================================================================
 export PYENV_ROOT="$HOME/.pyenv" # http://bit.ly/1ODw7Nj 
+export NODE_PATH="/usr/local/lib/node_modules"
 
 # =========================================================================
 #                           GLOBAL FUNCTIONS                              #

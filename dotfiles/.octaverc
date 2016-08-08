@@ -1,0 +1,19 @@
+## The following allows plotting to work within iTerm.app
+setenv GNUTERM qt
+
+# Resources:
+#  - Customize Prompt: http://bit.ly/2aInKpy
+#  - wiki: http://wiki.octave.org/Tips_and_tricks
+# PS1(">>△ ❍ ❖ ⭕️  🍄 ")
+# PS1('❖ ')
+PS1('⏣⌬⚡︎ ')
+edit home .
+EDITOR("vim")
+clc;
+
+## When using clear, one may accidentally remove functions (alias) or other variables set on the octave.rc file. This can fixed by shadowing the clear function with the following:
+function clear (varargin)
+  args = sprintf (', "%s"', varargin{:});
+  evalin ("caller", ['builtin ("clear"' args ')']);
+  source ("~/.octaverc");
+endfunction

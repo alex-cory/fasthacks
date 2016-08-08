@@ -128,5 +128,10 @@
     "name": "Rsync Ignore: .rsyncignore",
     "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/.rsyncignore",
     "softLink": "/Users/AlexCory/.rsyncignore"
+  },
+  {
+    "name": "Octave config (for machine learning)",
+    "hardLink": "/Users/AlexCory/GoogleDrive/_Server_/Developer/git_repositories/fasthacks/dotfiles/.octaverc",
+    "softLink": "/Users/AlexCory/.octaverc"
   }
 ]

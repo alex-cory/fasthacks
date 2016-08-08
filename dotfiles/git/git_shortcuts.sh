@@ -128,7 +128,7 @@ alias gch='git checkout'
 # }
 
 # Git Clone
-function gcl1() {
+function gcl() {
   if [[ $(num_of_occurences $1 '/') == 1 ]]; then
     # ex: gcl visionmedia/express
     git clone "git@github.com:$@"

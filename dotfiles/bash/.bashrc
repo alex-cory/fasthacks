@@ -47,6 +47,24 @@ es2016() {
   cd -
 }
 
+# quickly get to machine-learning
+alias ml="cd $DEV_PATH/sandbox/machine-learning"
+# opens octave in the terminal
+alias oct='octave --no-gui'
+# open .octaverc
+alias .o="vim $HOME/.octaverc"
+alias .oct="vim $HOME/.octaverc"
+
+# Turns off line-wrapping in your terminal
+alias wrapoff='tput rmam'
+# Turns on line-wrapping in your terminal
+alias wrapon='tput smam'
+
+# Can decode a jwt
+# function jwt_decode() {
+#   # https://gist.github.com/rafaeltuelho/40e5a57882e2f610f202
+# }
+
 # Tells you where a bash function is defined!
 # http://brettterpstra.com/projects/where/
 # http://brettterpstra.com/2015/03/21/a-bash-function-for-finding-your-bash-functions/
@@ -1107,7 +1125,12 @@ function piS() {
     if [[ ! -d ./lib ]]; then
       mkdir ./lib
     fi
-    pip install -r requirements.txt -t lib $1
+    # if there are no arguments
+    if [[ $# -eq 0 ]] ; then
+      pip install -r requirements.txt -t lib
+    else
+      pip install -r requirements.txt -t lib $1
+    fi
     cd -
   else
     if [[ ! -f ./requirements.txt ]]; then

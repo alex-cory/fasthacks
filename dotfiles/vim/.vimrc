@@ -1,4 +1,5 @@
 " Alex Cory's Vimrc
+" n Jul 25, 2016 4:03PM PDT'
 
 filetype off
 set rtp+=~/.vim/bundle/vundle/
