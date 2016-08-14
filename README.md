@@ -48,7 +48,7 @@ When you found out this actually existed.
 | `fast`   | Internet speed! ![alt text](./assets/fast.gif "Title") | Done |
 | `cmatrix`   | Pretty much just cool. ![alt text](./assets/cmatrix.gif "Title") | Done |
 | `touch`   | Better touch! You can create directories and sub directories with a file. ![alt text](./assets/touch.gif "Title") | Done |
-| `gcl`   | **Awesome git clone!** Auto `cd`s you into the repo and if there's a `package.json`, it will install all the node_modules and if it's a python repo and there's a `requirements.txt` it will install all the python dependencies! **Warning:** If you use `oh-my-zsh` and have the git aliases enabled, you need to go to `~/.oh-my-zsh/plugins/git/git.plugin.zsh` and comment out line 69 (which is aliased to `gcl`) | Done |
+| `gcl`   | **Awesome git clone!** Auto `cd`s you into the repo and if there's a `package.json`, it will install all the node_modules and if it's a python repo and there's a `requirements.txt` it will install all the python dependencies! It also accepts syntax like this: `gcl alex-cory/fasthacks` aka `gcl user_or_org/repo_name`! **Warning:** If you use `oh-my-zsh` and have the git aliases enabled, you need to go to `~/.oh-my-zsh/plugins/git/git.plugin.zsh` and comment out line 69 (which is aliased to `gcl`). | Done |
 
 ## Theme
 
