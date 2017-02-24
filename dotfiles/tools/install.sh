@@ -58,6 +58,12 @@
 #   - brew install resty
 # - spidermonkey - run js in the terminal
 #   - brew install spidermonkey
+# - tty-clock - big clock for your terminal
+#   - brew install tty-clock
+# - mosh - better ssh
+#   - brew install mobile-shell
+# - freeport - kill process on specific port. i.e. freeport 8080   would kill all processes on port 8080
+#   - brew install freeport
 
 
 # Applications

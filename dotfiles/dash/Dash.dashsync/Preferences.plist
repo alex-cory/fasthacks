@@ -156,7 +156,7 @@
 			<key>HTTP_Status_Codes</key>
 			<dict>
 				<key>date</key>
-				<date>2016-05-14T01:43:31Z</date>
+				<date>2016-11-22T19:29:36Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -191,7 +191,7 @@
 			<key>Vim</key>
 			<dict>
 				<key>date</key>
-				<date>2015-10-16T18:23:47Z</date>
+				<date>2017-01-31T07:19:07Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -708,9 +708,9 @@
 	<key>searchKey</key>
 	<dict>
 		<key>keyCode</key>
-		<integer>49</integer>
+		<integer>118</integer>
 		<key>modifiers</key>
-		<integer>4096</integer>
+		<integer>8388608</integer>
 	</dict>
 	<key>shouldRestoreTabs</key>
 	<true/>

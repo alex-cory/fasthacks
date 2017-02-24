@@ -57,7 +57,13 @@ alias niss="npm install $@ --save"
 alias niS="npm install $@ --save"
 
 # Install and Start
-alias nis='npm install && npm start'
+function nis() {
+  if [ -z "${1+xxx}" ]; then # If no argument is set
+    npm install && npm start
+  else
+    npm install $@ && npm start
+  fi
+}
 
 # Run Test
 alias nrt='npm run test'

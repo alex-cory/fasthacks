@@ -84,6 +84,13 @@ else
   GIT_ERROR="${Red}Are you in a git repo?"
 fi
 
+alias gt='git tag'
+
+function gtag() {
+  git tag "$@"
+  git push origin --tags
+}
+
 # Git Delete Branch (or: git push origin :<branchName>)
 # alias gdb="git push origin --delete $@"
 function gdb() {
@@ -131,9 +138,9 @@ alias gch='git checkout'
 function gcl() {
   if [[ $(num_of_occurences $1 '/') == 1 ]]; then
     # ex: gcl visionmedia/express
-    git clone "git@github.com:$@"
+    git clone --recursive "git@github.com:$@"
   else
-    git clone $@
+    git clone --recursive $@
   fi
   repo_name="$(get_repo_name $1)"
   cd $repo_name
@@ -212,6 +219,8 @@ function gum() {
 # Git Reset
 alias grs='git reset'
 
+alias grsh='git reset --hard'
+
 # Git Ref Log
 alias grf='git reflog'
 
@@ -220,9 +229,6 @@ alias glog='git log --graph -C -M --pretty=format:"<%h> %ad [%an] %Cgreen%d%Cres
 
 # Pretty Git Log For Me!
 alias glme="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(red)- %an%C(reset)' --all  --author=alex-cory"
-
-# Shows Last Commits
-alias tree="git log --pretty=format:\"%C(green)%h %C(magenta)(%ar) %C(blue)%an %C(reset)%s\""
 
 # Pretty Git Log All
 # alias gla="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(red)- %an%C(reset)' --all"

@@ -1,10 +1,11 @@
 " Alex Cory's Vimrc
 " n Jul 25, 2016 4:03PM PDT'
-
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" Override color scheme to make split the same color as tmux's default
+" autocmd ColorScheme * highlight VertSplit cterm=NONE ctermfg=Green ctermbg=NONE
 " TODO:
 " - setup ctags               <-doesn't work w/ current build of nodejs
 "   - http://raygrasso.com/   <-ctags config
@@ -21,6 +22,7 @@ call vundle#rc()
 " Let's you search with ctrlp from within the current directory if there's no
 " .git so you're aren't searching your entire machine
 :map <leader>cf :CtrlPCurFile<CR>
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc     " MacOSX/Linux "
 
 " Can't figure out how to get name of current file to run it
 " :let myfile = expand('%:t')
@@ -35,7 +37,11 @@ call vundle#rc()
 
 " Quickly repeat previous : cmd. Use case:  ":w !preview preview.js" will save
 " and run the file again really quickly
-nmap <leader>r :@:<CR>
+" nmap <leader>r :@:<CR>
+" :nmap <leader>r :w<cr>:!%<cr>
+" map <leader>r :w<CR>| :!!<CR>
+" map <leader>m <Esc>:w<CR>:!%:p<CR>
+nnoremap <leader>r :w<CR>:!!<CR>
 
 """"" EasyMotion """""
 " Gif config
@@ -57,6 +63,12 @@ map sh <Plug>(easymotion-linebackward)
 
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 
+" Allow .bashrc aliases to work in vim's :! shell <- TODO
+" :!bash -c ". ~/.alias; gitlog"
+" set shell=/bin/bash\ -i
+" set shell=zsh\ -i
+" set shell=/bin/bash\ --rcfile\ ~/.bashrc
+
 
 """"" SuperTab """""
 " Super Tab work around
@@ -65,9 +77,9 @@ let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 "let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
-" let g:UltiSnipsExpandTrigger = "<tab>"
-" let g:UltiSnipsJumpForwardTrigger = "<tab>"
-" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Clear's the CtrlP Cache
 :map <F5> :CtrlPClearCache<cr>
@@ -103,6 +115,10 @@ nnoremap `` ''
 " :set autoread
 "au CursorHold * if exists("t:NerdTreeBufName") | call <SNR>15_refreshRoot() | endif
 
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
 " Vim Hard Mode UNCOMMENT AS SOON AS YOUR HAND STARTS FEELING BETTER!!!!!
 "autocmd VimEnter,BufNewFile,BufReadPost * if !strlen(&buftype) | silent! call HardMode() | endif
 
@@ -121,8 +137,10 @@ Bundle 'farseer90718/vim-taskwarrior'
 " Plugin 'kana/vim-textobj-function'
 " Matchit: allows you to configure % to match more than just single characters.
 Plugin 'matchit.zip'
-" Ag: Aka, the silver searcher. Like a search in all files for search term feature.
-Plugin 'rking/ag.vim'
+" Ag: Aka, the silver searcher. Like a search in all files for search term feature. <- DEPRICATED (T_T)
+" Plugin 'rking/ag.vim'
+" Ack: Basically the same as Ag (this silver searcher)
+Plugin 'mileszs/ack.vim'
 " Hard Mode: Turns off hjkl single motion.
 Plugin 'wikitopian/hardmode'
 " Unimpaired: quick mappings such as >p and =p etc.
@@ -149,6 +167,8 @@ Plugin 'mattn/emmet-vim'
 " Bundle 'corntrace/bufexplorer'
 " Vim Airline: Status tabline for the bottom of vim.
 Bundle 'bling/vim-airline'
+" Airline themes
+Plugin 'vim-airline/vim-airline-themes'
 " Ctrl P: Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 Bundle 'kien/ctrlp.vim'
 " Nerd Tree: A file tree explorer plugin. Think of it as the sidebar of a text editor/IDE.
@@ -197,7 +217,8 @@ Plugin 'caolan/nodeunit'
 " Undotree: Shows edit history up to the second of a file.
 Plugin 'mbbill/undotree'
 " Plugin 'justinj/vim-react-snippets'
-
+" Handlebars Syntax Highlighting
+" Plugin 'mustache/vim-mustache-handlebars'
 " SnipMate and its dependencies:
 Bundle "garbas/vim-snipmate"
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -301,6 +322,10 @@ set nu
 :set cursorline
 
 map <leader>n :NERDTreeToggle<cr>
+
+if has("gui_running")
+    set guioptions=egmrt
+endif
 
 " hide scrollbars
 set guioptions-=r
@@ -412,6 +437,13 @@ nnoremap k gk
 " ============================================================================ "
 " ===                            DISPLAY SETUP                             === "
 " ============================================================================ "
+" Set's relative line numbers (next 2 lines)
+set number
+set relativenumber
+
+" Keeps React syntax highlighting in order
+let g:jsx_ext_required = 0
+
 " Toggles relative numbers
 "function! NumberToggle()
   "if(&relativenumber == 1)
@@ -485,8 +517,10 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " airline symbols
-let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '◀'
+let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
@@ -555,9 +589,9 @@ if executable('ag')
 endif
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-" When \ is pressed                                                                                                 , Vim waits for our input
-nnoremap <leader>f :Ag<SPACE>
-
+" When \ is pressed, Vim waits for our input
+" let g:ackprg = 'ag --nogroup --column'
+nnoremap <leader>f :Ack<SPACE>
 
 " t_comment remap
 :nmap gci <c-_>i
@@ -582,7 +616,7 @@ nnoremap <leader>f :Ag<SPACE>
 "let g:user_emmet_expandabbr_key = '<Tab>'
 " When in, expand to 'className' (for jsx support) TODO: doesn't work
 "let g:user_emmet_settings = {
-"\    'javascript': {'extends': 'html'                                                                              , 'attribute_name': {'class': 'className'}}
+"\    'javascript': {'extends': 'html', 'attribute_name': {'class': 'className'}}
 "\ }
 
 
@@ -611,25 +645,26 @@ inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 function! s:align()
  let p = '^\s*|\s.*\s|\s*$'
  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-   let column = strlen(substitute(getline('.')[0:col('.')]                                                          , '[^|]'                                                     , ''        , 'g'))
-   let position = strlen(matchstr(getline('.')[0:col('.')]                                                          , '.*|\s*\zs.*'))
+   let column = strlen(substitute(getline('.')[0:col('.')], '[^|]', '', 'g'))
+   let position = strlen(matchstr(getline('.')[0:col('.')], '.*|\s*\zs.*'))
    Tabularize/|/l1
    normal! 0
-   call search(repeat('[^|]*|'                                                                                      , column).'\s\{-\}'.repeat('.'                               , position) , 'ce'                     , line('.'))
+   call search(repeat('[^|]*|', column).'\s\{-\}'.repeat('.', position), 'ce', line('.'))
  endif
 endfunction
 "}
 
 " ### Vim airine ### "
-"set laststatus=2                  " -- Show airline even when only one split is open
-set noshowmode                    " -- Hide default mode indicator
+"set laststatus=2" -- Show airline even when only one split is open
+" -- Hide default mode indicator
+set noshowmode
 "let g:airline_powerline_fonts = 1 " -- Allow fancy separators
 "let g:airline#extensions#syntastic#enabled = 1
 "let g:airline#extensions#branch#enabled = 1
 "let g:airline#extensions#tmuxline#enabled = 1
 "let g:airline_section_warning = 'syntastic'
 "Custom setup that removes filetype/whitespace from default vim airline bar
-"let g:airline#extensions#default#layout = [[ 'a'                                                                   , 'b'                                                        , 'c' ]     , ['x'                     , 'warning' ]]
+"let g:airline#extensions#default#layout = [[ 'a', 'b', 'c' ], ['x', 'warning' ]]
 " Keep list of open files in buffer at top
 "let g:airline#extensions#tabline#enabled = 1
 
@@ -640,25 +675,12 @@ set noshowmode                    " -- Hide default mode indicator
 " Define default location for ctrlp to begin searching
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-"let g:ctrlp_custom_ignore = {
-  "\ 'dir':  '\v[\/]\.(git|hg|svn)$'                                                                                ,
-  "\ 'file': '\v\.(exe|so|dll)$'                                                                                    ,
-  "\ 'link': 'some_bad_symbolic_links'                                                                              ,
-  "\ }
-" Ignore files we don't want Ctrlp to index
-" set wildignore+=*/tmp/*                                                                                             , *.so                                                       , *.swp     , *.zip     " MacOSX/Linux
-" set wildignore+=*\\tmp\\*                                                                                           , *.swp                                                      , *.zip     , *.exe  " Windows
-" set wildignore+=*.o                                                                                                 , *.obj                                                      , .git      , *.rbc                    , *.class      , .svn
 
 " ### Syntastic ### "
 " ReactJS Syntax Linter:
 " let g:syntastic_javascript_checkers = ['eslint', 'jsxhint']
 " JavaScript Syntax Linter:
 let g:syntastic_javascript_checkers = ['eslint']
-"let g:syntastic_php_checkers=['php'                                                                                , 'phpcs'                                                    , 'phpmd']
-"let g:syntastic_javascript_checkers = ['jsxhint']
-" let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
-"let g:syntastic_javascript_checkers = ['jsxhint'                                                                   , 'jshint']
 "autocmd! BufEnter  *.jsx  let b:syntastic_checkers=['jsxhint']
 " Disable some features to make syntastic faster
 "let g:syntastic_enable_signs = 0
@@ -673,46 +695,17 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 " ### Tagbar Options ### "
 "map <F12> :TagbarToggle<CR>
 "let g:tagbar_ctags_bin
-"set tags=./tags                                                                                                    , tags;/
-"let g:tagbar_show_visibility = 1
-"let g:tagbar_expand = 1
-" Tagbar support for javascript/jsctags
-"let g:tagbar_type_javascript = {
-    "\ 'ctagsbin' : '/path/to/jsctags'
-"\ }
-"let g:tagbar_type_php  = {
-    "\ 'ctagstype' : 'php'                                                                                          ,
-    "\ 'kinds'     : [
-        "\ 'i:interfaces'                                                                                           ,
-        "\ 'c:classes'                                                                                              ,
-        "\ 'd:constant definitions'                                                                                 ,
-        "\ 'f:functions'                                                                                            ,
-        "\ 'j:javascript functions:1'
-    "\ ]
-  "\ }
-
-"latest version of tagbar is only compatible with vim >= 701
-"if v:version > 700
-    "Bundle 'majutsushi/tagbar'
-    "" Same as nerdtree                                                                                             , only open if no file was specified
-    "function! StartUpTagbar()
-        "if 0 == argc()
-           "TagbarOpen
-        "end
-    "endfunction
-
-    "autocmd VimEnter * call StartUpTagbar()
-"endif
 
 " ### Nerdtree ### "
 " Only open nerdtree if no file was specified on startup
-function! StartUpNerdtree()
-    if 0 == argc()
-        NERDTree
-    end
-endfunction
-
-autocmd VimEnter * call StartUpNerdtree()
+" function! StartUpNerdtree()
+"     if 0 == argc()
+"         NERDTree
+"     end
+" endfunction
+"
+" autocmd VimEnter * call StartUpNerdtree()
+autocmd VimEnter * NERDTree
 " Nerd Tree Ignore certain files by extension
 let NERDTreeIgnore = ['\.pyc$']
 " }}} "
@@ -728,8 +721,9 @@ let NERDTreeIgnore = ['\.pyc$']
 " :map <c-m> :call cursor(0, len(getline('.'))/2)<cr>
 " Quick save all
 :map <leader>a :wa<CR>
-" Fast line movement
+" Open new vertical pane
 :map <leader>t <C-w>v<C-w>l
+:map <leader>T <C-w>S<C-w>j
 " Quick save and quit
 :map <leader>w :wq<CR>
 " Quick quit
@@ -922,6 +916,8 @@ set backup
 set noswapfile
 
 " }}} "
+hi VertSplit ctermbg=NONE guibg=NONE
+set fillchars+=vert:⎸
 
 " space open/closes folds
 nnoremap <leader>. za

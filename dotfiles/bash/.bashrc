@@ -6,6 +6,8 @@
 # Bash Style Guide: (http://bit.ly/1H7w1IX)
 # How To Activate Aliases (use: source ~/.bashrc)
 
+alias hide-dock='defaults write com.apple.dock autohide -bool true && defaults write com.apple.dock autohide-delay -float 0 && defaults write com.apple.dock autohide-time-modifier -float 0 && killall Dock'
+alias show-dock='defaults delete com.apple.dock autohide && defaults delete com.apple.dock autohide-delay && defaults delete com.apple.dock autohide-time-modifier && killall Dock'
 
 # Set up your node repos with ES2016
 es2016() {
@@ -47,6 +49,10 @@ es2016() {
   cd -
 }
 
+# ignore common directories that you don't care about in tree
+alias tree="tree -I 'test*|docs|bin|lib|bundle'"
+# get the current unix epoch timestamp
+alias epoch="date +%s"
 # quickly get to machine-learning
 alias ml="cd $DEV_PATH/sandbox/machine-learning"
 # opens octave in the terminal
@@ -54,6 +60,10 @@ alias oct='octave --no-gui'
 # open .octaverc
 alias .o="vim $HOME/.octaverc"
 alias .oct="vim $HOME/.octaverc"
+
+# open ngrok config file
+alias .ng="vim $HOME/.ngrok2/ngrok.yml"
+alias .ngrok="vim $HOME/.ngrok2/ngrok.yml"
 
 # Turns off line-wrapping in your terminal
 alias wrapoff='tput rmam'
@@ -883,6 +893,7 @@ alias .in="vim $DOT/tools/install.sh"
 
 # open .agignore
 alias .ai="vim $DOT/.agignore"
+alias .ag="vim $DOT/.agignore"
 
 # Edit docker shortcuts
 alias .d="vim $DOT/docker_shortcuts.sh"
@@ -966,6 +977,9 @@ alias resymlink="bash $DOT/tools/resymlink.sh"
 # ToDo
 # alias td='$HOME' #TODO: aggregates a list of all todos in all dotfiles with filename and reference.  Kind of like the output of silver_searcher
 
+# Git completions TODO: make branches tab completion for `git delete-branch <branch_name:TAB>`
+# . ~/.git-completions.zsh
+
 # Go To => git repositories & specific project (lr -- stands for Local Repositories)
 function lr() {
   cd $LOCAL_REPOS/"$1";
@@ -1019,7 +1033,7 @@ alias apache-error-log='tail -f /Applications/MAMP/logs/apache_error.log'
 # alias br='open -a Brackets'
 
 # Quickly Edit Vim Files
-alias v='vim'
+alias v='mvim'
 
 # See http://www.shellperson.net/using-sudo-with-an-alias/
 # alias sudo='sudo'
@@ -1129,7 +1143,7 @@ function piS() {
     if [[ $# -eq 0 ]] ; then
       pip install -r requirements.txt -t lib
     else
-      pip install -r requirements.txt -t lib $1
+      sudo pip install -r requirements.txt -t lib $1
     fi
     cd -
   else
@@ -1150,7 +1164,7 @@ function piS() {
       if [[ ! -d ./lib ]]; then
         mkdir ./lib
       fi
-      pip install -r requirements.txt -t lib $1
+      sudo pip install -r requirements.txt -t lib $1
     fi
   fi
 }

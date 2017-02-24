@@ -656,7 +656,7 @@
 	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
 	<string>412 545 616 174 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 18 1389 882 0 0 1440 900 </string>
+	<string>0 0 1440 900 0 0 1440 900 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1310,13 +1310,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.10188323259353638</real>
+				<real>0.110052689909935</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.44410404562950134</real>
+				<real>0.39615499973297119</real>
 				<key>Red Component</key>
-				<real>0.074386626482009888</real>
+				<real>0.059800475835800171</real>
 			</dict>
 			<key>Semantic History</key>
 			<dict>
@@ -6793,7 +6793,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-07-15T05:06:55Z</date>
+	<date>2016-08-25T21:11:00Z</date>
 	<key>SUSkippedVersion</key>
 	<string>2.1.4</string>
 	<key>SavePasteHistory</key>

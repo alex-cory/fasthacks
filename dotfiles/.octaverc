@@ -6,7 +6,8 @@ setenv GNUTERM qt
 #  - wiki: http://wiki.octave.org/Tips_and_tricks
 # PS1(">>△ ❍ ❖ ⭕️  🍄 ")
 # PS1('❖ ')
-PS1('⏣⌬⚡︎ ')
+# PS1('⏣⌬⚡︎ ')
+PS1( "\\[\\033[01;34m\\]\⏣⌬\\[\\033[0m\\]\\[\\033[01;33m\\]\⚡︎ \\[\\033[0m\\]" )
 edit home .
 EDITOR("vim")
 clc;

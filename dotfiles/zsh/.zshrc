@@ -9,7 +9,7 @@ export ZSH=$HOME/.oh-my-zsh
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ## Zsh Themes
 
-ZSH_THEME="nicoulaj"
+# ZSH_THEME="nicoulaj"
 # ZSH_THEME="nanotech"
 # ZSH_THEME="frontcube"
 # ZSH_THEME="jnrowe"
@@ -100,7 +100,7 @@ DEFAULT_USER="Alex"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby sublime command-not-found taskwarrior alias-tips osx chucknorris ) # vi-mode
+plugins=(git ruby sublime command-not-found taskwarrior alias-tips osx chucknorris) # vi-mode
 plugins+=(zsh-completions docker)
 autoload -U compinit && compinit
 
@@ -154,7 +154,18 @@ source '/Users/AlexCory/.pyenv/versions/3.4.0/lib/python3.4/site-packages/awscli
 
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/Users/AlexCory/Downloads/google-cloud-sdk/path.zsh.inc'
+source '/Users/AlexCory/Documents/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables shell command completion for gcloud.
-source '/Users/AlexCory/Downloads/google-cloud-sdk/completion.zsh.inc'
+source '/Users/AlexCory/Documents/google-cloud-sdk/completion.zsh.inc'
+
+source "$HOME/antigen.zsh"
+
+antigen use oh-my-zsh
+
+antigen theme nicoulaj
+
+# Zsh packages
+
+# Tell antigen that you're done.
+antigen apply

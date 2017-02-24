@@ -176,37 +176,37 @@
     </item>
 
     <!-- MacVim -->
-    <!-- <vkopenurldef> -->
-    <!--   <name>KeyCode::VK_OPEN_URL_APP_MacVim</name> -->
-    <!--   <appendix>/usr/local/Cellar/macvim/7.4&#45;76/MacVim.app</appendix> -->
-    <!--   <url type="file">/usr/local/Cellar/macvim/7.4&#45;77/MacVim.app</url> -->
-    <!-- </vkopenurldef> -->
-    <!-- <item><!&#45;&#45; Open MacVim &#45;&#45;> -->
-    <!--   <name>On hold: Space + f to launch/bring MacVim to forefront</name> -->
-    <!--   <appendix></appendix> -->
-    <!--   <identifier>remap.hotkey_MacVim</identifier> -->
-    <!--   <autogen> -->
-    <!--     __KeyToKey__ -->
-    <!--     KeyCode::F, ModifierFlag::COMMAND_R, ModifierFlag::SHIFT_R, ModifierFlag::OPTION_R, ModifierFlag::CONTROL_R, -->
-    <!--     KeyCode::VK_OPEN_URL_APP_MacVim -->
-    <!--   </autogen> -->
-    <!-- </item> -->
-
-    <!-- Sublime Text -->
     <vkopenurldef>
-      <name>KeyCode::VK_OPEN_URL_APP_ST</name>
-      <url type="file">/Applications/Sublime Text.app</url>
+      <name>KeyCode::VK_OPEN_URL_APP_MacVim</name>
+      <appendix>/usr/local/Cellar/macvim/7.4-104/MacVim.app</appendix>
+      <url type="file">/usr/local/Cellar/macvim/7.4-104/MacVim.app</url>
     </vkopenurldef>
-    <item><!-- Open Sublime Text -->
-      <name>On hold: Space + f to launch/bring Sublime Text to forefront</name>
+    <item><!-- Open MacVim -->
+      <name>On hold: Space + f to launch/bring MacVim to forefront</name>
       <appendix></appendix>
-      <identifier>remap.hotkey_ST</identifier>
+      <identifier>remap.hotkey_MacVim</identifier>
       <autogen>
         __KeyToKey__
         KeyCode::F, ModifierFlag::COMMAND_R, ModifierFlag::SHIFT_R, ModifierFlag::OPTION_R, ModifierFlag::CONTROL_R,
-        KeyCode::VK_OPEN_URL_APP_ST
+        KeyCode::VK_OPEN_URL_APP_MacVim
       </autogen>
     </item>
+
+    <!-- Sublime Text -->
+    <!-- <vkopenurldef> -->
+    <!--   <name>KeyCode::VK_OPEN_URL_APP_ST</name> -->
+    <!--   <url type="file">/Applications/Sublime Text.app</url> -->
+    <!-- </vkopenurldef> -->
+    <!-- <item><!&#45;&#45; Open Sublime Text &#45;&#45;> -->
+    <!--   <name>On hold: Space + f to launch/bring Sublime Text to forefront</name> -->
+    <!--   <appendix></appendix> -->
+    <!--   <identifier>remap.hotkey_ST</identifier> -->
+    <!--   <autogen> -->
+    <!--     __KeyToKey__ -->
+    <!--     KeyCode::F, ModifierFlag::COMMAND_R, ModifierFlag::SHIFT_R, ModifierFlag::OPTION_R, ModifierFlag::CONTROL_R, -->
+    <!--     KeyCode::VK_OPEN_URL_APP_ST -->
+    <!--   </autogen> -->
+    <!-- </item> -->
 
     <!-- Slack -->
     <vkopenurldef>
