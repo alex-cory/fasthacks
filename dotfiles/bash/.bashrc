@@ -1029,6 +1029,9 @@ alias apache-error-log='tail -f /Applications/MAMP/logs/apache_error.log'
 # Open in Sublime Text
 # alias subl='open -a Sublime\ Text'
 
+# VS Code if you type `code` without args it will default to opening current dir
+alias code='code ${1-.}'
+
 # Open in Brackets
 # alias br='open -a Brackets'
 
@@ -1143,7 +1146,7 @@ function piS() {
     if [[ $# -eq 0 ]] ; then
       pip install -r requirements.txt -t lib
     else
-      sudo pip install -r requirements.txt -t lib $1
+      pip install -r requirements.txt -t lib $1
     fi
     cd -
   else
@@ -1164,7 +1167,8 @@ function piS() {
       if [[ ! -d ./lib ]]; then
         mkdir ./lib
       fi
-      sudo pip install -r requirements.txt -t lib $1
+      sudo pip install -r requirements.txt -t lib $1 && pip freeze | grep -i $1 >> ./requirements.txt
+      
     fi
   fi
 }

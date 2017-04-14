@@ -140,6 +140,9 @@ bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
+export GAE_SDK_PATH=/usr/local/google_appengine
+export GAE_PY_SDK=$GAE_SDK_PATH
+export PATH=$PATH:$GAE_SDK_PATH
 # AWS
 # export PATH=$PATH:$AWS_IAM_HOME/bin
 

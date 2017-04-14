@@ -6,6 +6,7 @@
 	excludesfile = /Users/AlexCory/.gitignore_global
 	editor = /usr/local/bin/vim
         t = tableco
+	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [alias]
         ch = checkout
@@ -18,11 +19,14 @@
         b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
 	hist = log --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(red)%s %C(bold red){{%an}}%C(reset) %C(blue)%d%C(reset)' --graph --date=short
         # open current repo in github
-        open = "!open https://github.com/$(echo $(git remote get-url origin) | cut -f2 -d\":\")"
+        # open = "!open https://github.com/$(echo $(git remote get-url origin) | cut -f2 -d\":\")"
+        # open = "!open $(echo $(git remote get-url origin))"
         # Show last commits
         tree = "! git log --pretty=format:\"%C(green)%h %C(magenta)(%ar) %C(blue)%an %C(reset)%s\""
         # Deletes a branch locally and remotely. Make sure your teammates run `git fetch --all --prune` to get the changes
         delete-branch = !sh -c 'git branch -d $1 && git push origin --delete $1' -
+        delete-tag = !sh -c 'git tag -d $1 && git push origin :refs/tags/$1' -
+
 
 [url "https://bitbucket.org/"]
     insteadOf = bb:
