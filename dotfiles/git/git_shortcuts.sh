@@ -14,6 +14,8 @@
 #   fi
 # }
 
+alias git=hub
+
 # GIT COMMANDS ONLY AVAILABLE IN GIT REPOS
 inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
 if [ "$inside_git_repo" ]; then
@@ -48,6 +50,14 @@ if [ "$inside_git_repo" ]; then
     cd -
   }
 
+  function gpr () {
+    # local repo=`git remote -v | grep -m 1 "(push)" | sed -e "s/.*github.com[:/]\(.*\)\.git.*/\1/"`
+    # local repo="$(current_repo)"
+    local repo="$(parse_repo_path)"
+    local branch=`git name-rev --name-only HEAD`
+    echo "... creating pull request for branch \"$branch\" in \"$repo\""
+    open https://github.com/$repo/pull/new/$branch
+  }
 
 
   # Git Quick Update Pull & Push  (gacpp = git <add> <commit> <pull> <push>)
@@ -144,7 +154,7 @@ function gcl() {
   else
     git clone --recursive $@
   fi
-  repo_name="$(get_repo_name $1)"
+  repo_name="$(parse_repo_name $1)"
   cd $repo_name
   # if there's a package.json, run npm install
   if [ -f ./package.json ]; then
@@ -155,7 +165,7 @@ function gcl() {
 }
 
 
-function get_repo_name() {
+function parse_repo_name() {
   # Resources:
   # - https://git-scm.com/docs/git-clone#_git_urls_a_id_urls_a
   # - regex: http://www.regexr.com/3drvn
@@ -172,12 +182,42 @@ function get_repo_name() {
   # Find Name Options
   #   1. visionmedia/express
   #   2. search for repo.git 
-  repo_name="$(basename $1)"
-  if [[ $1 == *'.git'* ]]; then
+  local repo_name="$(basename -s .git $1)"
+  # if [[ $1 == *'.git'* ]]; then
     # remove the file extension
-    repo_name="${repo_name%.git}"
-  fi
+    # repo_name="${repo_name%.git}"
+  # fi
   echo "$repo_name"
+}
+
+function parse_repo_path() {
+  
+  # if an argument is passed
+  if [ "$#" == 1 ]; then
+    url="$1"
+  else
+    url="$(git config -- remote.origin.url)"
+  fi
+
+  # should always return: user_or_org/repo_name
+  periods="${url//[^.]}"
+  num_of_periods="${#periods}"
+  is_already_path="$(($num_of_periods == 0))"
+  if (( $is_already_path )); then
+    echo "$url"
+    return
+  fi
+
+  # Initial case examples: 'git@example.com:user/project', 'https://example.com:8080/scm/user/project.git/'
+  # Trim "/" and ".git" from the end of the url
+  giturl=${url%/} giturl=${giturl%.git}
+
+  # Trim before last '@' and protocol (*://) from beginning
+  uri=${giturl##*@} uri=${uri##*://}
+
+  # Trims before first ':' or '/' to get path
+  local path=${uri#*[/:]}
+  echo "$path"
 }
 
 

@@ -120,4 +120,5 @@ function replaceSymlink() {
 ## SCP remote -> local
 # scp -r -P 2325 james@ssh.hackingedu.co:/home/james/website-ro /Users/AlexCory/GoogleDrive/_Server_/Developer/git\ repositories/
 source "$HOME/.profile"
-source "`brew --prefix grc`/etc/grc.bashrc"
+# Not sure why sourcing the line below, but commenting out since the file doesn't work right now...
+# source "`brew --prefix grc`/etc/grc.bashrc"

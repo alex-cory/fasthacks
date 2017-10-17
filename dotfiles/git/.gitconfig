@@ -26,6 +26,15 @@
         # Deletes a branch locally and remotely. Make sure your teammates run `git fetch --all --prune` to get the changes
         delete-branch = !sh -c 'git branch -d $1 && git push origin --delete $1' -
         delete-tag = !sh -c 'git tag -d $1 && git push origin :refs/tags/$1' -
+        # Make pull request from cli (http://www.devthought.com/code/create-a-github-pull-request-from-the-terminal/)
+        # function pr () {
+        #   local repo=`git remote -v | grep -m 1 "(push)" | sed -e "s/.*github.com[:/]\(.*\)\.git.*/\1/"`
+        #   local branch=`git name-rev --name-only HEAD`
+        #   echo "... creating pull request for branch \"$branch\" in \"$repo\""
+        #   open https://github.com/$repo/pull/new/$branch
+        # }
+        # export -f pr
+        # pr = !sh -c 'open https://github.com/`git remote -v | grep -m 1 "(push)" | sed -e "s/.*github.com[:/]\(.*\)\.git.*/\1/"`/pull/new/`git name-rev --name-only HEAD)`' -
 
 
 [url "https://bitbucket.org/"]

@@ -9,6 +9,8 @@
 alias hide-dock='defaults write com.apple.dock autohide -bool true && defaults write com.apple.dock autohide-delay -float 0 && defaults write com.apple.dock autohide-time-modifier -float 0 && killall Dock'
 alias show-dock='defaults delete com.apple.dock autohide && defaults delete com.apple.dock autohide-delay && defaults delete com.apple.dock autohide-time-modifier && killall Dock'
 
+alias cra='create-react-app'
+
 # Set up your node repos with ES2016
 es2016() {
   BABELRC='{
@@ -69,6 +71,9 @@ alias .ngrok="vim $HOME/.ngrok2/ngrok.yml"
 alias wrapoff='tput rmam'
 # Turns on line-wrapping in your terminal
 alias wrapon='tput smam'
+
+# Color diffing
+alias diff='colordiff'
 
 # Can decode a jwt
 # function jwt_decode() {
@@ -445,7 +450,7 @@ function un() {
 # Update Dotfiles Repo
 function ud() {
   # export keyboard layout to location in dotfiles repo
-  "$KARABINER" export > "$KARABINER_IMPORT" &&
+  # "$KARABINER" export > "$KARABINER_IMPORT" &&
   # sync the local dotfiles repo with remote
   cd "$DOT_PATH" &&
   git add --all &&
@@ -1036,7 +1041,7 @@ alias code='code ${1-.}'
 # alias br='open -a Brackets'
 
 # Quickly Edit Vim Files
-alias v='mvim'
+# alias v='mvim'
 
 # See http://www.shellperson.net/using-sudo-with-an-alias/
 # alias sudo='sudo'
@@ -1240,7 +1245,10 @@ alias b='brew'
 alias bhm="brew home"
 
 # Heroku
-alias h='heroku'
+alias hk='heroku'
+
+# Httpie http request tool
+alias h='http'
 
 # List Recursively
 alias lsr='ls -R'
@@ -1405,3 +1413,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 #     echo "";
 #   fi
 # }
+
+# added by travis gem
+[ -f /Users/AlexCory/.travis/travis.sh ] && source /Users/AlexCory/.travis/travis.sh

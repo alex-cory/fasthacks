@@ -172,3 +172,13 @@ antigen theme nicoulaj
 
 # Tell antigen that you're done.
 antigen apply
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export PATH="/usr/local/opt/gettext/bin:$PATH"
+
+# optential fix for ⌘+, not opening in vim on hyperterm
+# export EDITOR=vim
+
+# added by travis gem
+[ -f /Users/AlexCory/.travis/travis.sh ] && source /Users/AlexCory/.travis/travis.sh
