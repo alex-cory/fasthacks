@@ -59,7 +59,13 @@ export const Cool = ({ children, specialProp, specialProp2, ...props }) => (
 import React from 'react'
 
 class CreateEvent extends React.Component {
-  renderTextField = ({ input, placeholder, startAdornmentLabel, meta: { touched, error }, ...custom }) => (
+  renderTextField = ({
+    input, 
+    placeholder, 
+    startAdornmentLabel, 
+    meta: { touched, error }, 
+    ...custom
+  }) => (
     <FormControl fullWidth>
       <TextField
         {...input}
