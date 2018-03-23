@@ -1,5 +1,11 @@
-# React Best Practices <sub>(as of March 23 2018)</sub>
+# React Best Practices <sup>(as of March 23 2018)</sup>
 
+General Good Rules to Live By
+-----------------------------
+1. **if your file is getting >200 lines, time to split it up into multiple files** (of course there's some exceptions, but 90%+ <200 lines).  This follows atomic design pattern.  In a nutshell, **make small, reusable components.** [Here's a good article.](http://bit.ly/2ugjBEr) I personally don't physically make folders for `molecules` and `organisms`, but the concept is super important to understand. It speeds up development for everyone and especially beginners.
+
+Examples
+--------
 ### Bad:
 ```javascript
 import React from 'react'
