@@ -74,6 +74,7 @@ class CreateEvent extends React.Component {
   render() {
   	return (
 		<div>
+			// passing a method into a prop that says component, just pass a component
 			<Field component={this.renderTextField} />
 		</div>
 	);
