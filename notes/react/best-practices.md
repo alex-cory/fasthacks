@@ -2,7 +2,9 @@
 
 General Good Rules to Live By
 -----------------------------
-1. **if your file is getting >200 lines, time to split it up into multiple files** (of course there's some exceptions, but 90%+ <200 lines).  This follows atomic design pattern.  In a nutshell, **make small, reusable components.** [Here's a good article.](http://bit.ly/2ugjBEr) I personally don't physically make folders for `molecules` and `organisms`, but the concept is super important to understand. It speeds up development for everyone and especially beginners.
+# 1. Readability > Optimization. 
+Soooo important. [Here's a good article from a guy with 15 years of software experience.](https://hackernoon.com/few-simple-rules-for-good-coding-my-15-years-experience-96cb29d4acd9)
+2. **if your file is getting >200 lines, time to split it up into multiple files** (of course there's some exceptions, but 90%+ <200 lines).  This follows atomic design pattern.  In a nutshell, **make small, reusable components.** [Here's a good article.](http://bit.ly/2ugjBEr) I personally don't physically make folders for `molecules` and `organisms`, but the concept is super important to understand. It speeds up development for everyone and especially beginners.
 
 Examples
 --------
@@ -52,7 +54,6 @@ export const Cool = ({ children, specialProp, specialProp2, ...props }) => (
 )
 
 ```
-
 
 ### Bad:
 ```javascript
