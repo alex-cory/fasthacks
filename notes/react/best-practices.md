@@ -7,7 +7,7 @@ General Good Rules to Live By
 
 Examples
 --------
-### Bad:
+### 1. Bad:
 ```javascript
 import React from 'react'
 
@@ -31,7 +31,7 @@ class Cool extends React.Component {
 export Cool
 ```
 
-### Good:
+### 1. Good:
 ```javascript
 
 // 1. this should be stateless because we're not using state
@@ -54,7 +54,7 @@ export const Cool = ({ children, specialProp, specialProp2, ...props }) => (
 
 ```
 
-### Bad:
+### 2. Bad:
 ```javascript
 import React from 'react'
 
@@ -94,7 +94,7 @@ class CreateEvent extends React.Component {
 }
 ```
 
-### Good:
+### 2. Good:
 ```javascript
 import React, { Component } from 'react'
 
