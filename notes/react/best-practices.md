@@ -94,6 +94,8 @@ class CreateEvent extends React.Component {
 }
 ```
 
+[Why not to use `renderXXX` methods and `condition && <X />` instead of `condition ? <X /> : null`?](https://github.com/airbnb/javascript/issues/520#issuecomment-306196763)
+
 ### 2. Good:
 ```javascript
 import React, { Component } from 'react'
