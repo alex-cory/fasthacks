@@ -4,7 +4,7 @@ General Good Rules to Live By
 -----------------------------
 1. **Readability > Optimization**. Soooo important. [Here's a good article from a guy with 15 years of software experience.](https://hackernoon.com/few-simple-rules-for-good-coding-my-15-years-experience-96cb29d4acd9)
 2. **if your file is getting >200 lines, time to split it up into multiple files** (of course there's some exceptions, but 90%+ <200 lines).  This follows atomic design pattern.  In a nutshell, **make small, reusable components.** [Here's a good article.](http://bit.ly/2ugjBEr) I personally don't physically make folders for `molecules` and `organisms`, but the concept is super important to understand. It speeds up development and eliminates tech debt.
-
+3. [Why not to use `renderXXX` methods and `condition && <X />` instead of `condition ? <X /> : null`?](https://github.com/airbnb/javascript/issues/520#issuecomment-306196763)
 Examples
 --------
 ### 1. Bad:
@@ -93,8 +93,6 @@ class CreateEvent extends React.Component {
   }
 }
 ```
-
-[Why not to use `renderXXX` methods and `condition && <X />` instead of `condition ? <X /> : null`?](https://github.com/airbnb/javascript/issues/520#issuecomment-306196763)
 
 ### 2. Good:
 ```javascript
