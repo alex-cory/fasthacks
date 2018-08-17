@@ -140,7 +140,10 @@ bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
-export GAE_SDK_PATH=/usr/local/google_appengine
+# export GCP="$(gcloud info --format="value(installation.sdk_root)")"
+# export GAE=/usr/local/google_appengine
+export GAE="/Users/AlexCory/Documents/google-cloud-sdk/platform/google_appengine"
+export GAE_SDK_PATH=$GAE
 export GAE_PY_SDK=$GAE_SDK_PATH
 export PATH=$PATH:$GAE_SDK_PATH
 # AWS
@@ -182,3 +185,8 @@ export PATH="/usr/local/opt/gettext/bin:$PATH"
 
 # added by travis gem
 [ -f /Users/AlexCory/.travis/travis.sh ] && source /Users/AlexCory/.travis/travis.sh
+
+# TABLE.CO BB env var
+export ENV=local
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

@@ -4,7 +4,17 @@
 # ////////////////////////////////////////////////////////////////////
 #
 # Bash Style Guide: (http://bit.ly/1H7w1IX)
-# How To Activate Aliases (use: source ~/.bashrc)
+# How To Activate Aliases (use: source ~/.bashrc OR . ~/.bashrc)
+
+
+# Yarn aliases
+alias y='yarn'
+alias ys='yarn start'
+alias yt='yarn test'
+alias ya='yarn add'
+alias yr='yarn remove'
+alias yb='yarn build'
+alias yw='yarn watch'
 
 alias hide-dock='defaults write com.apple.dock autohide -bool true && defaults write com.apple.dock autohide-delay -float 0 && defaults write com.apple.dock autohide-time-modifier -float 0 && killall Dock'
 alias show-dock='defaults delete com.apple.dock autohide && defaults delete com.apple.dock autohide-delay && defaults delete com.apple.dock autohide-time-modifier && killall Dock'

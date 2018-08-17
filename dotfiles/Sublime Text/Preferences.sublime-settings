@@ -17,7 +17,6 @@
 	"ignored_packages":
 	[
 		"ActualVim",
-		"ApacheConf.tmLanguage",
 		"HTML-CSS-JS Prettify",
 		"Jade Snippets",
 		"Markdown",
