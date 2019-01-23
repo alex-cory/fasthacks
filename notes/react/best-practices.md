@@ -13,10 +13,10 @@ Examples
 import React from 'react'
 
 class Cool extends React.Component {
-	render() {
-		const { children, className, specialProp, specialProp2 } = this.props
-		return (
-			<div classNamne={className}>
+  render() {
+    const { children, className, specialProp, specialProp2 } = this.props
+    return (
+      <div classNamne={className}>
         {specialProp ? <div>{specialProp}</div> : null}
         {
           specialProp2 ?
@@ -25,8 +25,8 @@ class Cool extends React.Component {
         }
         {children}
       </div>
-		)
-	}
+    )
+  }
 }
 
 export Cool
@@ -34,25 +34,34 @@ export Cool
 
 ### 1. Good:
 ```javascript
+import React from 'react'
 
 // 1. this should be stateless because we're not using state
-export const Cool = ({ children, specialProp, specialProp2, ...props }) => (
+export const Cool = ({ children, specialProp, specialProp2, cool, ...props }) => (
+
   // 2. className can be spread by grabing the rest of the props ^here. This allows extensability so you can pass
   //    any other html related prop like <Cool style={{ color: white }} /> for instance
   <div {...props}>
+
     // 3. if you're only checking to see if a variable exists, no need to use a ternary
     {specialProp && <div>{specialProp}</div>}
+
     // 4. wrapping your logical statements with parenthesis like this makes it much easier to follow.
-    //    If #3 above was super nested, also wrap {specialProp && ( ... )}
     {specialProp2 ? (
       <div>{specialProp2}</div>
     ) : (
       <div>sweet</div>
     )}
+    {cool && (
+      <div>
+        <span>
+          {cool}
+        </span>
+      </div>
+    )}
     {children}
   </div>
 )
-
 ```
 
 ### 2. Bad:
@@ -85,12 +94,12 @@ class CreateEvent extends React.Component {
     </FormControl>
   );
   render() {
-  	return (
-		<div>
-			// passing a method into a prop that says component, just pass a component
-			<Field component={this.renderTextField} />
-		</div>
-	);
+    return (
+      <div>
+        // passing a method into a prop that says component, just pass a component
+        <Field component={this.renderTextField} />
+      </div>
+    );
   }
 }
 ```
@@ -102,12 +111,21 @@ import React, { Component } from 'react'
 class CreateEvent extends Component {
   state = { ... }
   render() {
-  	return (
-		<div>
-			<Field component={TextField} />
-		</div>
-	);
+    return (
+      <div>
+        <Field component={TextField} />
+      </div>
+    );
   }
+}
+// OR
+const CreateEvent = () => {
+  const [state, setState] = useState()
+  return (
+    <div>
+      <Field component={TextField} />
+    </div>
+  );
 }
 
 // this is a component, not a method
@@ -126,4 +144,20 @@ const TextField = ({ input, placeholder, startAdornmentLabel, meta: { touched, e
       {touched && error && <FormHelperText error>{error}</FormHelperText>}
     </FormControl>
 );
+```
+
+### 3. Bad:
+```javascript
+const something = (<p>
+  some content
+</p>)
+```
+
+### 3. Good
+```javascript
+const something = (
+  <p>
+    some content
+  </p>
+)
 ```
